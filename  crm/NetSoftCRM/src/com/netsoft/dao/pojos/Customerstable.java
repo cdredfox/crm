@@ -33,10 +33,28 @@ public class Customerstable implements java.io.Serializable {
 	private String customerhandset;
 	private Date customerfeedbackdate;
 	private Set feedbacktables;
-	private Employye addemployye;//¿Í»§Â¼ÈëÈË
+	private Employye addemployye;//ï¿½Í»ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+	private Configuretable customerprovince;
+	private Configuretable customercity;
 	
 
 	// Constructors
+
+	public Configuretable getCustomerprovince() {
+		return customerprovince;
+	}
+
+	public void setCustomerprovince(Configuretable customerprovince) {
+		this.customerprovince = customerprovince;
+	}
+
+	public Configuretable getCustomercity() {
+		return customercity;
+	}
+
+	public void setCustomercity(Configuretable customercity) {
+		this.customercity = customercity;
+	}
 
 	/** default constructor */
 	public Customerstable() {

@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 
 import com.netsoft.dao.beans.CustomerstableBean;
 import com.netsoft.dao.intf.IBusinessruletableDao;
+import com.netsoft.dao.intf.IConfiguretableDao;
 import com.netsoft.dao.intf.ICustomerstableDao;
 import com.netsoft.dao.intf.IEmployeeDao;
 import com.netsoft.dao.pojos.Businessruletable;
@@ -20,7 +21,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 
 	Logger log = Logger.getLogger(this.getClass());
 	/**
-	 * Î´¼ûÃæÔ¤Ô¼½«³öµ¥¿Í»§µÄIDºÅ¡£Õâ¸öÓÐÊýÁ¿¹Ü¿Ø
+	 * Î´ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½IDï¿½Å¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¿ï¿½
 	 */
 	private static int CUSTOMER_GRADE_LOCK = 19;
 	private ICustomerstableDao icd;
@@ -36,8 +37,8 @@ public class CustomerstableServices implements ICustomerstableServices {
 	}
 
 	/**
-	 * ¼ì²é¿Í»§ÊÇ·ñ´æÔÚ 20080712ÐÞ¸ÄÐèÇó£¬½øÒ»²½Ï¸»¯ÌáÊ¾ÐÅÏ¢ ·µ»Øº¬Òå£º 0 ÏµÍ³ÖÐÃ»ÓÐ¸Ã¿Í»§ÐÅÏ¢ 1 ´æÔÚÒ»ÌõÐÅÏ¢£¬²¢ÇÒ¸ÃÐÅÏ¢Îª¹«¿ª»ò³·µ¥ 2
-	 * ´æÔÚÒ»ÌõÐÅÏ¢£¬µ«¸Ã¿Í»§ÐÅÏ¢Îª¶ÀÏí 3 ´æÔÚ¶àÌõÐÅÏ¢
+	 * ï¿½ï¿½ï¿½Í»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ 20080712ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ó£¬½ï¿½Ò»ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢ ï¿½ï¿½ï¿½Øºï¿½ï¿½å£º 0 ÏµÍ³ï¿½ï¿½Ã»ï¿½Ð¸Ã¿Í»ï¿½ï¿½ï¿½Ï¢ 1 ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½Ï¢Îªï¿½ï¿½ï¿½ï¿½ï¿½ò³·µï¿½ 2
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿Í»ï¿½ï¿½ï¿½Ï¢Îªï¿½ï¿½ï¿½ï¿½ 3 ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	public int checkCustomer(String type, String number, String name) {
 		StringBuilder hql = new StringBuilder(
@@ -49,11 +50,11 @@ public class CustomerstableServices implements ICustomerstableServices {
 			hm.put("name", "%" + name.trim() + "%");
 		}
 		if ("1".equals(type)) {
-			// 1´ú±íÊÖ»ú
+			// 1ï¿½ï¿½ï¿½ï¿½Ö»ï¿½
 			hql.append(" or customerhandset = :handset");
 			hm.put("handset", number.trim());
 		} else if ("2".equals(type)) {
-			// 2´ú±íµç»°
+			// 2ï¿½ï¿½ï¿½ç»°
 			hql.append(" or customerphone like :phone");
 			hm.put("phone", "%-" + number.trim());
 		}
@@ -61,13 +62,13 @@ public class CustomerstableServices implements ICustomerstableServices {
 		boolean flag = false;
 		if (list != null && list.size() > 0) {
 			if (list.size() == 1) {
-				// Èç¹ûÖ»ÓÐÒ»ÌõÐÅÏ¢£¬²¢ÇÒ¸ÃÐÅÏ¢ÊÇ¹«¿ª¿Í»§»òÕß³·µ¥¿Í»§
+				// ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½Ï¢ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½Í»ï¿½
 				if (list.get(0).getEmployye() == null)
 					return 1;
 				else
 					return 2;
 			} else {
-				// Èç¹ûÓÐ¶àÌõ
+				// ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½
 				for (Customerstable customerstable : list) {
 					if (customerstable.getEmployye() == null) {
 						flag = true;
@@ -81,7 +82,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 				}
 			}
 		}
-		return 0;// ´ú±íÏµÍ³ÖÐÃ»ÓÐ¸Ã¿Í»§ÐÅÏ¢
+		return 0;// ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½Ã»ï¿½Ð¸Ã¿Í»ï¿½ï¿½ï¿½Ï¢
 	}
 
 	public List<CustomerstableBean> getAllCustomerByEid(int id, int page,
@@ -101,16 +102,16 @@ public class CustomerstableServices implements ICustomerstableServices {
 
 	public String addCustomer(CustomerstableBean cb) {
 		if (cb.getCutomergrade() == CUSTOMER_GRADE_LOCK) {
-			// Èç¹ûÊÇÔö¼ÓµÄÎ´¼ûÃæÔ¤Ô¼¿Í»§½«³öµ¥ÀàÐÍµÄ¿Í»§Ôò¼ì²é¹æÔòÀïÃæµÄÊýÁ¿ÉèÖÃ
-			// 1,²éÎ´¼ûÃæÔ¤Ô¼¿Í»§ÊýÁ¿¹æÔò
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Î´ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ¿Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// 1,ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			Businessruletable business = ibd.getRuleById(5);
-			// 2,²é¸ÃÔ±¹¤ÒÑÓµÓÐ¸ÃÀàÐÍ¿Í»§µÄÊýÁ¿
+			// 2,ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Óµï¿½Ð¸ï¿½ï¿½ï¿½ï¿½Í¿Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			List cl = icd.getCustomerByEidAndGrade(cb.getEid(),
 					CUSTOMER_GRADE_LOCK);
-			// 3,¼ì²é¹æÔò
+			// 3,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (cl != null && cl.size() > 0) {
 				if (Integer.parseInt(business.getRulevalue()) < cl.size()) {
-					return "ÄúµÄ Î´¼ûÃæÔ¤Ô¼¿Í»§½«³öµ¥ ÀàÐÍ¿Í»§µÄÊýÁ¿³¬³öÁËÏµÍ³¹æÔòµÄÉèÖÃ£¬Äú²»ÄÜÔö¼Ó¸ÃÀàÐÍµÄ¿Í»§!";
+					return "ï¿½ï¿½ï¿½ Î´ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¿Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ï¿½ÍµÄ¿Í»ï¿½!";
 				}
 			}
 		}
@@ -147,11 +148,11 @@ public class CustomerstableServices implements ICustomerstableServices {
 	}
 
 	/**
-	 * ¸ù¾Ý¿Í»§IDÉ¾³ýÄ³Ò»¸ö¿Í»§ Èç¹ûflagÎªyÔòÎªÕæÕýµÄÉ¾³ý£¬ÎªnÔò É¾³ý²»ÊÇÕæÕýµÄÉ¾³ý£¬¶øÊÇ½«ÆäµÈ¼¶¸ÄÎªÊ§Ð§£¬½âÉ¢ÆäºÍÒµÎñÔ±Ö®¼äµÄ¹ØÏµ
+	 * ï¿½ï¿½Ý¿Í»ï¿½IDÉ¾ï¿½ï¿½Ä³Ò»ï¿½ï¿½ï¿½Í»ï¿½ ï¿½ï¿½ï¿½flagÎªyï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½Îªnï¿½ï¿½ É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ÎªÊ§Ð§ï¿½ï¿½ï¿½ï¿½É¢ï¿½ï¿½ï¿½Òµï¿½ï¿½Ô±Ö®ï¿½ï¿½Ä¹ï¿½Ïµ
 	 */
 	public boolean delCustomerByFlag(int id, String flag) {
 		try {
-			log.info("Services²ãdelCustomer·½·¨¿ªÊ¼Ö´ÐÐ");
+			log.info("Servicesï¿½ï¿½delCustomerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼Ö´ï¿½ï¿½");
 
 			if ("y".equals(flag)) {
 				icd.delCustomerstable(id);
@@ -160,20 +161,20 @@ public class CustomerstableServices implements ICustomerstableServices {
 				return this.delCustomer(id);
 			}
 		} catch (Exception e) {
-			log.error("Services²ãdelCustomer·½·¨Ö´ÐÐÊ§°Ü", e);
+			log.error("Servicesï¿½ï¿½delCustomerï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ê§ï¿½ï¿½", e);
 			return false;
 		}
 	}
 
 	public CustomerstableBean getCustomerById(int id) {
 		try {
-			log.info("Services²ãgetCustomerById·½·¨¿ªÊ¼Ö´ÐÐ");
+			log.info("Servicesï¿½ï¿½getCustomerByIdï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼Ö´ï¿½ï¿½");
 			CustomerstableBean ctb = new CustomerstableBean();
 			Customerstable ct = icd.getCustomerById(id);
 			BeanUtils.copyProperties(ct, ctb);
 			return ctb;
 		} catch (Exception e) {
-			log.error("Services²ãgetCustomerById·½·¨Ö´ÐÐÊ§°Ü", e);
+			log.error("Servicesï¿½ï¿½getCustomerByIdï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ê§ï¿½ï¿½", e);
 			return null;
 		}
 	}
@@ -181,10 +182,14 @@ public class CustomerstableServices implements ICustomerstableServices {
 	public boolean updateCustomer(CustomerstableBean ctb) {
 
 		try {
-			log.info("Services²ãupdateCustomer·½·¨¿ªÊ¼Ö´ÐÐ");
+			log.info("Servicesï¿½ï¿½updateCustomerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼Ö´ï¿½ï¿½");
 
 			Customerstable ct = icd.getCustomerById(ctb.getCustomerid());
 			ct.setCustomercompany(ctb.getCustomercompany());
+			
+			ct.setCustomerprovince(ctb.getCustomerprovince());
+			ct.setCustomercity(ctb.getCustomercity());
+			
 			ct.setCustomeraddress(ctb.getCustomeraddress());
 			ct.setCustomerfax(ctb.getCustomerfax());
 			ct.setCustomerphone(ctb.getCustomerphone());
@@ -214,7 +219,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 			icd.updateCustomerstable(ct);
 			return true;
 		} catch (Exception e) {
-			log.error("Services²ãupdateCustomer·½·¨Ö´ÐÐÊ§°Ü", e);
+			log.error("Servicesï¿½ï¿½updateCustomerï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ê§ï¿½ï¿½", e);
 			return false;
 		}
 	}
@@ -235,7 +240,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 	}
 
 	/**
-	 * ËùÓÐ¹«¿ª¿Í»§µÄÊýÁ¿
+	 * ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public int getOpenCount(String company, String startdate, String enddate,int cutomergrade) {
 		return this.getAllOpenCustomer(0, 0, company, startdate, enddate,cutomergrade)
@@ -243,8 +248,8 @@ public class CustomerstableServices implements ICustomerstableServices {
 	}
 
 	/**
-	 * »ñÈ¡ËùÓÐµÄ¿Í»§ÐÅÏ¢ 2008024 ÐÞ¸Ä Èç¹ûÊÇ¿Í»§Â¼ÈëÑéÖ¤Ê±µÄ²éÑ¯¿Í»§ÁÐ±í£¬ÔòeidÎª-1
-	 * Èç¹ûÎª-1µÄ»°Ôò¼ì²éÆÚÊÇ²»ÊÇ¹«¿ª¿Í»§Èç¹ûÊÇ¹«¿ª¿Í»§¾ÍÏÔÊ¾£¬²»ÊÇ¹«¿ª¿Í»§²»ÏÔÊ¾
+	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ÐµÄ¿Í»ï¿½ï¿½ï¿½Ï¢ 2008024 ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¿Í»ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ö¤Ê±ï¿½Ä²ï¿½Ñ¯ï¿½Í»ï¿½ï¿½Ð±?ï¿½ï¿½eidÎª-1
+	 * ï¿½ï¿½ï¿½Îª-1ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 	 */
 	public List<CustomerstableBean> getAllCustomer(int page, int size,
 			String name, int eid, String startdate, String enddate) {
@@ -276,7 +281,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 	}
 
 	/**
-	 * ËùÓÐ¿Í»§µÄÊýÁ¿
+	 * ï¿½ï¿½ï¿½Ð¿Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public int getAllCount(String name, int eid, String startdate,
 			String enddate) {
@@ -319,7 +324,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 			// return icd.delCustomerstable(id);
 			return true;
 		} catch (Exception e) {
-			log.error("É¾³ý¿Í»§ÐÅÏ¢Ê±³ö´í!(²»ÊÇÕæÕýÉ¾³ý,¸ÄÎª³·Ïû¿Í»§)", e);
+			log.error("É¾ï¿½ï¿½Í»ï¿½ï¿½ï¿½Ï¢Ê±ï¿½ï¿½ï¿½ï¿½!(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½,ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Í»ï¿½)", e);
 			return false;
 		}
 

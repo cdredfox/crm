@@ -1,5 +1,6 @@
 package com.netsoft.web.struts.action;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,6 +26,7 @@ import com.netsoft.services.intf.IFeedbackTypeService;
 import com.netsoft.util.CheckUser;
 import com.netsoft.web.struts.form.CustomerstableForm;
 
+import com.netsoft.dao.pojos.Configuretable;
 public class CustomerstableAction extends DispatchAction {
 	public ICustomerstableServices ics;
 	public IConfiguretableServices iconfig;
@@ -47,25 +49,25 @@ public class CustomerstableAction extends DispatchAction {
 			return mapping.findForward(CheckUser.JUMP_URL);
 		}
 		CustomerstableForm cf = (CustomerstableForm) form;
-		// ¹«Ë¾ÐÔÖÊ
+		// ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customerxz = iconfig.getAllByType("xz", 0);
-		// ¿Í»§À´Ô´
+		// ï¿½Í»ï¿½ï¿½ï¿½Ô´
 		List<ConfiguretableBean> customerly = iconfig.getAllByType("ly", 0);
-		// ¿Í»§¼¶±ð
+		// ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customerdj = iconfig.getAllByType("dj", 0);
-		// »ñµÃµØÇøÖµ
+		// ï¿½ï¿½Ãµï¿½ï¿½ï¿½Öµ
 		List<ConfiguretableBean> customerdz = iconfig.getAllByType("dz", 0);
-		// È¡ÇøºÅ
+		// È¡ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customerqh = iconfig.getAllByType("qh", 0);
-		// È¡¹«Ë¾ËùÓÐÖÆÐÔÖÊ
+		// È¡ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customersyzxz = iconfig.getAllByType("syzxz",
 				0);
 		if ("2".equals(cf.getPhonetype())) {
-			// µç»°
+			// ï¿½ç»°
 			request.setAttribute("phone", cf.getPhone());
 
 		} else {
-			// ÊÖ»ú
+			// ï¿½Ö»ï¿½
 			cf.setCustomerhandset(cf.getPhone());
 		}
 		request.setAttribute("customerxz", customerxz);
@@ -84,26 +86,28 @@ public class CustomerstableAction extends DispatchAction {
 			return mapping.findForward(CheckUser.JUMP_URL);
 		}
 		CustomerstableForm cf = (CustomerstableForm) form;
+		
+		Configuretable province=iconfig.qryConfigByValue("dz", String.valueOf(cf.getCustomerprovinceid()));
+		Configuretable city=iconfig.qryConfigByValue("dz", String.valueOf(cf.getCustomercityid()));
+		// ï¿½ï¿½Ö·Æ´ï¿½ï¿½
+		//String count = request.getParameter("customercounty");
+		//String city = request.getParameter("city");
+		//String cityinfo = request.getParameter("address");
+		//count = iconfig.qryConfigByTypeAndValue("dz", count);
+		//city = iconfig.qryConfigByTypeAndValue("dz", city);
 
-		// µØÖ·Æ´½Ó
-		String count = request.getParameter("customercounty");
-		String city = request.getParameter("city");
-		String cityinfo = request.getParameter("address");
-		count = iconfig.qryConfigByTypeAndValue("dz", count);
-		city = iconfig.qryConfigByTypeAndValue("dz", city);
-
-		if (city != null) {
-			//20080830 ¿Í»§ÒªÇó³ÇÊÐÔö¼Ó²»ÓÃ×Ô¶¯Ôö¼ÓÊ¡£¬ÓÉµØÖ·×Ö¶ÎÉèÖÃµÄÊ±ºò£¬ÉèÖÃÍêÕûµÄÃû³Æ
-			city = count + city + cityinfo;
-		} else if ("ÆäËû".equals(city)) {
-			city = cityinfo;
-		}
-		cf.setCustomeraddress(city);
-		// µç»°ÇøºÅ
+//		if (city != null) {
+			//20080830 ï¿½Í»ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½Ê¡ï¿½ï¿½ï¿½Éµï¿½Ö·ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//		city = count + city + cityinfo;
+	//	} else if ("ï¿½ï¿½ï¿½ï¿½".equals(city)) {
+	//		city = cityinfo;
+	//	}
+	//	cf.setCustomeraddress(city);
+		// ï¿½ç»°ï¿½ï¿½ï¿½
 		String number = request.getParameter("phonenumer");
-		// µç»°ºÅÂë
+		// ï¿½ç»°ï¿½ï¿½ï¿½ï¿½
 		String pnumber = request.getParameter("pnumber");
-		// ´«ÕæºÅÂë
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String fnumber = request.getParameter("fnumber");
 
 		number = iconfig.qryPhoneByTypeAndValue("qh", number);
@@ -112,6 +116,8 @@ public class CustomerstableAction extends DispatchAction {
 		CustomerstableBean cb = new CustomerstableBean();
 		BeanUtils.copyProperties(cf, cb);
 		cb.setCustomeradddate(new Date());
+		cb.setCustomerprovince(province);
+		cb.setCustomercity(city);
 		String message = ics.addCustomer(cb);
 		if(message.startsWith("return"))
 		{
@@ -150,7 +156,7 @@ public class CustomerstableAction extends DispatchAction {
 			List list = null;
 			;
 			if (type == null || "".equals(type)) {
-				// ÎÒµÄ¿Í»§
+				// ï¿½ÒµÄ¿Í»ï¿½
 				list = ics.getAllCustomerByEid(employee.getId().intValue(),
 						Integer.parseInt(page), psize, company, startdate,
 						enddate,cutomergrade);
@@ -160,7 +166,7 @@ public class CustomerstableAction extends DispatchAction {
 										startdate, enddate, cutomergrade) / 20.0f));
 				cf.setCustomertype("1");
 			} else if ("all".equals(type)) {
-				// ¹«¿ª¿Í»§
+				// ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½
 				list = ics.getAllOpenCustomer(Integer.parseInt(page), psize,
 						company, startdate, enddate, cutomergrade);
 				request.setAttribute("count", (int) Math.ceil(ics.getOpenCount(
@@ -168,7 +174,7 @@ public class CustomerstableAction extends DispatchAction {
 				request.setAttribute("flag", "y");
 				cf.setCustomertype("2");
 			} else if ("invali".equals(type)) {
-				// ³·Ïú¿Í»§
+				// ï¿½ï¿½ï¿½ï¿½Í»ï¿½
 				list = ics.getAllInvaliCustomer(Integer.parseInt(page), psize,
 						company, startdate, enddate, cutomergrade);
 				request.setAttribute("count", (int) Math.ceil(ics
@@ -185,16 +191,16 @@ public class CustomerstableAction extends DispatchAction {
 			}
 			request.setAttribute("elist", list);
 			request.setAttribute("page", page);
-			log.info("CustomerstableActionÖÐlist³¤¶ÈÎª£º" + list.size());
+			log.info("CustomerstableActionï¿½ï¿½listï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" + list.size());
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.error("CustomerstableActionÖÐgetAll·½·¨³öÏÖÒì³£ÁË", e);
+			log.error("CustomerstableActionï¿½ï¿½getAllï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½", e);
 		}
 		return mapping.findForward("customerManager");
 	}
 
 	/**
-	 * ÏÔÊ¾ÐÞ¸ÄÊÓÍ¼
+	 * ï¿½ï¿½Ê¾ï¿½Þ¸ï¿½ï¿½ï¿½Í¼
 	 * 
 	 * @param mapping
 	 * @param form
@@ -212,18 +218,18 @@ public class CustomerstableAction extends DispatchAction {
 		CustomerstableForm ctf = (CustomerstableForm) form;
 		String id = request.getParameter("id");
 		CustomerstableBean ctb = ics.getCustomerById(Integer.parseInt(id));
-		// ¹«Ë¾ÐÔÖÊ
+		// ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customerxz = iconfig.getAllByType("xz", 0);
-		// ¿Í»§À´Ô´
+		// ï¿½Í»ï¿½ï¿½ï¿½Ô´
 		List<ConfiguretableBean> customerly = iconfig.getAllByType("ly", 0);
-		// ¿Í»§¼¶±ð
+		// ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customerdj = iconfig.getAllByType("dj", 0);
-		// È¡¹«Ë¾ËùÓÐÖÆÐÔÖÊ
+		// È¡ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customersyzxz = iconfig.getAllByType("syzxz",
 				0);
-		// »ñµÃµØÇøÖµ
+		// ï¿½ï¿½Ãµï¿½ï¿½ï¿½Öµ
 		List<ConfiguretableBean> customerdz = iconfig.getAllByType("dz", 0);
-		// È¡ÇøºÅ
+		// È¡ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customerqh = iconfig.getAllByType("qh", 0);
 		
 		request.setAttribute("customerxz", customerxz);
@@ -254,7 +260,18 @@ public class CustomerstableAction extends DispatchAction {
 			 }
 			 
 		  }
-		return mapping.findForward("customerModiView");
+		  
+		  int provinceid=Integer.parseInt(ctb.getCustomerprovince()==null?"0":ctb.getCustomerprovince().getConfigvalue().trim());
+		  
+		  List<ConfiguretableBean> customercity=new ArrayList<ConfiguretableBean>();
+		  if(provinceid!=0)
+		  {
+			  customercity=iconfig.getAllByType("dz",provinceid);
+		  }
+		  ctf.setCustomerprovinceid(provinceid);
+		  ctf.setCustomercityid(Integer.parseInt(ctb.getCustomercity()==null?"0":ctb.getCustomercity().getConfigvalue().trim()));
+		  request.setAttribute("customercity", customercity);
+		  return mapping.findForward("customerModiView");
 	}
 
 	public ActionForward modiCustomer(ActionMapping mapping, ActionForm form,
@@ -266,15 +283,21 @@ public class CustomerstableAction extends DispatchAction {
 		CustomerstableForm ctf = (CustomerstableForm) form;
 		CustomerstableBean ctb = new CustomerstableBean();
 		BeanUtils.copyProperties(ctf, ctb);
-		ctb.setCustomerphone(ctf.getCustomerarea()+"-"+ctf.getCustomerphone());
-		ctb.setCustomerfax(ctf.getCustomerfaxarea()+"-"+ctf.getCustomerfax());
+		
+	    String number = iconfig.qryPhoneByTypeAndValue("qh", ctf.getCustomerarea());
+		ctb.setCustomerphone(number+"-"+ctf.getCustomerphone());
+		ctb.setCustomerfax(number+"-"+ctf.getCustomerfax());
+		Configuretable province=iconfig.qryConfigByValue("dz", String.valueOf(ctf.getCustomerprovinceid()));
+		Configuretable city=iconfig.qryConfigByValue("dz", String.valueOf(ctf.getCustomercityid()));
+		ctb.setCustomerprovince(province);
+		ctb.setCustomercity(city);
 		String message = "";
 		if (ics.updateCustomer(ctb)) {
-			//message = "ÄúÒÑ¾­³É¹¦µÄ¸üÐÂÁË¿Í»§ÐÅÏ¢!";
-			//2008/10/02 Ó¦Ð¤ËÉµÄÒªÇó,¿Í»§ÐÅÏ¢ÐÞ¸Ä³É¹¦ºó,Ìø×ªµ½ÎÒµÄ¿Í»§²éÑ¯½çÃæ
+			//message = "ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½É¹ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½Ë¿Í»ï¿½ï¿½ï¿½Ï¢!";
+			//2008/10/02 Ó¦Ð¤ï¿½Éµï¿½Òªï¿½ï¿½,ï¿½Í»ï¿½ï¿½ï¿½Ï¢ï¿½Þ¸Ä³É¹ï¿½ï¿½ï¿½,ï¿½ï¿½×ªï¿½ï¿½ï¿½ÒµÄ¿Í»ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 			return new ActionForward("/customer.crm?method=customerManager&customertype=1");
 		} else {
-			message = "¶Ô²»Æð!¿Í»§ÐÅÏ¢¸üÐÂÊ§°Ü£¬ÇëÖØÊÔ»òÕßÁªÏµÏµÍ³¹ÜÀíÔ±!";
+			message = "ï¿½Ô²ï¿½ï¿½ï¿½!ï¿½Í»ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÏµÍ³ï¿½ï¿½ï¿½ï¿½Ô±!";
 		}
 		request.setAttribute("message", message);
 		return mapping.findForward("resultView");
@@ -313,15 +336,15 @@ public class CustomerstableAction extends DispatchAction {
 			if (enddate != null && !"".equals(enddate.trim())) {
 				request.setAttribute("enddate", enddate);
 			}
-			log.info("CustomerstableActionÖÐlist³¤¶ÈÎª£º" + list.size());
+			log.info("CustomerstableActionï¿½ï¿½listï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" + list.size());
 		} catch (Exception e) {
-			log.error("CustomerstableActionÖÐgetAll·½·¨³öÏÖÒì³£ÁË", e);
+			log.error("CustomerstableActionï¿½ï¿½getAllï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½", e);
 		}
 		return mapping.findForward("customerAll");
 	}
 
 	/**
-	 * ÏÔÊ¾ÏêÏ¸×ÊÁÏµÄµÚÒ»¸öVIEWÊÓÍ¼
+	 * ï¿½ï¿½Ê¾ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ÏµÄµï¿½Ò»ï¿½ï¿½VIEWï¿½ï¿½Í¼
 	 * 
 	 * @param mapping
 	 * @param form
@@ -339,16 +362,16 @@ public class CustomerstableAction extends DispatchAction {
 		String id = request.getParameter("id");
 		CustomerstableBean ctb = ics.getCustomerById(Integer.parseInt(id));
 
-		// ¹«Ë¾ÐÔÖÊ
+		// ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customerxz = iconfig.getAllByType("xz", 0);
-		// ¿Í»§À´Ô´
+		// ï¿½Í»ï¿½ï¿½ï¿½Ô´
 		List<ConfiguretableBean> customerly = iconfig.getAllByType("ly", 0);
-		// ¿Í»§¼¶±ð
+		// ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customerdj = iconfig.getAllByType("dj", 0);
-		// È¡¹«Ë¾ËùÓÐÖÆÐÔÖÊ
+		// È¡ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customersyzxz = iconfig.getAllByType("syzxz",
 				0);
-		// ¿Í»§·´À¡ÀàÐÍ
+		// ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customerfk = iconfig.getAllByType("fk", 0);
 		request.setAttribute("customerfk", customerfk);
 		request.setAttribute("customerxz", customerxz);
@@ -361,7 +384,7 @@ public class CustomerstableAction extends DispatchAction {
 	}
 
 	/**
-	 * ÏÔÊ¾·´À¡ÐÅÏ¢µÄVIEW
+	 * ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½VIEW
 	 * 
 	 * @param mapping
 	 * @param form
@@ -396,7 +419,7 @@ public class CustomerstableAction extends DispatchAction {
 		// request.setAttribute("elist", list);
 		request.setAttribute("page", page);
 		CustomerstableBean customer = ics.getCustomerById(Integer.parseInt(id));
-		// ¿Í»§·´À¡ÀàÐÍ
+		// ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		List<ConfiguretableBean> customerfk = iconfig.getAllByType("fk", 0);
 		request.setAttribute("result", fbb);
 		request.setAttribute("customer", customer);
@@ -405,7 +428,7 @@ public class CustomerstableAction extends DispatchAction {
 	}
 
 	/**
-	 * ¿Í»§¼ì²éÊ±£¬Èç¹ûÅöµ½ÓÐÍ¬ÃûµÄ¹«¿ª¿Í»§ÇëÇó´Ëaction
+	 * ï¿½Í»ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½action
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -426,9 +449,9 @@ public class CustomerstableAction extends DispatchAction {
 
 			List list = ics.getAllCustomer(0, 0, companyname, -1, null, null);
 			request.setAttribute("elist", list);
-			log.info("CustomerstableActionÖÐlist³¤¶ÈÎª£º" + list.size());
+			log.info("CustomerstableActionï¿½ï¿½listï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" + list.size());
 		} catch (Exception e) {
-			log.error("CustomerstableActionÖÐgetAll·½·¨³öÏÖÒì³£ÁË", e);
+			log.error("CustomerstableActionï¿½ï¿½getAllï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½", e);
 		}
 		return mapping.findForward("customerList");
 	}

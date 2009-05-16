@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.apache.struts.action.ActionForm;
 
+import com.netsoft.dao.pojos.Configuretable;
 import com.netsoft.dao.pojos.Employye;
 
 public class CustomerstableForm extends ActionForm {
@@ -44,6 +45,35 @@ public class CustomerstableForm extends ActionForm {
 	private String customertype;
 	private Integer customerowenerxz;
 	private Date customerfeedbackdate;
+	private int customerprovinceid;
+	private int customercityid;
+	private Configuretable customerprovince;
+	private Configuretable customercity;
+
+	public Configuretable getCustomerprovince() {
+		return customerprovince;
+	}
+	public void setCustomerprovince(Configuretable customerprovince) {
+		this.customerprovince = customerprovince;
+	}
+	public Configuretable getCustomercity() {
+		return customercity;
+	}
+	public void setCustomercity(Configuretable customercity) {
+		this.customercity = customercity;
+	}
+	public int getCustomerprovinceid() {
+		return customerprovinceid;
+	}
+	public void setCustomerprovinceid(int customerprovinceid) {
+		this.customerprovinceid = customerprovinceid;
+	}
+	public int getCustomercityid() {
+		return customercityid;
+	}
+	public void setCustomercityid(int customercityid) {
+		this.customercityid = customercityid;
+	}
 	public Integer getCustomerid() {
 		return customerid;
 	}
