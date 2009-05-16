@@ -75,5 +75,16 @@
 			class="com.netsoft.dao.pojos.Employye" fetch="select" lazy="false">
 			<column name="addeid" />
 		</many-to-one>
+		
+		<many-to-one name="customerprovince"
+			class="com.netsoft.dao.pojos.Configuretable" fetch="select" lazy="false">
+			<column name="customerprovince" />
+		</many-to-one>
+		
+		<many-to-one name="customercity"
+			class="com.netsoft.dao.pojos.Configuretable" fetch="select" lazy="false">
+			<column name="customercity" />
+		</many-to-one>
+		
 	</class>
 </hibernate-mapping>

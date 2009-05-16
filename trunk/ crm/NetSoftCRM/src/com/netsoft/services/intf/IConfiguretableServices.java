@@ -3,30 +3,31 @@ package com.netsoft.services.intf;
 import java.util.List;
 
 import com.netsoft.dao.beans.ConfiguretableBean;
+import com.netsoft.dao.pojos.Configuretable;
 
 public interface IConfiguretableServices {
 	/**
-	 * È¡ÅäÖÃĞÅÏ¢µÄ´óÀà
+	 * È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ä´ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public List<ConfiguretableBean> getType();
 	
 	/**
-	 * ¸ù¾İtypeÀàĞÍ²éÕÒÆäÏÂÃæËùÓĞµÄ×ÓÀàĞÍ
+	 * ï¿½ï¿½ï¿½typeï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param type
 	 * @return
 	 */
 	public List<ConfiguretableBean> getAllByType(String type,int flag);
 	
 	/**
-	 * Ôö¼ÓÒ»¸öÅäÖÃ
+	 * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param cb
 	 * @return
 	 */
 	public boolean addConfig(ConfiguretableBean cb);
 	
 	/**
-	 * ¸ù¾İoidÀ´É¾³ıÒ»¸ö¶ÔÏó
+	 * ï¿½ï¿½ï¿½oidï¿½ï¿½É¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param id
 	 * @return
 	 */
@@ -38,14 +39,15 @@ public interface IConfiguretableServices {
 	
 	public ConfiguretableBean getConfigByid(int id);
 	/**
-	 * È¡µÃÄ³ÀàĞÍµÄ×î´ó±àºÅ
+	 * È¡ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param type
 	 * @return
 	 */
 	public String getMaxNumByType(String type);
 	/**
-	 * ĞŞ¸ÄÒ»¸öÅäÖÃĞÅÏ¢
+	 * ï¿½Ş¸ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * @param cb
 	 */
 	public void updateConfig(ConfiguretableBean cb);
+	public Configuretable qryConfigByValue(String type, String value);
 }

@@ -2,6 +2,7 @@ package com.netsoft.dao.beans;
 
 import java.util.Date;
 
+import com.netsoft.dao.pojos.Configuretable;
 import com.netsoft.dao.pojos.Employye;
 import com.netsoft.util.ConsoleDate;
 
@@ -30,6 +31,23 @@ public class CustomerstableBean {
 	private Integer customerowenerxz;
 	private Date customerfeedbackdate;
 	private Integer addeid;
+	private Configuretable customerprovince;
+	private Configuretable customercity;
+	public Configuretable getCustomerprovince() {
+		return customerprovince;
+	}
+
+	public void setCustomerprovince(Configuretable customerprovince) {
+		this.customerprovince = customerprovince;
+	}
+
+	public Configuretable getCustomercity() {
+		return customercity;
+	}
+
+	public void setCustomercity(Configuretable customercity) {
+		this.customercity = customercity;
+	}
 
 	public Integer getCustomerid() {
 		return customerid;

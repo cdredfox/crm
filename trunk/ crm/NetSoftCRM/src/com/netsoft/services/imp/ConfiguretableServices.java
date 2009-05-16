@@ -66,7 +66,22 @@ public class ConfiguretableServices implements IConfiguretableServices {
 		}
 		return "";
 	}
-	//²éµç»°ºÅÂë
+	
+	public Configuretable qryConfigByValue(String type, String value) {
+		String hql="from Configuretable where configtype=:type and configvalue=:value";
+		HashMap hm=new HashMap();
+		hm.put("type",type);
+		hm.put("value", value);
+		List<Configuretable> list=icd.qryConfigByAny(hql, hm);
+		if(list!=null && list.size()>0)
+		{
+			return list.get(0);
+		}
+		return null;
+	}
+	
+	
+	//ï¿½ï¿½ç»°ï¿½ï¿½ï¿½ï¿½
 	public String qryPhoneByTypeAndValue(String type, String value) {
 		String hql="from Configuretable where configtype=:type and configmessage=:value";
 		HashMap hm=new HashMap();
