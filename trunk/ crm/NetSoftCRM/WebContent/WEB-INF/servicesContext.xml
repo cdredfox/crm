@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!-- 对所有services层的操作的Spring Bean 的配置 -->
+<beans>
+	<bean id="IEmployeeServices" class="com.netsoft.services.imp.EmployeeServices">
+		<property name="ed">
+			<ref bean="IEmployeeDao"/>
+		</property>
+			<property name="rd">
+			<ref bean="IRolesDao"/>
+		</property>
+		<property name="dd">
+			<ref bean="IDeptsDao"/>
+		</property>
+		<property name="cd">
+			<ref bean="ICustomerstableDao"/>
+		</property>
+	</bean>
+    <bean id="IDeptsServices" class="com.netsoft.services.imp.DeptsServices">
+    	<property name="dd">
+    		<ref bean="IDeptsDao"/>
+    	</property>
+    	<property name="ed">
+    		<ref bean="IEmployeeDao"/>
+    	</property>
+    </bean>
+    
+    <bean id="IRoleServices" class="com.netsoft.services.imp.RoleServices"> 
+    	<property name="ird">
+    		<ref bean="IRolesDao"/>
+    	</property>
+    	<property name="ims">
+    		<ref bean="IMenusServices"/>
+    	</property>
+    	<property name="imd">
+    		<ref bean="IMenusDao"/>
+    	</property>
+    </bean>
+    
+    <bean id="IMenusServices" class="com.netsoft.services.imp.MenusServices">
+    	<property name="ird">
+    		<ref bean="IRolesDao"/>
+    	</property>
+    	<property name="irs">
+    		<ref bean="IRoleServices"/>
+    	</property>
+    	<property name="imd">
+    		<ref bean="IMenusDao"/>
+    	</property>
+    </bean>
+    
+    <bean id="IBusinessruletableServices" class="com.netsoft.services.imp.BusinessruletableServices">
+    	<property name="ibrtd">
+    		<ref bean="IBusinessruletableDao"/>
+    	</property>
+    </bean>
+    
+    <bean id="IConfiguretableServices" class="com.netsoft.services.imp.ConfiguretableServices">
+    	<property name="icd">
+    		<ref bean="IConfiguretableDao"/>
+    	</property>
+    </bean>
+    <bean id="ICustomerstableServices" class="com.netsoft.services.imp.CustomerstableServices">
+    	<property name="icd">
+    		<ref bean="ICustomerstableDao"/>
+    	</property>
+    	<property name="ied">
+    		<ref bean="IEmployeeDao"/>
+    	</property>
+    	<property name="ibd">
+    		<ref bean="IBusinessruletableDao"/>
+    	</property>
+    </bean>
+    <bean id="IFeedbackTypeService" class="com.netsoft.services.imp.FeedbackTypeService">
+    	<property name="ifd">
+    		<ref bean="IFeedbacktypeDao"/>
+    	</property>
+    	<property name="icustomerstabledao">
+    		<ref bean="ICustomerstableDao"/>
+    	</property>
+    	<property name="ied">
+    		<ref bean="IEmployeeDao"/>
+    	</property>
+    	<property name="icd">
+    		<ref bean="IConfiguretableDao"/>
+    	</property>
+    	<property name="ibd">
+    		<ref bean="IBusinessruletableDao"/>
+    	</property>
+    </bean>
+    <bean id="IReportServices" class="com.netsoft.services.imp.ReportServices">
+    	<property name="icd">
+    		<ref bean="ICustomerstableDao"/>
+    	</property>
+    	<property name="iconfigd">
+    		<ref bean="IConfiguretableDao"/>
+    	</property>
+    </bean>
+    <bean id="INoteBookServices" class="com.netsoft.services.imp.NoteBookService">
+    	<property name="ibd">
+    		<ref bean="INoteBookDao"/>
+    	</property>
+    	<property name="ied">
+    		<ref bean="IEmployeeDao"/>
+    	</property>
+    </bean>
+    <bean id="MySqlAjax" class="com.netsoft.util.MySqlData">
+    </bean>
+    <bean id="IFeedbackStyleServices" class="com.netsoft.services.imp.FeedbackStyleService">
+    	<property name="ifsd">
+    		<ref bean="IFeedbackStyleDao"/>
+    	</property>
+    	<property name="icd">
+    		<ref bean="IConfiguretableDao"/>
+    	</property>
+    </bean>
+</beans>

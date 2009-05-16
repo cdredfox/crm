@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/login.do" location="0,149" dimension="308,88" />
+  <StrutsActivity path="/employee.do" location="231,431" dimension="308,88" />
+  <StrutsActivity path="/dept.do" location="0,1144" dimension="308,88" />
+  <StrutsActivity path="/role.do" location="658,431" dimension="308,88" />
+  <StrutsActivity path="/menus.do" location="1250,950" dimension="358,84" />
+  <StrutsActivity path="/index.jsp" location="115,337" dimension="77,49" />
+  <StrutsActivity path="/login.jsp" location="117,0" dimension="73,49" />
+  <StrutsActivity path="/jsp/roleView.jsp" location="730,619" dimension="109,49" />
+  <StrutsActivity path="/jsp/EmployeeList.jsp" location="209,619" dimension="131,49" />
+  <StrutsActivity path="/jsp/modiUser.jsp" location="440,619" dimension="113,49" />
+  <StrutsActivity path="/jsp/addUser.jsp" location="0,619" dimension="109,49" />
+  <StrutsActivity path="/form/dept.jsp" location="104,995" dimension="99,49" />
+  <StrutsActivity path="/jsp/roleManager.jsp" location="1250,550" dimension="160,48" />
+  <StrutsActivity path="/jsp/giveRolePower.jsp" location="1250,650" dimension="172,48" />
+  <StrutsActivity path="/jsp/addRole.jsp" location="950,1150" dimension="136,48" />
+  <StrutsActivity path="/jsp/Close.jsp" location="650,750" dimension="124,48" />
+  <StrutsActivity path="/testjsp/Flow.jsp" location="838,713" dimension="110,49" />
+  <StrutsActivity path="/jsp/getAllEmployye.jsp" location="1250,350" dimension="178,48" />
+  <StrutsActivity path="/jsp/modiSellitem.jsp" location="1250,450" dimension="166,48" />
+  <StrutsActivity path="/jsp/getonlySellitem.jsp" location="1250,250" dimension="184,48" />
+  <StrutsActivity path="/jsp/BySellitem.jsp" location="950,250" dimension="154,48" />
+  <StrutsActivity path="/jsp/getAceptSellitem.jsp" location="650,250" dimension="190,48" />
+  <StrutsActivity path="/jsp/getAllCustomers.jsp" location="1550,550" dimension="147,49" />
+  <StrutsActivity path="/jsp/getPassSellitem.jsp" location="650,1150" dimension="184,48" />
+  <StrutsActivity path="/jsp/PersoncustomerList.jsp" location="264,901" dimension="162,49" />
+  <StrutsActivity path="/jsp/modiPersoncustomer.jsp" location="526,901" dimension="168,49" />
+  <StrutsActivity path="/jsp/addPersoncustomer.jsp" location="0,901" dimension="164,49" />
+  <StrutsActivity path="/jsp/enterprisecustomerList.jsp" location="418,1183" dimension="178,49" />
+  <StrutsActivity path="/jsp/modientErprisecustomer.jsp" location="50,1550" dimension="226,48" />
+  <StrutsActivity path="/jsp/addenterprisecustomer.jsp" location="950,1450" dimension="220,48" />
+  <StrutsActivity path="/jsp/MessageList.jsp" location="350,1550" dimension="160,48" />
+  <StrutsTransition id="/login.do,main,/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="154,237" />
+      <AbsolutePoint location="154,337" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/menus.do,sucess,/jsp/Close.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1250,1019" />
+      <AbsolutePoint location="1185,1019" />
+      <AbsolutePoint location="1185,777" />
+      <AbsolutePoint location="774,777" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/employee.do,roleView,/jsp/roleView.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="385,519" />
+      <AbsolutePoint location="385,565" />
+      <AbsolutePoint location="784,565" />
+      <AbsolutePoint location="784,619" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/role.do,givePower,/jsp/giveRolePower.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="854,519" />
+      <AbsolutePoint location="854,683" />
+      <AbsolutePoint location="1250,683" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/role.do,roleView,/jsp/roleView.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="814,519" />
+      <AbsolutePoint location="814,619" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/form/dept.jsp,null,/dept.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="153,1044" />
+      <AbsolutePoint location="153,1144" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/employee.do,succeed,/jsp/EmployeeList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="325,519" />
+      <AbsolutePoint location="325,619" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/role.do,addRoleView,/jsp/addRole.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="966,513" />
+      <AbsolutePoint location="1773,513" />
+      <AbsolutePoint location="1773,1174" />
+      <AbsolutePoint location="1086,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/role.do,managerRoleView,/jsp/roleManager.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="884,519" />
+      <AbsolutePoint location="884,565" />
+      <AbsolutePoint location="1250,565" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/employee.do,addSucceed,/jsp/addUser.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="231,475" />
+      <AbsolutePoint location="54,475" />
+      <AbsolutePoint location="54,619" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/employee.do,modiView,/jsp/modiUser.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="455,519" />
+      <AbsolutePoint location="455,619" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/login.jsp,null,/login.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="153,49" />
+      <AbsolutePoint location="153,149" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

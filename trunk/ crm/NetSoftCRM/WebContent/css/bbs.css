@@ -1,0 +1,26 @@
+BODY{
+scrollbar-face-color: #DEE3E7;
+scrollbar-highlight-color: #FFFFFF;
+scrollbar-shadow-color: #DEE3E7;
+scrollbar-3dlight-color: #D1D7DC;
+scrollbar-arrow-color:  #006699;
+scrollbar-track-color: #EFEFEF;
+scrollbar-darkshadow-color: #98AAB1;
+}
+
+.jnfont9 {FONT-SIZE: 15pt; FILTER: dropshadow(color=#555555,offx=1,offy=1); COLOR: #ff00ff; FONT-FAMILY: "黑体"}
+A{TEXT-DECORATION: none;color:black; FONT-FAMILY: 宋体}
+.zi { font-size: 10pt; text-decoration: none; FONT-FAMILY: 宋体}
+a:hover { color: #FF3300; text-decoration: underline overline; FONT-FAMILY: 宋体}
+INPUT.buttonface{BACKGROUND: #DDDDFF; border:1 solid #183ead; COLOR: #000000; FONT-SIZE: 9pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; HEIGHT: 18px; LINE-HEIGHT: normal; FONT-FAMILY: 宋体}
+input.smallInput{border:1 solid #183ead;FONT-SIZE: 9pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; HEIGHT: 18px; LINE-HEIGHT: normal; FONT-FAMILY: 宋体}
+div { font-size: 9pt; FONT-FAMILY: 宋体}
+font { font-size: 9pt; FONT-FAMILY: 宋体}
+body {font-size: 9pt;scrollbar-darkshadow-color:#666666; FONT-FAMILY: 宋体}
+td { font-size: 9pt; FONT-FAMILY: 宋体}
+textarea { font-size: 9pt; FONT-FAMILY: 宋体}
+#tipBox {
+BACKGROUND: #ffffff; BORDER-BOTTOM: black 1pt solid; BORDER-LEFT: black 1pt solid; BORDER-RIGHT: black 1pt solid; BORDER-TOP: black 1pt solid; FONT-FAMILY: 宋体; FONT-SIZE: 9pt; POSITION: absolute; VISIBILITY: hidden; padding:2 ;Z-INDEX: 100
+}
+
+
