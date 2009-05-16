@@ -1,0 +1,134 @@
+.cp_date {
+  cursor:hand;
+}
+.WAMenuItem {
+  font-size:12px;
+  border-style:none;border-width:1px;border-color:#000000;padding:2 5 2 5;margin-top:2px;cursor:hand;
+}
+
+.WAMenuItemB {
+  font-size:12px;
+  border-style:outset;border-width:2px;padding:2 5 2 5;margin-top:0px;cursor:hand;;
+}
+
+/** 主控制区如果左边为树型时使用以下风格 */
+.LeftTreeStyle {
+  background-color: #f7f3f7;
+}
+
+.nodeDescDiv {
+  padding:3px;
+  font-size:14.8px;
+  color:#666666;
+}
+
+#nodeDesc, .nodeDesc {
+  font-size:14.8px;
+  color:red;
+  font-weight:bold;
+}
+
+fieldset {
+  border-color:#dddddd;
+  border-style:solid;
+  border-width:1px;
+}
+
+.disabled {
+  background-color:#eeeeee;
+}
+
+.formTableContainer {
+  padding:5px;
+}
+
+.shadow {
+  display:inline;
+  letter-spacing:1px;
+  filter: dropshadow(color=#000000, offx=1, offy=1, positive=1);
+  font-family: "Tahoma";
+  font-size: 12px;
+  width:100%;
+}
+
+.notnull {
+  background-image:url('/img/notnull.gif');
+  background-repeat:"no-repeat";
+  background-position:"right bottom";
+}
+
+input,button,select {
+  font-family:Tahoma;
+  font-size:12px;
+}
+
+
+form {
+  display:inline;
+}
+
+td {
+  font-family:Tahoma;
+  font-size:12px;
+}
+
+body {
+  padding:0px;
+  margin:0px;
+  font-size:12px;
+  overflow-x:auto;                                                                                     
+  overflow-y:auto;
+}
+
+span {
+  font-family:Tahoma;
+  font-size:12px;
+}
+
+fieldset {
+  font-family:Tahoma;
+  font-size:12px;
+  letter-spacing:1px;
+  padding:5px;
+}
+
+legend {
+  font-size:14.8px;
+  letter-spacing:1.5px;
+  color:#008000;
+}
+
+
+textarea {
+  font-family:Tahoma;
+  font-size:12px;
+  width:100%;
+}
+
+
+/*HTMLEditor 字体css*/
+.HE_font12px {
+  font-size:12px;
+}
+
+.HE_font14px {
+  font-family: 宋体;
+  font-size:14.8px;
+}
+
+.HE_font18px {
+  font-size:18px;
+}
+
+.HE_font28px {
+  font-size:28px;
+}
+
+.HE_HeadTitle {
+  color: #0080c0;
+  font-size:18px;
+}
+
+
+
+

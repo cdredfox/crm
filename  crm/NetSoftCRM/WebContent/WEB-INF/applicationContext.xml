@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="placeholderConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:init.properties</value>
+		</property>
+	</bean>
+
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>${datasource.driverClassName}</value>
+		</property>
+		<property name="url">
+			<value>${datasource.url}</value>
+		</property>
+		<property name="username">
+			<value>${datasource.username}</value>
+		</property>
+		<property name="password">
+			<value>${datasource.password}</value>
+		</property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="ds" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<!--  
+					<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+					<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				-->
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>
+					com/netsoft/dao/pojos/Businessruletable.hbm.xml
+				</value>
+				<value>
+					com/netsoft/dao/pojos/Configuretable.hbm.xml
+				</value>
+				<value>
+					com/netsoft/dao/pojos/Customerstable.hbm.xml
+				</value>
+				<value>com/netsoft/dao/pojos/Depts.hbm.xml</value>
+				<value>com/netsoft/dao/pojos/Employye.hbm.xml</value>
+				<value>com/netsoft/dao/pojos/Menus.hbm.xml</value>
+				<value>com/netsoft/dao/pojos/Roles.hbm.xml</value>
+				<value>
+					com/netsoft/dao/pojos/Feedbacktable.hbm.xml
+				</value>
+				<value>com/netsoft/dao/pojos/Notebook.hbm.xml</value>
+				<value>com/netsoft/dao/pojos/Feedbackstyle.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- spring事务管理类 -->
+	<bean id="myTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="txProxyTemplate" abstract="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="myTransactionManager" />
+		</property>
+		<property name="proxyTargetClass" value="true" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="create*">PROPAGATION_REQUIRED</prop>
+				<prop key="insert*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="remove*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="del*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- spring公用类的配置 -->
+	<bean id="ICommonDaoProxy"
+		class="com.netsoft.dao.commonsimp.CommonDaoAdaper">
+		<property name="hbtTemplate">
+			<ref bean="sessionFactory"></ref>
+		</property>
+	</bean>
+
+	<bean id="ICommonDao" parent="txProxyTemplate">
+		<property name="target">
+			<ref bean="ICommonDaoProxy" />
+		</property>
+	</bean>
+
+	<!-- 以下全部是数据访问层的配置 -->
+
+	<bean id="IEmployeeDao" class="com.netsoft.dao.imp.EmployeeDao">
+		<property name="cd">
+			<ref bean="ICommonDao" />
+		</property>
+	</bean>
+	<bean id="IRolesDao" class="com.netsoft.dao.imp.RolesDao">
+		<property name="cd">
+			<ref bean="ICommonDao" />
+		</property>
+	</bean>
+	<bean id="IMenusDao" class="com.netsoft.dao.imp.MenusDao">
+		<property name="cd">
+			<ref bean="ICommonDao" />
+		</property>
+	</bean>
+	<bean id="IDeptsDao" class="com.netsoft.dao.imp.DeptsDao">
+		<property name="cd">
+			<ref bean="ICommonDao" />
+		</property>
+	</bean>
+	<bean id="ICustomerstableDao"
+		class="com.netsoft.dao.imp.CustomerstableDao">
+		<property name="cd">
+			<ref bean="ICommonDao" />
+		</property>
+	</bean>
+	<bean id="IBusinessruletableDao"
+		class="com.netsoft.dao.imp.BusinessruletableDao">
+		<property name="cd">
+			<ref bean="ICommonDao" />
+		</property>
+	</bean>
+	<bean id="IConfiguretableDao"
+		class="com.netsoft.dao.imp.ConfiguretableDao">
+		<property name="cd">
+			<ref bean="ICommonDao" />
+		</property>
+	</bean>
+	<bean id="IFeedbacktypeDao"
+		class="com.netsoft.dao.imp.FeedbacktypeDao">
+		<property name="icd">
+			<ref bean="ICommonDao" />
+		</property>
+	</bean>
+
+	<bean id="INoteBookDao" class="com.netsoft.dao.imp.NoteBookDao">
+		<property name="icd">
+			<ref bean="ICommonDao" />
+		</property>
+	</bean>
+
+	<bean id="IFeedbackStyleDao"
+		class="com.netsoft.dao.imp.FeedbackStyleDao">
+
+		<property name="icd">
+			<ref bean="ICommonDao" />
+		</property>
+	</bean>
+
+	<!-- 定时任务的配置 -->
+	<bean id="task" class="com.netsoft.util.job.JobTask">
+		<property name="ibd">
+			<ref bean="IBusinessruletableDao" />
+		</property>
+		<property name="icd">
+			<ref bean="ICustomerstableDao" />
+		</property>
+	</bean>
+	<bean id="methodInvoking"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="task" />
+		</property>
+		<property name="targetMethod">
+			<value>mainTask</value>
+		</property>
+	</bean>
+	<!-- 配置触发器 -->
+	<bean id="taskTigger"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="methodInvoking" />
+		</property>
+		<property name="cronExpression">
+			<value>0 30 10 ? * *</value><!-- 暂时取消此功能 -->
+		</property>
+	</bean>
+
+	<!-- 增加触发器 -->
+	<bean
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref local="taskTigger" />
+			</list>
+		</property>
+	</bean>
+</beans>

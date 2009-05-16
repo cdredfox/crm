@@ -1,0 +1,13 @@
+p,div,center,th,li,p,br,body,td,textarea,option {font-family:"ËÎÌו";font-size:9pt;line-height:19px;}
+input,select{font-size:9pt;height: 21px;}
+BigFont{ font-size:11pt;}
+A:link {color: red}
+A:visited {color: red}
+A:hover {text-decoration: underline; color:#ff6600;}
+.table1 { BORDER: #999999 1px dashed; word-break:break-all }
+.s 
+{font-size:0.0px;LINE-HEIGHT:0%; BACKGROUND-COLOR: #ffffff; COLOR: #ffffff;
+}
+.ss 
+{font-size:0.0px;LINE-HEIGHT:0%; BACKGROUND-COLOR: #D4D5A9; COLOR: #D4D5A9;
+}

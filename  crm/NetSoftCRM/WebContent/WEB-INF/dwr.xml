@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN" 
+ "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+<dwr>
+	<allow>
+	    <convert match="com.netsoft.dao.beans.EmployeeBean" converter="bean"></convert>
+	    <convert match="com.netsoft.dao.beans.DeptsBean" converter="bean"></convert>
+	    <convert match="com.netsoft.dao.beans.RolesBean" converter="bean"></convert>
+	    <convert match="com.netsoft.dao.beans.ConfiguretableBean" converter="bean"></convert>
+	    <convert match="com.netsoft.dao.beans.CustomerstableBean" converter="bean"></convert>
+	    <convert match="com.netsoft.dao.beans.FeedbacktableBean" converter="bean"></convert>
+	    <convert match="com.netsoft.dao.beans.FeedbackStyleBean" converter="bean"></convert>
+	    <create javascript="EmployeeAjax" creator="spring">
+			<param name="beanName" value="IEmployeeServices"></param>
+		</create>
+	    <create javascript="DeptsAjax" creator="spring">
+			<param name="beanName" value="IDeptsServices"></param>
+		</create>
+	   <create javascript="RoleAjax" creator="spring">
+	   		<param name="beanName" value="IRoleServices"></param>
+	   </create>
+	   <create javascript="ConfigAjax" creator="spring">
+	   		<param name="beanName" value="IConfiguretableServices"></param>
+	   </create>
+	   <create javascript="CustomerAjax" creator="spring">
+	   		<param name="beanName" value="ICustomerstableServices"></param>
+	   </create>
+	   <create javascript="FeedbackAjax" creator="spring">
+	        <param name="beanName" value="IFeedbackTypeService"></param>
+	   </create>
+	   <create javascript="NoteBookAjax" creator="spring">
+	   		<param name="beanName" value="INoteBookServices"></param>
+	   </create>
+	    <create javascript="MySqlAjax" creator="spring">
+	   		<param name="beanName" value="MySqlAjax"></param>
+	   </create>
+	   <create javascript="FeedbackStyleAjax" creator="spring">
+	   		<param name="beanName" value="IFeedbackStyleServices"></param>
+	   </create>
+	</allow>	
+</dwr>
+
