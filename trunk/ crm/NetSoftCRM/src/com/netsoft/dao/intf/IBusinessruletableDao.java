@@ -1,4 +1,4 @@
-package com.netsoft.dao.intf;
+ï»¿package com.netsoft.dao.intf;
 
 import java.util.List;
 
@@ -6,18 +6,18 @@ import com.netsoft.dao.pojos.Businessruletable;
 
 public interface IBusinessruletableDao {
 	/**
-	 * µÃµ½ËùÓĞµÄ¹æÔòÉèÖÃ
+	 * å¾—åˆ°æ‰€æœ‰çš„è§„åˆ™è®¾ç½®
 	 * @param brt
 	 */
 	public List<Businessruletable> getAllRule();
 	/**
-	 * ĞŞ¸ÄÒ»¸ö¹æÔòÉèÖÃ¶ÔÏó
+	 * ä¿®æ”¹ä¸€ä¸ªè§„åˆ™è®¾ç½®å¯¹è±¡
 	 * @param brt
 	 */
 	public void updateRule(Businessruletable brt);
 	
 	/**
-	 * ¸ù¾İidºÅ²éÕÒÒ»¸ö¹æÔò
+	 * æ ¹æ®idå·æŸ¥æ‰¾ä¸€ä¸ªè§„åˆ™
 	 * @param id
 	 * @return
 	 */

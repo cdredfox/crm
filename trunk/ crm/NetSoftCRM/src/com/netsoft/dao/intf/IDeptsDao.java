@@ -1,4 +1,4 @@
-package com.netsoft.dao.intf;
+ï»¿package com.netsoft.dao.intf;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,27 +7,27 @@ import com.netsoft.dao.pojos.Depts;
 
 /**
  * 
- * @¹¦ÄÜËµÃ÷¡¡¸ù¾İ´«½øÀ´µÄ²¿ÃÅ¶ÔÏóÈ¡µÃÏàÓ¦µÄPOJO¶ÔÏó
- * @·µ»ØÀàĞÍ¡¡boolean
+ * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®ä¼ è¿›æ¥çš„éƒ¨é—¨å¯¹è±¡å–å¾—ç›¸åº”çš„POJOå¯¹è±¡
+ * @è¿”å›ç±»å‹ã€€boolean
  * @param depts
  * @return 
  */
 public interface IDeptsDao {
-	/*Ìí¼ÓÒ»¸ö²¿ÃÅ*/
+	/*æ·»åŠ ä¸€ä¸ªéƒ¨é—¨*/
 	public abstract boolean addDept(Depts depts);
-	/*É¾³ıÒ»¸ö²¿ÃÅ*/
+	/*åˆ é™¤ä¸€ä¸ªéƒ¨é—¨*/
 	public abstract boolean deleteDept(Depts depts);
-	/*¸ù¾İidÉ¾³ı²¿ÃÅ*/
+	/*æ ¹æ®idåˆ é™¤éƒ¨é—¨*/
 	public abstract boolean deleteDeptById(Class cl,Serializable id);
-	/*ĞŞ¸ÄÒ»¸ö²¿ÃÅ*/
+	/*ä¿®æ”¹ä¸€ä¸ªéƒ¨é—¨*/
 	public abstract boolean updateDept(Depts depts);
-	/*»ñÈ¡ËùÓĞ²¿ÃÅ*/
+	/*è·å–æ‰€æœ‰éƒ¨é—¨*/
 	public List<Depts> getAllDepts();
-	/**¸ù¾İ²¿ÃÅID²éÕÒ²¿ÃÅ¶ÔÏó*/
+	/**æ ¹æ®éƒ¨é—¨IDæŸ¥æ‰¾éƒ¨é—¨å¯¹è±¡*/
 	public Depts getDeptsById(int id);
 	
 	/**
-	 * ¸ù¾İÔ±¹¤²éÕÒÆäËùÊôµÄ²¿ÃÅ
+	 * æ ¹æ®å‘˜å·¥æŸ¥æ‰¾å…¶æ‰€å±çš„éƒ¨é—¨
 	 * @param id
 	 * @return
 	 */

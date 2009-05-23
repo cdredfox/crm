@@ -1,4 +1,4 @@
-package com.netsoft.dao.intf;
+ï»¿package com.netsoft.dao.intf;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,50 +11,50 @@ import com.netsoft.dao.pojos.Menus;
 public interface IMenusDao {
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡Ìí¼ÓÈ¨ÏŞ²Ëµ¥
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ·»åŠ æƒé™èœå•
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param menus
 	 * @return 
 	 */
 	public abstract boolean addMenus(Menus menus);
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡É¾³ıÈ¨ÏŞ²Ëµ¥
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€åˆ é™¤æƒé™èœå•
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param menus
 	 * @return 
 	 */
 	public abstract boolean deleteMenus(Menus menus);
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸ù¾İidÉ¾³ıÈ¨ÏŞ²Ëµ¥
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®idåˆ é™¤æƒé™èœå•
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param menus
 	 * @return 
 	 */
 	public abstract boolean deleteMenusById(Class cl,Serializable id);
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡ĞŞ¸ÄÈ¨ÏŞ²Ëµ¥
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€ä¿®æ”¹æƒé™èœå•
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param menus
 	 * @return 
 	 */
 	public abstract boolean updateMenus(Menus menus);
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡»ñÈ¡ËùÓĞÈ¨ÏŞ²Ëµ¥
-	 * @·µ»ØÀàĞÍ¡¡List<Menus>
+	 * @åŠŸèƒ½è¯´æ˜ã€€è·å–æ‰€æœ‰æƒé™èœå•
+	 * @è¿”å›ç±»å‹ã€€List<Menus>
 	 * @param 
-	 * @return Ò»¸öList¼¯ºÏ
+	 * @return ä¸€ä¸ªListé›†åˆ
 	 */
 	public List<Menus> getAllMenus();
 	
-	/**¸ù¾İid²éÕÒÈ¨ÏŞ*/
+	/**æ ¹æ®idæŸ¥æ‰¾æƒé™*/
 	public abstract Menus getMenusById(int mid);
 	
 	/**
-	 * ¸ù¾İtopidÈ¡ÏàÓ¦µÄ²Ëµ¥Öµ
+	 * æ ¹æ®topidå–ç›¸åº”çš„èœå•å€¼
 	 * @param topid
 	 * @return
 	 */

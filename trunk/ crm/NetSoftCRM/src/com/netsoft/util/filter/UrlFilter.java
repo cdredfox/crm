@@ -1,4 +1,4 @@
-package com.netsoft.util.filter;
+ï»¿package com.netsoft.util.filter;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,11 +23,11 @@ public class UrlFilter extends HttpServlet implements Filter {
 	Logger logger=Logger.getLogger(this.getClass());
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
 		try {
-			logger.info("requestÖĞµÄÖµÊÇ: "+request.getParameter("taget"));
-			logger.info("requestÖĞµÄmenuidÖµÊÇ: "+request.getParameter("menuid"));
+			logger.info("requestä¸­çš„å€¼æ˜¯: "+request.getParameter("taget"));
+			logger.info("requestä¸­çš„menuidå€¼æ˜¯: "+request.getParameter("menuid"));
 			HttpServletRequest sr = (HttpServletRequest)request;
-            HttpSession session = sr.getSession();    //»ñµÃsession
-           logger.info("ÇëÇóµØÖ·ÊÇ:"+sr.getRequestURI().toString());
+            HttpSession session = sr.getSession();    //è·å¾—session
+           logger.info("è¯·æ±‚åœ°å€æ˜¯:"+sr.getRequestURI().toString());
            if(sr.getParameter("taget")!=null);
            {
         	   request.setAttribute("menus",sr.getParameter("taget"));
@@ -38,17 +38,17 @@ public class UrlFilter extends HttpServlet implements Filter {
         	   session.setAttribute("mid",sr.getParameter("menuid"));
            }
            
-           //ÅĞ¶ÏÓÃ»§ÊÇ·ñµÇÂ¼£¬Èç¹ûÃ»ÓĞ£¬
+           //åˆ¤æ–­ç”¨æˆ·æ˜¯å¦ç™»å½•ï¼Œå¦‚æœæ²¡æœ‰ï¼Œ
            if(session.getAttribute("Employees")==null){
                     
-                    //»ñï½µ±Ç°µÄURL
+                    //è·é”å½“å‰çš„URL
                     String strURL=sr.getRequestURL().toString();
                     
-                    //ÅĞ¶ÏÊÇ·ñÎªindex.jsp                     
+                    //åˆ¤æ–­æ˜¯å¦ä¸ºindex.jsp                     
                     if(strURL.indexOf("login.jsp") == -1 && strURL.indexOf("url_mid_jump.jsp")==-1){
-                    	logger.info("Ã»ÓĞµÇÂ½²¢ÇÒÇëÇóµÄ²»ÊÇlogin.jspÒ³Ãæ¡£À¹½ØÇ¿ÖÆ×ª·¢µ½Ìø×ªÒ³Ãæ");  
+                    	logger.info("æ²¡æœ‰ç™»é™†å¹¶ä¸”è¯·æ±‚çš„ä¸æ˜¯login.jspé¡µé¢ã€‚æ‹¦æˆªå¼ºåˆ¶è½¬å‘åˆ°è·³è½¬é¡µé¢");  
                             try {
-                            ((HttpServletRequest)request).getRequestDispatcher("jsp/url_mid_jump.jsp").forward(request, response);  //×ª·¢µ½Ìø×ªÒ³ÃæÈÃÓÃ»§µÇÂ¼
+                            ((HttpServletRequest)request).getRequestDispatcher("jsp/url_mid_jump.jsp").forward(request, response);  //è½¬å‘åˆ°è·³è½¬é¡µé¢è®©ç”¨æˆ·ç™»å½•
                               filterChain.doFilter(request, response);
                               return;
                             }
@@ -63,17 +63,17 @@ public class UrlFilter extends HttpServlet implements Filter {
                  
             }      
             
-		logger.info("urlÀ¹½Ø³É¹¦¹ıÂËµØÖ·");
+		logger.info("urlæ‹¦æˆªæˆåŠŸè¿‡æ»¤åœ°å€");
 		filterChain.doFilter(request, response);
 		} catch (Exception e) {
-		logger.error("urlÀ¹½ØÆ÷ÔËĞĞÊ§°ÜÁË£¡",e);
+		logger.error("urlæ‹¦æˆªå™¨è¿è¡Œå¤±è´¥äº†ï¼",e);
 		}
 		
 		
 	}
 
 	public void init(FilterConfig arg0) throws ServletException {
-		System.out.println("ĞŞ¸´bug");
+		System.out.println("ä¿®å¤bug");
 		this.filterConfig = arg0;
 	}
 }

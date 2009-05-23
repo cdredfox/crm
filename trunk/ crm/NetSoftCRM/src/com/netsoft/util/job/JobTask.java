@@ -1,4 +1,4 @@
-package com.netsoft.util.job;
+ï»¿package com.netsoft.util.job;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -12,7 +12,7 @@ import com.netsoft.dao.pojos.Businessruletable;
 import com.netsoft.dao.pojos.Customerstable;
 
 /**
- * ´¦ÀíÏµÍ³ÖĞĞèÒªÔËĞĞµÄ×Ô¶¯ÈÎÎñ
+ * å¤„ç†ç³»ç»Ÿä¸­éœ€è¦è¿è¡Œçš„è‡ªåŠ¨ä»»åŠ¡
  * 
  * @author yangfei
  * 
@@ -20,41 +20,41 @@ import com.netsoft.dao.pojos.Customerstable;
 public class JobTask {
 	Logger log = Logger.getLogger(this.getClass());
 	/**
-	 * ¿Í»§µÈ¼¶£ºÎ´¼ûÃæÒâÏò²»Ã÷È·
+	 * å®¢æˆ·ç­‰çº§ï¼šæœªè§é¢æ„å‘ä¸æ˜ç¡®
 	 */
 	private static int CUSTOMER_GRADE_NOMEET=18;
 	/**
-	 * ¿Í»§µÈ¼¶£ºÎ´¼ûÃæÔ¤Ô¼½«³öµ¥
+	 * å®¢æˆ·ç­‰çº§ï¼šæœªè§é¢é¢„çº¦å°†å‡ºå•
 	 */
 	private static int CUSTOMER_GRADE_NOMEET_BESPEAK=19;
 	/**
-	 * ¿Í»§µÈ¼¶£ºÒÑ°İ·ÃÎ´ÕıÊ½ÃæÌ¸
+	 * å®¢æˆ·ç­‰çº§ï¼šå·²æ‹œè®¿æœªæ­£å¼é¢è°ˆ
 	 */
 	private static int CUSTOMER_GRADE_VISIT_NOMEET=20;
 	/**
-	 * ¿Í»§µÈ¼¶£ºÒÑÕıÊ½ÃæÌ¸½«³öµ¥
+	 * å®¢æˆ·ç­‰çº§ï¼šå·²æ­£å¼é¢è°ˆå°†å‡ºå•
 	 */
 	private static int CUSTOMER_GRADE_MEET=21;
 	public ICustomerstableDao icd;
 	public IBusinessruletableDao ibd;
 
 	/**
-	 * Î´¼ûÃæÒâÏò¿Í»§¹«¿ª¹æÔòÉèÖÃ
+	 * æœªè§é¢æ„å‘å®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®
 	 * 
 	 * @return
 	 */
 	public boolean task001() {
 		try {
-			log.info("¿ªÊ¼Ö´ĞĞÎ´¼ûÃæÒâÏò¿Í»§¹«¿ª¹æÔòÉèÖÃÈÎÎñ.......");
+			log.info("å¼€å§‹æ‰§è¡Œæœªè§é¢æ„å‘å®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®ä»»åŠ¡.......");
 			Businessruletable bt=ibd.getRuleById(1);
 			int enddays=Integer.parseInt(bt.getRulevalue());
 			List<Customerstable> list = icd.getCustomerByGrade(JobTask.CUSTOMER_GRADE_NOMEET);
-			log.info("¹²ÕÒµ½¸Ã×´Ì¬¿Í»§¶ÔÏó "+list.size());
+			log.info("å…±æ‰¾åˆ°è¯¥çŠ¶æ€å®¢æˆ·å¯¹è±¡ "+list.size());
 			for (Customerstable customerstable : list) {
 				Date adddate=customerstable.getCustomerfeedbackdate();
 				if(adddate==null)
 				{
-					// Èç¹ûÊÇÃ»ÓĞ·´À¡ÈÕÆÚµÄÔò´ú±íÊÇĞÂÔö¿Í»§£¬ÕÒËûµÄÔö¼ÓÈÕÆÚ
+					// å¦‚æœæ˜¯æ²¡æœ‰åé¦ˆæ—¥æœŸçš„åˆ™ä»£è¡¨æ˜¯æ–°å¢å®¢æˆ·ï¼Œæ‰¾ä»–çš„å¢åŠ æ—¥æœŸ
 					adddate=customerstable.getCustomeradddate();
 					
 				}
@@ -65,32 +65,32 @@ public class JobTask {
 					icd.updateCustomerstable(customerstable);
 				}
 			}
-			// System.out.println("²âÊÔÖ´ĞĞ... Ö´ĞĞÊ±¼ä£º "+new Date());
-			log.info("ÈÎÎñÎ´¼ûÃæÒâÏò¿Í»§¹«¿ª¹æÔòÉèÖÃÖ´ĞĞÍê³É.......");
+			// System.out.println("æµ‹è¯•æ‰§è¡Œ... æ‰§è¡Œæ—¶é—´ï¼š "+new Date());
+			log.info("ä»»åŠ¡æœªè§é¢æ„å‘å®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®æ‰§è¡Œå®Œæˆ.......");
 			return true;
 		} catch (Exception e) {
-			log.error("Ö´ĞĞÈÎÎñÎ´¼ûÃæÒâÏò¿Í»§¹«¿ª¹æÔòÉèÖÃ³ö´íÁË...", e);
+			log.error("æ‰§è¡Œä»»åŠ¡æœªè§é¢æ„å‘å®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®å‡ºé”™äº†...", e);
 			return false;
 		}
 	}
 
 	/**
-	 * Î´¼ûÃæÔ¤Ô¼¿Í»§¹«¿ª¹æÔòÉèÖÃ
+	 * æœªè§é¢é¢„çº¦å®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®
 	 * 
 	 * @return
 	 */
 	public boolean task002() {
 		try {
-			log.info("¿ªÊ¼Ö´ĞĞÎ´¼ûÃæÔ¤Ô¼¿Í»§¹«¿ª¹æÔòÉèÖÃÉèÖÃÈÎÎñ.......");
+			log.info("å¼€å§‹æ‰§è¡Œæœªè§é¢é¢„çº¦å®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®è®¾ç½®ä»»åŠ¡.......");
 			Businessruletable bt=ibd.getRuleById(2);
 			int enddays=Integer.parseInt(bt.getRulevalue());
 			List<Customerstable> list = icd.getCustomerByGrade(JobTask.CUSTOMER_GRADE_NOMEET_BESPEAK);
-			log.info("¹²ÕÒµ½¸Ã×´Ì¬¿Í»§¶ÔÏó "+list.size());
+			log.info("å…±æ‰¾åˆ°è¯¥çŠ¶æ€å®¢æˆ·å¯¹è±¡ "+list.size());
 			for (Customerstable customerstable : list) {
 				Date adddate=customerstable.getCustomerfeedbackdate();
 				if(adddate==null)
 				{
-					// Èç¹ûÊÇÃ»ÓĞ·´À¡ÈÕÆÚµÄÔò´ú±íÊÇĞÂÔö¿Í»§£¬ÕÒËûµÄÔö¼ÓÈÕÆÚ
+					// å¦‚æœæ˜¯æ²¡æœ‰åé¦ˆæ—¥æœŸçš„åˆ™ä»£è¡¨æ˜¯æ–°å¢å®¢æˆ·ï¼Œæ‰¾ä»–çš„å¢åŠ æ—¥æœŸ
 					adddate=customerstable.getCustomeradddate();
 					
 				}
@@ -101,32 +101,32 @@ public class JobTask {
 					icd.updateCustomerstable(customerstable);
 				}
 			}
-			// System.out.println("²âÊÔÖ´ĞĞ... Ö´ĞĞÊ±¼ä£º "+new Date());
-			log.info("ÈÎÎñÎ´¼ûÃæÔ¤Ô¼¿Í»§¹«¿ª¹æÔòÉèÖÃÖ´ĞĞÍê³É.......");
+			// System.out.println("æµ‹è¯•æ‰§è¡Œ... æ‰§è¡Œæ—¶é—´ï¼š "+new Date());
+			log.info("ä»»åŠ¡æœªè§é¢é¢„çº¦å®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®æ‰§è¡Œå®Œæˆ.......");
 			return true;
 		} catch (Exception e) {
-			log.error("Ö´ĞĞÈÎÎñÎ´¼ûÃæÔ¤Ô¼¿Í»§¹«¿ª¹æÔòÉèÖÃ³ö´íÁË...", e);
+			log.error("æ‰§è¡Œä»»åŠ¡æœªè§é¢é¢„çº¦å®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®å‡ºé”™äº†...", e);
 			return false;
 		}
 	}
 	
 	/**
-	 * ÒÑ°İ·ÃÎ´ÕıÊ½ÃæÌ¸¿Í»§¹«¿ª¹æÔòÉèÖÃ
+	 * å·²æ‹œè®¿æœªæ­£å¼é¢è°ˆå®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®
 	 * 
 	 * @return
 	 */
 	public boolean task003() {
 		try {
-			log.info("¿ªÊ¼Ö´ĞĞÒÑ°İ·ÃÎ´ÕıÊ½ÃæÌ¸¿Í»§¹«¿ª¹æÔòÉèÖÃÈÎÎñ.......");
+			log.info("å¼€å§‹æ‰§è¡Œå·²æ‹œè®¿æœªæ­£å¼é¢è°ˆå®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®ä»»åŠ¡.......");
 			Businessruletable bt=ibd.getRuleById(3);
 			int enddays=Integer.parseInt(bt.getRulevalue());
 			List<Customerstable> list = icd.getCustomerByGrade(JobTask.CUSTOMER_GRADE_VISIT_NOMEET);
-			log.info("¹²ÕÒµ½¸Ã×´Ì¬¿Í»§¶ÔÏó "+list.size());
+			log.info("å…±æ‰¾åˆ°è¯¥çŠ¶æ€å®¢æˆ·å¯¹è±¡ "+list.size());
 			for (Customerstable customerstable : list) {
 				Date adddate=customerstable.getCustomerfeedbackdate();
 				if(adddate==null)
 				{
-					// Èç¹ûÊÇÃ»ÓĞ·´À¡ÈÕÆÚµÄÔò´ú±íÊÇĞÂÔö¿Í»§£¬ÕÒËûµÄÔö¼ÓÈÕÆÚ
+					// å¦‚æœæ˜¯æ²¡æœ‰åé¦ˆæ—¥æœŸçš„åˆ™ä»£è¡¨æ˜¯æ–°å¢å®¢æˆ·ï¼Œæ‰¾ä»–çš„å¢åŠ æ—¥æœŸ
 					adddate=customerstable.getCustomeradddate();
 					
 				}
@@ -137,32 +137,32 @@ public class JobTask {
 					icd.updateCustomerstable(customerstable);
 				}
 			}
-			// System.out.println("²âÊÔÖ´ĞĞ... Ö´ĞĞÊ±¼ä£º "+new Date());
-			log.info("ÈÎÎñÒÑ°İ·ÃÎ´ÕıÊ½ÃæÌ¸¿Í»§¹«¿ª¹æÔòÉèÖÃÖ´ĞĞÍê³É.......");
+			// System.out.println("æµ‹è¯•æ‰§è¡Œ... æ‰§è¡Œæ—¶é—´ï¼š "+new Date());
+			log.info("ä»»åŠ¡å·²æ‹œè®¿æœªæ­£å¼é¢è°ˆå®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®æ‰§è¡Œå®Œæˆ.......");
 			return true;
 		} catch (Exception e) {
-			log.error("Ö´ĞĞÈÎÎñÒÑ°İ·ÃÎ´ÕıÊ½ÃæÌ¸¿Í»§¹«¿ª¹æÔòÉèÖÃ³ö´íÁË...", e);
+			log.error("æ‰§è¡Œä»»åŠ¡å·²æ‹œè®¿æœªæ­£å¼é¢è°ˆå®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®å‡ºé”™äº†...", e);
 			return false;
 		}
 	}
 	
 	/**
-	 * ÒÑÕıÊ½ÃæÌ¸¿Í»§¹«¿ª¹æÔòÉèÖÃ
+	 * å·²æ­£å¼é¢è°ˆå®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®
 	 * 
 	 * @return
 	 */
 	public boolean task004() {
 		try {
-			log.info("¿ªÊ¼Ö´ĞĞÒÑÕıÊ½ÃæÌ¸¿Í»§¹«¿ª¹æÔòÉèÖÃÈÎÎñ.......");
+			log.info("å¼€å§‹æ‰§è¡Œå·²æ­£å¼é¢è°ˆå®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®ä»»åŠ¡.......");
 			Businessruletable bt=ibd.getRuleById(4);
 			int enddays=Integer.parseInt(bt.getRulevalue());
 			List<Customerstable> list = icd.getCustomerByGrade(JobTask.CUSTOMER_GRADE_MEET);
-			log.info("¹²ÕÒµ½¸Ã×´Ì¬¿Í»§¶ÔÏó "+list.size());
+			log.info("å…±æ‰¾åˆ°è¯¥çŠ¶æ€å®¢æˆ·å¯¹è±¡ "+list.size());
 			for (Customerstable customerstable : list) {
 				Date adddate=customerstable.getCustomerfeedbackdate();
 				if(adddate==null)
 				{
-					// Èç¹ûÊÇÃ»ÓĞ·´À¡ÈÕÆÚµÄÔò´ú±íÊÇĞÂÔö¿Í»§£¬ÕÒËûµÄÔö¼ÓÈÕÆÚ
+					// å¦‚æœæ˜¯æ²¡æœ‰åé¦ˆæ—¥æœŸçš„åˆ™ä»£è¡¨æ˜¯æ–°å¢å®¢æˆ·ï¼Œæ‰¾ä»–çš„å¢åŠ æ—¥æœŸ
 					adddate=customerstable.getCustomeradddate();
 					
 				}
@@ -173,11 +173,11 @@ public class JobTask {
 					icd.updateCustomerstable(customerstable);
 				}
 			}
-			// System.out.println("²âÊÔÖ´ĞĞ... Ö´ĞĞÊ±¼ä£º "+new Date());
-			log.info("ÈÎÎñÒÑÕıÊ½ÃæÌ¸¿Í»§¹«¿ª¹æÔòÉèÖÃÖ´ĞĞÍê³É.......");
+			// System.out.println("æµ‹è¯•æ‰§è¡Œ... æ‰§è¡Œæ—¶é—´ï¼š "+new Date());
+			log.info("ä»»åŠ¡å·²æ­£å¼é¢è°ˆå®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®æ‰§è¡Œå®Œæˆ.......");
 			return true;
 		} catch (Exception e) {
-			log.error("Ö´ĞĞÈÎÎñÒÑÕıÊ½ÃæÌ¸¿Í»§¹«¿ª¹æÔòÉèÖÃ³ö´íÁË...", e);
+			log.error("æ‰§è¡Œä»»åŠ¡å·²æ­£å¼é¢è°ˆå®¢æˆ·å…¬å¼€è§„åˆ™è®¾ç½®å‡ºé”™äº†...", e);
 			return false;
 		}
 	}
@@ -191,7 +191,7 @@ public class JobTask {
 	}
 
 	/**
-	 * ÇóÁ½¸öÈÕÆÚÖ®¼äÏà²îµÄÌìÊı
+	 * æ±‚ä¸¤ä¸ªæ—¥æœŸä¹‹é—´ç›¸å·®çš„å¤©æ•°
 	 * 
 	 * @param d1
 	 * @param d2

@@ -1,4 +1,4 @@
-package com.netsoft.web.struts.action;
+﻿package com.netsoft.web.struts.action;
 
 import java.util.List;
 

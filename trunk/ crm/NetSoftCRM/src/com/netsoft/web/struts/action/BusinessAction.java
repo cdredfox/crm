@@ -1,4 +1,4 @@
-package com.netsoft.web.struts.action;
+ï»¿package com.netsoft.web.struts.action;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +20,7 @@ public class BusinessAction extends DispatchAction {
 		try {
 			return super.execute(mapping, form, request, response);
 		} catch (Exception e) {
-			logger.error("³ö´íÁË!",e);
+			logger.error("å‡ºé”™äº†!",e);
 			throw new ServletException(e);
 		}
 		

@@ -1,10 +1,10 @@
-package com.netsoft.util.job;
+ï»¿package com.netsoft.util.job;
 
 public class TestTask {
 	
 	public void task001()
 	{
-		System.out.println("¿ªÊ¼Ö´ÐÐ...");
+		System.out.println("å¼€å§‹æ‰§è¡Œ...");
 	}
 
 }

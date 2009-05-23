@@ -1,4 +1,4 @@
-package com.netsoft.dao.intf;
+﻿package com.netsoft.dao.intf;
 
 import java.util.List;
 

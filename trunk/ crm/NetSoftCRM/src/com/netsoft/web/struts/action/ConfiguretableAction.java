@@ -1,4 +1,4 @@
-package com.netsoft.web.struts.action;
+锘縫ackage com.netsoft.web.struts.action;
 
 import java.util.List;
 
@@ -86,7 +86,7 @@ public class ConfiguretableAction extends DispatchAction {
 	}
 	
 	/**
-	 * 修改配置信息显示视图
+	 * 淇敼閰嶇疆淇℃伅鏄剧ず瑙嗗浘
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -111,7 +111,7 @@ public class ConfiguretableAction extends DispatchAction {
 	}
 	
 	/**
-	 * 修改配置信息
+	 * 淇敼閰嶇疆淇℃伅
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -143,27 +143,27 @@ public class ConfiguretableAction extends DispatchAction {
 	private String getNameByType(String type)
 	{
 		if ("dj".equals(type)) {
-			return "客户等级配置";
+			return "瀹㈡埛绛夌骇閰嶇疆";
 		}
 		if ("dz".equals(type)) {
-			return "客户地址配置";
+			return "瀹㈡埛鍦板潃閰嶇疆";
 		}
 		if ("fk".equals(type)) {
-			return "客户反馈配置";
+			return "瀹㈡埛鍙嶉閰嶇疆";
 		}
 		if ("ly".equals(type)) {
-			return "客户来源配置";
+			return "瀹㈡埛鏉ユ簮閰嶇疆";
 		}
 		if ("qh".equals(type)) {
-			return "客户电话区号配置";
+			return "瀹㈡埛鐢佃瘽鍖哄彿閰嶇疆";
 		}
 		if ("xz".equals(type)) {
-			return "客户公司性质";
+			return "瀹㈡埛鍏徃鎬ц川";
 		}
 		if ("syzxz".equals(type)) {
-			return "客户公司所有制类型";
+			return "瀹㈡埛鍏徃鎵�鏈夊埗绫诲瀷";
 		}
-		return "非法类型";
+		return "闈炴硶绫诲瀷";
 	}
 
 }

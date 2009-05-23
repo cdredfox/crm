@@ -1,4 +1,4 @@
-package com.netsoft.web.struts.form;
+﻿package com.netsoft.web.struts.form;
 
 
 import java.util.Date;

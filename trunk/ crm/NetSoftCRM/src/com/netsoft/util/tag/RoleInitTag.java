@@ -1,4 +1,4 @@
-package com.netsoft.util.tag;
+ï»¿package com.netsoft.util.tag;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +16,14 @@ import com.netsoft.dao.intf.IRolesDao;
 import com.netsoft.dao.pojos.Menus;
 
 /*
- * ½ÇÉ«Ôö¼Ó£¬Î¬»¤ÏÔÊ¾È¨ÏŞ±í¸ñ
+ * è§’è‰²å¢åŠ ï¼Œç»´æŠ¤æ˜¾ç¤ºæƒé™è¡¨æ ¼
  */
 public class RoleInitTag extends BodyTagSupport {
 
 	private String listName;
 	private String scope;
-	private String role;// ÒªÈ¡ÄÄÒ»´óÀàµÄÈ¨ÏŞ 0ÎªÈ«²¿ -1 ÎªÏµÍ³×ÊÔ´Î¬»¤ -2 ¿Í»§×ÊÔ´¹ÜÀí -3 Îª×ÛºÏ²éÑ¯¹ÜÀí -4
-						// ÎªÆäËüÌØÊâÈ¨ÏŞ(¼´¿ØÖÆµ½×é¼şµÄÈ¨ÏŞ)
+	private String role;// è¦å–å“ªä¸€å¤§ç±»çš„æƒé™ 0ä¸ºå…¨éƒ¨ -1 ä¸ºç³»ç»Ÿèµ„æºç»´æŠ¤ -2 å®¢æˆ·èµ„æºç®¡ç† -3 ä¸ºç»¼åˆæŸ¥è¯¢ç®¡ç† -4
+						// ä¸ºå…¶å®ƒç‰¹æ®Šæƒé™(å³æ§åˆ¶åˆ°ç»„ä»¶çš„æƒé™)
 	Logger log = Logger.getLogger(this.getClass());
 
 	@Override
@@ -33,17 +33,17 @@ public class RoleInitTag extends BodyTagSupport {
 		JspWriter out = pageContext.getOut();
 		List<Menus> topMenus = new ArrayList();
 		List<Menus> owenList = null;
-		// È¡¸ÃÓÃ»§µÄÈ¨ÏŞ
+		// å–è¯¥ç”¨æˆ·çš„æƒé™
 		if (body != null && !"".equals(body)) {
-			log.info("±êÇ©ÌåÖĞÓĞÄÚÈİ.....");
-			log.info("ÄÚÈİÊÇ£º" + body);
+			log.info("æ ‡ç­¾ä½“ä¸­æœ‰å†…å®¹.....");
+			log.info("å†…å®¹æ˜¯ï¼š" + body);
 			owenList = (List<Menus>) pageContext.getRequest().getAttribute(
 					"rolelist");
 		}
 		try {
 			StringBuffer sb = new StringBuffer();
 			List<Menus> list = new ArrayList();
-			// ¼ì²é×÷ÓÃÓò¡£È¡µÃ·ÅÔÚ×÷ÓÃÓòÖĞµÄ¶ÔÏó
+			// æ£€æŸ¥ä½œç”¨åŸŸã€‚å–å¾—æ”¾åœ¨ä½œç”¨åŸŸä¸­çš„å¯¹è±¡
 			if (scope.equals("session")) {
 				list = (List) pageContext.getSession().getAttribute(listName);
 			} else {
@@ -52,13 +52,13 @@ public class RoleInitTag extends BodyTagSupport {
 			sb
 					.append("<table  cellspacing=1 cellpadding=0 border=0 id=bgtable width=100% align=center><tr><td id=bgtitle colspan=2 align=center>");
 			if ("-1".equals(role)) {
-				sb.append("ÏµÍ³×ÊÔ´Î¬»¤");
+				sb.append("ç³»ç»Ÿèµ„æºç»´æŠ¤");
 			} else if ("-2".equals(role)) {
-				sb.append("¿Í»§×ÊÔ´¹ÜÀí");
+				sb.append("å®¢æˆ·èµ„æºç®¡ç†");
 			} else if ("-3".equals(role)) {
-				sb.append("×ÛºÏ²éÑ¯¹ÜÀí");
+				sb.append("ç»¼åˆæŸ¥è¯¢ç®¡ç†");
 			} else if ("-4".equals(role)) {
-				sb.append("ÆäËüÌØÊâÈ¨ÏŞ¹ÜÀí");
+				sb.append("å…¶å®ƒç‰¹æ®Šæƒé™ç®¡ç†");
 			}
 			for (Menus menus : list) {
 
@@ -66,13 +66,13 @@ public class RoleInitTag extends BodyTagSupport {
 					topMenus.add(menus);
 				}
 			}
-			// È¡µÚ¶ş¼¶²Ëµ¥
+			// å–ç¬¬äºŒçº§èœå•
 			int i = 1;
 			for (Menus menus : topMenus) {
 				sb.append("</td></tr><tr><td width=80 id=bgbody align=left>")
 						.append(menus.getMname()).append(
 								"</td><td id=bgbody align=left width=700>");
-				log.info("¸¸²Ëµ¥£º" + menus.getMname());
+				log.info("çˆ¶èœå•ï¼š" + menus.getMname());
 				for (Menus menus2 : list) {
 					if (menus2.getMtopId().equals(menus.getId())) {
 						if (owenList == null || owenList.size() <= 0) {
@@ -83,9 +83,9 @@ public class RoleInitTag extends BodyTagSupport {
 											+ menus2.getId() + "'>&nbsp;")
 									.append(menus2.getMname());
 						} else {
-							boolean flag = false;// ³õÊ¼±êÖ¾
+							boolean flag = false;// åˆå§‹æ ‡å¿—
 							for (Menus menus3 : owenList) {
-								// Ñ­»·ÏÔÊ¾ÒÑÓĞÈ¨ÏŞ
+								// å¾ªç¯æ˜¾ç¤ºå·²æœ‰æƒé™
 								// log.info(menus2.getId()+":"+menus2.getMname()+"==="+menus3.getId()+":"+menus3.getMname());
 								// log.info(menus2.getId()==menus3.getId());
 								// log.info(menus2.getId().equals(menus3.getId()));
@@ -117,9 +117,9 @@ public class RoleInitTag extends BodyTagSupport {
 			}
 
 			sb
-					.append("<tr><td colspan=6 id=bgbody><input type=button value=È«Ñ¡ onclick=selall('rmidptables"
+					.append("<tr><td colspan=6 id=bgbody><input type=button value=å…¨é€‰ onclick=selall('rmidptables"
 							+ role.substring(1)
-							+ "') class=mybutton><input type=button value=·´Ñ¡ class=mybutton onclick=self('rmidptables"
+							+ "') class=mybutton><input type=button value=åé€‰ class=mybutton onclick=self('rmidptables"
 							+ role.substring(1) + "') ></td></tr></table>");
 			log.info(sb.toString());
 			out.write(sb.toString());

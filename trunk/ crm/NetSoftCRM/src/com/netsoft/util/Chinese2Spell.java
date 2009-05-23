@@ -1,19 +1,19 @@
-package com.netsoft.util;
+ï»¿package com.netsoft.util;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Set;
 /**
  * 
- * @×÷Õß ¡¡¡¡Ñî·É£¨ÖíáÌáÌ£©
- * @¹¤³ÌÃû¡¡NetSoftCRM
- * @ÎÄ¼şÃû¡¡Chinese2Spell.java
- * @±àĞ´ÈÕÆÚ¡¡Dec 23, 2006
- * @¹¦ÄÜËµÃ÷¡¡¸ù¾İÖĞÎÄÈ¡ÏàÓ¦µÄÆ´Òô¡£¡£¹¤¾ßÀà¡£
+ * @ä½œè€… ã€€ã€€æ¨é£ï¼ˆçŒªå´½å´½ï¼‰
+ * @å·¥ç¨‹åã€€NetSoftCRM
+ * @æ–‡ä»¶åã€€Chinese2Spell.java
+ * @ç¼–å†™æ—¥æœŸã€€Dec 23, 2006
+ * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®ä¸­æ–‡å–ç›¸åº”çš„æ‹¼éŸ³ã€‚ã€‚å·¥å…·ç±»ã€‚
  */
 public class Chinese2Spell {
-	private static LinkedHashMap hm=null; /**ÓÃÀ´´æ·ÅÆ´¼ä¼òÂëÓë¶ÔÓ¦ASCIIµÄÖµ*/
-	//¾²Ì¬¿éÓÃÀ´³õÊ¼»¯¹şÏ£±íµÄÖµ
+	private static LinkedHashMap hm=null; /**ç”¨æ¥å­˜æ”¾æ‹¼é—´ç®€ç ä¸å¯¹åº”ASCIIçš„å€¼*/
+	//é™æ€å—ç”¨æ¥åˆå§‹åŒ–å“ˆå¸Œè¡¨çš„å€¼
 	static{
 		if(hm==null)
 		{
@@ -22,7 +22,7 @@ public class Chinese2Spell {
 		init();
 	}
 	
-	//¸ø¹şÏ£±íputÖµµÄ·½·¨
+	//ç»™å“ˆå¸Œè¡¨putå€¼çš„æ–¹æ³•
 	private static void spellPut(String spell,int ascii)
 	{
 		hm.put(spell, new Integer(ascii));
@@ -30,8 +30,8 @@ public class Chinese2Spell {
 	
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡ÓÃÀ´³õÊ¼»¯¹şÏ£±í.´æ·ÅÆ´Òô¶ÔÓ¦µÄASCIIÂë
-	 * @·µ»ØÀàĞÍ¡¡void
+	 * @åŠŸèƒ½è¯´æ˜ã€€ç”¨æ¥åˆå§‹åŒ–å“ˆå¸Œè¡¨.å­˜æ”¾æ‹¼éŸ³å¯¹åº”çš„ASCIIç 
+	 * @è¿”å›ç±»å‹ã€€void
 	 */
 	private static void init()
 	{
@@ -435,28 +435,28 @@ public class Chinese2Spell {
 	
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸ù¾İ´«½øÀ´µÄ×Ö·ûµÃµ½×Ö·û¶ÔÓ¦µÄASCIIÂë
-	 * @·µ»ØÀàĞÍ¡¡int
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®ä¼ è¿›æ¥çš„å­—ç¬¦å¾—åˆ°å­—ç¬¦å¯¹åº”çš„ASCIIç 
+	 * @è¿”å›ç±»å‹ã€€int
 	 * @param cn
 	 * @return
 	 */
      public static int getAsciiByCN(char cn)
      { 
     	try {
-//    		½«´«½øÀ´µÄ×Ö·û»¯³É×Ö·ûÊı×é.ÓÃÀ´¼ì²éÊÇÓ¢ÎÄ»¹ÊÇÖĞÎÄ.ÒòÎªÓ¢ÎÄ
-       	 //Õ¼Ò»¸ö×Ö½Ú.¶øºº×ÖÕ¼Á½¸ö
+//    		å°†ä¼ è¿›æ¥çš„å­—ç¬¦åŒ–æˆå­—ç¬¦æ•°ç»„.ç”¨æ¥æ£€æŸ¥æ˜¯è‹±æ–‡è¿˜æ˜¯ä¸­æ–‡.å› ä¸ºè‹±æ–‡
+       	 //å ä¸€ä¸ªå­—èŠ‚.è€Œæ±‰å­—å ä¸¤ä¸ª
        	 byte[] bytecn=String.valueOf(cn).getBytes();
-       	 //Èç¹û´óÓÚ2»òÕßĞ¡ÓÚ1»òÕßÎª¿Õ.ÔòÓĞ´í.²»ÊÇ×Ö·û
+       	 //å¦‚æœå¤§äº2æˆ–è€…å°äº1æˆ–è€…ä¸ºç©º.åˆ™æœ‰é”™.ä¸æ˜¯å­—ç¬¦
        	 if(bytecn==null||bytecn.length<1||bytecn.length>2)
        	 {
        		 return 0;
        	 }
        	 if(bytecn.length==1)
        	 {
-       		 return bytecn[0];//Ó¢ÎÄÖ±½Ó·µ»Ø
+       		 return bytecn[0];//è‹±æ–‡ç›´æ¥è¿”å›
        	 }else
        	 {
-       		 //ÏÂÃæÊÇµÃµ½ºº×ÖASCIIµÄËã·¨. 
+       		 //ä¸‹é¢æ˜¯å¾—åˆ°æ±‰å­—ASCIIçš„ç®—æ³•. 
        		 int hightByte = 256 + bytecn[0];
        	     int lowByte = 256 + bytecn[1];
        	     int ascii = (256 * hightByte + lowByte) - 256 * 256;
@@ -470,30 +470,30 @@ public class Chinese2Spell {
      
      /**
       * 
-      * @¹¦ÄÜËµÃ÷¡¡¸ù¾İÖµ.µ½¹şÏ£±íÖĞÈ¥ÕÒ¶ÔÓ¦µÄÆ´Òô
-      * @·µ»ØÀàĞÍ¡¡int
+      * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®å€¼.åˆ°å“ˆå¸Œè¡¨ä¸­å»æ‰¾å¯¹åº”çš„æ‹¼éŸ³
+      * @è¿”å›ç±»å‹ã€€int
       * @param ascii
       * @return
       */
      public static String getSpellByAscii(int ascii)
      {
-    	 if(ascii > 0 && ascii < 160){ //µ¥¸ö×Ö·ûÖ±½Ó·µ»Ø
+    	 if(ascii > 0 && ascii < 160){ //å•ä¸ªå­—ç¬¦ç›´æ¥è¿”å›
     	      return String.valueOf((char)ascii);
     	    }
 
-    	    if(ascii < -20319 || ascii > -10247){ //²»ÖªµÀµÄ×Ö·û
+    	    if(ascii < -20319 || ascii > -10247){ //ä¸çŸ¥é“çš„å­—ç¬¦
     	      return null;
     	    }
 
-    	    Set keySet = hm.keySet(); //È¡µÃKEY¼¯ºÏ
-    	    Iterator it = keySet.iterator(); //µÃµ½µü´úÆ÷
+    	    Set keySet = hm.keySet(); //å–å¾—KEYé›†åˆ
+    	    Iterator it = keySet.iterator(); //å¾—åˆ°è¿­ä»£å™¨
 
     	    String spell0 = null;
-    	    String spell = null;//±£´æ·µ»ØµÃµ½µÄÆ´Òô
+    	    String spell = null;//ä¿å­˜è¿”å›å¾—åˆ°çš„æ‹¼éŸ³
 
-    	    int asciiRang0 = -20319;//ÓĞĞ§×Ö·ûµÄÇø¼äµÄ×î´óÖµ
+    	    int asciiRang0 = -20319;//æœ‰æ•ˆå­—ç¬¦çš„åŒºé—´çš„æœ€å¤§å€¼
     	    System.out.println(asciiRang0);
-    	    int asciiRang;//µ±Ç°×Ö·ûµÄasciiµÄÖµ
+    	    int asciiRang;//å½“å‰å­—ç¬¦çš„asciiçš„å€¼
     	    while(it.hasNext()){
     	      spell = (String)it.next();
     	     // System.out.println(asciiRang0+"   "+spell);
@@ -502,9 +502,9 @@ public class Chinese2Spell {
     	       // asciiRang = ((Integer)valObj).intValue();
                 asciiRang=(Integer) hm.get(spell);
                 
-    	        if(ascii >= asciiRang0 && ascii < asciiRang){ //Çø¼äÕÒµ½
-    	        	//´«½øÀ´µÄÖµ:-12590  ÉÏÏŞÖµ:-12594  ĞÂÖµ: -12585
-    	        	//System.out.println("´«½øÀ´µÄÖµ:"+ascii+"  ÉÏÏŞÖµ:"+asciiRang0+"  "+"ĞÂÖµ: "+asciiRang);
+    	        if(ascii >= asciiRang0 && ascii < asciiRang){ //åŒºé—´æ‰¾åˆ°
+    	        	//ä¼ è¿›æ¥çš„å€¼:-12590  ä¸Šé™å€¼:-12594  æ–°å€¼: -12585
+    	        	//System.out.println("ä¼ è¿›æ¥çš„å€¼:"+ascii+"  ä¸Šé™å€¼:"+asciiRang0+"  "+"æ–°å€¼: "+asciiRang);
     	        	return(spell0 == null) ? spell : spell0;
     	        }
     	        else{
@@ -518,8 +518,8 @@ public class Chinese2Spell {
      
      /**
       * 
-      * @¹¦ÄÜËµÃ÷¡¡¸ù¾İ¾ä×ÓÈ¡ÍêÕûµÄÆ´Òô
-      * @·µ»ØÀàĞÍ¡¡String
+      * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®å¥å­å–å®Œæ•´çš„æ‹¼éŸ³
+      * @è¿”å›ç±»å‹ã€€String
       * @param cn
       * @return
       */
@@ -535,13 +535,13 @@ public class Chinese2Spell {
     	 for(int i=0;i<length;i++)
     	 {
     		 int ascii=getAsciiByCN(c[i]);
-    		 if(ascii==0) //Èç¹û³ö´í,·µ»ØÁã.´ú±íÊÇÎ´Öª×Ö·û,ÔòÖ±½Ó¼Óµ½×Ö·û´®ÖĞ.
+    		 if(ascii==0) //å¦‚æœå‡ºé”™,è¿”å›é›¶.ä»£è¡¨æ˜¯æœªçŸ¥å­—ç¬¦,åˆ™ç›´æ¥åŠ åˆ°å­—ç¬¦ä¸²ä¸­.
     		 {
     			 sb.append(c[i]);
     		 }else
     		 {
     			String spell=getSpellByAscii(ascii);
-    		    if(spell==null) //Èç¹û³ö´í.·µ»Ønull.Ôò½«Ã»ÓĞ×ª»»µÄ×Ö·ûÖ±½Ó·Åµ½×Ö·û´®ÖĞ
+    		    if(spell==null) //å¦‚æœå‡ºé”™.è¿”å›null.åˆ™å°†æ²¡æœ‰è½¬æ¢çš„å­—ç¬¦ç›´æ¥æ”¾åˆ°å­—ç¬¦ä¸²ä¸­
     		    {
     		    	sb.append(c[i]);
     		    }else
@@ -555,8 +555,8 @@ public class Chinese2Spell {
      
      /**
       * 
-      * @¹¦ÄÜËµÃ÷¡¡Òª¾İ¾ä×ÓÈ¡Ã¿¸öºº×ÖµÄÆ´ÒôµÄµÚÒ»¸ö×ÖÄ¸(´Ë·½·¨Ö»ÄÜÓÃÓÚÖĞÎÄ)
-      * @·µ»ØÀàĞÍ¡¡void
+      * @åŠŸèƒ½è¯´æ˜ã€€è¦æ®å¥å­å–æ¯ä¸ªæ±‰å­—çš„æ‹¼éŸ³çš„ç¬¬ä¸€ä¸ªå­—æ¯(æ­¤æ–¹æ³•åªèƒ½ç”¨äºä¸­æ–‡)
+      * @è¿”å›ç±»å‹ã€€void
       * @param args
       */
      public static String getStartSpellByCN(String cn)
@@ -571,19 +571,19 @@ public class Chinese2Spell {
     	 for(int i=0;i<length;i++)
     	 {
     		 int ascii=getAsciiByCN(c[i]);
-    		 if(ascii==0) //Èç¹û³ö´í
+    		 if(ascii==0) //å¦‚æœå‡ºé”™
     		 {
     			 sb.append(c[i]);
     		 }else
     		 {
     			 String spell=getSpellByAscii(ascii);
-    			 if(spell==null) //Èç¹û³ö´í
+    			 if(spell==null) //å¦‚æœå‡ºé”™
     			 {
     				 sb.append(c[i]);
     			 }else
     			 {
     				 
-    				 sb.append(spell.charAt(0)); //È¡Æ´ÒôµÄµÚÒ»¸ö×ÖÄ¸
+    				 sb.append(spell.charAt(0)); //å–æ‹¼éŸ³çš„ç¬¬ä¸€ä¸ªå­—æ¯
     			 }
     		 }
     	 }
@@ -591,10 +591,10 @@ public class Chinese2Spell {
      }
      
      public static void main(String[] args) {
- 		//System.out.println(CN2EN.getAsciiByCN('Ñò'));
- 		//System.out.println(("ÖĞ»ªÈËÃñ¹²ºÍ¹ú".toCharArray())[2]);
- 		//System.out.println(CN2EN.getStartSpellByCN("ÎÒ°®ÖĞ¹ú,ÖĞ¹ú°®ÎÒ,ÎÒ°®ËùÓĞµÄÈË"));
- 		System.out.println(Chinese2Spell.getSpellByCN("ÎÒ"));
+ 		//System.out.println(CN2EN.getAsciiByCN('ç¾Š'));
+ 		//System.out.println(("ä¸­åäººæ°‘å…±å’Œå›½".toCharArray())[2]);
+ 		//System.out.println(CN2EN.getStartSpellByCN("æˆ‘çˆ±ä¸­å›½,ä¸­å›½çˆ±æˆ‘,æˆ‘çˆ±æ‰€æœ‰çš„äºº"));
+ 		System.out.println(Chinese2Spell.getSpellByCN("æˆ‘"));
 
       }
 }

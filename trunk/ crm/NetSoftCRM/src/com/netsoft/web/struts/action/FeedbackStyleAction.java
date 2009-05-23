@@ -1,4 +1,4 @@
-package com.netsoft.web.struts.action;
+锘縫ackage com.netsoft.web.struts.action;
 
 import java.util.List;
 
@@ -50,7 +50,7 @@ public class FeedbackStyleAction extends DispatchAction {
 		System.out.println(styleform.getFid());
 		System.out.println(styleform.getStyle());
 		System.out.println("ok...");
-		request.setAttribute("message","谢谢您！操作成功，反馈格式内容已成功增加");
+		request.setAttribute("message","璋㈣阿鎮紒鎿嶄綔鎴愬姛锛屽弽棣堟牸寮忓唴瀹瑰凡鎴愬姛澧炲姞");
 		return mapping.findForward("result");
 	}
 	

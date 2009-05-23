@@ -1,4 +1,4 @@
-package com.netsoft.web.struts.form;
+锘縫ackage com.netsoft.web.struts.form;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,15 +8,15 @@ import org.apache.struts.action.ActionMapping;
 public class NoteBookForm extends ActionForm {
 	
 	/**
-	 * 主要内容
+	 * 涓昏鍐呭
 	 */
 	public String noteBook;
 	/**
-	 * 标题
+	 * 鏍囬
 	 */
 	public String noteTitle;
 	/**
-	 * 是否置顶
+	 * 鏄惁缃《
 	 */
 	public String noteTop;
 	public String getNoteBook() {

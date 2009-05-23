@@ -11,11 +11,11 @@
   <script type="text/javascript">
   	function changedz()
   	{
-  		var topid=document.forms[0].customercounty.value;
+  		var topid=document.forms[0].customerprovinceid.value;
   		if(topid==0)
   		{
-  			DWRUtil.removeAllOptions("city");
-			DWRUtil.addOptions("city",[{configvalue:0,confignote:'市/地区'}],"configvalue","confignote");
+  			DWRUtil.removeAllOptions("customercityid");
+			DWRUtil.addOptions("customercityid",[{configvalue:0,confignote:'市/地区'}],"configvalue","confignote");
   		}else
   		{
   			ConfigAjax.getAllByType('dz',topid,callBack);
@@ -23,14 +23,15 @@
   	}
   	function callBack(msg)
   	{
-  		DWRUtil.removeAllOptions("city");
-		DWRUtil.addOptions("city",msg,"configvalue","confignote");
+  		DWRUtil.removeAllOptions("customercityid");
+		DWRUtil.addOptions("customercityid",msg,"configvalue","confignote");
 		cityChange();
   	}
   	
   	function cityChange()
   	{
-  		var cityid=document.forms[0].city.value;
+  		var cityid=document.forms[0].customercityid.value;
+  		//alert(cityid);
   		selCheck(document.forms[0].phonenumer,cityid);
   		selCheck(document.forms[0].faxnumber,cityid);
   	}
@@ -55,22 +56,22 @@
            document.forms[0].customercompany.focus();
            return false;
         }
-        if(document.forms[0].customercounty.value=="0")
+        if(document.forms[0].customerprovinceid.value=="0")
         {
            alert("省/市必须选择！请选择省/市...");
-           document.forms[0].customercounty.focus();
+           document.forms[0].customerprovinceid.focus();
            return false;
         }
-        if(document.forms[0].city.value=="")
+        if(document.forms[0].customercityid.value=="")
         {
            alert("市/地区必须选择！请选择市/地区...");
-           document.forms[0].city.focus();
+           document.forms[0].customercityid.focus();
            return false;
         }
-        if(document.forms[0].address.value=="")
+        if(document.forms[0].customeraddress.value=="")
         {
            alert("公司地址不能为空！请输入公司地址...");
-           document.forms[0].address.focus();
+           document.forms[0].customeraddress.focus();
            return false;
         }
         if(document.forms[0].pnumber.value=="")
@@ -165,16 +166,16 @@
 					公司地址
 				</TD>
 				<TD id=bgbody colspan=3>
-					<select name="customercounty" onchange="changedz();">
+					<html:select property="customerprovinceid" onchange="changedz();">
 						<option value="0">省/市</option>
 						<logic:iterate id="dz" name="customerdz">
 								<option value="${dz.configvalue}">${dz.confignote}</option>		
 						</logic:iterate>
-					</select>
-					<select name="city" onchange="cityChange();">
+					</html:select>
+					<html:select property="customercityid" onchange="cityChange();">
 						<option>市/地区</option>
-					</select>
-					<input name='address' size=50 class=myinput value=''>
+					</html:select>
+					<html:text property='customeraddress' size='50' styleClass="myinput" value=''/>
 				</TD>
 			</tr>
 			<tr>

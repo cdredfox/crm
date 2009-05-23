@@ -1,4 +1,4 @@
-package com.netsoft.dao.imp;
+ï»¿package com.netsoft.dao.imp;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +17,7 @@ public class FeedbacktypeDao implements IFeedbacktypeDao {
 		try {
 			return icd.currenPage(page, size, hql, hm);
 		} catch (Exception e) {
-			log.error("FeedbacktypeDao.getFeedbackByWhere³ö´íÁË!",e);
+			log.error("FeedbacktypeDao.getFeedbackByWhereå‡ºé”™äº†!",e);
 			return null;
 		}
 		

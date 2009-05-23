@@ -1,4 +1,4 @@
-package com.netsoft.services.intf;
+ï»¿package com.netsoft.services.intf;
 
 import java.util.Date;
 import java.util.List;
@@ -10,7 +10,7 @@ import com.netsoft.dao.pojos.Feedbacktable;
 public interface IFeedbackTypeService {
 	
 	/**
-	 * ¸ù¾İÈÕÆÚ²éÕÒ·´À¡±¨±íÊı¾İ
+	 * æ ¹æ®æ—¥æœŸæŸ¥æ‰¾åé¦ˆæŠ¥è¡¨æ•°æ®
 	 * @param start
 	 * @param end
 	 * @return
@@ -18,7 +18,7 @@ public interface IFeedbackTypeService {
 	public List getFeedbackTypeReportByDate(String start,String end);
 
 	/**
-	 * »ñÈ¡Ä³¸ö¿Í»§µÄ·´À¡¼ÇÂ¼£¬·ÖÒ³
+	 * è·å–æŸä¸ªå®¢æˆ·çš„åé¦ˆè®°å½•ï¼Œåˆ†é¡µ
 	 * @param id
 	 * @param page
 	 * @param size
@@ -27,21 +27,21 @@ public interface IFeedbackTypeService {
 	public List<FeedbacktableBean> getFeedbackTypeByCustomerid(int id,int page,int size);
 	
 	/**
-	 * Ôö¼ÓÒ»¸ö·´À¡
+	 * å¢åŠ ä¸€ä¸ªåé¦ˆ
 	 * @param ftb
 	 * @return
 	 */
 	public boolean addFeedbackType(FeedbacktableBean ftb);
 	
 	/**
-	 * ¸ù¾İidÉ¾³ıÒ»¸ö·´À¡
+	 * æ ¹æ®idåˆ é™¤ä¸€ä¸ªåé¦ˆ
 	 * @param id
 	 * @return
 	 */
 	public boolean delFeedbackType(int id);
 	
 	/**
-	 * »ñÈ¡·ÖÒ³µÄ×Ü¼ÇÂ¼Êı£¬Îª·ÖÒ³Ìá¹©·şÎñ
+	 * è·å–åˆ†é¡µçš„æ€»è®°å½•æ•°ï¼Œä¸ºåˆ†é¡µæä¾›æœåŠ¡
 	 * @return
 	 */
 	public int getCount(int id);
@@ -49,13 +49,13 @@ public interface IFeedbackTypeService {
 	public FeedbackReportBean getFeedbackTypeReportCountDataByList(List<FeedbackReportBean>  data);
 	
 	/**
-	 * ÄÚÍø¿Í»§·´À¡Í³¼ÆÒµÎñ±¨±í
-	 * @param companyName ¹«Ë¾Ãû³Æ
-	 * @param eid ¿Í»§ËùÓĞÈË
-	 * @param dz ¿Í»§µÈ¼¶
-	 * @param xz ¿Í»§ĞÔÖÊ
-	 * @param startdate ¿ªÊ¼ÈÕÆÚ
-	 * @param enddate ½áÊøÈÕÆÚ
+	 * å†…ç½‘å®¢æˆ·åé¦ˆç»Ÿè®¡ä¸šåŠ¡æŠ¥è¡¨
+	 * @param companyName å…¬å¸åç§°
+	 * @param eid å®¢æˆ·æ‰€æœ‰äºº
+	 * @param dz å®¢æˆ·ç­‰çº§
+	 * @param xz å®¢æˆ·æ€§è´¨
+	 * @param startdate å¼€å§‹æ—¥æœŸ
+	 * @param enddate ç»“æŸæ—¥æœŸ
 	 * @return
 	 */
 	public List getIntFeedBackReportData(String companyName,String eid,String dz,String xz,String startdate,String enddate,String address);

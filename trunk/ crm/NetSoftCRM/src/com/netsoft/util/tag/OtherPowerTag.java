@@ -1,4 +1,4 @@
-package com.netsoft.util.tag;
+ï»¿package com.netsoft.util.tag;
 
 import java.util.List;
 
@@ -8,13 +8,13 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 import com.netsoft.dao.pojos.Menus;
 
 /**
- * ÌØÊâÈ¨ÏŞ¹ÜÀíµÄ±êÇ©(ÓÃÀ´¹ÜÀíÏÔÊ¾»òÕß²»ÏÔÊ¾×é¼ş)
+ * ç‰¹æ®Šæƒé™ç®¡ç†çš„æ ‡ç­¾(ç”¨æ¥ç®¡ç†æ˜¾ç¤ºæˆ–è€…ä¸æ˜¾ç¤ºç»„ä»¶)
  * 
  * @author admin
  * 
  */
 public class OtherPowerTag extends BodyTagSupport {
-	// Òª¹ÜÀíÄÄ¸öÈ¨ÏŞ ±àºÅ
+	// è¦ç®¡ç†å“ªä¸ªæƒé™ ç¼–å·
 	public String mid;
 
 	@Override

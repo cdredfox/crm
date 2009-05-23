@@ -1,4 +1,4 @@
-package com.netsoft.services.intf;
+ï»¿package com.netsoft.services.intf;
 
 import java.util.List;
 import java.util.Set;
@@ -7,28 +7,28 @@ import com.netsoft.dao.beans.RolesBean;
 
 public interface IRoleServices {
 	
-	/**È¡µÃËùÓĞµÄ½ÇÉ«*/
+	/**å–å¾—æ‰€æœ‰çš„è§’è‰²*/
 	public abstract List getAllRoles();
 	
-	/**ĞŞ¸Ä½ÇÉ«×´Ì¬¡£0ÓĞĞ§¡¡1ÎŞĞ§*/
+	/**ä¿®æ”¹è§’è‰²çŠ¶æ€ã€‚0æœ‰æ•ˆã€€1æ— æ•ˆ*/
 	public abstract boolean changeStyle(int cid,int style);
    
-	/**È¡µÃÄ³½ÇÉ«ÏÂÃæµÄËùÓĞÈ¨ÏŞ*/
+	/**å–å¾—æŸè§’è‰²ä¸‹é¢çš„æ‰€æœ‰æƒé™*/
 	public abstract Set getMenusByRole(int rid);
 	
-	/**Ôö¼ÓÒ»¸ö½ÇÉ«*/
+	/**å¢åŠ ä¸€ä¸ªè§’è‰²*/
 	public abstract boolean addRole(RolesBean rb);
 	
-	/**¸ù¾İ½ÇÉ«IDÉ¾³ıÒ»¸ö½ÇÉ«*/
+	/**æ ¹æ®è§’è‰²IDåˆ é™¤ä¸€ä¸ªè§’è‰²*/
 	public abstract String delRoleById(int id);
 	/**
-	 * ¸ù¾İIDµÃµ½½ÇÉ«Ãû
+	 * æ ¹æ®IDå¾—åˆ°è§’è‰²å
 	 * @param id
 	 * @return
 	 */
 	public abstract String getRoleNameById(int id);
 	/**
-	 * ¸ù¾İÒ»¸öBO½ÇÉ«¶ÔÏóĞŞ¸Ä½ÇÉ«µÄ¶ÔÏó
+	 * æ ¹æ®ä¸€ä¸ªBOè§’è‰²å¯¹è±¡ä¿®æ”¹è§’è‰²çš„å¯¹è±¡
 	 * @param rb
 	 * @return
 	 */

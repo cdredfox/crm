@@ -1,4 +1,4 @@
-package com.netsoft.dao.intf;
+ï»¿package com.netsoft.dao.intf;
 
 import java.util.List;
 
@@ -6,14 +6,14 @@ import com.netsoft.dao.pojos.Notebook;
 
 public interface INoteBookDao {
 	/**
-	 * °´Ò³ÊıÀ´È¡ËùÓĞµÄÂÛÌ³Ìù
+	 * æŒ‰é¡µæ•°æ¥å–æ‰€æœ‰çš„è®ºå›è´´
 	 * @param page
 	 * @param size
 	 * @return
 	 */
 	public List<Notebook> getAllNoteBook(int page,int size);
 	/**
-	 * ¸ù¾İÖ÷ÌâÌùÕÒ»Ø¸´Ìù²¢·ÖÒ³
+	 * æ ¹æ®ä¸»é¢˜è´´æ‰¾å›å¤è´´å¹¶åˆ†é¡µ
 	 * @param page
 	 * @param size
 	 * @param topid
@@ -21,12 +21,12 @@ public interface INoteBookDao {
 	 */
 	public List<Notebook> getNoteBookByTopId(int page,int size,int topid);
 	/**
-	 * Ôö¼Ó¸úÌù
+	 * å¢åŠ è·Ÿè´´
 	 * @param nb
 	 */
 	public void addNoteBook(Notebook nb);
 	/**
-	 * É¾³ıÖ¸¶¨idµÄÌù×Ó£¬Èç¹ûÊÇÖ÷ÌùµÄ»°£¬ÆäÏÂµÄ¸úÌùÒ²½«É¾³ı
+	 * åˆ é™¤æŒ‡å®šidçš„è´´å­ï¼Œå¦‚æœæ˜¯ä¸»è´´çš„è¯ï¼Œå…¶ä¸‹çš„è·Ÿè´´ä¹Ÿå°†åˆ é™¤
 	 * @param id
 	 * @return
 	 */

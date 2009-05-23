@@ -1,4 +1,4 @@
-package com.netsoft.web.struts.action;
+ï»¿package com.netsoft.web.struts.action;
 
 import java.util.Date;
 import java.util.List;
@@ -98,20 +98,20 @@ public class NoteBookAction extends DispatchAction {
 		nbb.setWriteDate(new Date());
 		if (type == null) {
 			int topid = Integer.parseInt(request.getParameter("topid"));
-			// »Ø¸´Ìù×Ó
+			// å›å¤è´´å­
 			nbb.setTop(0);
 			nbb.setTopid(topid);
-			nbb.setTitle("»ØÌùÌù×Ó");
+			nbb.setTitle("å›è´´è´´å­");
 			inbs.addNoteBook(nbb);
 			return new ActionForward("/notebook.crm?method=showView&id="
 					+ topid);
 		} else if ("showNoteBook".equals(type)) {
-			// Á÷ÑÔ±¾
+			// æµè¨€æœ¬
 			int topid = Integer.parseInt(request.getParameter("topid"));
-			// »Ø¸´Ìù×Ó
+			// å›å¤è´´å­
 			nbb.setTop(0);
 			nbb.setTopid(topid);
-			nbb.setTitle("»Ø¸´Á÷ÑÔ");
+			nbb.setTitle("å›å¤æµè¨€");
 			if("Y".equals(eb.getBbsFlag()))
 			{
 				nbb.setNote("<b><font color='red'>"+nbb.getNote()+"</font></b>");
@@ -123,7 +123,7 @@ public class NoteBookAction extends DispatchAction {
 
 			nbb.setTop(Integer.parseInt(nbf.noteTop));
 
-			nbb.setTopid(0);// ÎªÖ÷ÌùÉèÎªÁã
+			nbb.setTopid(0);// ä¸ºä¸»è´´è®¾ä¸ºé›¶
 			if("Y".equals(eb.getBbsFlag()))
 			{
 				nbb.setTitle("<b><font color='red'>"+nbf.getNoteTitle()+"</font></b>");

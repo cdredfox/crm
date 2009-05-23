@@ -1,4 +1,4 @@
-package com.netsoft.util;
+锘縫ackage com.netsoft.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 import com.netsoft.exception.BusinessException;
 
 /**
- * 取机器的网卡mac地址
+ * 鍙栨満鍣ㄧ殑缃戝崱mac鍦板潃
  * 
  * @author yangfei
  * 
@@ -26,14 +26,14 @@ public class MacInfo {
 			} else if (os.startsWith("Linux")) {
 				return getMacByLinux();
 			} else {
-				// 未知的操作系统，暂不支持
+				// 鏈煡鐨勬搷浣滅郴缁燂紝鏆備笉鏀寔
 				return null;
 			}
 		} catch (BusinessException e) {
 			throw e;
 		} catch (Exception ex) {
-			log.error("MacInfo.getMacNo未知错误!", ex);
-			throw new BusinessException("MacInfo.getMacNo未知错误!", ex);
+			log.error("MacInfo.getMacNo鏈煡閿欒!", ex);
+			throw new BusinessException("MacInfo.getMacNo鏈煡閿欒!", ex);
 		}
 
 	}
@@ -59,8 +59,8 @@ public class MacInfo {
 			return address.trim();
 
 		} catch (IOException e) {
-			log.error("MacInfo.getMacByWindows出错!", e);
-			throw new BusinessException("MacInfo.getMacByWindows出错!", e);
+			log.error("MacInfo.getMacByWindows鍑洪敊!", e);
+			throw new BusinessException("MacInfo.getMacByWindows鍑洪敊!", e);
 		}
 	}
 
@@ -84,7 +84,7 @@ public class MacInfo {
 			return address.trim();
 		} catch (IOException e) {
 			log.error("MacInfo.getMacByLinux!", e);
-			throw new BusinessException("MacInfo.getMacByLinux出错!", e);
+			throw new BusinessException("MacInfo.getMacByLinux鍑洪敊!", e);
 		}
 
 	}

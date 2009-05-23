@@ -1,4 +1,4 @@
-package com.netsoft.util;
+ï»¿package com.netsoft.util;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +14,7 @@ public class CheckUser {
 		HttpSession session=request.getSession();
 		if(session.getAttribute("Employees")==null)
 		{
-			request.setAttribute("message","<font color='red'>¶Ô²»Æğ!ÄúµÄµÇÂ¼ÒÑ¾­Ê§Ğ§,ÇëÖØĞÂµÇÂ¼½øĞĞ²Ù×÷</font>");
+			request.setAttribute("message","<font color='red'>å¯¹ä¸èµ·!æ‚¨çš„ç™»å½•å·²ç»å¤±æ•ˆ,è¯·é‡æ–°ç™»å½•è¿›è¡Œæ“ä½œ</font>");
 			return false;
 		}
 		return true;

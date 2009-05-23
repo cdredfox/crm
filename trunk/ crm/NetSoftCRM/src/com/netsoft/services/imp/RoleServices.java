@@ -1,4 +1,4 @@
-package com.netsoft.services.imp;
+ï»¿package com.netsoft.services.imp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class RoleServices implements IRoleServices {
 		try {
 			List<RolesBean> list = new ArrayList();
 			List<Roles> role = ird.getAllRoles();
-			log.info("getAllRolesµÄ³¤¶ÈÎª£º" + role.size());
+			log.info("getAllRolesçš„é•¿åº¦ä¸ºï¼š" + role.size());
 			for (Roles roles : role) {
 				RolesBean rb = new RolesBean();
 				BeanUtils.copyProperties(rb, roles);
@@ -39,12 +39,12 @@ public class RoleServices implements IRoleServices {
 			}
 			return list;
 		} catch (Exception e) {
-			log.error("RoleServicesÖĞgetAllRoles·½·¨³öÏÖÒì³£ÁË", e);
+			log.error("RoleServicesä¸­getAllRolesæ–¹æ³•å‡ºç°å¼‚å¸¸äº†", e);
 			return null;
 		}
 	}
 
-	/** ĞŞ¸Ä½ÇÉ«×´Ì¬¡£0ÓĞĞ§ 1ÎŞĞ§ */
+	/** ä¿®æ”¹è§’è‰²çŠ¶æ€ã€‚0æœ‰æ•ˆ 1æ— æ•ˆ */
 	public boolean changeStyle(int cid, int style) {
 		try {
 			if (style == 1) {
@@ -54,7 +54,7 @@ public class RoleServices implements IRoleServices {
 			}
 			return true;
 		} catch (Exception e) {
-			log.error("RoleServicesÖĞchangeStyle·½·¨³öÏÖÒì³£ÁË", e);
+			log.error("RoleServicesä¸­changeStyleæ–¹æ³•å‡ºç°å¼‚å¸¸äº†", e);
 			return false;
 		}
 
@@ -74,12 +74,12 @@ public class RoleServices implements IRoleServices {
 			roles.setId(rid);
 			return ird.getMenusByRole(roles);
 		} catch (Exception e) {
-			log.error("RoleServicesÖĞgetMenusByRole·½·¨³öÏÖÒì³£ÁË", e);
+			log.error("RoleServicesä¸­getMenusByRoleæ–¹æ³•å‡ºç°å¼‚å¸¸äº†", e);
 			return null;
 		}
 	}
 
-	/** Ôö¼ÓÒ»¸ö½ÇÉ« */
+	/** å¢åŠ ä¸€ä¸ªè§’è‰² */
 	public boolean addRole(RolesBean rb) {
 		try {
 			Roles r = new Roles();
@@ -92,30 +92,30 @@ public class RoleServices implements IRoleServices {
 			ird.updateRoles(r);
 			return true;
 		} catch (Exception e) {
-			log.error("RoleServicesÖĞgetMenusByRole·½·¨³öÏÖÒì³£ÁË", e);
+			log.error("RoleServicesä¸­getMenusByRoleæ–¹æ³•å‡ºç°å¼‚å¸¸äº†", e);
 			return false;
 		}
 
 	}
 
-	/** ¸ù¾İ½ÇÉ«IDÉ¾³ıÒ»¸ö½ÇÉ« */
+	/** æ ¹æ®è§’è‰²IDåˆ é™¤ä¸€ä¸ªè§’è‰² */
 	public String delRoleById(int id) {
 		try {
 			Roles role=ird.getRoles(id);
 			if(role.getEmidrs().size()>0)
 			{
-				return "µ±Ç°½ÇÉ«²»ÄÜ±»É¾³ı!ÇëÏÈ½«¸Ã½ÇÉ«ÏÂµÄÔ±¹¤ÏÈ×ªÒÆµ½ÆäËü½ÇÉ«ÉÏ!";
+				return "å½“å‰è§’è‰²ä¸èƒ½è¢«åˆ é™¤!è¯·å…ˆå°†è¯¥è§’è‰²ä¸‹çš„å‘˜å·¥å…ˆè½¬ç§»åˆ°å…¶å®ƒè§’è‰²ä¸Š!";
 			}
 			 if(ird.deleteRolesById(Roles.class, id))
 			 {
-				 return "µ±Ç°½ÇÉ«±»³É¹¦É¾³ı";
+				 return "å½“å‰è§’è‰²è¢«æˆåŠŸåˆ é™¤";
 			 }else
 			 {
-				 return "½ÇÉ«É¾³ıÊ§°Ü!Î´Öª´íÎó";
+				 return "è§’è‰²åˆ é™¤å¤±è´¥!æœªçŸ¥é”™è¯¯";
 			 }
 		} catch (Exception e) {
-			log.error("RoleServicesÖĞdelRoleById·½·¨³öÏÖÒì³£ÁË", e);
-			return "½ÇÉ«É¾³ıÊ±·¢ÉúÒì³£,ÇëÁªÏµÏà¹ØµÄÏµÍ³ÈËÔ±!";
+			log.error("RoleServicesä¸­delRoleByIdæ–¹æ³•å‡ºç°å¼‚å¸¸äº†", e);
+			return "è§’è‰²åˆ é™¤æ—¶å‘ç”Ÿå¼‚å¸¸,è¯·è”ç³»ç›¸å…³çš„ç³»ç»Ÿäººå‘˜!";
 		}
 
 	}
@@ -155,7 +155,7 @@ public class RoleServices implements IRoleServices {
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
-			log.error("ĞŞ¸Ä½ÇÉ«È¨ÏŞÊ±³ö´íÁË!",e);
+			log.error("ä¿®æ”¹è§’è‰²æƒé™æ—¶å‡ºé”™äº†!",e);
 			return false;
 		}
 		
@@ -169,7 +169,7 @@ public class RoleServices implements IRoleServices {
 		this.imd = imd;
 	}
 	/**
-	 * ¸ù¾İIDµÃµ½½ÇÉ«Ãû
+	 * æ ¹æ®IDå¾—åˆ°è§’è‰²å
 	 * @param id
 	 * @return
 	 */

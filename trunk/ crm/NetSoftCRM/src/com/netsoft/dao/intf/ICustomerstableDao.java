@@ -1,4 +1,4 @@
-package com.netsoft.dao.intf;
+ï»¿package com.netsoft.dao.intf;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,25 +8,25 @@ import com.netsoft.dao.pojos.Customerstable;
 public interface ICustomerstableDao {
 	
 	/**
-	 * ¸üĞÂÒ»¸ö¿Í»§¶ÔÏó
+	 * æ›´æ–°ä¸€ä¸ªå®¢æˆ·å¯¹è±¡
 	 */
 	public void updateCustomerstable(Customerstable cu);
 	/**
-	 * Ôö¼ÓÒ»¸ö¿Í»§¶ÔÏó
+	 * å¢åŠ ä¸€ä¸ªå®¢æˆ·å¯¹è±¡
 	 * @param cu
 	 */
 	public <cl> cl addCustomerstable(Customerstable cu);
 	/**
-	 * ¸ù¾İ¿Í»§IDÉ¾³ıÒ»¸ö¿Í»§¶ÔÏó
+	 * æ ¹æ®å®¢æˆ·IDåˆ é™¤ä¸€ä¸ªå®¢æˆ·å¯¹è±¡
 	 * @param id
 	 */
 	public boolean delCustomerstable(int id);
 	/**
-	 * È¡µÃËùÓĞµÄ¿Í»§¶ÔÏó
+	 * å–å¾—æ‰€æœ‰çš„å®¢æˆ·å¯¹è±¡
 	 */
 	public List<Customerstable> getAllCustomerstable(int page,int size,String company,int eid,String startdate,String enddate);
 	/**
-	 * ¸ù¾İÔ±¹¤IDÈ¡µÃ¸ÃÔ±¹¤ÃûÏÂµÄËùÓĞ¿Í»§¶ÔÏó ·ÖÒ³
+	 * æ ¹æ®å‘˜å·¥IDå–å¾—è¯¥å‘˜å·¥åä¸‹çš„æ‰€æœ‰å®¢æˆ·å¯¹è±¡ åˆ†é¡µ
 	 * @param eid
 	 * @param page
 	 * @param size
@@ -34,12 +34,12 @@ public interface ICustomerstableDao {
 	 */
 	public List<Customerstable> getCustomersByEid(int eid,int page,int size,String company,String startdate,String enddate,int cutomergrade);
 	/**
-	 * È¡µÃËùÓĞ¹«¿ªµÄ¿Í»§¶ÔÏó
+	 * å–å¾—æ‰€æœ‰å…¬å¼€çš„å®¢æˆ·å¯¹è±¡
 	 */
 	public List<Customerstable> getCustomersByOpen(int page,int size,String company,String startdate,String enddate,int cutomergrade);
 	
 	/**
-	 * È¡ËùÓĞÊ§Ïú¿Í»§
+	 * å–æ‰€æœ‰å¤±é”€å®¢æˆ·
 	 * @return
 	 */
 	public List<Customerstable> getCustomersByInvali(int page,int size,String company,String startdate,String enddate,int cutomergrade);
@@ -53,7 +53,7 @@ public interface ICustomerstableDao {
 	public List<Customerstable> getCustomersByAny(HashMap hm,String hql);
 	
 	/**
-	 * ²éÄ³Ô±¹¤ÃûÏÂµÄÄ³µÈ¼¶µÄËùÓĞ¿Í»§
+	 * æŸ¥æŸå‘˜å·¥åä¸‹çš„æŸç­‰çº§çš„æ‰€æœ‰å®¢æˆ·
 	 * @param eid
 	 * @param grade
 	 * @return
@@ -61,7 +61,7 @@ public interface ICustomerstableDao {
 	public List<Customerstable> getCustomerByEidAndGrade(int eid,int grade);
 	
 	/**
-	 * ¸ù¾İ¿Í»§IDµÃµ½Ò»¸ö³Ö¾Ã»¯¿Í»§¶ÔÏó
+	 * æ ¹æ®å®¢æˆ·IDå¾—åˆ°ä¸€ä¸ªæŒä¹…åŒ–å®¢æˆ·å¯¹è±¡
 	 * @param id
 	 * @return
 	 */

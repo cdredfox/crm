@@ -1,4 +1,4 @@
-package com.netsoft.dao.intf;
+ï»¿package com.netsoft.dao.intf;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,20 +8,20 @@ import com.netsoft.dao.pojos.Feedbacktable;
 public interface IFeedbacktypeDao {
 	public List getFeedbackByWhere(String hql,HashMap hm,int page,int size);
 	/**
-	 * ¸ù¾İID²éÕÒÒ»¸ö·´À¡¶ÔÏó
+	 * æ ¹æ®IDæŸ¥æ‰¾ä¸€ä¸ªåé¦ˆå¯¹è±¡
 	 * @param id
 	 * @return
 	 */
 	public Feedbacktable getFeedbackByid(int id);
 	/**
-	 * Ôö¼ÓÒ»¸ö·´À¡¶ÔÏó
+	 * å¢åŠ ä¸€ä¸ªåé¦ˆå¯¹è±¡
 	 * @param fb
 	 * @return
 	 */
 	public boolean addFeedbackTable(Feedbacktable fb);
 	
 	/**
-	 * ¸ù¾İIDÉ¾³ıÒ»¸ö·´À¡¶ÔÏó
+	 * æ ¹æ®IDåˆ é™¤ä¸€ä¸ªåé¦ˆå¯¹è±¡
 	 * @param id
 	 * @return
 	 */

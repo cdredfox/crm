@@ -1,4 +1,4 @@
-package com.netsoft.dao.intf;
+ï»¿package com.netsoft.dao.intf;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,23 +8,23 @@ import com.netsoft.dao.pojos.Configuretable;
 public interface IConfiguretableDao {
 	
 	/**
-	 * Ôö¼ÓÒ»¸öÅäÖÃ
+	 * å¢åŠ ä¸€ä¸ªé…ç½®
 	 */
 	public boolean addConfig(Configuretable ct);
 
 	/**
-	 * ¸ù¾İIDÉ¾³ıÒ»¸öÅäÖÃ
+	 * æ ¹æ®IDåˆ é™¤ä¸€ä¸ªé…ç½®
 	 * @param id
 	 * @return
 	 */
 	public boolean delConfig(int id);
 	
 	/**
-	 * µÃµ½ËùÓĞµÄÅäÖÃ·ÖÀà
+	 * å¾—åˆ°æ‰€æœ‰çš„é…ç½®åˆ†ç±»
 	 */
 	public List<Configuretable> getType();
 	/**
-	 * ¸ùËùÄ³¸ötypeµÃµ½typÏÂµÄËùÓĞÁĞ±í
+	 * æ ¹æ‰€æŸä¸ªtypeå¾—åˆ°typä¸‹çš„æ‰€æœ‰åˆ—è¡¨
 	 * @param type
 	 * @return
 	 */

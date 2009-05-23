@@ -1,4 +1,4 @@
-package com.netsoft.services.imp;
+﻿package com.netsoft.services.imp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -81,7 +81,7 @@ public class ConfiguretableServices implements IConfiguretableServices {
 	}
 	
 	
-	//��绰����
+	//锟斤拷缁帮拷锟斤拷锟?
 	public String qryPhoneByTypeAndValue(String type, String value) {
 		String hql="from Configuretable where configtype=:type and configmessage=:value";
 		HashMap hm=new HashMap();

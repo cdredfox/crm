@@ -1,4 +1,4 @@
-package com.netsoft.dao.imp;
+锘縫ackage com.netsoft.dao.imp;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,7 +20,7 @@ public class NoteBookDao implements INoteBookDao {
 	}
 	
 	/**
-	 * 按页数取所有的主题
+	 * 鎸夐〉鏁板彇鎵�鏈夌殑涓婚
 	 * @param page
 	 * @param size
 	 * @return
@@ -33,7 +33,7 @@ public class NoteBookDao implements INoteBookDao {
 	}
 	
 	/**
-	 * 根据主题贴找回复贴并分页
+	 * 鏍规嵁涓婚璐存壘鍥炲璐村苟鍒嗛〉
 	 * @param page
 	 * @param size
 	 * @param topid
@@ -50,7 +50,7 @@ public class NoteBookDao implements INoteBookDao {
 	}
 
 	/**
-	 * 增加跟贴
+	 * 澧炲姞璺熻创
 	 * @param nb
 	 */
 	public void addNoteBook(Notebook nb)

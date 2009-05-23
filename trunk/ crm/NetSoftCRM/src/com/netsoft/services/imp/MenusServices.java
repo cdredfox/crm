@@ -1,4 +1,4 @@
-package com.netsoft.services.imp;
+ï»¿package com.netsoft.services.imp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +29,8 @@ public class MenusServices implements IMenusServices {
 		List<Menus> mrlist2=new ArrayList();
 		
 		mrlist.addAll(mr);
-		log.info("±¾Éí³¤¶ÈÎª£º"+mrlist.size());
-		log.info("Êı×é³¤¶ÈÎª£º"+menus.length);
+		log.info("æœ¬èº«é•¿åº¦ä¸ºï¼š"+mrlist.size());
+		log.info("æ•°ç»„é•¿åº¦ä¸ºï¼š"+menus.length);
 		
 		for(int i=0;i<mrlist.size();i++)
 		{
@@ -44,21 +44,21 @@ public class MenusServices implements IMenusServices {
 			}
 			}
 		
-		log.info("×îÖÕ¿ÉÉ¾³¤¶ÈÎª£º"+mrlist2.size());
+		log.info("æœ€ç»ˆå¯åˆ é•¿åº¦ä¸ºï¼š"+mrlist2.size());
 		mrlist.removeAll(mrlist2);
 	    Roles role=ird.getRoles(rid);
 	    role.getRmidptables().clear();
 	    role.getRmidptables().addAll(mrlist);
-	    log.info("½ÇÉ«ÖĞµÄ³¤¶ÈÎª£º"+role.getRmidptables().size());
+	    log.info("è§’è‰²ä¸­çš„é•¿åº¦ä¸ºï¼š"+role.getRmidptables().size());
 	    ird.updateRoles(role);
 		return true;
 	} catch (Exception e) {
-		log.error("MenusServicesÖĞdelAllByRole·½·¨³öÏÖÒì³£ÁË",e);
+		log.error("MenusServicesä¸­delAllByRoleæ–¹æ³•å‡ºç°å¼‚å¸¸äº†",e);
 		return false;
 	}
 	}
 	
-	/**Ôö¼ÓÈ¨ÏŞ¸ø½ÇÉ«*/
+	/**å¢åŠ æƒé™ç»™è§’è‰²*/
 	public boolean addAllByRole(Integer rid,Integer[] menus)
 	{
 		try {
@@ -66,20 +66,20 @@ public class MenusServices implements IMenusServices {
 			List<Menus> mrlist=new ArrayList();
 			List<Menus> mrlist2=new ArrayList();
 			mrlist.addAll(mr);
-			log.info("µÚÒ»´ÎÈ¨ÏŞ³¤¶ÈÎª£º"+mrlist.size());
+			log.info("ç¬¬ä¸€æ¬¡æƒé™é•¿åº¦ä¸ºï¼š"+mrlist.size());
 			for(int i=0;i<menus.length;i++)
 			{
 				mrlist.add(imd.getMenusById(menus[i]));
 			}
-			log.info("Ôö¼ÓÈ¨ÏŞºó³¤¶ÈÎª£º"+mrlist.size());
+			log.info("å¢åŠ æƒé™åé•¿åº¦ä¸ºï¼š"+mrlist.size());
 			 Roles role=ird.getRoles(rid);
 			 role.getRmidptables().clear();
 			 role.getRmidptables().addAll(mrlist);
-			 log.info("½ÇÉ«ÖĞµÄ³¤¶ÈÎª£º"+role.getRmidptables().size());
+			 log.info("è§’è‰²ä¸­çš„é•¿åº¦ä¸ºï¼š"+role.getRmidptables().size());
 			 ird.updateRoles(role);
 			return true;
 		} catch (Exception e) {
-			log.error("MenusServicesÖĞaddAllByRole·½·¨³öÏÖÒì³£ÁË",e);
+			log.error("MenusServicesä¸­addAllByRoleæ–¹æ³•å‡ºç°å¼‚å¸¸äº†",e);
 			return false;
 		}
 		
@@ -109,11 +109,11 @@ public class MenusServices implements IMenusServices {
 		this.imd = imd;
 	}
 
-	/**¸ù¾İTOPIDÈ¡ÏàÓ¦µÄ²Ëµ¥Öµ*/
+	/**æ ¹æ®TOPIDå–ç›¸åº”çš„èœå•å€¼*/
 	public List getInitMenus(int mid) {
 		return imd.getMenusByTopId(mid);
 	}
-	/**È¡µÃËùÓĞ²Ëµ¥*/
+	/**å–å¾—æ‰€æœ‰èœå•*/
 	public List getAllMenus(){
 		return imd.getAllMenus();
 	}

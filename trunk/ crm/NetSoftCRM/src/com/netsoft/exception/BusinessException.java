@@ -1,7 +1,7 @@
-package com.netsoft.exception;
+锘縫ackage com.netsoft.exception;
 
 /**
- * 封装的业务异常类
+ * 灏佽鐨勪笟鍔″紓甯哥被
  * @author yangfei
  *
  */

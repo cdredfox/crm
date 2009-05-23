@@ -1,4 +1,4 @@
-package com.netsoft.dao.commonsimp;
+ï»¿package com.netsoft.dao.commonsimp;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -31,11 +31,11 @@ import com.netsoft.dao.commonintf.ICommonDao;
 
 /**
  * 
- * @author Ñî·É
- * @¹¤³ÌÃû SpringCommonTest
- * @ÎÄ¼şÃû CommonDaoAdaper.java
- * @±àĞ´ÈÕÆÚ Dec 15, 2006
- * @¹¦ÄÜËµÃ÷ ¹«¹²½Ó¿ÚµÄÊÊÅäÆ÷Àà¡£Ìá¹©ËùÓĞSpring hibernateÄ£°åµÄ²Ù×÷
+ * @author æ¨é£
+ * @å·¥ç¨‹å SpringCommonTest
+ * @æ–‡ä»¶å CommonDaoAdaper.java
+ * @ç¼–å†™æ—¥æœŸ Dec 15, 2006
+ * @åŠŸèƒ½è¯´æ˜ å…¬å…±æ¥å£çš„é€‚é…å™¨ç±»ã€‚æä¾›æ‰€æœ‰Spring hibernateæ¨¡æ¿çš„æ“ä½œ
  */
 // extends HibernateDaoSupport
 public class CommonDaoAdaper implements ICommonDao {
@@ -49,13 +49,13 @@ public class CommonDaoAdaper implements ICommonDao {
 	 * @see com.netsoft.dao.commonsimp.CommonDao#add(java.lang.Object)
 	 */
 	public boolean add(Object obj) {
-		log.debug("±£´æ¶ÔÏó·½·¨");
+		log.debug("ä¿å­˜å¯¹è±¡æ–¹æ³•");
 		try {
 			hbtTemplate.save(obj);
-			log.debug("±£´æ¶ÔÏó³É¹¦");
+			log.debug("ä¿å­˜å¯¹è±¡æˆåŠŸ");
 			return true;
 		} catch (Exception e) {
-			log.error("±£´æ¶ÔÏóÊ§°Ü", e);
+			log.error("ä¿å­˜å¯¹è±¡å¤±è´¥", e);
 			e.printStackTrace();
 			return false;
 		}
@@ -67,13 +67,13 @@ public class CommonDaoAdaper implements ICommonDao {
 	 * @see com.netsoft.dao.commonsimp.CommonDao#dele(java.lang.Object)
 	 */
 	public boolean dele(Object obj) {
-		log.debug("É¾³ı¶ÔÏó·½·¨");
+		log.debug("åˆ é™¤å¯¹è±¡æ–¹æ³•");
 		try {
 			hbtTemplate.delete(obj);
-			log.debug("É¾³ı¶ÔÏó³É¹¦");
+			log.debug("åˆ é™¤å¯¹è±¡æˆåŠŸ");
 			return true;
 		} catch (Exception e) {
-			log.error("É¾³ı¶ÔÏóÊ§°Ü", e);
+			log.error("åˆ é™¤å¯¹è±¡å¤±è´¥", e);
 			return false;
 		}
 	}
@@ -85,13 +85,13 @@ public class CommonDaoAdaper implements ICommonDao {
 	 *      java.util.HashMap)
 	 */
 	public boolean dele(final String hql, final HashMap hm) {
-		log.debug("¸ù¾İhqlÓï¾äÉ¾³ı¶ÔÏó·½·¨");
+		log.debug("æ ¹æ®hqlè¯­å¥åˆ é™¤å¯¹è±¡æ–¹æ³•");
 		try {
 			boolean flag = this.execute(hql, hm);
-			log.debug("É¾³ı¶ÔÏóÔÚ³É¹¦");
+			log.debug("åˆ é™¤å¯¹è±¡åœ¨æˆåŠŸ");
 			return flag;
 		} catch (Exception e) {
-			log.error("É¾³ı¶ÔÏóÊ§°Ü", e);
+			log.error("åˆ é™¤å¯¹è±¡å¤±è´¥", e);
 			return false;
 		}
 	}
@@ -103,21 +103,21 @@ public class CommonDaoAdaper implements ICommonDao {
 	 *      java.io.Serializable)
 	 */
 	public boolean dele(Class cl, Serializable s) {
-		log.debug("¸ù¾İÀà»òÖ÷¼üÁĞÉ¾³ı¶ÔÏó·½·¨");
+		log.debug("æ ¹æ®ç±»æˆ–ä¸»é”®åˆ—åˆ é™¤å¯¹è±¡æ–¹æ³•");
 		try {
 			hbtTemplate.delete(this.getObjectById(cl, s));
-			log.debug("É¾³ı¶ÔÏóÔÚ³É¹¦");
+			log.debug("åˆ é™¤å¯¹è±¡åœ¨æˆåŠŸ");
 			return true;
 		} catch (Exception e) {
-			log.error("É¾³ı¶ÔÏóÊ§°Ü", e);
+			log.error("åˆ é™¤å¯¹è±¡å¤±è´¥", e);
 			return false;
 		}
 	}
 
-	// //ÔİÊ±µÄ½â¾ö·½°¸¡£ÓĞÒ»ÖÖÊÇÔÚÅäÖÃÎÄ¼şÀïÃæÅäÖÃµÄ¡£µ«ÊÇÈ´Ã»ÓĞÕÒµ½ÕıÈ·µÄ·½·¨¡££¡£¡
+	// //æš‚æ—¶çš„è§£å†³æ–¹æ¡ˆã€‚æœ‰ä¸€ç§æ˜¯åœ¨é…ç½®æ–‡ä»¶é‡Œé¢é…ç½®çš„ã€‚ä½†æ˜¯å´æ²¡æœ‰æ‰¾åˆ°æ­£ç¡®çš„æ–¹æ³•ã€‚ï¼ï¼
 	// public boolean dele(final Class cl,final Serializable s)
 	// {
-	// log.debug("¸ù¾İÀà»òÖ÷¼üÁĞÉ¾³ı¶ÔÏó·½·¨");
+	// log.debug("æ ¹æ®ç±»æˆ–ä¸»é”®åˆ—åˆ é™¤å¯¹è±¡æ–¹æ³•");
 	// try {
 	// hbtTemplate.execute(new HibernateCallback(){
 	//
@@ -129,10 +129,10 @@ public class CommonDaoAdaper implements ICommonDao {
 	// return null;
 	// }
 	// });
-	// log.debug("É¾³ı¶ÔÏóÔÚ³É¹¦");
+	// log.debug("åˆ é™¤å¯¹è±¡åœ¨æˆåŠŸ");
 	// return true;
 	// } catch (Exception e) {
-	// log.error("É¾³ı¶ÔÏóÊ§°Ü",e);
+	// log.error("åˆ é™¤å¯¹è±¡å¤±è´¥",e);
 	// return false;
 	// }
 	//		
@@ -145,14 +145,14 @@ public class CommonDaoAdaper implements ICommonDao {
 	 */
 	public <cl> List<cl> getObjectAll(Class cl) {
 		// TODO Auto-generated method stub
-		log.debug("¸ù¾İÀà²éµ½ËùÓĞµÄ¶ÔÏó");
+		log.debug("æ ¹æ®ç±»æŸ¥åˆ°æ‰€æœ‰çš„å¯¹è±¡");
 		try {
 			String hql = "from " + cl.getName();
 			List li = hbtTemplate.find(hql);
-			log.debug("ÅúÁ¿²éÕÒ¶ÔÏóÔÚ³É¹¦");
+			log.debug("æ‰¹é‡æŸ¥æ‰¾å¯¹è±¡åœ¨æˆåŠŸ");
 			return li;
 		} catch (Exception e) {
-			log.error("ÅúÁ¿²éÕÒ¶ÔÏóÊ§°Ü", e);
+			log.error("æ‰¹é‡æŸ¥æ‰¾å¯¹è±¡å¤±è´¥", e);
 			return null;
 		}
 	}
@@ -164,7 +164,7 @@ public class CommonDaoAdaper implements ICommonDao {
 	 *      java.util.HashMap)
 	 */
 	public List getObjectByHql(final String hql, final HashMap hm) {
-		log.debug("¸ù¾İhql²éµ½ËùÓĞµÄ¶ÔÏó");
+		log.debug("æ ¹æ®hqlæŸ¥åˆ°æ‰€æœ‰çš„å¯¹è±¡");
 		try {
 			List li = hbtTemplate.executeFind(new HibernateCallback() {
 				public Object doInHibernate(Session session)
@@ -182,10 +182,10 @@ public class CommonDaoAdaper implements ICommonDao {
 					return query.list();
 				}
 			});
-			log.debug("ÅúÁ¿²éÕÒ¶ÔÏóÔÚ³É¹¦");
+			log.debug("æ‰¹é‡æŸ¥æ‰¾å¯¹è±¡åœ¨æˆåŠŸ");
 			return li;
 		} catch (Exception e) {
-			log.error("ÅúÁ¿²éÕÒ¶ÔÏóÊ§°Ü", e);
+			log.error("æ‰¹é‡æŸ¥æ‰¾å¯¹è±¡å¤±è´¥", e);
 			return null;
 		}
 	}
@@ -198,12 +198,12 @@ public class CommonDaoAdaper implements ICommonDao {
 	 */
 
 	public <cl> cl getObjectById(Class cl, Serializable s) {
-		log.debug("¸ù¾İid²éÕÒ¶ÔÏó");
+		log.debug("æ ¹æ®idæŸ¥æ‰¾å¯¹è±¡");
 		try {
-			log.debug("ÅúÁ¿²éÕÒ¶ÔÏóÔÚ³É¹¦");
+			log.debug("æ‰¹é‡æŸ¥æ‰¾å¯¹è±¡åœ¨æˆåŠŸ");
 			return (cl) hbtTemplate.get(cl, s);
 		} catch (Exception e) {
-			log.error("ÅúÁ¿²éÕÒ¶ÔÏóÊ§°Ü", e);
+			log.error("æ‰¹é‡æŸ¥æ‰¾å¯¹è±¡å¤±è´¥", e);
 			return null;
 		}
 	}
@@ -215,13 +215,13 @@ public class CommonDaoAdaper implements ICommonDao {
 	 *      java.util.HashMap)
 	 */
 	public boolean updateObject(final String hql, final HashMap hm) {
-		log.debug("¸ù¾İhqlÓï¾äĞŞ¸Ä¶ÔÏó");
+		log.debug("æ ¹æ®hqlè¯­å¥ä¿®æ”¹å¯¹è±¡");
 		try {
 			boolean flag = this.execute(hql, hm);
-			log.debug("ĞŞ¸Ä¶ÔÏóÔÚ³É¹¦");
+			log.debug("ä¿®æ”¹å¯¹è±¡åœ¨æˆåŠŸ");
 			return flag;
 		} catch (Exception e) {
-			log.error("ĞŞ¸Ä¶ÔÏóÊ§°Ü", e);
+			log.error("ä¿®æ”¹å¯¹è±¡å¤±è´¥", e);
 			return false;
 		}
 	}
@@ -232,26 +232,26 @@ public class CommonDaoAdaper implements ICommonDao {
 	 * @see com.netsoft.dao.commonsimp.CommonDao#updateObject(java.lang.Object)
 	 */
 	public boolean updateObject(Object obj) {
-		log.debug("¸ù¾İ¶ÔÏóĞŞ¸Ä·½·¨");
+		log.debug("æ ¹æ®å¯¹è±¡ä¿®æ”¹æ–¹æ³•");
 		try {
 			hbtTemplate.update(obj);
-			log.debug("ĞŞ¸Ä¶ÔÏóÔÚ³É¹¦");
+			log.debug("ä¿®æ”¹å¯¹è±¡åœ¨æˆåŠŸ");
 			return true;
 		} catch (Exception e) {
-			log.error("ĞŞ¸Ä¶ÔÏóÊ§°Ü", e);
+			log.error("ä¿®æ”¹å¯¹è±¡å¤±è´¥", e);
 			return false;
 		}
 	}
 
 	/**
-	 * Õâ¸ö·½·¨ÊÇË½ÓĞµÄ¡£½ö¹©ÀàÄÚ²¿µ÷ÓÃ¡£ ÒòÎªSpringµÄhibernateÄ£°åÖĞÖ»Ìá¹©¼¸ÖÖÓĞÏŞµÄ²éÑ¯·½·¨¡£ÈçÒªÀíÁé»îÔËÓÃ»òÕßÀ©Õ¹¹¦ÄÜ¡£
-	 * Ö»ÓĞÖØĞ´ËûµÄ»Øµ÷·½·¨À´ÊµÏÖ£¬hibernateÄ£°åÖĞµÄ»Øµ÷·½·¨¡£ÓĞ¼¸ÖÖ¡£ÈçÊÇ²éÑ¯µÄ»°
-	 * ¾ÍÖØĞ´ËûµÄexcutefind()·½·¨¡£ĞŞ¸ÄµÈ²Ù×÷¾ÍÖØĞ´excute()¼´¿É¡£ÏÂÃæÓĞ´úÂë¡£¿ÉÒÔ²Î¿¼Ò»ÏÂ¡£ ÈçÓĞ²»¶®¡£¿ÉÁªÏµÎÒ¡£¾ßÌåÑ¯ÎÊ
-	 * Õâ¸ö·½·¨¹©ĞŞ¸Ä¡£É¾³ıµÈ¹¦ÄÜµ÷ÓÃ
+	 * è¿™ä¸ªæ–¹æ³•æ˜¯ç§æœ‰çš„ã€‚ä»…ä¾›ç±»å†…éƒ¨è°ƒç”¨ã€‚ å› ä¸ºSpringçš„hibernateæ¨¡æ¿ä¸­åªæä¾›å‡ ç§æœ‰é™çš„æŸ¥è¯¢æ–¹æ³•ã€‚å¦‚è¦ç†çµæ´»è¿ç”¨æˆ–è€…æ‰©å±•åŠŸèƒ½ã€‚
+	 * åªæœ‰é‡å†™ä»–çš„å›è°ƒæ–¹æ³•æ¥å®ç°ï¼Œhibernateæ¨¡æ¿ä¸­çš„å›è°ƒæ–¹æ³•ã€‚æœ‰å‡ ç§ã€‚å¦‚æ˜¯æŸ¥è¯¢çš„è¯
+	 * å°±é‡å†™ä»–çš„excutefind()æ–¹æ³•ã€‚ä¿®æ”¹ç­‰æ“ä½œå°±é‡å†™excute()å³å¯ã€‚ä¸‹é¢æœ‰ä»£ç ã€‚å¯ä»¥å‚è€ƒä¸€ä¸‹ã€‚ å¦‚æœ‰ä¸æ‡‚ã€‚å¯è”ç³»æˆ‘ã€‚å…·ä½“è¯¢é—®
+	 * è¿™ä¸ªæ–¹æ³•ä¾›ä¿®æ”¹ã€‚åˆ é™¤ç­‰åŠŸèƒ½è°ƒç”¨
 	 * 
 	 */
 	private boolean execute(final String hql, final HashMap hm) {
-		log.debug("µ÷ÓÃÖ´ĞĞhqlÓï¾äµÄ¹«¹²·½·¨");
+		log.debug("è°ƒç”¨æ‰§è¡Œhqlè¯­å¥çš„å…¬å…±æ–¹æ³•");
 		try {
 			boolean flag = (Boolean) hbtTemplate
 					.execute(new HibernateCallback() {
@@ -277,33 +277,33 @@ public class CommonDaoAdaper implements ICommonDao {
 							return i == 0 ? false : true;
 						}
 					});
-			log.debug("¹«¹²·½·¨Ö´ĞĞ³É¹¦");
+			log.debug("å…¬å…±æ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 			return flag;
 		} catch (Exception e) {
-			log.debug("¹«¹²·½·¨ÒÔÖ´ĞĞÊ§°Ü", e);
+			log.debug("å…¬å…±æ–¹æ³•ä»¥æ‰§è¡Œå¤±è´¥", e);
 			return false;
 		}
 
 	}
 
 	public List getObjectByHql(String hql) {
-		log.debug("ÅúÁ¿²éÑ¯¿ªÊ¼Ö´ĞĞ");
+		log.debug("æ‰¹é‡æŸ¥è¯¢å¼€å§‹æ‰§è¡Œ");
 		try {
 			List list = hbtTemplate.find(hql);
-			log.debug("ÅúÁ¿²éÑ¯Ö´ĞĞ³É¹¦");
+			log.debug("æ‰¹é‡æŸ¥è¯¢æ‰§è¡ŒæˆåŠŸ");
 			return list;
 		} catch (Exception e) {
-			log.error("ÅúÁ¿²éÑ¯Ö´ĞĞÊ§°Ü", e);
+			log.error("æ‰¹é‡æŸ¥è¯¢æ‰§è¡Œå¤±è´¥", e);
 			return null;
 		}
 	}
 
 	/**
-	 * Í¨ÓÃµÄ·ÖÒ³·½·¨.spring½â¾ö·½°¸
+	 * é€šç”¨çš„åˆ†é¡µæ–¹æ³•.springè§£å†³æ–¹æ¡ˆ
 	 */
 	public List currenPage(final int page, final int size, final String hql,
 			final HashMap hm) {
-		log.info("currenPage·½·¨¿ªÊ¼Ö´ĞĞÁË");
+		log.info("currenPageæ–¹æ³•å¼€å§‹æ‰§è¡Œäº†");
 		try {
 			List li = hbtTemplate.executeFind(new HibernateCallback() {
 				public Object doInHibernate(Session session)
@@ -328,21 +328,21 @@ public class CommonDaoAdaper implements ICommonDao {
 			}
 
 			);
-			log.info("currenPage·½·¨¿ªÊ¼Ö´ĞĞ³É¹¦");
+			log.info("currenPageæ–¹æ³•å¼€å§‹æ‰§è¡ŒæˆåŠŸ");
 			return li;
 		} catch (Exception e) {
-			log.error("currenPage·½·¨¿ªÊ¼Ö´ĞĞÊ§°ÜÁË", e);
+			log.error("currenPageæ–¹æ³•å¼€å§‹æ‰§è¡Œå¤±è´¥äº†", e);
 			return null;
 		}
 	}
 
 	public <cl> cl addreturn(Object obj) {
-		log.debug("±£´æ¶ÔÏó·½·¨");
+		log.debug("ä¿å­˜å¯¹è±¡æ–¹æ³•");
 		try {
-			log.debug("±£´æ¶ÔÏó³É¹¦");
+			log.debug("ä¿å­˜å¯¹è±¡æˆåŠŸ");
 			return (cl) hbtTemplate.save(obj);
 		} catch (Exception e) {
-			log.error("±£´æ¶ÔÏóÊ§°Ü", e);
+			log.error("ä¿å­˜å¯¹è±¡å¤±è´¥", e);
 			e.printStackTrace();
 			return null;
 		}

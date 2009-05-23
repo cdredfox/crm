@@ -1,4 +1,4 @@
-package com.netsoft.dao.beans;
+ï»¿package com.netsoft.dao.beans;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -19,24 +19,24 @@ public class EmployeeBean {
 	private Set emidrs = new HashSet(0);
 
 	/**
-	 * ÊÇ·ñÓĞÈ¨ÏŞ½øĞĞ¿Í»§µÄÃû³ÆºÍ¹Ì¶¨µç»°ĞŞ¸Ä
+	 * æ˜¯å¦æœ‰æƒé™è¿›è¡Œå®¢æˆ·çš„åç§°å’Œå›ºå®šç”µè¯ä¿®æ”¹
 	 */
 	private String roleflag;
 	/**
-	 * ÊÇ·ñÓĞÈ¨ÏŞ¶Ô³·µ¥¿Í»§½øĞĞ³¹µ×É¾³ı²Ù×÷
+	 * æ˜¯å¦æœ‰æƒé™å¯¹æ’¤å•å®¢æˆ·è¿›è¡Œå½»åº•åˆ é™¤æ“ä½œ
 	 */
 	private String delFlag;
 	/**
-	 * ÊÇ·ñÓĞbbs¹ÜÀíÈ¨ÏŞ
+	 * æ˜¯å¦æœ‰bbsç®¡ç†æƒé™
 	 */
 	private String bbsFlag;
 
 	/**
-	 * ÊÇ·ñÓĞÈ¨ÏŞ²é¿´È«²¿ÄÚÍø¿Í»§·´À¡ĞÅÏ¢
+	 * æ˜¯å¦æœ‰æƒé™æŸ¥çœ‹å…¨éƒ¨å†…ç½‘å®¢æˆ·åé¦ˆä¿¡æ¯
 	 */
 	private String viewFlag;
 	/**
-	 * ÊÇ·ñÓĞÈ¨ÏŞÉ¾³ı¿Í»§·´À¡ĞÅÏ¢
+	 * æ˜¯å¦æœ‰æƒé™åˆ é™¤å®¢æˆ·åé¦ˆä¿¡æ¯
 	 */
 	private String delFeedBackFlag;
 

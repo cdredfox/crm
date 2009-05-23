@@ -1,4 +1,4 @@
-package com.netsoft.services.imp;
+锘縫ackage com.netsoft.services.imp;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -34,7 +34,7 @@ public class BusinessruletableServices implements IBusinessruletableServices {
 	}
 
 	/**
-	 * 根据ID查找某个规则对象
+	 * 鏍规嵁ID鏌ユ壘鏌愪釜瑙勫垯瀵硅薄
 	 * @param id
 	 * @return
 	 */

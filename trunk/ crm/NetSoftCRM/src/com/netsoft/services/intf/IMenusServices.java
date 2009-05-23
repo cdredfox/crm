@@ -1,16 +1,16 @@
-package com.netsoft.services.intf;
+ï»¿package com.netsoft.services.intf;
 
 import java.util.List;
 
 public interface IMenusServices {
 
-	/**ÅúÁ¿É¾³ıÄ³¸ö½ÇÉ«µÄÈ¨ÏŞ*/
+	/**æ‰¹é‡åˆ é™¤æŸä¸ªè§’è‰²çš„æƒé™*/
 	public abstract boolean delAllByRole(int rid, int[] menus);
    
 	public boolean addAllByRole(Integer rid,Integer[] menus);
-	/**¸ù¾İTOPIDÈ¡ÏàÓ¦µÄ²Ëµ¥Öµ*/
+	/**æ ¹æ®TOPIDå–ç›¸åº”çš„èœå•å€¼*/
 	public List getInitMenus(int mid);
 	
-	/**È¡µÃËùÓĞ²Ëµ¥*/
+	/**å–å¾—æ‰€æœ‰èœå•*/
 	public List getAllMenus();
 }

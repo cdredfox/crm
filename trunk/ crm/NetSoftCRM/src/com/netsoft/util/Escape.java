@@ -1,7 +1,7 @@
-package com.netsoft.util;
+锘縫ackage com.netsoft.util;
 
 /**
- * 解决textarea中回车符存进数据库不显示
+ * 瑙ｅ喅textarea涓洖杞︾瀛樿繘鏁版嵁搴撲笉鏄剧ず
  * @author yangfei
  *
  */
@@ -126,7 +126,7 @@ public class Escape {
 	}
 
 	public static void main(String[] args) {
-		String stest = "中文1234 abcd[]()<+>,.~\\";
+		String stest = "涓枃1234 abcd[]()<+>,.~\\";
 		System.out.println(stest);
 		System.out.println(escape(stest));
 		System.out.println(unescape(escape(stest)));

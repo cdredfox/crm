@@ -104,7 +104,7 @@
 																联系地址
 															</td>
 															<td id=bgbody  colspan="3">
-																${ctb.customeraddress}&nbsp;
+																${ctb.customerprovince.confignote}${ctb.customercity.confignote}${ctb.customeraddress}&nbsp;
 															</td>
 															
 															<td id=bgtitle align='center' >

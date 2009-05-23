@@ -1,4 +1,4 @@
-package com.netsoft.util;
+ï»¿package com.netsoft.util;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -13,56 +13,56 @@ import java.util.Date;
 public class MySqlData {
 
 	/**
-	 * ±¸·İ¼ìÑéÒ»¸ösqlÎÄ¼şÊÇ·ñ¿ÉÒÔ×öµ¼ÈëÎÄ¼şÓÃµÄÒ»¸öÅĞ¶Ï·½·¨£º°Ñ¸ÃsqlÎÄ¼ş·Ö±ğÓÃ¼ÇÊÂ±¾ºÍultra
-	 * edit´ò¿ª£¬Èç¹û¿´µ½µÄÖĞÎÄ¾ùÕı³£Ã»ÓĞÂÒÂë£¬Ôò¿ÉÒÔÓÃÀ´×öµ¼ÈëµÄÔ´ÎÄ¼ş£¨²»¹ÜsqlÎÄ¼şµÄ±àÂë¸ñÊ½ÈçºÎ£¬Ò²²»¹ÜdbµÄ±àÂë¸ñÊ½ÈçºÎ£©
+	 * å¤‡ä»½æ£€éªŒä¸€ä¸ªsqlæ–‡ä»¶æ˜¯å¦å¯ä»¥åšå¯¼å…¥æ–‡ä»¶ç”¨çš„ä¸€ä¸ªåˆ¤æ–­æ–¹æ³•ï¼šæŠŠè¯¥sqlæ–‡ä»¶åˆ†åˆ«ç”¨è®°äº‹æœ¬å’Œultra
+	 * editæ‰“å¼€ï¼Œå¦‚æœçœ‹åˆ°çš„ä¸­æ–‡å‡æ­£å¸¸æ²¡æœ‰ä¹±ç ï¼Œåˆ™å¯ä»¥ç”¨æ¥åšå¯¼å…¥çš„æºæ–‡ä»¶ï¼ˆä¸ç®¡sqlæ–‡ä»¶çš„ç¼–ç æ ¼å¼å¦‚ä½•ï¼Œä¹Ÿä¸ç®¡dbçš„ç¼–ç æ ¼å¼å¦‚ä½•ï¼‰
 	 */
 	public String backup(String path) {
 
-		String user = "root"; // Êı¾İ¿âÕÊºÅ
-		String password = "snnuiabc"; // µÇÂ½ÃÜÂë
-		String database = "crm"; // ĞèÒª±¸·İµÄÊı¾İ¿âÃû
+		String user = "root"; // æ•°æ®åº“å¸å·
+		String password = "snnuiabc"; // ç™»é™†å¯†ç 
+		String database = "crm"; // éœ€è¦å¤‡ä»½çš„æ•°æ®åº“å
 		String filepath = path + "crm" + ConsoleDate.Date2String(new Date())
-				+ ".sql"; // ±¸·İµÄÂ·¾¶µØÖ·
+				+ ".sql"; // å¤‡ä»½çš„è·¯å¾„åœ°å€
 
 		String stmt1 = "mysqldump " + database + " -u " + user + " -p"
 				+ password + " --default-character-set=UTF8 --result-file="
 				+ filepath;
-		// --default-character-setÕâ¶ùÉèÎªÄã°²×°Êı¾İ¿âÊ±ËùÑ¡ÔñµÄÓïÑÔ£¬±ÈÈçËµÄã°²×°MySQLÀïÓÃµÄÄ¬ÈÏµÄUTF-8£¬Õâ¶ù
-		// ¾ÍÉèÎªUTF8£¬ÈôÊÇgb2312µÄ»°Ó¦ÉèÎªgb2312,Èç¹ûÕâ¶ùÉèµÃ²»¶ÔµÄ»°£¬ÄãÓÃultraedit´ò¿ªÕâ¸ö±¸·İºóµÄsqlÎÄ¼şÊ±£¬
-		// ÖĞÎÄ²¿·ÖÏÔÊ¾ÂÒÂë¡£
+		// --default-character-setè¿™å„¿è®¾ä¸ºä½ å®‰è£…æ•°æ®åº“æ—¶æ‰€é€‰æ‹©çš„è¯­è¨€ï¼Œæ¯”å¦‚è¯´ä½ å®‰è£…MySQLé‡Œç”¨çš„é»˜è®¤çš„UTF-8ï¼Œè¿™å„¿
+		// å°±è®¾ä¸ºUTF8ï¼Œè‹¥æ˜¯gb2312çš„è¯åº”è®¾ä¸ºgb2312,å¦‚æœè¿™å„¿è®¾å¾—ä¸å¯¹çš„è¯ï¼Œä½ ç”¨ultraeditæ‰“å¼€è¿™ä¸ªå¤‡ä»½åçš„sqlæ–‡ä»¶æ—¶ï¼Œ
+		// ä¸­æ–‡éƒ¨åˆ†æ˜¾ç¤ºä¹±ç ã€‚
 
 		try {
 			Runtime.getRuntime().exec(stmt1);
-			System.out.println("Êı¾İÒÑµ¼³öµ½ÎÄ¼ş" + filepath + "ÖĞ");
-			return "ÎÄ¼ş±¸·İ³É¹¦£¡´æ·ÅµØÖ·Îª:" + filepath;
+			System.out.println("æ•°æ®å·²å¯¼å‡ºåˆ°æ–‡ä»¶" + filepath + "ä¸­");
+			return "æ–‡ä»¶å¤‡ä»½æˆåŠŸï¼å­˜æ”¾åœ°å€ä¸º:" + filepath;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "ÎÄ¼ş±¸·İÊ§°Ü£¬ÇëÖØÊÔ»òÕßÁªÏµ¹ÜÀíÔ±!";
+		return "æ–‡ä»¶å¤‡ä»½å¤±è´¥ï¼Œè¯·é‡è¯•æˆ–è€…è”ç³»ç®¡ç†å‘˜!";
 
 	}
 
 	/**
-	 * µ¼Èë
+	 * å¯¼å…¥
 	 * 
 	 */
 	public String load(String path) {
 
-		// ĞÂ½¨Êı¾İ¿âfinacing
+		// æ–°å»ºæ•°æ®åº“finacing
 		String stmt1 = "mysqladmin -u root -psnnuiabc create crm";
-		// -pºóÃæ¼ÓµÄÊÇÄãµÄÃÜÂë
+		// -påé¢åŠ çš„æ˜¯ä½ çš„å¯†ç 
 		String stmt2 = "mysql -u root -psnnuiabc crm < " + path;
 		String[] cmd = { "cmd", "/c", stmt2 };
 
 		try {
 			Runtime.getRuntime().exec(stmt1);
 			Runtime.getRuntime().exec(cmd);
-			System.out.println("Êı¾İÒÑ´Ó " + path + " µ¼Èëµ½Êı¾İ¿âÖĞ");
-			return "Êı¾İÒÑ´Ó " + path + " µ¼Èëµ½Êı¾İ¿âÖĞ!ÇëÖØÆô·şÎñÆ÷£¡";
+			System.out.println("æ•°æ®å·²ä» " + path + " å¯¼å…¥åˆ°æ•°æ®åº“ä¸­");
+			return "æ•°æ®å·²ä» " + path + " å¯¼å…¥åˆ°æ•°æ®åº“ä¸­!è¯·é‡å¯æœåŠ¡å™¨ï¼";
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "Êı¾İ»Ö¸´Ê§°Ü£¡ÇëÖØÊÔ»òÕßÁªÏµ¹ÜÀíÔ±";
+		return "æ•°æ®æ¢å¤å¤±è´¥ï¼è¯·é‡è¯•æˆ–è€…è”ç³»ç®¡ç†å‘˜";
 
 	}
 }

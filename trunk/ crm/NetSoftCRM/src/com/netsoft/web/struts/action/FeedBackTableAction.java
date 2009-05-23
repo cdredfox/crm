@@ -1,4 +1,4 @@
-package com.netsoft.web.struts.action;
+ï»¿package com.netsoft.web.struts.action;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -26,7 +26,7 @@ public class FeedBackTableAction extends DispatchAction {
 	public ICustomerstableServices ics;
 	public IFeedbackTypeService ifts;
 	/**
-	 * Ôö¼Ó·´À¡ĞÅÏ¢
+	 * å¢åŠ åé¦ˆä¿¡æ¯
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -45,7 +45,7 @@ public class FeedBackTableAction extends DispatchAction {
 		Date currenDate=new Date();
 		FeedbacktableBean ftb=new FeedbacktableBean();
 		int customerid=ftf.getFeedbackcustomer();
-		//1,Ìî·´À¡±íÓë¸üĞÂ¿Í»§±í
+		//1,å¡«åé¦ˆè¡¨ä¸æ›´æ–°å®¢æˆ·è¡¨
 		CustomerstableBean ctb=ics.getCustomerById(customerid);
 		ftb.setFeedbackcustomerid(customerid);
 		ftb.setFeedbackemployye(ftf.getFeedbackeid());
@@ -63,7 +63,7 @@ public class FeedBackTableAction extends DispatchAction {
 			ctb.setCustomernextdate(feedbacknextdate);
 		}else
 		{
-			//Ä¬ÈÏ²»ÌîµÄ»°¡£Ä¬ÈÏÎªÆßÌìºó,·´À¡ÈÕÆÚ
+			//é»˜è®¤ä¸å¡«çš„è¯ã€‚é»˜è®¤ä¸ºä¸ƒå¤©å,åé¦ˆæ—¥æœŸ
 			Date nextdate=ConsoleDate.dateIncrease(ConsoleDate.Date2String(currenDate),Calendar.DATE,7);
 			ctb.setCustomernextdate(nextdate);
 		}
@@ -75,9 +75,9 @@ public class FeedBackTableAction extends DispatchAction {
 		ctb.setCustomerfeedbacktype(ftf.getFeedbacktype());
 		ics.updateCustomer(ctb);
 		ifts.addFeedbackType(ftb);
-		//request.setAttribute("message","¹§Ï²Äú£¡·´À¡ĞÅÏ¢Ôö¼Ó³É¹¦");
+		//request.setAttribute("message","æ­å–œæ‚¨ï¼åé¦ˆä¿¡æ¯å¢åŠ æˆåŠŸ");
 		//return mapping.findForward("result");
-		//2008/10/02 Ó¦Ğ¤ËÉµÄÒªÇó,·´À¡ĞÅÏ¢Ôö¼Ó³É¹¦ºó,Ìø×ªµ½ÎÒµÄ¿Í»§²éÑ¯½çÃæ
+		//2008/10/02 åº”è‚–æ¾çš„è¦æ±‚,åé¦ˆä¿¡æ¯å¢åŠ æˆåŠŸå,è·³è½¬åˆ°æˆ‘çš„å®¢æˆ·æŸ¥è¯¢ç•Œé¢
 		return new ActionForward("/customer.crm?method=customerManager&customertype=1");
 	}
 	public ICustomerstableServices getIcs() {
