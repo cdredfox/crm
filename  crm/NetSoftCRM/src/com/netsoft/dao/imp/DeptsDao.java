@@ -1,4 +1,4 @@
-package com.netsoft.dao.imp;
+ï»¿package com.netsoft.dao.imp;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -11,11 +11,11 @@ import com.netsoft.dao.intf.IDeptsDao;
 import com.netsoft.dao.pojos.Depts;
 
 /**
- * @author ÅíæÂ<pengyuan>
- * @¹¤³ÌÃû NetSoftCRM
- * @ÎÄ¼şÃû DeptsDao.java
- * @±àĞ´ÈÕÆÚ Dec 27, 2006
- * @¹¦ÄÜËµÃ÷ ¶Ô²¿ÃÅ±í½øĞĞ²Ù×÷
+ * @author å½­åª›<pengyuan>
+ * @å·¥ç¨‹å NetSoftCRM
+ * @æ–‡ä»¶å DeptsDao.java
+ * @ç¼–å†™æ—¥æœŸ Dec 27, 2006
+ * @åŠŸèƒ½è¯´æ˜ å¯¹éƒ¨é—¨è¡¨è¿›è¡Œæ“ä½œ
  */
 public class DeptsDao implements IDeptsDao {
 	Logger logger = Logger.getLogger(this.getClass());
@@ -32,7 +32,7 @@ public class DeptsDao implements IDeptsDao {
 		try {
 			return cd.add(depts);
 		} catch (Exception e) {
-			logger.error("DeptsDaoÖĞ¼äµÄaddDept·½·¨³ö´í", e);
+			logger.error("DeptsDaoä¸­é—´çš„addDeptæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 		
@@ -42,7 +42,7 @@ public class DeptsDao implements IDeptsDao {
 		try {
 			return cd.dele(depts);
 		} catch (Exception e) {
-			logger.error("DeptsDaoÖĞ¼äµÄdeleteDept·½·¨³ö´í", e);
+			logger.error("DeptsDaoä¸­é—´çš„deleteDeptæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 		
@@ -53,7 +53,7 @@ public class DeptsDao implements IDeptsDao {
 			List<Depts> ls = cd.getObjectAll(Depts.class);
 			return ls;
 		} catch (Exception e) {
-			logger.error("DeptsDaoÖĞ¼äµÄgetAllDept·½·¨³ö´í", e);
+			logger.error("DeptsDaoä¸­é—´çš„getAllDeptæ–¹æ³•å‡ºé”™", e);
 			return null;
 		}
 		
@@ -63,7 +63,7 @@ public class DeptsDao implements IDeptsDao {
 		try {
 			return cd.updateObject(depts);
 		} catch (Exception e) {
-			logger.error("DeptsDaoÖĞ¼äµÄupdateDept·½·¨³ö´í", e);
+			logger.error("DeptsDaoä¸­é—´çš„updateDeptæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 		
@@ -73,24 +73,24 @@ public class DeptsDao implements IDeptsDao {
 		try {
 			return cd.dele(Depts.class, id);
 		} catch (Exception e) {
-			logger.error("DeptsDaoÖĞ¼äµÄdeleteDeptById·½·¨³ö´í", e);
+			logger.error("DeptsDaoä¸­é—´çš„deleteDeptByIdæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}	
 	}
 	
-	/**¸ù¾İ²¿ÃÅID²éÕÒ²¿ÃÅ¶ÔÏó*/
+	/**æ ¹æ®éƒ¨é—¨IDæŸ¥æ‰¾éƒ¨é—¨å¯¹è±¡*/
 	public Depts getDeptsById(int id)
 	{
 	   try {
 		return cd.getObjectById(Depts.class, id);
 	} catch (Exception e) {
-		logger.error("DeptsDaoÖĞ¼äµÄgetDeptsById·½·¨³ö´í", e);
+		logger.error("DeptsDaoä¸­é—´çš„getDeptsByIdæ–¹æ³•å‡ºé”™", e);
 		return null;
 	}
 	}
 	
 	/**
-	 * ¸ù¾İÔ±¹¤²éÕÒÆäËùÊôµÄ²¿ÃÅ
+	 * æ ¹æ®å‘˜å·¥æŸ¥æ‰¾å…¶æ‰€å±çš„éƒ¨é—¨
 	 * @param id
 	 * @return
 	 */

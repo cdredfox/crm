@@ -127,6 +127,7 @@
 										<td>
 											<html:select property="eid">
 												<html:option value="${Employees.id}">${Employees.ename}</html:option>
+												<html:option value="open">公开客户</html:option>
 											</html:select>
 										</td>
 									</logic:notEqual>

@@ -1,4 +1,4 @@
-package com.netsoft.services.imp;
+ï»¿package com.netsoft.services.imp;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -46,13 +46,13 @@ public class EmployeeServices implements IEmployeeServices {
 	 * @see com.netsoft.services.imp.IEmployeeServices#isCheckLogin(com.netsoft.dao.beans.EmployeeBean)
 	 */
 	public EmployeeBean isCheckLogin(EmployeeBean eb) {
-		log.debug("isCheckLogin¿ªÊ¼Ö´ĞĞ");
+		log.debug("isCheckLoginå¼€å§‹æ‰§è¡Œ");
 		try {
 			Employye ebs = new Employye();
 			ebs.setEaccount(eb.getEaccount());
 			ebs.setEpwd(eb.getEpwd());
 			if ((ebs = ed.getEmployyeByeAccountAndPwd(ebs)) == null) {
-				log.error("isCheckLoginÖ´ĞĞ³É¹¦¡£µ«ÊÇ·µ»ØNULLÖµ");
+				log.error("isCheckLoginæ‰§è¡ŒæˆåŠŸã€‚ä½†æ˜¯è¿”å›NULLå€¼");
 				return null;
 			} else {
 				// BeanUtils.copyProperties(eb,ebs);
@@ -63,11 +63,11 @@ public class EmployeeServices implements IEmployeeServices {
 				eb.setEname(ebs.getEname());
 				eb.setEpwd(ebs.getEpwd());
 				eb.setId(ebs.getId());
-				log.debug("isCheckLoginÖ´ĞĞ³É¹¦¡£");
+				log.debug("isCheckLoginæ‰§è¡ŒæˆåŠŸã€‚");
 				return eb;
 			}
 		} catch (Exception e) {
-			log.error("isCheckLoginÖ´ĞĞÊ§°Ü", e);
+			log.error("isCheckLoginæ‰§è¡Œå¤±è´¥", e);
 			return null;
 		}
 	}
@@ -81,27 +81,27 @@ public class EmployeeServices implements IEmployeeServices {
 	}
 
 	public Set<Menus> getMenusByEmployee(EmployeeBean eb) {
-		log.debug("getMenusByEmployee·½·¨¿ªÊ¼Ö´ĞĞ");
+		log.debug("getMenusByEmployeeæ–¹æ³•å¼€å§‹æ‰§è¡Œ");
 		try {
-			// ÕâÀïÓÃSET¼¯ºÏ£¬ÊÇÎªÁË½â¾ö½ÇÉ«Ö®¼äÓµÓĞÏàÍ¬µÄÈ¨ÏŞ¡£×îÖÕÉú³ÉµÄ»¹ÊÇÖ»ÓĞÒ»¸ö¡£
+			// è¿™é‡Œç”¨SETé›†åˆï¼Œæ˜¯ä¸ºäº†è§£å†³è§’è‰²ä¹‹é—´æ‹¥æœ‰ç›¸åŒçš„æƒé™ã€‚æœ€ç»ˆç”Ÿæˆçš„è¿˜æ˜¯åªæœ‰ä¸€ä¸ªã€‚
 			Set<Menus> ms = new HashSet<Menus>();
 			Employye ebs = new Employye();
 			ebs = ed.getEmployeeById(eb.getId());
 			Set<Roles> rs = ed.getRolesByEmployee(ebs);
-			log.info("set³¤¶ÈÎª£º " + rs.size());
+			log.info("seté•¿åº¦ä¸ºï¼š " + rs.size());
 			for (Roles roles : rs) {
 				if (roles.getRname().equals(CRM.LOGIN_ROLES)) {
-					log.info("ÎªµÇÂ¼½ÇÉ«¡£Ìø¹ı");
+					log.info("ä¸ºç™»å½•è§’è‰²ã€‚è·³è¿‡");
 				} else {
-					log.info("²»ÊÇµÇÂ¼½ÇÉ«¡£¿ªÊ¼½øĞĞÈ¡µÃ²Ëµ¥");
+					log.info("ä¸æ˜¯ç™»å½•è§’è‰²ã€‚å¼€å§‹è¿›è¡Œå–å¾—èœå•");
 					ms.addAll(rd.getMenusByRole(roles));
 				}
 			}
-			log.info("getMenusByEmployee·½·¨Ö´ĞĞ³É¹¦");
-			log.info("×îºó×Ü¹²È¡µÃ²Ëµ¥Îª£º" + ms.size());
+			log.info("getMenusByEmployeeæ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
+			log.info("æœ€åæ€»å…±å–å¾—èœå•ä¸ºï¼š" + ms.size());
 			return ms;
 		} catch (Exception e) {
-			log.debug("getMenusByEmployee·½·¨Ö´ĞĞÊ§°Ü", e);
+			log.debug("getMenusByEmployeeæ–¹æ³•æ‰§è¡Œå¤±è´¥", e);
 			return null;
 		}
 	}
@@ -114,7 +114,7 @@ public class EmployeeServices implements IEmployeeServices {
 		this.rd = rd;
 	}
 
-	// ¸ù¾İÔ±¹¤IDµÃµ½Ô±¹¤
+	// æ ¹æ®å‘˜å·¥IDå¾—åˆ°å‘˜å·¥
 	public EmployeeBean getEmployyeById(int id) {
 		Employye em = new Employye();
 		em.setId(id);
@@ -129,11 +129,11 @@ public class EmployeeServices implements IEmployeeServices {
 
 	}
 
-	/** µÃµ½ËùÓĞµÄÔ±¹¤ */
+	/** å¾—åˆ°æ‰€æœ‰çš„å‘˜å·¥ */
 	public List getAllEmployee() {
 		List list = new ArrayList();
 		try {
-			log.info("Services²ãgetAllEmployee·½·¨¿ªÊ¼Ö´ĞĞ");
+			log.info("Serviceså±‚getAllEmployeeæ–¹æ³•å¼€å§‹æ‰§è¡Œ");
 			List<Employye> li = ed.getAllEmployee();
 
 			for (Employye employye : li) {
@@ -141,39 +141,39 @@ public class EmployeeServices implements IEmployeeServices {
 				list.add(ebs);
 			}
 
-			log.info("Services²ãgetAllEmployee·½·¨Ö´ĞĞÍê³É");
+			log.info("Serviceså±‚getAllEmployeeæ–¹æ³•æ‰§è¡Œå®Œæˆ");
 			return list;
 		} catch (Exception e) {
-			log.error("Services²ãgetAllEmployee·½·¨Ö´ĞĞÊ§°Ü", e);
+			log.error("Serviceså±‚getAllEmployeeæ–¹æ³•æ‰§è¡Œå¤±è´¥", e);
 			return null;
 		}
 
 	}
 
-	/** µÃµ½ËùÓĞÔ±¹¤²¢·ÖÒ³ */
+	/** å¾—åˆ°æ‰€æœ‰å‘˜å·¥å¹¶åˆ†é¡µ */
 
 	public List CurrentPage(int page, int size) {
 		try {
-			log.info("getAllEmployeeÖØÔØ·ÖÒ³ÖĞÖµÎª£º" + page + "  " + size);
+			log.info("getAllEmployeeé‡è½½åˆ†é¡µä¸­å€¼ä¸ºï¼š" + page + "  " + size);
 			List li = CurrentPages.CurrentPage(page, size, this
 					.getAllEmployee());
-			log.info("getAllEmployeeÖØÔØ·ÖÒ³ÖĞ³¤¶ÈÎª£º" + li.size());
+			log.info("getAllEmployeeé‡è½½åˆ†é¡µä¸­é•¿åº¦ä¸ºï¼š" + li.size());
 			return li;
 		} catch (Exception e) {
-			log.error("Services²ãgetAllEmployeeÖØÔØ·ÖÒ³·½·¨Ö´ĞĞÊ§°Ü", e);
+			log.error("Serviceså±‚getAllEmployeeé‡è½½åˆ†é¡µæ–¹æ³•æ‰§è¡Œå¤±è´¥", e);
 			return null;
 		}
 
 	}
 
 	/**
-	 * ¸ù¾İÔ±¹¤µÄIDÉ¾³ıÄ³Ò»¸öÔ±¹¤ ·µ»ØÖµ´ú±í£º1 ²»ÄÜÉ¾³ı£¬¸ÃÔ±¹¤»¹ÓĞ¿Í»§¹ØÁª¡£ 2 É¾³ı³É¹¦¡£ 3 É¾³ıÊ§°Ü£¬DAO·½·¨³ö´í¡£ 4
-	 * É¾³ıÊ§°Ü£¬³öÒì³£ÁË 5 ¸ÃÔ±¹¤ÊÇÄ³²¿ÃÅµÄ¸ºÔğÈË£¬²»ÄÜÉ¾³ı
+	 * æ ¹æ®å‘˜å·¥çš„IDåˆ é™¤æŸä¸€ä¸ªå‘˜å·¥ è¿”å›å€¼ä»£è¡¨ï¼š1 ä¸èƒ½åˆ é™¤ï¼Œè¯¥å‘˜å·¥è¿˜æœ‰å®¢æˆ·å…³è”ã€‚ 2 åˆ é™¤æˆåŠŸã€‚ 3 åˆ é™¤å¤±è´¥ï¼ŒDAOæ–¹æ³•å‡ºé”™ã€‚ 4
+	 * åˆ é™¤å¤±è´¥ï¼Œå‡ºå¼‚å¸¸äº† 5 è¯¥å‘˜å·¥æ˜¯æŸéƒ¨é—¨çš„è´Ÿè´£äººï¼Œä¸èƒ½åˆ é™¤
 	 */
 	public String delEmployee(int id) {
 		try {
-			log.info("Services²ãdelEmployee·½·¨¿ªÊ¼Ö´ĞĞ");
-			log.info("Services²ãdelEmployee·½·¨Ö´ĞĞÍê³É");
+			log.info("Serviceså±‚delEmployeeæ–¹æ³•å¼€å§‹æ‰§è¡Œ");
+			log.info("Serviceså±‚delEmployeeæ–¹æ³•æ‰§è¡Œå®Œæˆ");
 			Employye em = new Employye();
 			em = ed.getEmployeeById(id);
 			if (em.getCustomerstables() != null
@@ -190,12 +190,12 @@ public class EmployeeServices implements IEmployeeServices {
 				return "3";
 			}
 		} catch (Exception e) {
-			log.error("Services²ãdelEmployee·½·¨Ö´ĞĞÊ§°Ü", e);
+			log.error("Serviceså±‚delEmployeeæ–¹æ³•æ‰§è¡Œå¤±è´¥", e);
 			return "4";
 		}
 	}
 
-	/** ±£´æÔ±¹¤¶ÔÏó */
+	/** ä¿å­˜å‘˜å·¥å¯¹è±¡ */
 
 	public boolean addEmployye(EmployeeBean eb) {
 		try {
@@ -209,7 +209,7 @@ public class EmployeeServices implements IEmployeeServices {
 			ed.addEmployee(em);
 			return true;
 		} catch (Exception e) {
-			log.error("Services²ãµÄaddEmployye·½·¨Ö´ĞĞÊ§°Ü", e);
+			log.error("Serviceså±‚çš„addEmployyeæ–¹æ³•æ‰§è¡Œå¤±è´¥", e);
 			return false;
 		}
 
@@ -238,7 +238,7 @@ public class EmployeeServices implements IEmployeeServices {
 			ed.updateEmployee(em1);
 			return true;
 		} catch (Exception e) {
-			log.error("updateEmployye·½·¨Ö´ĞĞ³ö´íÁË", e);
+			log.error("updateEmployyeæ–¹æ³•æ‰§è¡Œå‡ºé”™äº†", e);
 			return false;
 		}
 	}
@@ -253,7 +253,7 @@ public class EmployeeServices implements IEmployeeServices {
 			}
 			return list;
 		} catch (Exception e) {
-			log.error("findEmployeeByAny·½·¨Ö´ĞĞÊ§°Ü", e);
+			log.error("findEmployeeByAnyæ–¹æ³•æ‰§è¡Œå¤±è´¥", e);
 			return null;
 		}
 	}
@@ -261,7 +261,7 @@ public class EmployeeServices implements IEmployeeServices {
 	public boolean sendRole(Integer[] role, int eid) {
 
 		try {
-			log.info("Êı×éµÄÖµÎª£º" + role);
+			log.info("æ•°ç»„çš„å€¼ä¸ºï¼š" + role);
 			Employye em = ed.getEmployeeById(eid);
 			em.getEmidrs().clear();
 			for (Integer integer : role) {
@@ -270,22 +270,22 @@ public class EmployeeServices implements IEmployeeServices {
 			}
 			return true;
 		} catch (Exception e) {
-			log.error("EmployeeServiceÖĞsendRole·½·¨³ö´íÁË", e);
+			log.error("EmployeeServiceä¸­sendRoleæ–¹æ³•å‡ºé”™äº†", e);
 			return false;
 		}
 
 	}
 
-	/** ¸ù¾İ²éÑ¯Ìõ¼şµÃµ½²¿·ÖÔ±¹¤ */
+	/** æ ¹æ®æŸ¥è¯¢æ¡ä»¶å¾—åˆ°éƒ¨åˆ†å‘˜å·¥ */
 
 	public List CurrentPageQry(int page, int size, HashMap hm) {
 		try {
-			log.info("getEmployeeByQryÖØÔØ·ÖÒ³ÖĞÖµÎª£º" + page + "  " + size);
+			log.info("getEmployeeByQryé‡è½½åˆ†é¡µä¸­å€¼ä¸ºï¼š" + page + "  " + size);
 			List li = CurrentPages.CurrentPage(page, size,currentlist);
 			return li;
 			
 		} catch (Exception e) {
-			log.error("Services²ãgetEmployeeByQryÖØÔØ·ÖÒ³·½·¨Ö´ĞĞÊ§°Ü", e);
+			log.error("Serviceså±‚getEmployeeByQryé‡è½½åˆ†é¡µæ–¹æ³•æ‰§è¡Œå¤±è´¥", e);
 			return null;
 		}
 
@@ -296,7 +296,7 @@ public class EmployeeServices implements IEmployeeServices {
 		List list = new ArrayList();
 		String roleid = (String) hm.get("emidrs");
 		try {
-			log.info("Services²ãgetEmployeeByQry·½·¨¿ªÊ¼Ö´ĞĞ");
+			log.info("Serviceså±‚getEmployeeByQryæ–¹æ³•å¼€å§‹æ‰§è¡Œ");
 			hm.remove("emidrs");
 			List<Employye> li = ed.findEmployyeByHashMap(hm);
 			if (li == null || li.size() == 0) {
@@ -331,17 +331,17 @@ public class EmployeeServices implements IEmployeeServices {
 				flag = false;
 			}
 
-			log.info("Services²ãgetEmployeeByQry·½·¨Ö´ĞĞÍê³É");
+			log.info("Serviceså±‚getEmployeeByQryæ–¹æ³•æ‰§è¡Œå®Œæˆ");
 			countpage = list.size();
 			return list;
 		} catch (Exception e) {
-			log.error("Services²ãgetEmployeeByQry·½·¨Ö´ĞĞÊ§°Ü", e);
+			log.error("Serviceså±‚getEmployeeByQryæ–¹æ³•æ‰§è¡Œå¤±è´¥", e);
 			return null;
 		}
 	}
 
 	/**
-	 * ½«Ä³Ô±¹¤ÃûÏÂµÄËùÓĞ¿Í»§×ªÒÆµ½ÁíÒ»Ô±¹¤ÏÂ£¬Èç¹ûtoId=0 Ôò´ú±í¹«¿ª£¬²»×ªµ½ÈÎºÎÈËÃûÒåÏÂ¡£
+	 * å°†æŸå‘˜å·¥åä¸‹çš„æ‰€æœ‰å®¢æˆ·è½¬ç§»åˆ°å¦ä¸€å‘˜å·¥ä¸‹ï¼Œå¦‚æœtoId=0 åˆ™ä»£è¡¨å…¬å¼€ï¼Œä¸è½¬åˆ°ä»»ä½•äººåä¹‰ä¸‹ã€‚
 	 * 
 	 * @param id
 	 * @param toId
@@ -358,8 +358,8 @@ public class EmployeeServices implements IEmployeeServices {
 
 			Set customers = em.getCustomerstables();
 			if (customers.size() <= 0) {
-				// ¸ÃÔ±¹¤ÃûÏÂÃ»ÓĞ¿Í»§£¬Ö±½Ó·µ»Ø
-				log.info("¸ÃÔ±¹¤ÃûÏÂÎŞ¿Í»§ĞÅÏ¢");
+				// è¯¥å‘˜å·¥åä¸‹æ²¡æœ‰å®¢æˆ·ï¼Œç›´æ¥è¿”å›
+				log.info("è¯¥å‘˜å·¥åä¸‹æ— å®¢æˆ·ä¿¡æ¯");
 				return true;
 			}
 			Iterator itera = customers.iterator();
@@ -370,7 +370,7 @@ public class EmployeeServices implements IEmployeeServices {
 			}
 			return true;
 		} catch (Exception e) {
-			log.error("×ªÒÆÔ±¹¤ÃûÏÂ¿Í»§ĞÅÏ¢Ê§°Ü", e);
+			log.error("è½¬ç§»å‘˜å·¥åä¸‹å®¢æˆ·ä¿¡æ¯å¤±è´¥", e);
 			return false;
 		}
 	}

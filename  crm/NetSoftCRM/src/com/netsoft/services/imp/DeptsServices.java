@@ -1,4 +1,4 @@
-package com.netsoft.services.imp;
+ï»¿package com.netsoft.services.imp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,16 +28,16 @@ public class DeptsServices implements IDeptsServices {
 	 */
 	public DeptsBean getDeptsById(int id) {
 		try {
-			log.info("services²ãgetDeptsById·½·¨¿ªÊ¼Ö´ĞĞ");
+			log.info("serviceså±‚getDeptsByIdæ–¹æ³•å¼€å§‹æ‰§è¡Œ");
 			Depts dept = dd.getDeptsById(id);
 			DeptsBean db = new DeptsBean();
 			BeanUtils.copyProperties(db, dept);
 			db.setEmployyeName(dept.getEmployye() == null ? "" : dept
 					.getEmployye().getEname());
-			log.info("services²ãgetDeptsById·½·¨Ö´ĞĞ³É¹¦");
+			log.info("serviceså±‚getDeptsByIdæ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 			return db;
 		} catch (Exception e) {
-			log.error("services²ãgetDeptsById·½·¨Ö´ĞĞÊ§°Ü", e);
+			log.error("serviceså±‚getDeptsByIdæ–¹æ³•æ‰§è¡Œå¤±è´¥", e);
 			return null;
 		}
 	}
@@ -49,7 +49,7 @@ public class DeptsServices implements IDeptsServices {
 	 */
 	public List getAllDepts() {
 		try {
-			log.info("services²ãgetAllDepts·½·¨¿ªÊ¼Ö´ĞĞ");
+			log.info("serviceså±‚getAllDeptsæ–¹æ³•å¼€å§‹æ‰§è¡Œ");
 			List li = new ArrayList();
 			List<Depts> list = dd.getAllDepts();
 			for (Depts depts : list) {
@@ -59,10 +59,10 @@ public class DeptsServices implements IDeptsServices {
 						.getEmployye().getEname());
 				li.add(db);
 			}
-			log.info("services²ãgetAllDepts·½·¨Ö´ĞĞ³É¹¦");
+			log.info("serviceså±‚getAllDeptsæ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 			return li;
 		} catch (Exception e) {
-			log.error("services²ãgetAllDepts·½·¨Ö´ĞĞÊ§°Ü", e);
+			log.error("serviceså±‚getAllDeptsæ–¹æ³•æ‰§è¡Œå¤±è´¥", e);
 			return null;
 		}
 	}
@@ -80,7 +80,7 @@ public class DeptsServices implements IDeptsServices {
 		Employye employye = (Employye) ed.findEmployyeByAny("ename",
 				db.getEmployyeName()).get(0);
 		List<Depts> list=dd.getDeptsByEid(employye.getId());
-		//½«ÒÔÇ°Ëù¹ÜÀíµÄ²¿ÃÅÇå¿Õ
+		//å°†ä»¥å‰æ‰€ç®¡ç†çš„éƒ¨é—¨æ¸…ç©º
 		for (Depts depts : list) {
 			depts.setEmployye(null);
 			dd.updateDept(depts);
@@ -93,7 +93,7 @@ public class DeptsServices implements IDeptsServices {
 	}
 
 	/**
-	 * ¸ù¾İÒ»¸öBO¶ÔÏóĞŞ¸ÄÒ»¸ö²¿ÃÅ
+	 * æ ¹æ®ä¸€ä¸ªBOå¯¹è±¡ä¿®æ”¹ä¸€ä¸ªéƒ¨é—¨
 	 * 
 	 * @param db
 	 */
@@ -115,18 +115,18 @@ public class DeptsServices implements IDeptsServices {
 	}
 
 	/**
-	 * ¸ù¾İIDºÅÉ¾³ıÒ»¸ö²¿ÃÅ
+	 * æ ¹æ®IDå·åˆ é™¤ä¸€ä¸ªéƒ¨é—¨
 	 * 
 	 * @param id
 	 */
 	public String delDepts(int id) {
 		Depts dept = dd.getDeptsById(id);
 		if (dept.getEmployyes().size() > 0) {
-			return "1"; // ´ú±í²¿ÃÅÏÂÓĞÔ±¹¤£¬²»ÄÜÉ¾³ı
+			return "1"; // ä»£è¡¨éƒ¨é—¨ä¸‹æœ‰å‘˜å·¥ï¼Œä¸èƒ½åˆ é™¤
 		} else {
 			dd.deleteDeptById(Depts.class, id);
 		}
-		return "2"; // ´ú±íÉ¾³ı³É¹¦
+		return "2"; // ä»£è¡¨åˆ é™¤æˆåŠŸ
 	}
 
 	public IEmployeeDao getEd() {

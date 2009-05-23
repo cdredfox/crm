@@ -1,4 +1,4 @@
-package com.netsoft.dao.imp;
+ï»¿package com.netsoft.dao.imp;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -13,11 +13,11 @@ import com.netsoft.dao.pojos.Menus;
 import com.netsoft.dao.pojos.Roles;
 
 /**
- * @author ÅíæÂ<pengyuan>
- * @¹¤³ÌÃû NetSoftCRM
- * @ÎÄ¼şÃû MenusDao.java
- * @±àĞ´ÈÕÆÚ Dec 26, 2006
- * @¹¦ÄÜËµÃ÷ ¶ÔÈ¨ÏŞ²Ëµ¥±í½øĞĞ²Ù×÷
+ * @author å½­åª›<pengyuan>
+ * @å·¥ç¨‹å NetSoftCRM
+ * @æ–‡ä»¶å MenusDao.java
+ * @ç¼–å†™æ—¥æœŸ Dec 26, 2006
+ * @åŠŸèƒ½è¯´æ˜ å¯¹æƒé™èœå•è¡¨è¿›è¡Œæ“ä½œ
  */
 public class MenusDao implements IMenusDao {
 	Logger logger = Logger.getLogger(this.getClass());
@@ -34,7 +34,7 @@ public class MenusDao implements IMenusDao {
 		try {
 			return cd.add(menus);
 		} catch (Exception e) {
-			logger.error("MenusDapÖĞ¼äµÄaddMenus·½·¨³ö´í", e);
+			logger.error("MenusDapä¸­é—´çš„addMenusæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 		
@@ -44,7 +44,7 @@ public class MenusDao implements IMenusDao {
 		try {
 			return cd.dele(menus);
 		} catch (Exception e) {
-			logger.error("MenusDapÖĞ¼äµÄdeleteMenus·½·¨³ö´í", e);
+			logger.error("MenusDapä¸­é—´çš„deleteMenusæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 		
@@ -55,7 +55,7 @@ public class MenusDao implements IMenusDao {
 			List<Menus> ls=cd.getObjectAll(Menus.class);
 			return ls;
 		} catch (Exception e) {
-			logger.error("MenusDapÖĞ¼äµÄgetAllMenus·½·¨³ö´í", e);
+			logger.error("MenusDapä¸­é—´çš„getAllMenusæ–¹æ³•å‡ºé”™", e);
 			return null;
 		}
 		
@@ -65,7 +65,7 @@ public class MenusDao implements IMenusDao {
 		try {
 			return cd.updateObject(menus);
 		} catch (Exception e) {
-			logger.error("MenusDapÖĞ¼äµÄupdateMenus·½·¨³ö´í", e);
+			logger.error("MenusDapä¸­é—´çš„updateMenusæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 		
@@ -75,7 +75,7 @@ public class MenusDao implements IMenusDao {
 		try {
 			return cd.dele(Menus.class, id);
 		} catch (Exception e) {
-			logger.error("MenusDaoÖĞ¼äµÄdeleteMenusById·½·¨³ö´í", e);
+			logger.error("MenusDaoä¸­é—´çš„deleteMenusByIdæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 	}
@@ -84,13 +84,13 @@ public class MenusDao implements IMenusDao {
 		try {
 			return cd.getObjectById(Menus.class, mid);
 		}catch (Exception e) {
-			logger.error("MenusDaoÖĞ¼äµÄgetMenusById·½·¨³ö´í", e);
+			logger.error("MenusDaoä¸­é—´çš„getMenusByIdæ–¹æ³•å‡ºé”™", e);
 			return null;
 		}
 	}
 	
 	/**
-	 * ¸ù¾İtopidÈ¡ÏàÓ¦µÄ²Ëµ¥Öµ
+	 * æ ¹æ®topidå–ç›¸åº”çš„èœå•å€¼
 	 * @param topid
 	 * @return
 	 */
@@ -102,7 +102,7 @@ public class MenusDao implements IMenusDao {
 			hm.put("topid", topid);
 			return cd.getObjectByHql(hql, hm);
 		} catch (Exception e) {
-			logger.error("MenusDaoÖĞ¼äµÄgetMenusByTopId·½·¨³ö´íÁË",e);
+			logger.error("MenusDaoä¸­é—´çš„getMenusByTopIdæ–¹æ³•å‡ºé”™äº†",e);
 			return null;
 		}
 	}

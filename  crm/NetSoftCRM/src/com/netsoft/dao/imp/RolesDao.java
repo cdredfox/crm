@@ -1,4 +1,4 @@
-package com.netsoft.dao.imp;
+ï»¿package com.netsoft.dao.imp;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -13,12 +13,12 @@ import com.netsoft.dao.pojos.Menus;
 import com.netsoft.dao.pojos.Roles;
 
 /**
- * @author ÅíæÂ<pengyuan>
- * @¹¤³ÌÃû NetSoftCRM
- * @ÎÄ¼şÃû RolesDao.java
- * @±àĞ´ÈÕÆÚ Dec 26, 2006
- * @¹¦ÄÜËµÃ÷ ¶Ô½ÇÉ«±í½øĞĞ²Ù×÷
- * @¸½¼ÓËµÃ÷ 
+ * @author å½­åª›<pengyuan>
+ * @å·¥ç¨‹å NetSoftCRM
+ * @æ–‡ä»¶å RolesDao.java
+ * @ç¼–å†™æ—¥æœŸ Dec 26, 2006
+ * @åŠŸèƒ½è¯´æ˜ å¯¹è§’è‰²è¡¨è¿›è¡Œæ“ä½œ
+ * @é™„åŠ è¯´æ˜ 
  */
 public class RolesDao implements IRolesDao {	
 	Logger logger = Logger.getLogger(this.getClass());
@@ -38,7 +38,7 @@ public class RolesDao implements IRolesDao {
 		try {
 			return cd.add(roles);
 		} catch (Exception e) {
-			logger.error("RolesDaoÖĞ¼äµÄaddroles·½·¨³ö´í", e);
+			logger.error("RolesDaoä¸­é—´çš„addrolesæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 	}
@@ -50,7 +50,7 @@ public class RolesDao implements IRolesDao {
 		try{
 			return cd.dele(roles);
 		}catch(Exception e){
-			logger.error("RolesDaoÖĞ¼äµÄdeleteRoles·½·¨³ö´í", e);
+			logger.error("RolesDaoä¸­é—´çš„deleteRolesæ–¹æ³•å‡ºé”™", e);
 		}
 		return false;
 	}
@@ -60,7 +60,7 @@ public class RolesDao implements IRolesDao {
 			List<Roles> ls=cd.getObjectAll(Roles.class);
 			return ls;
 		} catch (Exception e) {
-			logger.error("RolesDaoÖĞ¼äµÄgetAllRoles·½·¨³ö´í", e);
+			logger.error("RolesDaoä¸­é—´çš„getAllRolesæ–¹æ³•å‡ºé”™", e);
 			return null;
 		}
 		
@@ -73,7 +73,7 @@ public class RolesDao implements IRolesDao {
 		try {
 			return  cd.updateObject(roles);
 		} catch (Exception e) {
-			logger.error("RolesDaoÖĞ¼äµÄupdateRoles·½·¨³ö´í", e);
+			logger.error("RolesDaoä¸­é—´çš„updateRolesæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 		
@@ -83,7 +83,7 @@ public class RolesDao implements IRolesDao {
 		try {
 			return cd.dele(Roles.class, rid);
 		} catch (Exception e) {
-			logger.error("RolesDaoÖĞ¼äµÄdeleeRolesById·½·¨³ö´í", e);
+			logger.error("RolesDaoä¸­é—´çš„deleeRolesByIdæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 		
@@ -95,7 +95,7 @@ public class RolesDao implements IRolesDao {
 			cd.updateObject(roles);
 			return true;
 		} catch (Exception e) {
-			logger.error("RolesDaoÖĞ¼äµÄRolesRemoveMenus·½·¨³ö´í", e);
+			logger.error("RolesDaoä¸­é—´çš„RolesRemoveMenusæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 		
@@ -107,7 +107,7 @@ public class RolesDao implements IRolesDao {
 			cd.updateObject(roles);
 			return true;
 		} catch (Exception e) {
-			logger.error("RolesDaoÖĞ¼äµÄRolesSetMenus·½·¨³ö´í", e);
+			logger.error("RolesDaoä¸­é—´çš„RolesSetMenusæ–¹æ³•å‡ºé”™", e);
 			return false;
 		}
 		
@@ -115,15 +115,15 @@ public class RolesDao implements IRolesDao {
 	
 	
 	public Set<Menus> getMenusByRole(Roles roles) {
-		logger.debug("getMenusByRole·½·¨¿ªÊ¼Ö´ĞĞ");
+		logger.debug("getMenusByRoleæ–¹æ³•å¼€å§‹æ‰§è¡Œ");
 		try {
 		    roles=cd.getObjectById(Roles.class, roles.getId());
 			Set<Menus> s=roles.getRmidptables();
-			logger.debug("getMenusByRole·½·¨ÖĞsµÄÖµÎª£º"+s.size());
-		    logger.debug("getMenusByRole·½·¨Ö´ĞĞ³É¹¦");
+			logger.debug("getMenusByRoleæ–¹æ³•ä¸­sçš„å€¼ä¸ºï¼š"+s.size());
+		    logger.debug("getMenusByRoleæ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 		    return s;
 		} catch (Exception e) {
-			logger.error("getMenusByRole·½·¨Ö´ĞĞÊ§°Ü",e);
+			logger.error("getMenusByRoleæ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 			return null;
 		}
 	}
@@ -140,7 +140,7 @@ public class RolesDao implements IRolesDao {
 				return null;
 			}
 		} catch (Exception e) {
-			logger.error("getRoles·½·¨Ö´ĞĞÊ§°Ü",e);
+			logger.error("getRolesæ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 			return null;
 		}
 	}
@@ -152,7 +152,7 @@ public class RolesDao implements IRolesDao {
 			hm.put("rdelstyle", rdelstyle);
 			return cd.updateObject("update Roles set rdelstyle=:rdelstyle where id=:id", hm);
 		} catch (Exception e) {
-			logger.error("updateRdelStyleOnRoles·½·¨Ö´ĞĞÊ§°Ü",e);
+			logger.error("updateRdelStyleOnRolesæ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 			return false;
 		}
 	}

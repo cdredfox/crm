@@ -1,4 +1,4 @@
-package com.netsoft.servlet;
+ï»¿package com.netsoft.servlet;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,12 +24,12 @@ public class CRMActionServlet extends ActionServlet {
 		try {
 			Properties prop = getVersion();
 			if (prop == null) {
-				throw new ServletException("¶ÁÈ¡°æ±¾ÑéÖ¤ÎÄ¼ş³ö´í!°æ±¾ÑéÖ¤ÎªNULL");
+				throw new ServletException("è¯»å–ç‰ˆæœ¬éªŒè¯æ–‡ä»¶å‡ºé”™!ç‰ˆæœ¬éªŒè¯ä¸ºNULL");
 			} else {
 				if(!MD5.isPassword(MacInfo.getMacNo(), prop.getProperty("Mac")))
 				{
-					log.error("ÔÚ·ÇÊÚÈ¨»úÆ÷ÉÏÊ¹ÓÃ±¾ÏµÍ³!ÇëÁªÏµÏà¹ØÈËÔ±");
-					throw new ServletException("ÔÚ·ÇÊÚÈ¨»úÆ÷ÉÏÊ¹ÓÃ±¾ÏµÍ³£¡ÇëÁªÏµÏà¹ØÈËÔ±");
+					log.error("åœ¨éæˆæƒæœºå™¨ä¸Šä½¿ç”¨æœ¬ç³»ç»Ÿ!è¯·è”ç³»ç›¸å…³äººå‘˜");
+					throw new ServletException("åœ¨éæˆæƒæœºå™¨ä¸Šä½¿ç”¨æœ¬ç³»ç»Ÿï¼è¯·è”ç³»ç›¸å…³äººå‘˜");
 				}
 				if ("no".equals(prop.getProperty("lastDate"))) {
 					super.init();
@@ -40,16 +40,16 @@ public class CRMActionServlet extends ActionServlet {
 					if (day >= 0) {
 						super.init();
 					} else {
-						log.error("ÄúµÄÊÔÓÃ°æ±¾ÒÑ¾­¹ıÆÚÁË£¡ÇëÁªÏµÏà¹ØÈËÔ±");
-						throw new ServletException("ÄúµÄÊÔÓÃ°æ±¾ÒÑ¾­¹ıÆÚÁË£¡ÇëÁªÏµÏà¹ØÈËÔ±");
+						log.error("æ‚¨çš„è¯•ç”¨ç‰ˆæœ¬å·²ç»è¿‡æœŸäº†ï¼è¯·è”ç³»ç›¸å…³äººå‘˜");
+						throw new ServletException("æ‚¨çš„è¯•ç”¨ç‰ˆæœ¬å·²ç»è¿‡æœŸäº†ï¼è¯·è”ç³»ç›¸å…³äººå‘˜");
 					}
 
 				}
 			}
 		} catch (BusinessException e) {
-			throw new ServletException("Ö÷Action³õÊ¼»¯·½·¨³ö´í", e);
+			throw new ServletException("ä¸»Actionåˆå§‹åŒ–æ–¹æ³•å‡ºé”™", e);
 		} catch (Exception e) {
-			throw new ServletException("Ö÷ActionÎ´Öª´íÎó", e);
+			throw new ServletException("ä¸»ActionæœªçŸ¥é”™è¯¯", e);
 		}
 
 	}
@@ -63,10 +63,10 @@ public class CRMActionServlet extends ActionServlet {
 
 			return prop;
 		} catch (FileNotFoundException e) {
-			log.error("¼ÓÔØ°æ±¾ÑéÖ¤ÎÄ¼ş³ö´í£¡ÎÄ¼ş²»´æÔÚ", e);
+			log.error("åŠ è½½ç‰ˆæœ¬éªŒè¯æ–‡ä»¶å‡ºé”™ï¼æ–‡ä»¶ä¸å­˜åœ¨", e);
 
 		} catch (IOException e) {
-			log.error("¼ÓÔØ°æ±¾ÑéÖ¤ÎÄ¼ş³ö´í£¡ÎÄ¼ş¶ÁÈ¡³ö´í", e);
+			log.error("åŠ è½½ç‰ˆæœ¬éªŒè¯æ–‡ä»¶å‡ºé”™ï¼æ–‡ä»¶è¯»å–å‡ºé”™", e);
 			e.printStackTrace();
 		}
 		return null;

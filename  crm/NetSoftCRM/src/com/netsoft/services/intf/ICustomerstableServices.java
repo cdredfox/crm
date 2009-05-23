@@ -1,13 +1,13 @@
-package com.netsoft.services.intf;
+ï»¿package com.netsoft.services.intf;
 
 import java.util.List;
 
 import com.netsoft.dao.beans.CustomerstableBean;
 
 public interface ICustomerstableServices {
-	public int INVALI_CUSTOMER_GRADE=999999;//Ê§Ğ§µÄ¿Í»§µÈ¼¶
+	public int INVALI_CUSTOMER_GRADE=999999;//å¤±æ•ˆçš„å®¢æˆ·ç­‰çº§
 	/**
-	 * ¸ù¾İ´«½øÀ´µÄµç»°ºÍĞÕÃûÀ´¼ì²é¿Í»§ÊÇ·ñÒÑ´æÔÚ
+	 * æ ¹æ®ä¼ è¿›æ¥çš„ç”µè¯å’Œå§“åæ¥æ£€æŸ¥å®¢æˆ·æ˜¯å¦å·²å­˜åœ¨
 	 * @param type
 	 * @param number
 	 * @param name
@@ -15,84 +15,84 @@ public interface ICustomerstableServices {
 	 */
 	public int checkCustomer(String type,String number,String name);
 	/**
-	 * µÃµ½Ä³Ô±¹¤ÃûÏÂµÄËùÓĞ¿Í»§ĞÅÏ¢
+	 * å¾—åˆ°æŸå‘˜å·¥åä¸‹çš„æ‰€æœ‰å®¢æˆ·ä¿¡æ¯
 	 * @param id
 	 * @return
 	 */
 	public List<CustomerstableBean> getAllCustomerByEid(int id,int page,int size,String company,String startdate,String enddate,int cutomergrade);
 	/**
-	 * È¡µÃËùÓĞµÄ¹«¿ª¿Í»§ĞÅÏ¢
+	 * å–å¾—æ‰€æœ‰çš„å…¬å¼€å®¢æˆ·ä¿¡æ¯
 	 * @return
 	 */
 	public List<CustomerstableBean> getAllOpenCustomer(int page,int size,String company,String startdate,String enddate,int cutomergrade);
 	/**
-	 * È¡ËùÓĞµÄ³·Ïú¿ÍĞÅÏ¢
+	 * å–æ‰€æœ‰çš„æ’¤é”€å®¢ä¿¡æ¯
 	 * @param page
 	 * @param size
 	 * @return
 	 */
 	public List<CustomerstableBean> getAllInvaliCustomer(int page,int size,String company,String startdate,String enddate,int cutomergrade);
 	/**
-	 * È¡µÃËùÓĞµÄ¿Í»§ĞÅÏ¢
+	 * å–å¾—æ‰€æœ‰çš„å®¢æˆ·ä¿¡æ¯
 	 * @return
 	 */
 	public List<CustomerstableBean> getAllCustomer(int page,int size,String company,int eid,String startdate,String enddate);
 	/**
-	 * Ôö¼ÓÒ»¸ö¿Í»§ĞÅÏ¢
+	 * å¢åŠ ä¸€ä¸ªå®¢æˆ·ä¿¡æ¯
 	 * @param cb
 	 * @return
 	 */
 	public String addCustomer(CustomerstableBean cb);
 	
 	/**
-	 * È¡µÃÄ³Ô±¹¤ÃûÏÂËùÓĞ¿Í»§µÄºÏ¼ÆÊı
+	 * å–å¾—æŸå‘˜å·¥åä¸‹æ‰€æœ‰å®¢æˆ·çš„åˆè®¡æ•°
 	 * @param eid
 	 * @return
 	 */
 	public int getCount(int eid,String company,String startdate,String enddate,int cutomergrade);
 	/**
-	 * µÃµ½ËùÓĞ¹«¿ª¿Í»§µÄÊıÁ¿
+	 * å¾—åˆ°æ‰€æœ‰å…¬å¼€å®¢æˆ·çš„æ•°é‡
 	 * @return
 	 */
 	public int getOpenCount(String company,String startdate,String enddate,int cutomergrade);
 	/**
-	 * µÃµ½ËùÓĞµÄÊ§Ğ§¿Í»§ĞÅÏ¢
+	 * å¾—åˆ°æ‰€æœ‰çš„å¤±æ•ˆå®¢æˆ·ä¿¡æ¯
 	 * @return
 	 */
 	public int getInvaliCount(String company,String startdate,String enddate,int cutomergrade);
 	/**
-	 * µÃµ½ËùÓĞ¿Í»§µÄÊıÁ¿
+	 * å¾—åˆ°æ‰€æœ‰å®¢æˆ·çš„æ•°é‡
 	 * @return
 	 */
 	public int getAllCount(String company,int eid,String startdate,String enddate);
 	/**
-	 * É¾³ıÒ»¸ö¿Í»§ĞÅÏ¢
+	 * åˆ é™¤ä¸€ä¸ªå®¢æˆ·ä¿¡æ¯
 	 * @param id
-	 * @param flag ÊÇ²»ÊÇÕæÕıµÄÉ¾³ı
+	 * @param flag æ˜¯ä¸æ˜¯çœŸæ­£çš„åˆ é™¤
 	 * @return
 	 */
 	public boolean delCustomerByFlag(int id,String flag);
 	/**
-	 * ¸ù¾İ¿Í»§IDµÃµ½¿Í»§¶ÔÏó
+	 * æ ¹æ®å®¢æˆ·IDå¾—åˆ°å®¢æˆ·å¯¹è±¡
 	 * @param id
 	 * @return
 	 */
 	public CustomerstableBean getCustomerById(int id);
 	
 	/**
-	 * ¸ù¾İÒµÎñ¶ÔÏó¸üĞÂÒ»¸ö¿Í»§¶ÔÏó
+	 * æ ¹æ®ä¸šåŠ¡å¯¹è±¡æ›´æ–°ä¸€ä¸ªå®¢æˆ·å¯¹è±¡
 	 * @param ctb
 	 * @return
 	 */
 	public boolean updateCustomer(CustomerstableBean ctb);
 	/**
-	 * ½«Ö¸¶¨µÄ¿Í»§ĞÅÏ¢ÉèÎª¹«¿ª
+	 * å°†æŒ‡å®šçš„å®¢æˆ·ä¿¡æ¯è®¾ä¸ºå…¬å¼€
 	 * @param id
 	 * @return
 	 */
 	public boolean changeCustomerOpen(int id);
 	/**
-	 * É¾³ıÒ»¸ö¿Í»§ĞÅÏ¢
+	 * åˆ é™¤ä¸€ä¸ªå®¢æˆ·ä¿¡æ¯
 	 * @param id
 	 * @return
 	 */

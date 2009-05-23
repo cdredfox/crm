@@ -1,4 +1,4 @@
-package com.netsoft.dao.pojos;
+﻿package com.netsoft.dao.pojos;
 
 /**
  * Feedbackstyle entity.

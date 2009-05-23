@@ -1,4 +1,4 @@
-package com.netsoft.dao.intf;
+ï»¿package com.netsoft.dao.intf;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,56 +11,56 @@ import com.netsoft.dao.pojos.Roles;
 public interface IRolesDao {
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡Ìí¼ÓÒ»¸ö½ÇÉ«
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ·»åŠ ä¸€ä¸ªè§’è‰²
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param roles
 	 * @return 
 	 */
 	public abstract boolean addRoles(Roles roles);
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡É¾³ıÒ»¸ö½ÇÉ«
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€åˆ é™¤ä¸€ä¸ªè§’è‰²
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param roles
 	 * @return 
 	 */
 	public abstract boolean deleteRoles(Roles roles);
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸ù¾İ½ÇÉ«idÉ¾³ıÒ»¸ö½ÇÉ«
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®è§’è‰²idåˆ é™¤ä¸€ä¸ªè§’è‰²
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param roles
 	 * @return 
 	 */
 	public abstract boolean deleteRolesById(Class cl,Serializable rid);
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡ĞŞ¸ÄÒ»¸ö½ÇÉ«
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€ä¿®æ”¹ä¸€ä¸ªè§’è‰²
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param roles
 	 * @return 
 	 */
 	public abstract boolean updateRoles(Roles roles);
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡»ñÈ¡ËùÓĞµÄ½ÇÉ«
-	 * @·µ»ØÀàĞÍ¡¡List<Roles>
+	 * @åŠŸèƒ½è¯´æ˜ã€€è·å–æ‰€æœ‰çš„è§’è‰²
+	 * @è¿”å›ç±»å‹ã€€List<Roles>
 	 * @param 
-	 * @return Ò»¸öList¼¯ºÏ
+	 * @return ä¸€ä¸ªListé›†åˆ
 	 */
 	public List<Roles> getAllRoles();
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸ù¾İ½ÇÉ«Ìí¼ÓÈ¨ÏŞ²Ëµ¥
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®è§’è‰²æ·»åŠ æƒé™èœå•
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param  roles,menus
 	 * @return 
 	 */
 	public boolean RolesSetMenus(Roles roles,Menus menus);
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸ù¾İ½ÇÉ«É¾³ıÈ¨ÏŞ²Ëµ¥
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®è§’è‰²åˆ é™¤æƒé™èœå•
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param roles,menus
 	 * @return 
 	 */
@@ -68,24 +68,24 @@ public interface IRolesDao {
 	
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸ù¾İ½ÇÉ«È¡µÃ¸Ã½ÇÉ«ÏÂµÄËùÒÔ²Ëµ¥È¨ÏŞ
-	 * @·µ»ØÀàĞÍ¡¡Set<Menus>
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®è§’è‰²å–å¾—è¯¥è§’è‰²ä¸‹çš„æ‰€ä»¥èœå•æƒé™
+	 * @è¿”å›ç±»å‹ã€€Set<Menus>
 	 * @param roles
-	 * @return Ò»¸öset¼¯ºÏ
+	 * @return ä¸€ä¸ªseté›†åˆ
 	 */
 	public Set<Menus> getMenusByRole(Roles roles);
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸ù¾İIDºÍrdelstyle»ñµÃÒ»¸ö½ÇÉ«ĞÅÏ¢
-	 * @·µ»ØÀàĞÍ¡¡Roles
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®IDå’Œrdelstyleè·å¾—ä¸€ä¸ªè§’è‰²ä¿¡æ¯
+	 * @è¿”å›ç±»å‹ã€€Roles
 	 * @param  id,rdelstyle
 	 * @return 
 	 */
 	public abstract Roles getRoles(Integer id);
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸ù¾İIDĞŞ¸ÄÒ»¸ö½ÇÉ«ĞÅÏ¢µÄrdelstyle´Ë·½·¨Ö÷ÒªÓÃÓï»ØÊÕÕ¾¹¦ÄÜ
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®IDä¿®æ”¹ä¸€ä¸ªè§’è‰²ä¿¡æ¯çš„rdelstyleæ­¤æ–¹æ³•ä¸»è¦ç”¨è¯­å›æ”¶ç«™åŠŸèƒ½
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param  id,rdelstyle
 	 * @return 
 	 */

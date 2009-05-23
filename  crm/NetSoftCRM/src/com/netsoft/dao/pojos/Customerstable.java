@@ -1,4 +1,4 @@
-package com.netsoft.dao.pojos;
+﻿package com.netsoft.dao.pojos;
 
 import java.util.Date;
 import java.util.Set;
@@ -33,7 +33,7 @@ public class Customerstable implements java.io.Serializable {
 	private String customerhandset;
 	private Date customerfeedbackdate;
 	private Set feedbacktables;
-	private Employye addemployye;//�ͻ�¼����
+	private Employye addemployye;//锟酵伙拷录锟斤拷锟斤拷
 	private Configuretable customerprovince;
 	private Configuretable customercity;
 	

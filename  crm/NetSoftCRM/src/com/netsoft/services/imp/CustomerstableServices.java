@@ -1,4 +1,4 @@
-package com.netsoft.services.imp;
+﻿package com.netsoft.services.imp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +21,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 
 	Logger log = Logger.getLogger(this.getClass());
 	/**
-	 * δ����ԤԼ�������ͻ���ID�š�����������ܿ�
+	 * 未锟斤拷锟斤拷预约锟斤拷锟斤拷锟斤拷锟酵伙拷锟斤拷ID锟脚★拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷芸锟?
 	 */
 	private static int CUSTOMER_GRADE_LOCK = 19;
 	private ICustomerstableDao icd;
@@ -37,8 +37,8 @@ public class CustomerstableServices implements ICustomerstableServices {
 	}
 
 	/**
-	 * ���ͻ��Ƿ���� 20080712�޸����󣬽�һ��ϸ����ʾ��Ϣ ���غ��壺 0 ϵͳ��û�иÿͻ���Ϣ 1 ����һ����Ϣ�����Ҹ���ϢΪ�����򳷵� 2
-	 * ����һ����Ϣ�����ÿͻ���ϢΪ���� 3 ���ڶ�����Ϣ
+	 * 锟斤拷锟酵伙拷锟角凤拷锟斤拷锟?20080712锟睫革拷锟斤拷锟襟，斤拷一锟斤拷细锟斤拷锟斤拷示锟斤拷息 锟斤拷锟截猴拷锟藉： 0 系统锟斤拷没锟叫该客伙拷锟斤拷息 1 锟斤拷锟斤拷一锟斤拷锟斤拷息锟斤拷锟斤拷锟揭革拷锟斤拷息为锟斤拷锟斤拷锟津撤碉拷 2
+	 * 锟斤拷锟斤拷一锟斤拷锟斤拷息锟斤拷锟斤拷锟矫客伙拷锟斤拷息为锟斤拷锟斤拷 3 锟斤拷锟节讹拷锟斤拷锟斤拷息
 	 */
 	public int checkCustomer(String type, String number, String name) {
 		StringBuilder hql = new StringBuilder(
@@ -50,11 +50,11 @@ public class CustomerstableServices implements ICustomerstableServices {
 			hm.put("name", "%" + name.trim() + "%");
 		}
 		if ("1".equals(type)) {
-			// 1����ֻ�
+			// 1锟斤拷锟斤拷只锟?
 			hql.append(" or customerhandset = :handset");
 			hm.put("handset", number.trim());
 		} else if ("2".equals(type)) {
-			// 2���绰
+			// 2锟斤拷锟界话
 			hql.append(" or customerphone like :phone");
 			hm.put("phone", "%-" + number.trim());
 		}
@@ -62,13 +62,13 @@ public class CustomerstableServices implements ICustomerstableServices {
 		boolean flag = false;
 		if (list != null && list.size() > 0) {
 			if (list.size() == 1) {
-				// ���ֻ��һ����Ϣ�����Ҹ���Ϣ�ǹ����ͻ����߳����ͻ�
+				// 锟斤拷锟街伙拷锟揭伙拷锟斤拷锟较拷锟斤拷锟斤拷腋锟斤拷锟较拷枪锟斤拷锟斤拷突锟斤拷锟斤拷叱锟斤拷锟斤拷突锟?
 				if (list.get(0).getEmployye() == null)
 					return 1;
 				else
 					return 2;
 			} else {
-				// ����ж���
+				// 锟斤拷锟斤拷卸锟斤拷锟?
 				for (Customerstable customerstable : list) {
 					if (customerstable.getEmployye() == null) {
 						flag = true;
@@ -82,7 +82,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 				}
 			}
 		}
-		return 0;// ���ϵͳ��û�иÿͻ���Ϣ
+		return 0;// 锟斤拷锟较低筹拷锟矫伙拷懈每突锟斤拷锟较?
 	}
 
 	public List<CustomerstableBean> getAllCustomerByEid(int id, int page,
@@ -102,16 +102,16 @@ public class CustomerstableServices implements ICustomerstableServices {
 
 	public String addCustomer(CustomerstableBean cb) {
 		if (cb.getCutomergrade() == CUSTOMER_GRADE_LOCK) {
-			// ��������ӵ�δ����ԤԼ�ͻ����������͵Ŀͻ���������������������
-			// 1,��δ����ԤԼ�ͻ���������
+			// 锟斤拷锟斤拷锟斤拷锟斤拷拥锟轿达拷锟斤拷锟皆ぴ硷拷突锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷偷目突锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟?
+			// 1,锟斤拷未锟斤拷锟斤拷预约锟酵伙拷锟斤拷锟斤拷锟斤拷锟斤拷
 			Businessruletable business = ibd.getRuleById(5);
-			// 2,���Ա����ӵ�и����Ϳͻ�������
+			// 2,锟斤拷锟皆憋拷锟斤拷锟接碉拷懈锟斤拷锟斤拷涂突锟斤拷锟斤拷锟斤拷锟?
 			List cl = icd.getCustomerByEidAndGrade(cb.getEid(),
 					CUSTOMER_GRADE_LOCK);
-			// 3,������
+			// 3,锟斤拷锟斤拷锟斤拷
 			if (cl != null && cl.size() > 0) {
 				if (Integer.parseInt(business.getRulevalue()) < cl.size()) {
-					return "��� δ����ԤԼ�ͻ������� ���Ϳͻ�������������ϵͳ��������ã��������Ӹ����͵Ŀͻ�!";
+					return "锟斤拷锟?未锟斤拷锟斤拷预约锟酵伙拷锟斤拷锟斤拷锟斤拷 锟斤拷锟酵客伙拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷系统锟斤拷锟斤拷锟斤拷锟斤拷茫锟斤拷锟斤拷锟斤拷锟斤拷痈锟斤拷锟斤拷偷目突锟?";
 				}
 			}
 		}
@@ -148,11 +148,11 @@ public class CustomerstableServices implements ICustomerstableServices {
 	}
 
 	/**
-	 * ��ݿͻ�IDɾ��ĳһ���ͻ� ���flagΪy��Ϊ�����ɾ��Ϊn�� ɾ���������ɾ����ǽ���ȼ���ΪʧЧ����ɢ���ҵ��Ա֮��Ĺ�ϵ
+	 * 锟斤拷菘突锟绌D删锟斤拷某一锟斤拷锟酵伙拷 锟斤拷锟絝lag为y锟斤拷为锟斤拷锟斤拷锟缴撅拷锟轿猲锟斤拷 删锟斤拷锟斤拷锟斤拷锟斤拷锟缴撅拷锟斤拷锟角斤拷锟斤拷燃锟斤拷锟轿э拷锟斤拷锟缴拷锟斤拷业锟斤拷员之锟斤拷墓锟较?
 	 */
 	public boolean delCustomerByFlag(int id, String flag) {
 		try {
-			log.info("Services��delCustomer������ʼִ��");
+			log.info("Services锟斤拷delCustomer锟斤拷锟斤拷锟斤拷始执锟斤拷");
 
 			if ("y".equals(flag)) {
 				icd.delCustomerstable(id);
@@ -161,20 +161,20 @@ public class CustomerstableServices implements ICustomerstableServices {
 				return this.delCustomer(id);
 			}
 		} catch (Exception e) {
-			log.error("Services��delCustomer����ִ��ʧ��", e);
+			log.error("Services锟斤拷delCustomer锟斤拷锟斤拷执锟斤拷失锟斤拷", e);
 			return false;
 		}
 	}
 
 	public CustomerstableBean getCustomerById(int id) {
 		try {
-			log.info("Services��getCustomerById������ʼִ��");
+			log.info("Services锟斤拷getCustomerById锟斤拷锟斤拷锟斤拷始执锟斤拷");
 			CustomerstableBean ctb = new CustomerstableBean();
 			Customerstable ct = icd.getCustomerById(id);
 			BeanUtils.copyProperties(ct, ctb);
 			return ctb;
 		} catch (Exception e) {
-			log.error("Services��getCustomerById����ִ��ʧ��", e);
+			log.error("Services锟斤拷getCustomerById锟斤拷锟斤拷执锟斤拷失锟斤拷", e);
 			return null;
 		}
 	}
@@ -182,7 +182,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 	public boolean updateCustomer(CustomerstableBean ctb) {
 
 		try {
-			log.info("Services��updateCustomer������ʼִ��");
+			log.info("Services锟斤拷updateCustomer锟斤拷锟斤拷锟斤拷始执锟斤拷");
 
 			Customerstable ct = icd.getCustomerById(ctb.getCustomerid());
 			ct.setCustomercompany(ctb.getCustomercompany());
@@ -219,7 +219,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 			icd.updateCustomerstable(ct);
 			return true;
 		} catch (Exception e) {
-			log.error("Services��updateCustomer����ִ��ʧ��", e);
+			log.error("Services锟斤拷updateCustomer锟斤拷锟斤拷执锟斤拷失锟斤拷", e);
 			return false;
 		}
 	}
@@ -240,7 +240,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 	}
 
 	/**
-	 * ���й����ͻ�������
+	 * 锟斤拷锟叫癸拷锟斤拷锟酵伙拷锟斤拷锟斤拷锟斤拷
 	 */
 	public int getOpenCount(String company, String startdate, String enddate,int cutomergrade) {
 		return this.getAllOpenCustomer(0, 0, company, startdate, enddate,cutomergrade)
@@ -248,8 +248,8 @@ public class CustomerstableServices implements ICustomerstableServices {
 	}
 
 	/**
-	 * ��ȡ���еĿͻ���Ϣ 2008024 �޸� ����ǿͻ�¼����֤ʱ�Ĳ�ѯ�ͻ��б?��eidΪ-1
-	 * ���Ϊ-1�Ļ��������ǲ��ǹ����ͻ�����ǹ����ͻ�����ʾ�����ǹ����ͻ�����ʾ
+	 * 锟斤拷取锟斤拷锟叫的客伙拷锟斤拷息 2008024 锟睫革拷 锟斤拷锟斤拷强突锟铰硷拷锟斤拷锟街な憋拷牟锟窖拷突锟斤拷斜?锟斤拷eid为-1
+	 * 锟斤拷锟轿?1锟侥伙拷锟斤拷锟斤拷锟斤拷锟角诧拷锟角癸拷锟斤拷锟酵伙拷锟斤拷锟斤拷枪锟斤拷锟斤拷突锟斤拷锟斤拷锟绞撅拷锟斤拷锟斤拷枪锟斤拷锟斤拷突锟斤拷锟斤拷锟绞?
 	 */
 	public List<CustomerstableBean> getAllCustomer(int page, int size,
 			String name, int eid, String startdate, String enddate) {
@@ -281,7 +281,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 	}
 
 	/**
-	 * ���пͻ�������
+	 * 锟斤拷锟叫客伙拷锟斤拷锟斤拷锟斤拷
 	 */
 	public int getAllCount(String name, int eid, String startdate,
 			String enddate) {
@@ -324,7 +324,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 			// return icd.delCustomerstable(id);
 			return true;
 		} catch (Exception e) {
-			log.error("ɾ��ͻ���Ϣʱ����!(��������ɾ��,��Ϊ����ͻ�)", e);
+			log.error("删锟斤拷突锟斤拷锟较⑹憋拷锟斤拷锟?(锟斤拷锟斤拷锟斤拷锟斤拷删锟斤拷,锟斤拷为锟斤拷锟斤拷突锟?", e);
 			return false;
 		}
 

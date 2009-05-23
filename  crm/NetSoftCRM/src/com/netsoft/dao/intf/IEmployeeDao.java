@@ -1,4 +1,4 @@
-package com.netsoft.dao.intf;
+ï»¿package com.netsoft.dao.intf;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,8 +13,8 @@ public interface IEmployeeDao {
 
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸ù¾İ´«½øÀ´µÄÓÃ»§VI¶ÔÏóµÄÕÊ»§ÓëÃÜÂëÀ´È¡µÃÏàÓ¦µÄPOJO¶ÔÏó
-	 * @·µ»ØÀàĞÍ¡¡Employye
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®ä¼ è¿›æ¥çš„ç”¨æˆ·VIå¯¹è±¡çš„å¸æˆ·ä¸å¯†ç æ¥å–å¾—ç›¸åº”çš„POJOå¯¹è±¡
+	 * @è¿”å›ç±»å‹ã€€Employye
 	 * @param eb
 	 * @return 
 	 */
@@ -22,8 +22,8 @@ public interface IEmployeeDao {
    
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸øÔ±¹¤Ôö¼ÓÒ»¸ö½ÇÉ«
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€ç»™å‘˜å·¥å¢åŠ ä¸€ä¸ªè§’è‰²
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @return
 	 */
 	public boolean EmployeeSetRole(Employye em,Roles role);
@@ -31,8 +31,8 @@ public interface IEmployeeDao {
 	
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸øÔ±¹¤É¾µôÒ»¸ö½ÇÉ«
-	 * @·µ»ØÀàĞÍ¡¡boolean
+	 * @åŠŸèƒ½è¯´æ˜ã€€ç»™å‘˜å·¥åˆ æ‰ä¸€ä¸ªè§’è‰²
+	 * @è¿”å›ç±»å‹ã€€boolean
 	 * @param em
 	 * @param role
 	 * @return
@@ -41,50 +41,50 @@ public interface IEmployeeDao {
 	
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡¸ù¾İÔ±¹¤¶ÔÏóÈ¡µÃÔ±¹¤ËùÊôµÄËùÓĞ½ÇÉ«ÁĞ±í
-	 * @·µ»ØÀàĞÍ¡¡List
+	 * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®å‘˜å·¥å¯¹è±¡å–å¾—å‘˜å·¥æ‰€å±çš„æ‰€æœ‰è§’è‰²åˆ—è¡¨
+	 * @è¿”å›ç±»å‹ã€€List
 	 * @param em
-	 * @return  ·µ»ØÒ»¸ö½ÇÉ«µÄSet¼¯ºÏ
+	 * @return  è¿”å›ä¸€ä¸ªè§’è‰²çš„Seté›†åˆ
 	 */
 	public Set getRolesByEmployee(Employye em);
     /**
      * 
-     * @¹¦ÄÜËµÃ÷¡¡¸ù¾İÔ±¹¤IDµÃµ½Ô±¹¤¶ÔÏó
-     * @·µ»ØÀàĞÍ¡¡Employye
+     * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®å‘˜å·¥IDå¾—åˆ°å‘˜å·¥å¯¹è±¡
+     * @è¿”å›ç±»å‹ã€€Employye
      * @param em
      * @return
      */
     public Employye getEmployeeById(int id);
     /**
      * 
-     * @¹¦ÄÜËµÃ÷¡¡¸ù¾İÔ±¹¤IDºÍEdelStyle²éÑ¯
-     * @·µ»ØÀàĞÍ¡¡boolean 
+     * @åŠŸèƒ½è¯´æ˜ã€€æ ¹æ®å‘˜å·¥IDå’ŒEdelStyleæŸ¥è¯¢
+     * @è¿”å›ç±»å‹ã€€boolean 
      * @param id,edelstyle
      * @return
      */
     public Employye getEmployeeEdelStyleId(Integer id);
 
-    /**µÃµ½ËùÓĞµÄÔ±¹¤¶ÔÏó*/
+    /**å¾—åˆ°æ‰€æœ‰çš„å‘˜å·¥å¯¹è±¡*/
     
     public List getAllEmployee(); 
     
-    /**¸ù¾İ´«¹ıÀ´µÄ¶ÔÏóÉ¾³ıÒ»¸öÔ±¹¤*/
+    /**æ ¹æ®ä¼ è¿‡æ¥çš„å¯¹è±¡åˆ é™¤ä¸€ä¸ªå‘˜å·¥*/
 	public boolean delEmployee(Employye em);
 	
-	/**Ôö¼ÓÔ±¹¤*/
+	/**å¢åŠ å‘˜å·¥*/
 	 public boolean addEmployee(Employye ed);
 	 
-	 /**ĞŞ¸ÄÔ±¹¤*/
+	 /**ä¿®æ”¹å‘˜å·¥*/
 	   public boolean updateEmployee(Employye em);
 	   
-	  /**¸ù¾İÄ³ÖÖÌõ¼şÓëÖµ²éÑ¯Ô±¹¤
-	   *  str1 Ìõ¼ş
-	   *  str2¡¡Öµ
+	  /**æ ¹æ®æŸç§æ¡ä»¶ä¸å€¼æŸ¥è¯¢å‘˜å·¥
+	   *  str1 æ¡ä»¶
+	   *  str2ã€€å€¼
 	   * */
 	   public List findEmployyeByAny(String str1,String str2);
 	   
 	   /**
-	    * ¸ù¾İÌõ¼şÀ´²éÑ¯
+	    * æ ¹æ®æ¡ä»¶æ¥æŸ¥è¯¢
 	    * @param hm
 	    * @return
 	    */

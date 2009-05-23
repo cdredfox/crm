@@ -1,4 +1,4 @@
-package com.netsoft.dao.beans;
+﻿package com.netsoft.dao.beans;
 
 import java.util.Date;
 

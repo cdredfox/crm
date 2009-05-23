@@ -9,53 +9,71 @@
   <script type='text/javascript' src='/NetSoftCRM/dwr/engine.js'></script>
   <script type='text/javascript' src='/NetSoftCRM/dwr/util.js'></script>
   <script type="text/javascript">
-  	function changedz()
-  	{
-  		var topid=document.forms[0].customercounty.value;
-  		if(topid==0)
-  		{
-  			DWRUtil.removeAllOptions("city");
-			DWRUtil.addOptions("city",[{configvalue:0,confignote:'市/地区'}],"configvalue","confignote");
-  		}else
-  		{
-  			ConfigAjax.getAllByType('dz',topid,callBack);
-  		}
-  	}
-  	function callBack(msg)
-  	{
-  		DWRUtil.removeAllOptions("city");
-		DWRUtil.addOptions("city",msg,"configvalue","confignote");
+  function changedz()
+	{
+		var topid=document.forms[0].customerprovinceid.value;
+		if(topid==0)
+		{
+			DWRUtil.removeAllOptions("customercityid");
+			DWRUtil.addOptions("customercityid",[{configvalue:0,confignote:'市/地区'}],"configvalue","confignote");
+		}else
+		{
+			ConfigAjax.getAllByType('dz',topid,callBack);
+		}
+	}
+	function callBack(msg)
+	{
+		DWRUtil.removeAllOptions("customercityid");
+		if(msg=="")
+		{
+			DWRUtil.addOptions("customercityid",[{configvalue:0,confignote:'市/地区'}],"configvalue","confignote");
+			}else
+			{
+		DWRUtil.addOptions("customercityid",msg,"configvalue","confignote");
+			}
 		cityChange();
-  	}
-  	
-  	function cityChange()
-  	{
-  		var cityid=document.forms[0].city.value;
-  		alert(cityid);
-  		selCheck(document.forms[0].phonenumer,cityid);
-  		selCheck(document.forms[0].faxnumber,cityid);
-  	}
-  	
+	}
+	
+	function cityChange()
+	{
+		var cityid=document.forms[0].customercityid.value;
+		if(cityid==0)
+			return;
+		selCheck(document.forms[0].customerarea,cityid);
+		selCheck(document.forms[0].customerfaxarea,cityid);
+	}
   	
 	function selCheck(c,k)
 	{
 		for (var i=0;i<c.options.length ;i++ )
 		{
-		
 			if (c.options(i).value==k)
 			{
 			c.selectedIndex =i;
+			break;
 			}
 		}
 	}
     function check()
     {
-        if(document.forms[0].customeraddress.value=="")
-        {
-           alert("公司地址不能为空！请输入公司地址...");
-           document.forms[0].customeraddress.focus();
-           return false;
-        }
+    	 if(document.forms[0].customerprovinceid.value=="0")
+         {
+            alert("省/市必须选择！请选择省/市...");
+            document.forms[0].customerprovinceid.focus();
+            return false;
+         }
+         if(document.forms[0].customercityid.value=="")
+         {
+            alert("市/地区必须选择！请选择市/地区...");
+            document.forms[0].customercityid.focus();
+            return false;
+         }
+         if(document.forms[0].customeraddress.value=="")
+         {
+            alert("公司地址不能为空！请输入公司地址...");
+            document.forms[0].customeraddress.focus();
+            return false;
+         }
         if(document.forms[0].customerfax.value=="")
         {
            alert("公司传真不能为空！请输入公司传真...");
@@ -155,7 +173,23 @@
 					<font color=red>*</font>公司地址
 				</TD>
 				<TD id=bgbody colspan=3>
+				<html:select property="customerprovinceid" onchange="changedz();">
+						<html:option value="0">省/市</html:option>
+						<logic:iterate id="dz" name="customerdz">
+								<html:option value="${dz.configvalue}">${dz.confignote}</html:option>		
+						</logic:iterate>
+					</html:select>
+					<html:select property="customercityid" onchange="cityChange();">
+						<html:option value="0">市/地区</html:option>
+						<logic:iterate id="city" name="customercity">
+								<html:option value="${city.configvalue}">${city.confignote}</html:option>		
+						</logic:iterate>
+						
+					</html:select>
+					<html:text property='customeraddress' size='50'/>
+				<!--  
 				    <html:text property="customeraddress" styleClass="myinput" size="50"></html:text>
+				-->
 				</TD>
 			</tr>
 			<tr>
@@ -167,10 +201,10 @@
 				<html:select property="customerarea" styleClass="myinput">
 						<logic:iterate id="qh" name="customerqh">
 							<logic:equal name="qh" property="confignote" value="${customerForm.customerarea}">
-								<option value='${qh.confignote}' selected="selected">${qh.confignote}</option>
+								<option value='${qh.configmessage}' selected="selected">${qh.confignote}</option>
 							</logic:equal>
 						<logic:notEqual name="qh" property="confignote" value="${customerForm.customerarea}">
-							<option value='${qh.confignote}'>${qh.confignote}</option>
+							<option value='${qh.configmessage}'>${qh.confignote}</option>
 						</logic:notEqual>
 						</logic:iterate>
 					</html:select>
@@ -193,10 +227,10 @@
 				<html:select property="customerfaxarea" styleClass="myinput">
 						<logic:iterate id="fax" name="customerqh">
 							<logic:equal name="fax" property="confignote" value="${customerForm.customerfaxarea}">
-								<option value='${fax.confignote}' selected="selected">${fax.confignote}</option>
+								<option value='${fax.configmessage}' selected="selected">${fax.confignote}</option>
 							</logic:equal>
 							<logic:notEqual name="fax" property="confignote" value="${customerForm.customerfaxarea}">
-								<option value='${fax.confignote}'>${fax.confignote}</option>
+								<option value='${fax.configmessage}'>${fax.confignote}</option>
 							</logic:notEqual>
 						</logic:iterate>
 					</html:select>

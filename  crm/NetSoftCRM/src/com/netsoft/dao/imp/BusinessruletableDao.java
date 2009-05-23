@@ -1,4 +1,4 @@
-package com.netsoft.dao.imp;
+ï»¿package com.netsoft.dao.imp;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class BusinessruletableDao implements IBusinessruletableDao {
 	}
 	
 	/**
-	 * ¸ù¾İidºÅ²éÕÒÒ»¸ö¹æÔò
+	 * æ ¹æ®idå·æŸ¥æ‰¾ä¸€ä¸ªè§„åˆ™
 	 * @param id
 	 * @return
 	 */

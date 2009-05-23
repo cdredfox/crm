@@ -1,4 +1,4 @@
-package com.netsoft.dao.imp;
+ï»¿package com.netsoft.dao.imp;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -23,7 +23,7 @@ public class EmployeeDao implements IEmployeeDao {
     Logger log = Logger.getLogger(this.getClass());
 	public Employye getEmployyeByeAccountAndPwd(Employye eb)
      {
-		log.debug("getEmployyeByeAccountAndPwd()·½·¨Ö´ĞĞ¿ªÊ¼");
+		log.debug("getEmployyeByeAccountAndPwd()æ–¹æ³•æ‰§è¡Œå¼€å§‹");
 		 try {
 			 String hql="from Employye as e where e.eaccount=:eaccount and e.epwd=:pwd";
 			 HashMap hm=new HashMap();
@@ -32,29 +32,29 @@ public class EmployeeDao implements IEmployeeDao {
 	    	 List<Employye> li=cd.getObjectByHql(hql, hm);
 	    	 if(li==null ||li.size()==0)
 	    	 {
-	    		 log.debug("getEmployyeByeAccountAndPwd()·½·¨Ö´ĞĞ½á¹ûÎªNULL¡£·µ»ØNULL");
+	    		 log.debug("getEmployyeByeAccountAndPwd()æ–¹æ³•æ‰§è¡Œç»“æœä¸ºNULLã€‚è¿”å›NULL");
 	    		 return null;
 	    	 }else
 	    	 {
-	    		 log.debug("getEmployyeByeAccountAndPwd()·½·¨Ö´ĞĞ³É¹¦");
+	    		 log.debug("getEmployyeByeAccountAndPwd()æ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 	    		 return li.get(0);
 	    	 }
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.debug("getEmployyeByeAccountAndPwd()·½·¨Ö´ĞĞÊ§°Ü",e);
+			log.debug("getEmployyeByeAccountAndPwd()æ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 			return null;
 		}
     	
      }
 	
 	  /**
-	    * ¸ù¾İÌõ¼şÀ´²éÑ¯
+	    * æ ¹æ®æ¡ä»¶æ¥æŸ¥è¯¢
 	    * @param hm
 	    * @return
 	    */
 	   public List findEmployyeByHashMap(HashMap hm)
 	   {
-		   log.debug("findEmployyeByHashMap()·½·¨Ö´ĞĞ¿ªÊ¼");
+		   log.debug("findEmployyeByHashMap()æ–¹æ³•æ‰§è¡Œå¼€å§‹");
 			 try {
 				 StringBuffer hql=new StringBuffer();
 				 hql.append("from Employye as e where 1=1");
@@ -68,16 +68,16 @@ public class EmployeeDao implements IEmployeeDao {
 		    	 List<Employye> li=cd.getObjectByHql(hql.toString(), hm);
 		    	 if(li==null ||li.size()==0)
 		    	 {
-		    		 log.debug("findEmployyeByHashMap()·½·¨Ö´ĞĞ½á¹ûÎªNULL¡£·µ»ØNULL");
+		    		 log.debug("findEmployyeByHashMap()æ–¹æ³•æ‰§è¡Œç»“æœä¸ºNULLã€‚è¿”å›NULL");
 		    		 return null;
 		    	 }else
 		    	 {
-		    		 log.debug("findEmployyeByHashMap()·½·¨Ö´ĞĞ³É¹¦");
+		    		 log.debug("findEmployyeByHashMap()æ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 		    		 return li;
 		    	 }
 			} catch (Exception e) {
 				e.printStackTrace();
-				log.debug("findEmployyeByHashMap()·½·¨Ö´ĞĞÊ§°Ü",e);
+				log.debug("findEmployyeByHashMap()æ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 				return null;
 			}
 	    	
@@ -91,58 +91,58 @@ public class EmployeeDao implements IEmployeeDao {
 	}
 
 	public boolean EmployeeSetRole(Employye em, Roles role) {
-		log.debug("EmployeeSetRole()·½·¨Ö´ĞĞ¿ªÊ¼");
+		log.debug("EmployeeSetRole()æ–¹æ³•æ‰§è¡Œå¼€å§‹");
 		try {
 			em.getEmidrs().add(role);
 			cd.updateObject(em);
-			log.debug("EmployeeSetRole()·½·¨Ö´ĞĞ³É¹¦");
+			log.debug("EmployeeSetRole()æ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 			return true;
 		} catch (Exception e) {
-			log.debug("EmployeeSetRole()·½·¨Ö´ĞĞÊ§°Ü",e);
+			log.debug("EmployeeSetRole()æ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 			return false;
 		}
 	}
 
 	public boolean EmployeeRemoveRole(Employye em, Roles role) {
 		try {
-			log.debug("EmployeeRemoveRole()·½·¨Ö´ĞĞ¿ªÊ¼");
+			log.debug("EmployeeRemoveRole()æ–¹æ³•æ‰§è¡Œå¼€å§‹");
 			em.getEmidrs().remove(role);
 			cd.updateObject(em);
-			log.debug("EmployeeRemoveRole()·½·¨Ö´ĞĞ³É¹¦");
+			log.debug("EmployeeRemoveRole()æ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 			return true;
 		} catch (Exception e) {
-			log.debug("EmployeeRemoveRole()·½·¨Ö´ĞĞÊ§°Ü",e);
+			log.debug("EmployeeRemoveRole()æ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 			return false;
 		}
 		
 	}
 
 	public Set getRolesByEmployee(Employye em) {
-		log.debug("getRolesByEmployee()·½·¨¿ªÊ¼Ö´ĞĞ");
+		log.debug("getRolesByEmployee()æ–¹æ³•å¼€å§‹æ‰§è¡Œ");
 		try {
 			HashMap hm=new HashMap();
 //			String hql="from Roles as r where r.emidrs=:id";
 //			hm.put("id",em.getId());
 //			List list=cd.getObjectByHql(hql, hm);
 			Set list=em.getEmidrs();
-			log.info("getRolesByEmployee()·½·¨ÖĞ³¤¶ÈÎª£º"+list.size());
-			log.debug("getRolesByEmployee()·½·¨Ö´ĞĞ³É¹¦");
+			log.info("getRolesByEmployee()æ–¹æ³•ä¸­é•¿åº¦ä¸ºï¼š"+list.size());
+			log.debug("getRolesByEmployee()æ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 			return list;
 		} catch (Exception e) {
-			log.debug("getRolesByEmployee()·½·¨Ö´ĞĞÊ§°Ü",e);
+			log.debug("getRolesByEmployee()æ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 		    return null;
 		}
 	}
 
 	public Employye getEmployeeById(int id) {
 		try {
-			log.info("getEmployeeById()·½·¨¿ªÊ¼Ö´ĞĞ");
-			log.info("getEmployeeById()·½·¨Ö´ĞĞ³É¹¦");
+			log.info("getEmployeeById()æ–¹æ³•å¼€å§‹æ‰§è¡Œ");
+			log.info("getEmployeeById()æ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 			Employye employee=cd.getObjectById(Employye.class,id);
 			return employee;
 			
 		} catch (Exception e) {
-			log.error("getEmployeeById()·½·¨Ö´ĞĞÊ§°Ü",e);
+			log.error("getEmployeeById()æ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 			return null;
 		}
 		
@@ -160,7 +160,7 @@ public class EmployeeDao implements IEmployeeDao {
 				return null;
 			}
 		} catch (Exception e) {
-			log.error("getEmployeeEdelStyleId()·½·¨Ö´ĞĞÊ§°Ü", e);
+			log.error("getEmployeeEdelStyleId()æ–¹æ³•æ‰§è¡Œå¤±è´¥", e);
 			return null;
 		}
 		
@@ -168,53 +168,53 @@ public class EmployeeDao implements IEmployeeDao {
 
 	public List getAllEmployee() {
 		try {
-			log.info("getAllEmployee·½·¨¿ªÊ¼Ö´ĞĞ");
+			log.info("getAllEmployeeæ–¹æ³•å¼€å§‹æ‰§è¡Œ");
 			List li=cd.getObjectAll(Employye.class);
-			log.info("getAllEmployeeµÄ³¤¶ÈÎª£º¡¡"+li.size());
-			log.info("getAllEmployee·½·¨Ö´ĞĞ³É¹¦");
+			log.info("getAllEmployeeçš„é•¿åº¦ä¸ºï¼šã€€"+li.size());
+			log.info("getAllEmployeeæ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 			return li;
 		} catch (Exception e) {
-			log.error("getAllEmployee·½·¨Ö´ĞĞÊ§°Ü",e);
+			log.error("getAllEmployeeæ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 			return null;
 		}
 	}
 	
-	/**¸ù¾İ´«¹ıÀ´µÄ¶ÔÏóÉ¾³ıÒ»¸öÔ±¹¤*/
+	/**æ ¹æ®ä¼ è¿‡æ¥çš„å¯¹è±¡åˆ é™¤ä¸€ä¸ªå‘˜å·¥*/
 	public boolean delEmployee(Employye em)
 	{
 		try {
-			log.info("delEmployee·½·¨¿ªÊ¼Ö´ĞĞ");
+			log.info("delEmployeeæ–¹æ³•å¼€å§‹æ‰§è¡Œ");
 			return cd.dele(Employye.class,em.getId());
 		} catch (Exception e) {
-			log.error("delEmployee·½·¨Ö´ĞĞÊ§°Ü",e);
+			log.error("delEmployeeæ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 			return false;
 		}
 		
 	}
 	
-	/**Ôö¼ÓÔ±¹¤*/
+	/**å¢åŠ å‘˜å·¥*/
 	 public boolean addEmployee(Employye ed)
 	 {
 		 try {
-			 log.info("addEmployee·½·¨¿ªÊ¼Ö´ĞĞ");
+			 log.info("addEmployeeæ–¹æ³•å¼€å§‹æ‰§è¡Œ");
 			 cd.add(ed);
-			 log.info("addEmployee·½·¨Ö´ĞĞ³É¹¦");
+			 log.info("addEmployeeæ–¹æ³•æ‰§è¡ŒæˆåŠŸ");
 			 return true;
 		} catch (Exception e) {
-			log.error("addEmployee·½·¨Ö´ĞĞÊ§°Ü",e);
+			log.error("addEmployeeæ–¹æ³•æ‰§è¡Œå¤±è´¥",e);
 			return false;
 		}
 		 
 	 }
 	
-	 /**ĞŞ¸ÄÔ±¹¤*/
+	 /**ä¿®æ”¹å‘˜å·¥*/
    public boolean updateEmployee(Employye em)
    {
 	  try {
 		cd.updateObject(em);
 		return true;
 	} catch (Exception e) {
-		log.error("updateEmployee·½·¨³ö´íÁË");
+		log.error("updateEmployeeæ–¹æ³•å‡ºé”™äº†");
 		return false;
 	}   
    }
@@ -222,12 +222,12 @@ public class EmployeeDao implements IEmployeeDao {
 	public List findEmployyeByAny(String str1, String str2) {
 		try {
 			String hql="from Employye as e where e."+str1+" like :"+str1;
-			log.info("findEmployyeByAnyÖĞhqlÓï¾äÊä³öÎª£º"+hql+"  str2Îª£º"+str2);
+			log.info("findEmployyeByAnyä¸­hqlè¯­å¥è¾“å‡ºä¸ºï¼š"+hql+"  str2ä¸ºï¼š"+str2);
 			HashMap hm=new HashMap();
 			hm.put(str1,str2);
 			return cd.getObjectByHql(hql, hm);
 		} catch (Exception e) {
-			log.error("findEmployyeByAny·½·¨³ö´íÁË",e);
+			log.error("findEmployyeByAnyæ–¹æ³•å‡ºé”™äº†",e);
 			return null;
 		}
 	}

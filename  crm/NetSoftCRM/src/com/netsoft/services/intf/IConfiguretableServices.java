@@ -1,4 +1,4 @@
-package com.netsoft.services.intf;
+﻿package com.netsoft.services.intf;
 
 import java.util.List;
 
@@ -7,27 +7,27 @@ import com.netsoft.dao.pojos.Configuretable;
 
 public interface IConfiguretableServices {
 	/**
-	 * ȡ������Ϣ�Ĵ���
+	 * 取锟斤拷锟斤拷锟斤拷息锟侥达拷锟斤拷
 	 * @return
 	 */
 	public List<ConfiguretableBean> getType();
 	
 	/**
-	 * ���type���Ͳ������������е�������
+	 * 锟斤拷锟絫ype锟斤拷锟酵诧拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟叫碉拷锟斤拷锟斤拷锟斤拷
 	 * @param type
 	 * @return
 	 */
 	public List<ConfiguretableBean> getAllByType(String type,int flag);
 	
 	/**
-	 * ����һ������
+	 * 锟斤拷锟斤拷一锟斤拷锟斤拷锟斤拷
 	 * @param cb
 	 * @return
 	 */
 	public boolean addConfig(ConfiguretableBean cb);
 	
 	/**
-	 * ���oid��ɾ��һ������
+	 * 锟斤拷锟给id锟斤拷删锟斤拷一锟斤拷锟斤拷锟斤拷
 	 * @param id
 	 * @return
 	 */
@@ -39,13 +39,13 @@ public interface IConfiguretableServices {
 	
 	public ConfiguretableBean getConfigByid(int id);
 	/**
-	 * ȡ��ĳ���͵������
+	 * 取锟斤拷某锟斤拷锟酵碉拷锟斤拷锟斤拷锟?
 	 * @param type
 	 * @return
 	 */
 	public String getMaxNumByType(String type);
 	/**
-	 * �޸�һ��������Ϣ
+	 * 锟睫革拷一锟斤拷锟斤拷锟斤拷锟斤拷息
 	 * @param cb
 	 */
 	public void updateConfig(ConfiguretableBean cb);

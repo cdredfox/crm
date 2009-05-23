@@ -1,4 +1,4 @@
-package com.netsoft.dao.beans;
+﻿package com.netsoft.dao.beans;
 
 public class BusinessruletableBean {
 	private Integer ruleid;

@@ -1,4 +1,4 @@
-package com.netsoft.dao.beans;
+锘縫ackage com.netsoft.dao.beans;
 
 public class ConfiguretableBean {
 	private Integer configid;
@@ -43,27 +43,27 @@ public class ConfiguretableBean {
 
 	public String getConfigtypename() {
 		if ("dj".equals(this.getConfigtype())) {
-			return "客户等级配置";
+			return "瀹㈡埛绛夌骇閰嶇疆";
 		}
 		if ("dz".equals(this.getConfigtype())) {
-			return "客户地址配置";
+			return "瀹㈡埛鍦板潃閰嶇疆";
 		}
 		if ("fk".equals(this.getConfigtype())) {
-			return "客户反馈配置";
+			return "瀹㈡埛鍙嶉閰嶇疆";
 		}
 		if ("ly".equals(this.getConfigtype())) {
-			return "客户来源配置";
+			return "瀹㈡埛鏉ユ簮閰嶇疆";
 		}
 		if ("qh".equals(this.getConfigtype())) {
-			return "客户电话区号配置";
+			return "瀹㈡埛鐢佃瘽鍖哄彿閰嶇疆";
 		}
 		if ("xz".equals(this.getConfigtype())) {
-			return "客户公司性质";
+			return "瀹㈡埛鍏徃鎬ц川";
 		}
 		if ("syzxz".equals(this.getConfigtype())) {
-			return "客户公司所有制类型";
+			return "瀹㈡埛鍏徃鎵�鏈夊埗绫诲瀷";
 		}
-		return "非法类型";
+		return "闈炴硶绫诲瀷";
 	}
 
 	public void setConfigtypename(String configtypename) {

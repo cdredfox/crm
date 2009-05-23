@@ -1,18 +1,18 @@
-package com.netsoft.services.intf;
+ï»¿package com.netsoft.services.intf;
 
 import java.util.List;
 
 import com.netsoft.dao.beans.FeedbackReportBean;
 
 /**
- * ±¨±íservice
+ * æŠ¥è¡¨service
  * @author yangfei
  *
  */
 public interface IReportServices {
 	
 	/**
-	 * ĞÂÔö¿Í»§Í³¼Æ±¨±í
+	 * æ–°å¢å®¢æˆ·ç»Ÿè®¡æŠ¥è¡¨
 	 * @param startdate
 	 * @param enddate
 	 * @param type
@@ -21,7 +21,7 @@ public interface IReportServices {
 	public List getBusiCountReportData(String startdate,String enddate);
 	
 	/**
-	 * ×ÛºÏÍ³¼Æ±¨±í
+	 * ç»¼åˆç»Ÿè®¡æŠ¥è¡¨
 	 * @param startdate
 	 * @param enddate
 	 * @param type
@@ -30,7 +30,7 @@ public interface IReportServices {
 	public List getAddCoustomerReportData(String startdate,String enddate,String type,String customergrade);
 	
 	/**
-	 * ¼ÆËã»ã×ÜĞĞ
+	 * è®¡ç®—æ±‡æ€»è¡Œ
 	 * @param data
 	 * @param ftype
 	 * @return
@@ -38,7 +38,7 @@ public interface IReportServices {
 	public FeedbackReportBean getFeedbackTypeReportCountDataByList(List<FeedbackReportBean> data,String ftype);
 	
 	/**
-	 * ¸÷ÒµÎñÈËÔ±µ±Ç°¿Í»§Í³¼ÆÊı¾İ±¨±í
+	 * å„ä¸šåŠ¡äººå‘˜å½“å‰å®¢æˆ·ç»Ÿè®¡æ•°æ®æŠ¥è¡¨
 	 * @return
 	 */
 	public List getBusiOwenCustomer();

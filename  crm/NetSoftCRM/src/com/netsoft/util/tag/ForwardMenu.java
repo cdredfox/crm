@@ -1,4 +1,4 @@
-package com.netsoft.util.tag;
+﻿package com.netsoft.util.tag;
 
 import java.io.IOException;
 

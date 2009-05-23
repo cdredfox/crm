@@ -1,13 +1,13 @@
-package com.netsoft.util.tag;
+ï»¿package com.netsoft.util.tag;
 
 /**
- *   ±êÇ©ËµÃ÷£º±¾±êÇ©¹¦ÄÜÖ÷ÒªÊÇÎªÀ´¸¨Öú·ÖÒ³¡£ÓÃÀ´ÏÔÊ¾·ÖÒ³À¸¡£½â¾öÔÚJSPÒ³ÃæÉú³É·±Ëö
- *¡¡¡¡±êÇ©²ÎÊıËµÃ÷£ºpage µ±Ç°Ò³Ãæ
- *				 count ×ÜÒ³Êı
- *				 action ·ÖÒ³ÇëÇóÒªÌá½»µ½µÄ¿ØÖÆÆ÷
- *				 valuename ·ÖÒ³´«ËÍÒ³µÄ±äÁ¿Ãû
- *¡¡¡¡±êÇ©°æ±¾£ºV1.0
- *	¡¡±êÇ©×÷Õß/Ê±¼ä£ºÑî·É/2006.11.17 ¡¡¡¡¡¡
+ *   æ ‡ç­¾è¯´æ˜ï¼šæœ¬æ ‡ç­¾åŠŸèƒ½ä¸»è¦æ˜¯ä¸ºæ¥è¾…åŠ©åˆ†é¡µã€‚ç”¨æ¥æ˜¾ç¤ºåˆ†é¡µæ ã€‚è§£å†³åœ¨JSPé¡µé¢ç”Ÿæˆç¹ç
+ *ã€€ã€€æ ‡ç­¾å‚æ•°è¯´æ˜ï¼špage å½“å‰é¡µé¢
+ *				 count æ€»é¡µæ•°
+ *				 action åˆ†é¡µè¯·æ±‚è¦æäº¤åˆ°çš„æ§åˆ¶å™¨
+ *				 valuename åˆ†é¡µä¼ é€é¡µçš„å˜é‡å
+ *ã€€ã€€æ ‡ç­¾ç‰ˆæœ¬ï¼šV1.0
+ *	ã€€æ ‡ç­¾ä½œè€…/æ—¶é—´ï¼šæ¨é£/2006.11.17 ã€€ã€€ã€€
  * 
  */
 
@@ -20,13 +20,13 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 public class CurrPage extends TagSupport {
 
-	private int page; /** µ±Ç°Ò³Êı */
-	private int count;/** ×Ü¼ÇÂ¼Êı */
-	private String ajaxOn; /** ÊÇ·ñÆôÓÃajax·ÖÒ³ */
-	private int pageSize;/** Ã¿Ò³ÏÔÊ¾µÄ¼ÇÂ¼Êı ÔİÊ±Ö»¶ÔAJAXÆğ×÷ÓÃ */
-	private String methodName; /** ajax·ÖÒ³ºó¡£Êı¾İ´¦ÀíµÄ³ÌĞò */
-	private String action; /** ÒªÌá½»¸øË­ */
-	private String valuename;/** ÔÚAction¶ËÓÃÀ´½ÓÊÜÒ³ÃæÖµµÄ±äÁ¿ */
+	private int page; /** å½“å‰é¡µæ•° */
+	private int count;/** æ€»è®°å½•æ•° */
+	private String ajaxOn; /** æ˜¯å¦å¯ç”¨ajaxåˆ†é¡µ */
+	private int pageSize;/** æ¯é¡µæ˜¾ç¤ºçš„è®°å½•æ•° æš‚æ—¶åªå¯¹AJAXèµ·ä½œç”¨ */
+	private String methodName; /** ajaxåˆ†é¡µåã€‚æ•°æ®å¤„ç†çš„ç¨‹åº */
+	private String action; /** è¦æäº¤ç»™è° */
+	private String valuename;/** åœ¨Actionç«¯ç”¨æ¥æ¥å—é¡µé¢å€¼çš„å˜é‡ */
 	
 	@Override
 	public int doAfterBody() throws JspException {
@@ -58,10 +58,10 @@ public class CurrPage extends TagSupport {
 		 {
 			 if(i==page)
 			 {
-				 sb.append("<option value='"+i+"' selected='selected'>µÚ"+i+"Ò³</option>");
+				 sb.append("<option value='"+i+"' selected='selected'>ç¬¬"+i+"é¡µ</option>");
 			 }else
 			 {
-				 sb.append("<option value='"+i+"'>µÚ"+i+"Ò³</option>");
+				 sb.append("<option value='"+i+"'>ç¬¬"+i+"é¡µ</option>");
 			 }
 		 }
 		 sb.append("</select>");
@@ -69,16 +69,16 @@ public class CurrPage extends TagSupport {
 		 sb.append("<td align='right'>");
 		 if(ajaxOn.equals("false"))
 		 {
-		 sb.append("<a href='"+action+'?'+valuename+"=1'>µÚÒ»Ò³</a>   <a href='"+action+'?'+valuename+"="+(((page-1)<0)?count:(page-1))+"'>ÉÏÒ»Ò³</a>   <a href='"+action+'?'+valuename+"="+((page+1>count)?1:(page+1))+"'>ÏÂÒ»Ò³</a>   <a href='"+action+'?'+valuename+"="+count+"'>×îÎ´Ò³</a>");
+		 sb.append("<a href='"+action+'?'+valuename+"=1'>ç¬¬ä¸€é¡µ</a>   <a href='"+action+'?'+valuename+"="+(((page-1)<0)?count:(page-1))+"'>ä¸Šä¸€é¡µ</a>   <a href='"+action+'?'+valuename+"="+((page+1>count)?1:(page+1))+"'>ä¸‹ä¸€é¡µ</a>   <a href='"+action+'?'+valuename+"="+count+"'>æœ€æœªé¡µ</a>");
 		 }else
 		 {
 			 sb.append("<TABLE cellSpacing=0 cellPadding=0 border=0><TBODY><TR vAlign=top>");
-			 sb.append("<TD vAlign=center width='26%'><IMG class=icon0 id=ImgFirstPage style='MARGIN-LEFT: 4px' onclick="+methodName+"(1,"+pageSize+",'page'); height=19 alt=µÚÒ»Ò³ src='/NetSoftCRM/images/first.gif' width=19></TD>");
-			 sb.append("<TD vAlign=center width='26%'><IMG class=icon0 id=ImgFirstPage style='MARGIN-LEFT: 4px' onclick=getTopPage("+pageSize+",'page'); height=19 alt=ÉÏÒ»Ò³ src='/NetSoftCRM/images/prev.gif' width=19></TD>");
-			 sb.append("<TD vAlign=center width='26%'><IMG class=icon0 id=ImgFirstPage style='MARGIN-LEFT: 4px' onclick=getNextPage("+pageSize+",'page'); height=19 alt=ÏÂÒ»Ò³ src='/NetSoftCRM/images/next.gif' width=19></TD>");
-			 sb.append("<TD vAlign=center width='26%'><IMG class=icon0 id=ImgFirstPage style='MARGIN-LEFT: 4px' onclick="+methodName+"("+count+","+pageSize+",'page'); height=19 alt=×îÎ´Ò³ src='/NetSoftCRM/images/last.gif' width=19></TD>");
+			 sb.append("<TD vAlign=center width='26%'><IMG class=icon0 id=ImgFirstPage style='MARGIN-LEFT: 4px' onclick="+methodName+"(1,"+pageSize+",'page'); height=19 alt=ç¬¬ä¸€é¡µ src='/NetSoftCRM/images/first.gif' width=19></TD>");
+			 sb.append("<TD vAlign=center width='26%'><IMG class=icon0 id=ImgFirstPage style='MARGIN-LEFT: 4px' onclick=getTopPage("+pageSize+",'page'); height=19 alt=ä¸Šä¸€é¡µ src='/NetSoftCRM/images/prev.gif' width=19></TD>");
+			 sb.append("<TD vAlign=center width='26%'><IMG class=icon0 id=ImgFirstPage style='MARGIN-LEFT: 4px' onclick=getNextPage("+pageSize+",'page'); height=19 alt=ä¸‹ä¸€é¡µ src='/NetSoftCRM/images/next.gif' width=19></TD>");
+			 sb.append("<TD vAlign=center width='26%'><IMG class=icon0 id=ImgFirstPage style='MARGIN-LEFT: 4px' onclick="+methodName+"("+count+","+pageSize+",'page'); height=19 alt=æœ€æœªé¡µ src='/NetSoftCRM/images/last.gif' width=19></TD>");
 			 sb.append("</TR></TBODY></TABLE>");
-			// sb.append("<a href=javascript:"+methodName+"(1,"+pageSize+",'page')><img src='/NetSoftCRM/images/first.gif' alt='µÚÒ»Ò³'/></a>   <a href=javascript:getTopPage("+pageSize+",'page')><img src='/NetSoftCRM/images/prev.gif' alt='ÉÏÒ»Ò³'/></a>    <a href=javascript:getNextPage("+pageSize+",'page')><img src='/NetSoftCRM/images/next.gif' alt='ÏÂÒ»Ò³'/></a>     <a href=javascript:"+methodName+"("+count+","+pageSize+",'page')><img src='/NetSoftCRM/images/last.gif' alt='×îÎ´Ò³'/></a>");
+			// sb.append("<a href=javascript:"+methodName+"(1,"+pageSize+",'page')><img src='/NetSoftCRM/images/first.gif' alt='ç¬¬ä¸€é¡µ'/></a>   <a href=javascript:getTopPage("+pageSize+",'page')><img src='/NetSoftCRM/images/prev.gif' alt='ä¸Šä¸€é¡µ'/></a>    <a href=javascript:getNextPage("+pageSize+",'page')><img src='/NetSoftCRM/images/next.gif' alt='ä¸‹ä¸€é¡µ'/></a>     <a href=javascript:"+methodName+"("+count+","+pageSize+",'page')><img src='/NetSoftCRM/images/last.gif' alt='æœ€æœªé¡µ'/></a>");
 		 }
 		 sb.append("</td>");
 		 sb.append("</tr>");

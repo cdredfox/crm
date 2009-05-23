@@ -1,4 +1,4 @@
-package com.netsoft.util;
+ï»¿package com.netsoft.util;
 
 
 import java.text.ParseException;
@@ -10,18 +10,18 @@ import java.util.GregorianCalendar;
 
 /**
  * 
- * @×÷Õß ¡¡¡¡Ñî·É£¨ÖíáÌáÌ£©
- * @¹¤³ÌÃû¡¡NetSoftCRM
- * @ÎÄ¼şÃû¡¡ConsoleDate.java
- * @±àĞ´ÈÕÆÚ¡¡Dec 23, 2006
- * @¹¦ÄÜËµÃ÷¡¡¶ÔÈÕÆÚ½øĞĞ²Ù×÷µÄ¸÷ÖÖ×ª»»²Ù×÷µÄ¹¤¾ßÀà
+ * @ä½œè€… ã€€ã€€æ¨é£ï¼ˆçŒªå´½å´½ï¼‰
+ * @å·¥ç¨‹åã€€NetSoftCRM
+ * @æ–‡ä»¶åã€€ConsoleDate.java
+ * @ç¼–å†™æ—¥æœŸã€€Dec 23, 2006
+ * @åŠŸèƒ½è¯´æ˜ã€€å¯¹æ—¥æœŸè¿›è¡Œæ“ä½œçš„å„ç§è½¬æ¢æ“ä½œçš„å·¥å…·ç±»
  */
 public class ConsoleDate {
     /**
      * 
-     * @¹¦ÄÜËµÃ÷¡¡°Ñ´«½øÀ´µÄ×Ö·û´®×ª»»³É¶ÔÓ¦µÄÈÕÆÚ 
-     *   	    Çë×¢Òâ×Ö·û¸ñÊ½Îª£ºyyyy-mm-dd
-     * @·µ»ØÀàĞÍ¡¡Date
+     * @åŠŸèƒ½è¯´æ˜ã€€æŠŠä¼ è¿›æ¥çš„å­—ç¬¦ä¸²è½¬æ¢æˆå¯¹åº”çš„æ—¥æœŸ 
+     *   	    è¯·æ³¨æ„å­—ç¬¦æ ¼å¼ä¸ºï¼šyyyy-mm-dd
+     * @è¿”å›ç±»å‹ã€€Date
      * @param str1
      * @return
      */ 
@@ -38,8 +38,8 @@ public class ConsoleDate {
 	
 	/**
 	 * 
-	 * @¹¦ÄÜËµÃ÷¡¡°Ñ´«½øÀ´µÄÈÕÆÚ×ª»»Îª¶ÔÓ¦¸ñÊ½µÄ×Ö·û´® yyyy-MM-dd
-	 * @·µ»ØÀàĞÍ¡¡String
+	 * @åŠŸèƒ½è¯´æ˜ã€€æŠŠä¼ è¿›æ¥çš„æ—¥æœŸè½¬æ¢ä¸ºå¯¹åº”æ ¼å¼çš„å­—ç¬¦ä¸² yyyy-MM-dd
+	 * @è¿”å›ç±»å‹ã€€String
 	 * @param date
 	 * @return
 	 */
@@ -56,11 +56,11 @@ public class ConsoleDate {
 	
 	
 	/**
-     * ÈÕÆÚÔö¼Ó
-     * @param isoString ÈÕÆÚ×Ö·û´®
-     * @param fmt ¸ñÊ½
-     * @param field Äê/ÔÂ/ÈÕ Calendar.YEAR/Calendar.MONTH/Calendar.DATE
-     * @param amount Ôö¼ÓÊıÁ¿
+     * æ—¥æœŸå¢åŠ 
+     * @param isoString æ—¥æœŸå­—ç¬¦ä¸²
+     * @param fmt æ ¼å¼
+     * @param field å¹´/æœˆ/æ—¥ Calendar.YEAR/Calendar.MONTH/Calendar.DATE
+     * @param amount å¢åŠ æ•°é‡
      * @return
      * @throws ParseException
      */
@@ -81,9 +81,9 @@ public class ConsoleDate {
     }
     
     /**
-     * ÇóÁ½¸öÈÕÆÚÖ®¼äÏà²îµÄÌìÊı
-     * @param curDate Òª±È½ÏµÄÈÕÆÚ
-     * @param endDate ×öÎª¶Ô±ÈµÄÈÕÆÚ
+     * æ±‚ä¸¤ä¸ªæ—¥æœŸä¹‹é—´ç›¸å·®çš„å¤©æ•°
+     * @param curDate è¦æ¯”è¾ƒçš„æ—¥æœŸ
+     * @param endDate åšä¸ºå¯¹æ¯”çš„æ—¥æœŸ
      * @return
      */
     public static int getDateDay(Date curDate,Date endDate)

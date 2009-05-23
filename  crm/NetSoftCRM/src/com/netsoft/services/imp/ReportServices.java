@@ -1,4 +1,4 @@
-package com.netsoft.services.imp;
+ï»¿package com.netsoft.services.imp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ public class ReportServices implements IReportServices {
 	public ICustomerstableDao icd;
 	public IConfiguretableDao iconfigd;
 	/**
-	 * ×ÛºÏÍ³¼Æ
+	 * ç»¼åˆç»Ÿè®¡
 	 */
 	public List getAddCoustomerReportData(String startdate, String enddate,
 			String type,String customergrade) {
@@ -47,7 +47,7 @@ public class ReportServices implements IReportServices {
 		for (Customerstable customerstable : list) {
 			if(i==0)
 			{
-				//µÚÒ»´Î
+				//ç¬¬ä¸€æ¬¡
 				//relist=new ArrayList();
 				eid=customerstable.getEmployye().getId();
 				relist.add(customerstable);
@@ -61,7 +61,7 @@ public class ReportServices implements IReportServices {
 					result.add(frb);
 				}
 			}else if(eid!=customerstable.getEmployye().getId() && i>0)
-			{ //²»ÊÇµÚÒ»´Î£¬µ«ÒµÎñÔ±²»Í¬
+			{ //ä¸æ˜¯ç¬¬ä¸€æ¬¡ï¼Œä½†ä¸šåŠ¡å‘˜ä¸åŒ
 				eid=customerstable.getEmployye().getId();
 				frb=this.fromatReportData(this.genReportDate(relist,type),type);
 				result.add(frb);
@@ -78,7 +78,7 @@ public class ReportServices implements IReportServices {
 		}
 		if(i==1)
 		{
-			//Ö»ÓĞÒ»¸ö
+			//åªæœ‰ä¸€ä¸ª
 			frb=this.fromatReportData(this.genReportDate(relist,type),type);
 			result.add(frb);
 		}
@@ -86,7 +86,7 @@ public class ReportServices implements IReportServices {
 	}
 
 	/**
-	 * ĞÂÔö¿Í»§Í³¼Æ
+	 * æ–°å¢å®¢æˆ·ç»Ÿè®¡
 	 */
 	public List getBusiCountReportData(String startdate, String enddate) {
 		String hql="from Customerstable where customeradddate>=:startdate and customeradddate<=:enddate and addeid is not null order by addeid,cutomergrade";
@@ -103,7 +103,7 @@ public class ReportServices implements IReportServices {
 		for (Customerstable customerstable : list) {
 			if(i==0)
 			{
-				//µÚÒ»´Î
+				//ç¬¬ä¸€æ¬¡
 				//relist=new ArrayList();
 				eid=customerstable.getAddemployye().getId();
 				relist.add(customerstable);
@@ -117,7 +117,7 @@ public class ReportServices implements IReportServices {
 					result.add(frb);
 				}
 			}else if(eid!=customerstable.getAddemployye().getId() && i>0)
-			{ //²»ÊÇµÚÒ»´Î£¬µ«ÒµÎñÔ±²»Í¬
+			{ //ä¸æ˜¯ç¬¬ä¸€æ¬¡ï¼Œä½†ä¸šåŠ¡å‘˜ä¸åŒ
 				eid=customerstable.getAddemployye().getId();
 				frb=this.fromatReportData(this.genReport(relist,"dj"),"dj");
 				result.add(frb);
@@ -134,7 +134,7 @@ public class ReportServices implements IReportServices {
 		}
 		if(i==1)
 		{
-			//Ö»ÓĞÒ»¸ö
+			//åªæœ‰ä¸€ä¸ª
 			frb=this.fromatReportData(this.genReport(relist,"dj"),"dj");
 			result.add(frb);
 		}
@@ -144,7 +144,7 @@ public class ReportServices implements IReportServices {
 	
 	
 	/**
-	 * ¸÷ÒµÎñÈËÔ±µ±Ç°¿Í»§Í³¼ÆÊı¾İ±¨±í
+	 * å„ä¸šåŠ¡äººå‘˜å½“å‰å®¢æˆ·ç»Ÿè®¡æ•°æ®æŠ¥è¡¨
 	 */
 	public List getBusiOwenCustomer() {
 		String hql="from Customerstable order by eid,cutomergrade";
@@ -159,7 +159,7 @@ public class ReportServices implements IReportServices {
 		for (Customerstable customerstable : list) {
 			if(i==0)
 			{
-				//µÚÒ»´Î
+				//ç¬¬ä¸€æ¬¡
 				//relist=new ArrayList();
 				eid=customerstable.getEmployye()==null?0:customerstable.getEmployye().getId();
 				//eid=customerstable.getEmployye().getId();
@@ -176,7 +176,7 @@ public class ReportServices implements IReportServices {
 					result.add(frb);
 				}
 			}else if(eid!=(customerstable.getEmployye()==null?0:customerstable.getEmployye().getId()) && i>0)
-			{ //²»ÊÇµÚÒ»´Î£¬µ«ÒµÎñÔ±²»Í¬
+			{ //ä¸æ˜¯ç¬¬ä¸€æ¬¡ï¼Œä½†ä¸šåŠ¡å‘˜ä¸åŒ
 				eid=customerstable.getEmployye()==null?0:customerstable.getEmployye().getId();
 				frb=this.fromatReportData(this.genReportDate(relist,"dj"),"dj");
 				result.add(frb);
@@ -193,7 +193,7 @@ public class ReportServices implements IReportServices {
 		}
 		if(i==1)
 		{
-			//Ö»ÓĞÒ»¸ö
+			//åªæœ‰ä¸€ä¸ª
 			frb=this.fromatReportData(this.genReportDate(relist,"dj"),"dj");
 			result.add(frb);
 		}
@@ -201,7 +201,7 @@ public class ReportServices implements IReportServices {
 	}
 	
 	/**
-	 * ¸ù¾İ²éÑ¯³öµÄÊı¾İ£¬Éú³É±¨±íÊı¾İ
+	 * æ ¹æ®æŸ¥è¯¢å‡ºçš„æ•°æ®ï¼Œç”ŸæˆæŠ¥è¡¨æ•°æ®
 	 * @param data
 	 * @return
 	 */
@@ -216,7 +216,7 @@ public class ReportServices implements IReportServices {
 		for (Customerstable customerstable : data) {
 			if(i==0)
 			{
-				//µÚÒ»´Î
+				//ç¬¬ä¸€æ¬¡
 				//type=customerstable.getCutomergrade();
 				type=this.returnCustomerByType(customerstable, ftype);
 				fsb.setType(type);
@@ -232,7 +232,7 @@ public class ReportServices implements IReportServices {
 					count=count+fsb.getNum();
 				}
 			}else if(type!=this.returnCustomerByType(customerstable, ftype) && i>0)
-			{ //²»ÊÇµÚÒ»´Î£¬µ«ÀàĞÍ²»Í¬
+			{ //ä¸æ˜¯ç¬¬ä¸€æ¬¡ï¼Œä½†ç±»å‹ä¸åŒ
 				type=this.returnCustomerByType(customerstable, ftype);
 				fsblist.add(fsb);
 				count=count+fsb.getNum();
@@ -254,14 +254,14 @@ public class ReportServices implements IReportServices {
 		}
 		
 		//frb.setEname(data.get(0).getEmployye().getEname());
-		frb.setEname(data.get(0).getEmployye()==null?"¹«¿ª¿Í»§":data.get(0).getEmployye().getEname());
+		frb.setEname(data.get(0).getEmployye()==null?"å…¬å¼€å®¢æˆ·":data.get(0).getEmployye().getEname());
 		frb.setFeedsubbean(fsblist);
 		frb.setCount(count);
 		return frb;
 	}
 
 	/**
-	 * ¸ù¾İ±¨±íÊı¾İ£¬¸ñÊ½»¯Êı¾İ
+	 * æ ¹æ®æŠ¥è¡¨æ•°æ®ï¼Œæ ¼å¼åŒ–æ•°æ®
 	 * @param data
 	 * @param ftype
 	 * @return
@@ -294,16 +294,16 @@ public class ReportServices implements IReportServices {
 	}
 	
 	/**
-	 * ¼ÆËã»ã×ÜĞĞ
+	 * è®¡ç®—æ±‡æ€»è¡Œ
 	 * @param data
 	 * @param ftype
 	 * @return
 	 */
 	public FeedbackReportBean getFeedbackTypeReportCountDataByList(List<FeedbackReportBean> data,String ftype) {
 		FeedbackReportBean frb=new FeedbackReportBean();
-		List<Configuretable> fklist=iconfigd.getAllByType(ftype,0);//µ±Ç°ÏµÍ³ÖĞµÄ·´À¡ÁĞ±í
+		List<Configuretable> fklist=iconfigd.getAllByType(ftype,0);//å½“å‰ç³»ç»Ÿä¸­çš„åé¦ˆåˆ—è¡¨
 		List<FeedbacksubBean> list=new ArrayList();
-		int count=0;//»ã×Ü¼ÇÂ¼Êı
+		int count=0;//æ±‡æ€»è®°å½•æ•°
 		int i=0;
 		
 		for (FeedbackReportBean feedbackReportBean : data) {
@@ -333,7 +333,7 @@ public class ReportServices implements IReportServices {
 	}
 	
 	/**
-	 * ¸ù¾İ¿Í»§¶ÔÏóºÍÀàĞÍ·µ»ØÖµ
+	 * æ ¹æ®å®¢æˆ·å¯¹è±¡å’Œç±»å‹è¿”å›å€¼
 	 * @param cu
 	 * @param type
 	 * @return
@@ -371,7 +371,7 @@ public class ReportServices implements IReportServices {
 	
 	
 	/**
-	 * ¸ù¾İ²éÑ¯³öµÄÊı¾İ£¬Éú³É±¨±íÊı¾İ(×¨ÓÃÓÚĞÂÔö¿Í»§Í³¼Æ±¨±í)
+	 * æ ¹æ®æŸ¥è¯¢å‡ºçš„æ•°æ®ï¼Œç”ŸæˆæŠ¥è¡¨æ•°æ®(ä¸“ç”¨äºæ–°å¢å®¢æˆ·ç»Ÿè®¡æŠ¥è¡¨)
 	 * @param data
 	 * @return
 	 */
@@ -386,7 +386,7 @@ public class ReportServices implements IReportServices {
 		for (Customerstable customerstable : data) {
 			if(i==0)
 			{
-				//µÚÒ»´Î
+				//ç¬¬ä¸€æ¬¡
 				//type=customerstable.getCutomergrade();
 				type=this.returnCustomerByType(customerstable, ftype);
 				fsb.setType(type);
@@ -402,7 +402,7 @@ public class ReportServices implements IReportServices {
 					count=count+fsb.getNum();
 				}
 			}else if(type!=this.returnCustomerByType(customerstable, ftype) && i>0)
-			{ //²»ÊÇµÚÒ»´Î£¬µ«ÀàĞÍ²»Í¬
+			{ //ä¸æ˜¯ç¬¬ä¸€æ¬¡ï¼Œä½†ç±»å‹ä¸åŒ
 				type=this.returnCustomerByType(customerstable, ftype);
 				fsblist.add(fsb);
 				count=count+fsb.getNum();
@@ -424,7 +424,7 @@ public class ReportServices implements IReportServices {
 		}
 		
 		//frb.setEname(data.get(0).getEmployye().getEname());
-		frb.setEname(data.get(0).getEmployye()==null?"Î´·¢ÏÖµÄÊı¾İ":data.get(0).getAddemployye().getEname());
+		frb.setEname(data.get(0).getEmployye()==null?"æœªå‘ç°çš„æ•°æ®":data.get(0).getAddemployye().getEname());
 		frb.setFeedsubbean(fsblist);
 		frb.setCount(count);
 		return frb;

@@ -1,12 +1,12 @@
-package com.netsoft.dao.beans;
+锘縫ackage com.netsoft.dao.beans;
 
 public class FeedbacksubBean {
 	/**
-	 * 类型
+	 * 绫诲瀷
 	 */
 	public int type;
 	/**
-	 * 数量
+	 * 鏁伴噺
 	 */
 	public int num;
 	public int getType() {

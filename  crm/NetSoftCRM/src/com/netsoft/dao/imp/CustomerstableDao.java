@@ -1,4 +1,4 @@
-package com.netsoft.dao.imp;
+ï»¿package com.netsoft.dao.imp;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +10,7 @@ import com.netsoft.dao.intf.ICustomerstableDao;
 import com.netsoft.dao.pojos.Customerstable;
 
 /**
- * ¶Ô¿Í»§±í½øĞĞÏà¹ØµÄdaoÎ¬»¤
+ * å¯¹å®¢æˆ·è¡¨è¿›è¡Œç›¸å…³çš„daoç»´æŠ¤
  * @author yangfei
  *
  */
@@ -30,20 +30,20 @@ public class CustomerstableDao implements ICustomerstableDao {
 		return cd.addreturn(cu);
 	}
     /**
-     * ¸ù¾İ´«¹ıÀ´µÄ¿Í»§IDÉ¾³ıÒ»¸ö¿Í»§
+     * æ ¹æ®ä¼ è¿‡æ¥çš„å®¢æˆ·IDåˆ é™¤ä¸€ä¸ªå®¢æˆ·
      */
 	public boolean delCustomerstable(int id) {
 		try {
-			log.info("delCustomerstable·½·¨¿ªÊ¼Ö´ĞĞ!");
+			log.info("delCustomerstableæ–¹æ³•å¼€å§‹æ‰§è¡Œ!");
 			return cd.dele(Customerstable.class,id);
 		} catch (Exception e) {
-			log.error("delCustomerstable·½·¨Ö´ĞĞÊ§°Ü!");
+			log.error("delCustomerstableæ–¹æ³•æ‰§è¡Œå¤±è´¥!");
 			return false;
 		}
 	}
 
 	/**
-	 * »ñÈ¡ËùÓĞµÄ¿Í»§¶ÔÏó
+	 * è·å–æ‰€æœ‰çš„å®¢æˆ·å¯¹è±¡
 	 */
 	public List<Customerstable> getAllCustomerstable(int page,int size,String company,int eid,String startdate,String enddate) {
 		HashMap hm=new HashMap();
@@ -132,13 +132,13 @@ public class CustomerstableDao implements ICustomerstableDao {
 	}
 
 	/**
-	 * ¸üĞÂÒ»¸ö¿Í»§¶ÔÏó
+	 * æ›´æ–°ä¸€ä¸ªå®¢æˆ·å¯¹è±¡
 	 */
 	public void updateCustomerstable(Customerstable cu) {
 		try {
 			cd.updateObject(cu);
 		} catch (Exception e) {
-			log.error("Dao²ã¸üĞÂ¿Í»§¶ÔÏóÊ±³ö´íÁË");
+			log.error("Daoå±‚æ›´æ–°å®¢æˆ·å¯¹è±¡æ—¶å‡ºé”™äº†");
 		}
 
 	}
@@ -157,13 +157,13 @@ public class CustomerstableDao implements ICustomerstableDao {
 	}
 
 	/**
-	 * ¸ù¾İIDµÃµ½Ò»¸ö¿Í»§³Ö¾Ã»¯¶ÔÏó
+	 * æ ¹æ®IDå¾—åˆ°ä¸€ä¸ªå®¢æˆ·æŒä¹…åŒ–å¯¹è±¡
 	 */
 	public Customerstable getCustomerById(int id) {
 		try {
 			return cd.getObjectById(Customerstable.class,id);
 		} catch (Exception e) {
-			log.error("Dao²ã¸ù¾İID²éÕÒ¿Í»§¶ÔÏóÊ±³ö´íÁË");
+			log.error("Daoå±‚æ ¹æ®IDæŸ¥æ‰¾å®¢æˆ·å¯¹è±¡æ—¶å‡ºé”™äº†");
 			return null;
 		}
 	}

@@ -1,4 +1,4 @@
-package com.netsoft.dao.beans;
+锘縫ackage com.netsoft.dao.beans;
 
 import java.util.List;
 
@@ -12,11 +12,11 @@ public class FeedbackReportBean {
 	public Integer lastfeedbacktype;
 	public Integer customerid;
 	/**
-	 * 是否深色显示
+	 * 鏄惁娣辫壊鏄剧ず
 	 */
 	public int iscolor;
 	/**
-	 * 还差多少天公开
+	 * 杩樺樊澶氬皯澶╁叕寮�
 	 */
 	public String openDate;
 

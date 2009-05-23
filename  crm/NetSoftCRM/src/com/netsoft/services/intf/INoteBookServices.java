@@ -1,4 +1,4 @@
-package com.netsoft.services.intf;
+ï»¿package com.netsoft.services.intf;
 
 import java.util.List;
 
@@ -8,13 +8,13 @@ public interface INoteBookServices {
 	public List<NoteBookBean> getAllNoteBook(int page, int size);
 
 	/**
-	 * È¡ËùÓĞÌû×ÓµÄ×Ü¼ÇÂ¼Êı
+	 * å–æ‰€æœ‰å¸–å­çš„æ€»è®°å½•æ•°
 	 * 
 	 * @return
 	 */
 	public int getAllNoteBookCount();
 	/**
-	 * ¸ù¾İÖ÷ÌùÈ¡¸úÌù
+	 * æ ¹æ®ä¸»è´´å–è·Ÿè´´
 	 * @param page
 	 * @param size
 	 * @param topid
@@ -22,18 +22,18 @@ public interface INoteBookServices {
 	 */
 	public List<NoteBookBean> getNoteBookByTopId(int page,int size,int topid);
 	/**
-	 * Í³¼Æ¸ÃÌùµÄ¸úÌùÊı
+	 * ç»Ÿè®¡è¯¥è´´çš„è·Ÿè´´æ•°
 	 * @param topid
 	 * @return
 	 */
 	public int getNoteBookByTopIdCount(int topid);
 	/**
-	 * »Ø¸´Ìù×Ó
+	 * å›å¤è´´å­
 	 * @param nbb
 	 */
 	public void addNoteBook(NoteBookBean nbb);
 	/**
-	 * ¸ù¾İidÉ¾³ıÌù×Ó£¬Èç¹ûÊÇÖ÷ÌùÔò½«ÆäÏÂÃæµÄÈ«²¿É¾³ı
+	 * æ ¹æ®idåˆ é™¤è´´å­ï¼Œå¦‚æœæ˜¯ä¸»è´´åˆ™å°†å…¶ä¸‹é¢çš„å…¨éƒ¨åˆ é™¤
 	 * @param id
 	 * @return
 	 */

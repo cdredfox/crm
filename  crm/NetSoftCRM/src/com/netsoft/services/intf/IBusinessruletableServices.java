@@ -1,4 +1,4 @@
-package com.netsoft.services.intf;
+ï»¿package com.netsoft.services.intf;
 
 import java.util.List;
 
@@ -6,19 +6,19 @@ import com.netsoft.dao.beans.BusinessruletableBean;
 
 public interface IBusinessruletableServices {
 	/**
-	 * ²éÑ¯ËùÓĞµÄ¹æÔò
+	 * æŸ¥è¯¢æ‰€æœ‰çš„è§„åˆ™
 	 * @return
 	 */
 	public List<BusinessruletableBean> getAllRule();
 	
 	/**
-	 * ĞŞ¸ÄÒ»¸ö¹æÔò
+	 * ä¿®æ”¹ä¸€ä¸ªè§„åˆ™
 	 * @param brb
 	 */
 	public void updateRule(BusinessruletableBean brb);
 	
 	/**
-	 * ¸ù¾İID²éÕÒÄ³¸ö¹æÔò¶ÔÏó
+	 * æ ¹æ®IDæŸ¥æ‰¾æŸä¸ªè§„åˆ™å¯¹è±¡
 	 * @param id
 	 * @return
 	 */

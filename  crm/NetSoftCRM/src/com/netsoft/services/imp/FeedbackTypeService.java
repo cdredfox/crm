@@ -1,4 +1,4 @@
-package com.netsoft.services.imp;
+ï»¿package com.netsoft.services.imp;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,11 +34,11 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 	public IBusinessruletableDao ibd;
 	
 	/**
-	 * Òª½øĞĞ¹«¿ªÈÕÆÚÅĞ¶ÏµÄ¿Í»§µÈ¼¶
+	 * è¦è¿›è¡Œå…¬å¼€æ—¥æœŸåˆ¤æ–­çš„å®¢æˆ·ç­‰çº§
 	 */
 	public static HashSet OPEN_CUSTOMER_GRADE_ID=new HashSet();
 	/**
-	 * ´æ·Å¿Í»§µÈ¼¶¶ÔÓ¦µÄÒµÎñ¹æÔò±àºÅ
+	 * å­˜æ”¾å®¢æˆ·ç­‰çº§å¯¹åº”çš„ä¸šåŠ¡è§„åˆ™ç¼–å·
 	 */
 	public static HashMap CUSTOMER_GRADE_RULE_ID=new HashMap();
 	static
@@ -55,7 +55,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 	}
 	
 	/**
-	 * ·´À¡±¨±íÊı¾İ
+	 * åé¦ˆæŠ¥è¡¨æ•°æ®
 	 */
 	public List getFeedbackTypeReportByDate(String start, String end) {
 		String hql = "from Feedbacktable where feedbackdate>=:startdate and feedbackdate<=:enddate order by feedbackeid,feedbacktype";
@@ -72,7 +72,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 		for (Feedbacktable feedbacktable : list) {
 			if(i==0)
 			{
-				//µÚÒ»´Î
+				//ç¬¬ä¸€æ¬¡
 				//relist=new ArrayList();
 				eid=feedbacktable.getFeedbackeid().getId();
 				relist.add(feedbacktable);
@@ -86,7 +86,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 					result.add(frb);
 				}
 			}else if(eid!=feedbacktable.getFeedbackeid().getId() && i>0)
-			{ //²»ÊÇµÚÒ»´Î£¬µ«ÒµÎñÔ±²»Í¬
+			{ //ä¸æ˜¯ç¬¬ä¸€æ¬¡ï¼Œä½†ä¸šåŠ¡å‘˜ä¸åŒ
 				eid=feedbacktable.getFeedbackeid().getId();
 				frb=this.fromatReportData(this.genReportDate(relist,null));
 				result.add(frb);
@@ -104,7 +104,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 
 		if(i==1)
 		{
-			//Ö»ÓĞÒ»¸ö
+			//åªæœ‰ä¸€ä¸ª
 			frb=this.fromatReportData(this.genReportDate(relist,null));
 			result.add(frb);
 		}
@@ -113,7 +113,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 
 	
 	/**
-	 * ÄÚÍø¿Í»§·´À¡Í³¼Æ±¨±íÊı¾İ
+	 * å†…ç½‘å®¢æˆ·åé¦ˆç»Ÿè®¡æŠ¥è¡¨æ•°æ®
 	 */
 	public List getIntFeedBackReportData(String companyName,String emid,String dz,String xz,String startdate,String enddate,String address){
 		StringBuffer hql = new StringBuffer("select feed from Feedbacktable as feed,Customerstable customer where 1=1 and feed.feedbackcustomer=customer.customerid");
@@ -194,7 +194,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 		for (Feedbacktable feedbacktable : list) {
 			if(i==0)
 			{
-				//µÚÒ»´Î
+				//ç¬¬ä¸€æ¬¡
 				//relist=new ArrayList();
 				cid=feedbacktable.getFeedbackcustomer().getCustomerid();
 				relist.add(feedbacktable);
@@ -210,7 +210,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 					cidList.add(frb.getCustomerid());
 				}
 			}else if(cid!=feedbacktable.getFeedbackcustomer().getCustomerid() && i>0)
-			{ //²»ÊÇµÚÒ»´Î£¬µ«ÒµÎñÔ±²»Í¬
+			{ //ä¸æ˜¯ç¬¬ä¸€æ¬¡ï¼Œä½†ä¸šåŠ¡å‘˜ä¸åŒ
 				cid=feedbacktable.getFeedbackcustomer().getCustomerid();
 				frb=this.fromatReportData(this.genReportDate(relist,"inback"));
 				//result.add(frb);
@@ -232,14 +232,14 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 
 		if(i==1)
 		{
-			//Ö»ÓĞÒ»¸ö
+			//åªæœ‰ä¸€ä¸ª
 			frb=this.fromatReportData(this.genReportDate(relist,"inback"));
 			result.add(this.addOpenDate(frb));
 			//result.add(frb);
 			cidList.add(frb.getCustomerid());
 		}
 		
-		//ÒÔÏÂ²¿·ÖÎªÏÔÊ¾Ã»ÓĞ·´À¡ĞÅÏ¢µÄ¿Í»§Ò²ÒªÏÔÊ¾³öÀ´
+		//ä»¥ä¸‹éƒ¨åˆ†ä¸ºæ˜¾ç¤ºæ²¡æœ‰åé¦ˆä¿¡æ¯çš„å®¢æˆ·ä¹Ÿè¦æ˜¾ç¤ºå‡ºæ¥
 		if(emid==null || "".equals(emid.trim()))
 		{
 			emid="0";
@@ -352,10 +352,10 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 	}
 
 	/**
-	 * Éú³É±¨±íÊı¾İ ¸ù¾İÈ¡µ½µÄlist¼¯ºÏ
-	 * @param data Òª´¦ÀíµÄÊı¾İ
-	 * @param flag ±êÖ¾Î»£¬ÏÖÔÚÖ÷ÒªÓÃÀ´Çø·ÖÊÇ²»ÊÇÄÚÍø¿Í»§·´À¡±¨±í£¬ÆäËü±¨±í¶¼ÊÇÏÔÊ¾ÒµÎñÔ±£¬¶øÄÚÍø¿Í»§·´À¡±¨±íÏÔÊ¾µÄÊÇ¿Í»§Ãû³Æ
-	 *  			Èç¹ûÊÇÄÚÍø¿Í»§±¨±íÔò´«Ò»¸ö inback½øÈ¥£¬Èç¹û²»ÊÇ£¬Ôò´«null;
+	 * ç”ŸæˆæŠ¥è¡¨æ•°æ® æ ¹æ®å–åˆ°çš„listé›†åˆ
+	 * @param data è¦å¤„ç†çš„æ•°æ®
+	 * @param flag æ ‡å¿—ä½ï¼Œç°åœ¨ä¸»è¦ç”¨æ¥åŒºåˆ†æ˜¯ä¸æ˜¯å†…ç½‘å®¢æˆ·åé¦ˆæŠ¥è¡¨ï¼Œå…¶å®ƒæŠ¥è¡¨éƒ½æ˜¯æ˜¾ç¤ºä¸šåŠ¡å‘˜ï¼Œè€Œå†…ç½‘å®¢æˆ·åé¦ˆæŠ¥è¡¨æ˜¾ç¤ºçš„æ˜¯å®¢æˆ·åç§°
+	 *  			å¦‚æœæ˜¯å†…ç½‘å®¢æˆ·æŠ¥è¡¨åˆ™ä¼ ä¸€ä¸ª inbackè¿›å»ï¼Œå¦‚æœä¸æ˜¯ï¼Œåˆ™ä¼ null;
 	 * @return
 	 */
 	public FeedbackReportBean genReportDate(List<Feedbacktable> data,String flag)
@@ -369,7 +369,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 		for (Feedbacktable feedbacktable : data) {
 			if(i==0)
 			{
-				//µÚÒ»´Î
+				//ç¬¬ä¸€æ¬¡
 				type=feedbacktable.getFeedbacktype().getConfigid();
 				fsb.setType(type);
 				fsb.setNum(1);
@@ -384,7 +384,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 					count=count+fsb.getNum();
 				}
 			}else if(type!=feedbacktable.getFeedbacktype().getConfigid() && i>0)
-			{ //²»ÊÇµÚÒ»´Î£¬µ«ÀàĞÍ²»Í¬
+			{ //ä¸æ˜¯ç¬¬ä¸€æ¬¡ï¼Œä½†ç±»å‹ä¸åŒ
 				type=feedbacktable.getFeedbacktype().getConfigid();
 				fsblist.add(fsb);
 				count=count+fsb.getNum();
@@ -409,7 +409,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 			frb.setEname(data.get(0).getFeedbackeid().getEname());
 		}else
 		{
-			//Èç¹ûÊÇÄÚÍø¿Í»§·´À¡Í³¼Æ±¨±í
+			//å¦‚æœæ˜¯å†…ç½‘å®¢æˆ·åé¦ˆç»Ÿè®¡æŠ¥è¡¨
 			frb.setEname(data.get(0).getFeedbackcustomer().getCustomercompany());
 			frb.setLastfeedbacktype(data.get(0).getFeedbackcustomer().getCustomerfeedbacktype());
 			frb.setCustomerid(data.get(0).getFeedbackcustomer().getCustomerid());
@@ -449,9 +449,9 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 
 	public FeedbackReportBean getFeedbackTypeReportCountDataByList(List<FeedbackReportBean> data) {
 		FeedbackReportBean frb=new FeedbackReportBean();
-		List<Configuretable> fklist=icd.getAllByType("fk",0);//µ±Ç°ÏµÍ³ÖĞµÄ·´À¡ÁĞ±í
+		List<Configuretable> fklist=icd.getAllByType("fk",0);//å½“å‰ç³»ç»Ÿä¸­çš„åé¦ˆåˆ—è¡¨
 		List<FeedbacksubBean> list=new ArrayList();
-		int count=0;//»ã×Ü¼ÇÂ¼Êı
+		int count=0;//æ±‡æ€»è®°å½•æ•°
 		int i=0;
 		
 		for (FeedbackReportBean feedbackReportBean : data) {
@@ -482,7 +482,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 	
 	
 	/**
-	 * ×¼±¸¿ÕÊı¾İ
+	 * å‡†å¤‡ç©ºæ•°æ®
 	 * @return
 	 */
 	private List readyNullData()
@@ -500,7 +500,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 	}
 	
 	/**
-	 * Îª±¨±íÊı¾İÃ¿ĞĞ¶ÔÏóÔö¼ÓÒ»¸ö»¹²î¶àÉÙÌì¿Í»§ĞÅÏ¢½«¹«¿ªµÄÁĞ(ÄÚÍø¿Í»§·´À¡±¨±í×¨ÓÃ)
+	 * ä¸ºæŠ¥è¡¨æ•°æ®æ¯è¡Œå¯¹è±¡å¢åŠ ä¸€ä¸ªè¿˜å·®å¤šå°‘å¤©å®¢æˆ·ä¿¡æ¯å°†å…¬å¼€çš„åˆ—(å†…ç½‘å®¢æˆ·åé¦ˆæŠ¥è¡¨ä¸“ç”¨)
 	 * @param frb
 	 * @return
 	 */
@@ -511,24 +511,24 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 		Customerstable customerstable=icustomerstabledao.getCustomerById(customerid);
 		if(OPEN_CUSTOMER_GRADE_ID.contains(customerstable.getCutomergrade()))
 		{
-			//ÊÇ¹«¿ªÀàĞÍµÄ
+			//æ˜¯å…¬å¼€ç±»å‹çš„
 			int openday=this.getOpenDayByCustomer(customerstable);
 			if(openday<4)
 			{
-				//Ğ¡ÓÚµÈÓÚÈıÌì¹«¿ªµÄÊ±ºò£¬ÉîÉ«ÏÔÊ¾
+				//å°äºç­‰äºä¸‰å¤©å…¬å¼€çš„æ—¶å€™ï¼Œæ·±è‰²æ˜¾ç¤º
 				frb.setIscolor(1);
 			}
-			frb.setOpenDate(openday+"Ììºó¹«¿ª");
+			frb.setOpenDate(openday+"å¤©åå…¬å¼€");
 		}else
 		{
-			//²»ÊÇ¹«¿ªÀàĞÍµÄ
-			frb.setOpenDate("ÓÀ²»¹«¿ª");
+			//ä¸æ˜¯å…¬å¼€ç±»å‹çš„
+			frb.setOpenDate("æ°¸ä¸å…¬å¼€");
 		}
 		return frb;
 	}
 	
 	/**
-	 * ¸ù¾İÒ»¸ö¿Í»§¶ÔÏó£¬È¡¸Ã¿Í»§¶ÔÏóÀëÉèÖÃµÄ¹«¿ªÈÕÆÚ»¹ÓĞ¶à¾Ã
+	 * æ ¹æ®ä¸€ä¸ªå®¢æˆ·å¯¹è±¡ï¼Œå–è¯¥å®¢æˆ·å¯¹è±¡ç¦»è®¾ç½®çš„å…¬å¼€æ—¥æœŸè¿˜æœ‰å¤šä¹…
 	 * @param customerstable
 	 * @return
 	 */
@@ -538,7 +538,7 @@ public class FeedbackTypeService implements IFeedbackTypeService {
 		Date adddate=customerstable.getCustomerfeedbackdate();
 		if(adddate==null)
 		{
-			// Èç¹ûÊÇÃ»ÓĞ·´À¡ÈÕÆÚµÄÔò´ú±íÊÇĞÂÔö¿Í»§£¬ÕÒËûµÄÔö¼ÓÈÕÆÚ
+			// å¦‚æœæ˜¯æ²¡æœ‰åé¦ˆæ—¥æœŸçš„åˆ™ä»£è¡¨æ˜¯æ–°å¢å®¢æˆ·ï¼Œæ‰¾ä»–çš„å¢åŠ æ—¥æœŸ
 			adddate=customerstable.getCustomeradddate();
 			
 		}

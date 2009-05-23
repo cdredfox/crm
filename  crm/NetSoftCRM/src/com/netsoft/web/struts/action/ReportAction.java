@@ -1,4 +1,4 @@
-package com.netsoft.web.struts.action;
+ï»¿package com.netsoft.web.struts.action;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class ReportAction extends DispatchAction {
 	public IEmployeeServices ies;
 
 	/**
-	 * ·´À¡±¨±í
+	 * åé¦ˆæŠ¥è¡¨
 	 * 
 	 * @param mapping
 	 * @param form
@@ -45,21 +45,21 @@ public class ReportAction extends DispatchAction {
 			return mapping.findForward(CheckUser.JUMP_URL);
 		}
 		ReportForm rf = (ReportForm) form;
-		List result = null;// ÏêÏ¸ÄÚÈİ
-		FeedbackReportBean countfrb = null;// Í³¼ÆĞĞ
-		List fklist = null;// ±êÌâÀ¸
+		List result = null;// è¯¦ç»†å†…å®¹
+		FeedbackReportBean countfrb = null;// ç»Ÿè®¡è¡Œ
+		List fklist = null;// æ ‡é¢˜æ 
 		if ("".equals(request.getParameter("flag"))) {
-			// ·´À¡Í³¼Æ±¨±í
+			// åé¦ˆç»Ÿè®¡æŠ¥è¡¨
 			result = ifs.getFeedbackTypeReportByDate(rf.getStartdate(), rf
 					.getEnddate());
 			fklist = iconfigs.getAllByType("fk", 0);
 			countfrb = ifs.getFeedbackTypeReportCountDataByList(ifs
 					.getFeedbackTypeReportByDate(rf.getStartdate(), rf
 							.getEnddate()));
-			countfrb.setEname("ºÏ  ¼Æ");
+			countfrb.setEname("åˆ  è®¡");
 
 		} else if ("colligate".equals(request.getParameter("flag"))) {
-			// ×ÛºÏÍ³¼Æ±¨±í
+			// ç»¼åˆç»Ÿè®¡æŠ¥è¡¨
 			fklist = iconfigs.getAllByType(rf.getType(), 0);
 			List qrylist = iconfigs.getAllByType("dj", 0);
 			result = irs.getAddCoustomerReportData(rf.getStartdate(), rf
@@ -69,10 +69,10 @@ public class ReportAction extends DispatchAction {
 							.getEnddate(), rf.getType(), rf.getQrydz()), rf
 					.getType());
 			request.setAttribute("flag", "colligate");
-			countfrb.setEname("ºÏ  ¼Æ");
+			countfrb.setEname("åˆ  è®¡");
 			request.setAttribute("qrylist", qrylist);
 		} else if ("inback".equals(request.getParameter("flag"))) {
-			// ÄÚÍø¿Í»§·´À¡Í³¼Æ±¨±í
+			// å†…ç½‘å®¢æˆ·åé¦ˆç»Ÿè®¡æŠ¥è¡¨
 			String address=processAdress(request, iconfigs);
 			result = ifs.getIntFeedBackReportData(rf.getCompanyName(), rf.eid,
 					rf.getQrydz(), rf.getQryxz(), rf.getStartdate(), rf
@@ -81,13 +81,13 @@ public class ReportAction extends DispatchAction {
 					.getIntFeedBackReportData(rf.getCompanyName(), rf.eid, rf
 							.getQrydz(), rf.getQryxz(), rf.getStartdate(), rf
 							.getEnddate(),address));
-			countfrb.setEname("ºÏ  ¼Æ");
-			countfrb.setOpenDate("ÎŞ  Ğ§");
+			countfrb.setEname("åˆ  è®¡");
+			countfrb.setOpenDate("æ—   æ•ˆ");
 			List qrylist = iconfigs.getAllByType("dj", 0);
 			fklist = iconfigs.getAllByType("fk", 0);
 			List xzlist = iconfigs.getAllByType("xz", 0);
 			List el = ies.getAllEmployee();
-			// »ñµÃµØÇøÖµ
+			// è·å¾—åœ°åŒºå€¼
 			List<ConfiguretableBean> customerdz = iconfigs.getAllByType("dz", 0);
 			request.setAttribute("flag", "inback");
 			request.setAttribute("qrylist", qrylist);
@@ -97,16 +97,16 @@ public class ReportAction extends DispatchAction {
 
 		} else if("busiowen".equals(request.getParameter("flag")))
 		{
-			//¸÷ÒµÎñÈËÔ±µ±Ç°¿Í»§Í³¼ÆÊı¾İ±¨±í
+			//å„ä¸šåŠ¡äººå‘˜å½“å‰å®¢æˆ·ç»Ÿè®¡æ•°æ®æŠ¥è¡¨
 			fklist = iconfigs.getAllByType("dj", 0);
 			result=irs.getBusiOwenCustomer();
 			countfrb=irs.getFeedbackTypeReportCountDataByList(irs.getBusiOwenCustomer(),"dj");
 			request.setAttribute("flag", "busiowen");
-			countfrb.setEname("ºÏ ¼Æ");
+			countfrb.setEname("åˆ è®¡");
 			
 		}
 		else {
-			// ĞÂÔöÒµÎñÍ³¼Æ±¨±í
+			// æ–°å¢ä¸šåŠ¡ç»Ÿè®¡æŠ¥è¡¨
 			fklist = iconfigs.getAllByType("dj", 0);
 			result = irs.getBusiCountReportData(rf.getStartdate(), rf
 					.getEnddate());
@@ -114,7 +114,7 @@ public class ReportAction extends DispatchAction {
 					irs.getBusiCountReportData(rf.getStartdate(), rf
 							.getEnddate()), "dj");
 			request.setAttribute("flag", "flag");
-			countfrb.setEname("ºÏ  ¼Æ");
+			countfrb.setEname("åˆ  è®¡");
 
 		}
 		request.setAttribute("frb", result);
@@ -124,7 +124,7 @@ public class ReportAction extends DispatchAction {
 	}
 
 	/**
-	 * ·´À¡±¨±íÍ³¼Æ³õÊ¼»¯
+	 * åé¦ˆæŠ¥è¡¨ç»Ÿè®¡åˆå§‹åŒ–
 	 * 
 	 * @param mapping
 	 * @param form
@@ -145,7 +145,7 @@ public class ReportAction extends DispatchAction {
 	}
 
 	/**
-	 * ÒµÎñÍ³¼Æ±¨±í³õÊ¼»¯
+	 * ä¸šåŠ¡ç»Ÿè®¡æŠ¥è¡¨åˆå§‹åŒ–
 	 * 
 	 * @param mapping
 	 * @param form
@@ -167,7 +167,7 @@ public class ReportAction extends DispatchAction {
 	}
 
 	/**
-	 * ÒµÎñÍ³¼Æ±¨±í
+	 * ä¸šåŠ¡ç»Ÿè®¡æŠ¥è¡¨
 	 * 
 	 * @param mapping
 	 * @param form
@@ -189,7 +189,7 @@ public class ReportAction extends DispatchAction {
 	}
 
 	/**
-	 * ×ÛºÏÒµÎñ±¨±í³õÊ¼»¯
+	 * ç»¼åˆä¸šåŠ¡æŠ¥è¡¨åˆå§‹åŒ–
 	 * 
 	 * @param mapping
 	 * @param form
@@ -239,7 +239,7 @@ public class ReportAction extends DispatchAction {
 	}
 
 	/**
-	 * ÄÚÍø¿Í»§·´À¡±¨±í³õÊ¼»¯
+	 * å†…ç½‘å®¢æˆ·åé¦ˆæŠ¥è¡¨åˆå§‹åŒ–
 	 * 
 	 * @param mapping
 	 * @param form
@@ -259,7 +259,7 @@ public class ReportAction extends DispatchAction {
 		List qrylist = iconfigs.getAllByType("dj", 0);
 		List fklist = iconfigs.getAllByType("fk", 0);
 		List xzlist = iconfigs.getAllByType("xz", 0);
-		// »ñµÃµØÇøÖµ
+		// è·å¾—åœ°åŒºå€¼
 		List<ConfiguretableBean> customerdz = iconfigs.getAllByType("dz", 0);
 		request.setAttribute("customerdz", customerdz);
 		List el = ies.getAllEmployee();
@@ -280,14 +280,14 @@ public class ReportAction extends DispatchAction {
 	}
 	
 	/**
-	 * ÄÚÍø¿Í»§·´À¡±¨±í²éÑ¯µØÖ·´¦Àí
+	 * å†…ç½‘å®¢æˆ·åé¦ˆæŠ¥è¡¨æŸ¥è¯¢åœ°å€å¤„ç†
 	 * @param request
 	 * @param iconfig
 	 * @return
 	 */
 	private String processAdress(HttpServletRequest request,IConfiguretableServices iconfig)
 	{
-		// µØÖ·Æ´½Ó
+		// åœ°å€æ‹¼æ¥
 		String count = request.getParameter("customercounty");
 		String city = request.getParameter("city");
 		if("0".equals(count))
@@ -301,10 +301,10 @@ public class ReportAction extends DispatchAction {
 		}
 		
 		city = iconfig.qryConfigByTypeAndValue("dz", city);
-		//20080830 ¿Í»§ÒªÇó³ÇÊĞÔö¼Ó²»ÓÃ×Ô¶¯Ôö¼ÓÊ¡£¬ÓÉµØÖ·×Ö¶ÎÉèÖÃµÄÊ±ºò£¬ÉèÖÃÍêÕûµÄÃû³Æ
+		//20080830 å®¢æˆ·è¦æ±‚åŸå¸‚å¢åŠ ä¸ç”¨è‡ªåŠ¨å¢åŠ çœï¼Œç”±åœ°å€å­—æ®µè®¾ç½®çš„æ—¶å€™ï¼Œè®¾ç½®å®Œæ•´çš„åç§°
 		if (city != null) {
 			city = count + city;
-		} else if ("ÆäËû".equals(city)) {
+		} else if ("å…¶ä»–".equals(city)) {
 			return null;
 		}
 		return city;

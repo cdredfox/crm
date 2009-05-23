@@ -1,4 +1,4 @@
-package com.netsoft.services.intf;
+ï»¿package com.netsoft.services.intf;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -18,50 +18,50 @@ public interface IEmployeeServices {
    
 	public EmployeeBean getEmployyeById(int id);
 	
-	/**µÃµ½ËùÓĞµÄÔ±¹¤*/
+	/**å¾—åˆ°æ‰€æœ‰çš„å‘˜å·¥*/
 	public List getAllEmployee();
-	/**¸ù¾İIDÉ¾³ıÒ»¸öÔ±¹¤*/
+	/**æ ¹æ®IDåˆ é™¤ä¸€ä¸ªå‘˜å·¥*/
 	public String delEmployee(int id);
 	
-/**±£´æÔ±¹¤¶ÔÏó*/
+/**ä¿å­˜å‘˜å·¥å¯¹è±¡*/
 	
 	public boolean addEmployye(EmployeeBean eb);
 	
-	/**ĞŞ¸ÄÔ±¹¤¶ÔÏó*/
+	/**ä¿®æ”¹å‘˜å·¥å¯¹è±¡*/
 	public boolean updateEmployye(EmployeeBean eb);
 	
-	/**¸ù¾İÄ³Ìõ¼ş²éÑ¯Ô±¹¤¼¯ºÏ*/
+	/**æ ¹æ®æŸæ¡ä»¶æŸ¥è¯¢å‘˜å·¥é›†åˆ*/
 	
 	public List<EmployeeBean> findEmployeeByAny(String any,String code);
 	
-	/**·ÖÒ³*/
+	/**åˆ†é¡µ*/
 	public List CurrentPage(int page,int size);
 	
-	/** ¸ù¾İ²éÑ¯Ìõ¼şµÃµ½²¿·ÖÔ±¹¤ */
+	/** æ ¹æ®æŸ¥è¯¢æ¡ä»¶å¾—åˆ°éƒ¨åˆ†å‘˜å·¥ */
 
 	public List CurrentPageQry(int page, int size,HashMap hm);
 	
-	/**ÅúÁ¿¸øÄ³Ô±¹¤ÊÚÈ¨*/
+	/**æ‰¹é‡ç»™æŸå‘˜å·¥æˆæƒ*/
 	
 	public boolean sendRole(Integer role[],int eid);
 	
-	/**×Ü¼ÇÂ¼Êı*/
+	/**æ€»è®°å½•æ•°*/
 	public int getCount();
 	
 	/**
-	 * µÃµ½°´Ìõ¼ş²éÑ¯µÄ¼ÇÂ¼Êı
+	 * å¾—åˆ°æŒ‰æ¡ä»¶æŸ¥è¯¢çš„è®°å½•æ•°
 	 * @return
 	 */
 	public int getCountQry();
 	
 	/**
-	 * ½«Ä³Ô±¹¤ÃûÏÂµÄËùÓĞ¿Í»§×ªÒÆµ½ÁíÒ»Ô±¹¤ÏÂ£¬Èç¹ûtoId=0 Ôò´ú±í¹«¿ª£¬²»×ªµ½ÈÎºÎÈËÃûÒåÏÂ¡£
+	 * å°†æŸå‘˜å·¥åä¸‹çš„æ‰€æœ‰å®¢æˆ·è½¬ç§»åˆ°å¦ä¸€å‘˜å·¥ä¸‹ï¼Œå¦‚æœtoId=0 åˆ™ä»£è¡¨å…¬å¼€ï¼Œä¸è½¬åˆ°ä»»ä½•äººåä¹‰ä¸‹ã€‚
 	 * @param id
 	 * @param toId
 	 */
 	public boolean changCustomerOwener(int id,int toId);
 	/**
-	 * ²éÑ¯·ÖÒ³µÄ×Ü¼ÇÂ¼
+	 * æŸ¥è¯¢åˆ†é¡µçš„æ€»è®°å½•
 	 * @return
 	 */
 	public int getCountByCurrentPage(HashMap hm);

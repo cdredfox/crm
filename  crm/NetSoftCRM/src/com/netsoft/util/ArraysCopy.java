@@ -1,4 +1,4 @@
-package com.netsoft.util;
+﻿package com.netsoft.util;
 
 public class ArraysCopy {
 	public static int size=0;

@@ -1,4 +1,4 @@
-package com.netsoft.web.struts.action;
+﻿package com.netsoft.web.struts.action;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -49,25 +49,25 @@ public class CustomerstableAction extends DispatchAction {
 			return mapping.findForward(CheckUser.JUMP_URL);
 		}
 		CustomerstableForm cf = (CustomerstableForm) form;
-		// ��˾����
+		// 锟斤拷司锟斤拷锟斤拷
 		List<ConfiguretableBean> customerxz = iconfig.getAllByType("xz", 0);
-		// �ͻ���Դ
+		// 锟酵伙拷锟斤拷源
 		List<ConfiguretableBean> customerly = iconfig.getAllByType("ly", 0);
-		// �ͻ�����
+		// 锟酵伙拷锟斤拷锟斤拷
 		List<ConfiguretableBean> customerdj = iconfig.getAllByType("dj", 0);
-		// ��õ���ֵ
+		// 锟斤拷玫锟斤拷锟街?
 		List<ConfiguretableBean> customerdz = iconfig.getAllByType("dz", 0);
-		// ȡ���
+		// 取锟斤拷锟?
 		List<ConfiguretableBean> customerqh = iconfig.getAllByType("qh", 0);
-		// ȡ��˾����������
+		// 取锟斤拷司锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
 		List<ConfiguretableBean> customersyzxz = iconfig.getAllByType("syzxz",
 				0);
 		if ("2".equals(cf.getPhonetype())) {
-			// �绰
+			// 锟界话
 			request.setAttribute("phone", cf.getPhone());
 
 		} else {
-			// �ֻ�
+			// 锟街伙拷
 			cf.setCustomerhandset(cf.getPhone());
 		}
 		request.setAttribute("customerxz", customerxz);
@@ -89,7 +89,7 @@ public class CustomerstableAction extends DispatchAction {
 		
 		Configuretable province=iconfig.qryConfigByValue("dz", String.valueOf(cf.getCustomerprovinceid()));
 		Configuretable city=iconfig.qryConfigByValue("dz", String.valueOf(cf.getCustomercityid()));
-		// ��ַƴ��
+		// 锟斤拷址拼锟斤拷
 		//String count = request.getParameter("customercounty");
 		//String city = request.getParameter("city");
 		//String cityinfo = request.getParameter("address");
@@ -97,17 +97,17 @@ public class CustomerstableAction extends DispatchAction {
 		//city = iconfig.qryConfigByTypeAndValue("dz", city);
 
 //		if (city != null) {
-			//20080830 �ͻ�Ҫ��������Ӳ����Զ�����ʡ���ɵ�ַ�ֶ����õ�ʱ��������������
+			//20080830 锟酵伙拷要锟斤拷锟斤拷锟斤拷锟斤拷硬锟斤拷锟斤拷远锟斤拷锟斤拷锟绞★拷锟斤拷傻锟街凤拷侄锟斤拷锟斤拷玫锟绞憋拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟?
 	//		city = count + city + cityinfo;
-	//	} else if ("����".equals(city)) {
+	//	} else if ("锟斤拷锟斤拷".equals(city)) {
 	//		city = cityinfo;
 	//	}
 	//	cf.setCustomeraddress(city);
-		// �绰���
+		// 锟界话锟斤拷锟?
 		String number = request.getParameter("phonenumer");
-		// �绰����
+		// 锟界话锟斤拷锟斤拷
 		String pnumber = request.getParameter("pnumber");
-		// �������
+		// 锟斤拷锟斤拷锟斤拷锟?
 		String fnumber = request.getParameter("fnumber");
 
 		number = iconfig.qryPhoneByTypeAndValue("qh", number);
@@ -156,7 +156,7 @@ public class CustomerstableAction extends DispatchAction {
 			List list = null;
 			;
 			if (type == null || "".equals(type)) {
-				// �ҵĿͻ�
+				// 锟揭的客伙拷
 				list = ics.getAllCustomerByEid(employee.getId().intValue(),
 						Integer.parseInt(page), psize, company, startdate,
 						enddate,cutomergrade);
@@ -166,7 +166,7 @@ public class CustomerstableAction extends DispatchAction {
 										startdate, enddate, cutomergrade) / 20.0f));
 				cf.setCustomertype("1");
 			} else if ("all".equals(type)) {
-				// �����ͻ�
+				// 锟斤拷锟斤拷锟酵伙拷
 				list = ics.getAllOpenCustomer(Integer.parseInt(page), psize,
 						company, startdate, enddate, cutomergrade);
 				request.setAttribute("count", (int) Math.ceil(ics.getOpenCount(
@@ -174,7 +174,7 @@ public class CustomerstableAction extends DispatchAction {
 				request.setAttribute("flag", "y");
 				cf.setCustomertype("2");
 			} else if ("invali".equals(type)) {
-				// ����ͻ�
+				// 锟斤拷锟斤拷突锟?
 				list = ics.getAllInvaliCustomer(Integer.parseInt(page), psize,
 						company, startdate, enddate, cutomergrade);
 				request.setAttribute("count", (int) Math.ceil(ics
@@ -191,16 +191,16 @@ public class CustomerstableAction extends DispatchAction {
 			}
 			request.setAttribute("elist", list);
 			request.setAttribute("page", page);
-			log.info("CustomerstableAction��list����Ϊ��" + list.size());
+			log.info("CustomerstableAction锟斤拷list锟斤拷锟斤拷为锟斤拷" + list.size());
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.error("CustomerstableAction��getAll���������쳣��", e);
+			log.error("CustomerstableAction锟斤拷getAll锟斤拷锟斤拷锟斤拷锟斤拷锟届常锟斤拷", e);
 		}
 		return mapping.findForward("customerManager");
 	}
 
 	/**
-	 * ��ʾ�޸���ͼ
+	 * 锟斤拷示锟睫革拷锟斤拷图
 	 * 
 	 * @param mapping
 	 * @param form
@@ -218,18 +218,18 @@ public class CustomerstableAction extends DispatchAction {
 		CustomerstableForm ctf = (CustomerstableForm) form;
 		String id = request.getParameter("id");
 		CustomerstableBean ctb = ics.getCustomerById(Integer.parseInt(id));
-		// ��˾����
+		// 锟斤拷司锟斤拷锟斤拷
 		List<ConfiguretableBean> customerxz = iconfig.getAllByType("xz", 0);
-		// �ͻ���Դ
+		// 锟酵伙拷锟斤拷源
 		List<ConfiguretableBean> customerly = iconfig.getAllByType("ly", 0);
-		// �ͻ�����
+		// 锟酵伙拷锟斤拷锟斤拷
 		List<ConfiguretableBean> customerdj = iconfig.getAllByType("dj", 0);
-		// ȡ��˾����������
+		// 取锟斤拷司锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
 		List<ConfiguretableBean> customersyzxz = iconfig.getAllByType("syzxz",
 				0);
-		// ��õ���ֵ
+		// 锟斤拷玫锟斤拷锟街?
 		List<ConfiguretableBean> customerdz = iconfig.getAllByType("dz", 0);
-		// ȡ���
+		// 取锟斤拷锟?
 		List<ConfiguretableBean> customerqh = iconfig.getAllByType("qh", 0);
 		
 		request.setAttribute("customerxz", customerxz);
@@ -293,11 +293,11 @@ public class CustomerstableAction extends DispatchAction {
 		ctb.setCustomercity(city);
 		String message = "";
 		if (ics.updateCustomer(ctb)) {
-			//message = "���Ѿ��ɹ��ĸ����˿ͻ���Ϣ!";
-			//2008/10/02 ӦФ�ɵ�Ҫ��,�ͻ���Ϣ�޸ĳɹ���,��ת���ҵĿͻ���ѯ����
+			//message = "锟斤拷锟窖撅拷锟缴癸拷锟侥革拷锟斤拷锟剿客伙拷锟斤拷息!";
+			//2008/10/02 应肖锟缴碉拷要锟斤拷,锟酵伙拷锟斤拷息锟睫改成癸拷锟斤拷,锟斤拷转锟斤拷锟揭的客伙拷锟斤拷询锟斤拷锟斤拷
 			return new ActionForward("/customer.crm?method=customerManager&customertype=1");
 		} else {
-			message = "�Բ���!�ͻ���Ϣ����ʧ�ܣ������Ի�����ϵϵͳ����Ա!";
+			message = "锟皆诧拷锟斤拷!锟酵伙拷锟斤拷息锟斤拷锟斤拷失锟杰ｏ拷锟斤拷锟斤拷锟皆伙拷锟斤拷锟斤拷系系统锟斤拷锟斤拷员!";
 		}
 		request.setAttribute("message", message);
 		return mapping.findForward("resultView");
@@ -336,15 +336,15 @@ public class CustomerstableAction extends DispatchAction {
 			if (enddate != null && !"".equals(enddate.trim())) {
 				request.setAttribute("enddate", enddate);
 			}
-			log.info("CustomerstableAction��list����Ϊ��" + list.size());
+			log.info("CustomerstableAction锟斤拷list锟斤拷锟斤拷为锟斤拷" + list.size());
 		} catch (Exception e) {
-			log.error("CustomerstableAction��getAll���������쳣��", e);
+			log.error("CustomerstableAction锟斤拷getAll锟斤拷锟斤拷锟斤拷锟斤拷锟届常锟斤拷", e);
 		}
 		return mapping.findForward("customerAll");
 	}
 
 	/**
-	 * ��ʾ��ϸ���ϵĵ�һ��VIEW��ͼ
+	 * 锟斤拷示锟斤拷细锟斤拷锟较的碉拷一锟斤拷VIEW锟斤拷图
 	 * 
 	 * @param mapping
 	 * @param form
@@ -362,16 +362,16 @@ public class CustomerstableAction extends DispatchAction {
 		String id = request.getParameter("id");
 		CustomerstableBean ctb = ics.getCustomerById(Integer.parseInt(id));
 
-		// ��˾����
+		// 锟斤拷司锟斤拷锟斤拷
 		List<ConfiguretableBean> customerxz = iconfig.getAllByType("xz", 0);
-		// �ͻ���Դ
+		// 锟酵伙拷锟斤拷源
 		List<ConfiguretableBean> customerly = iconfig.getAllByType("ly", 0);
-		// �ͻ�����
+		// 锟酵伙拷锟斤拷锟斤拷
 		List<ConfiguretableBean> customerdj = iconfig.getAllByType("dj", 0);
-		// ȡ��˾����������
+		// 取锟斤拷司锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
 		List<ConfiguretableBean> customersyzxz = iconfig.getAllByType("syzxz",
 				0);
-		// �ͻ���������
+		// 锟酵伙拷锟斤拷锟斤拷锟斤拷锟斤拷
 		List<ConfiguretableBean> customerfk = iconfig.getAllByType("fk", 0);
 		request.setAttribute("customerfk", customerfk);
 		request.setAttribute("customerxz", customerxz);
@@ -384,7 +384,7 @@ public class CustomerstableAction extends DispatchAction {
 	}
 
 	/**
-	 * ��ʾ������Ϣ��VIEW
+	 * 锟斤拷示锟斤拷锟斤拷锟斤拷息锟斤拷VIEW
 	 * 
 	 * @param mapping
 	 * @param form
@@ -419,7 +419,7 @@ public class CustomerstableAction extends DispatchAction {
 		// request.setAttribute("elist", list);
 		request.setAttribute("page", page);
 		CustomerstableBean customer = ics.getCustomerById(Integer.parseInt(id));
-		// �ͻ���������
+		// 锟酵伙拷锟斤拷锟斤拷锟斤拷锟斤拷
 		List<ConfiguretableBean> customerfk = iconfig.getAllByType("fk", 0);
 		request.setAttribute("result", fbb);
 		request.setAttribute("customer", customer);
@@ -428,7 +428,7 @@ public class CustomerstableAction extends DispatchAction {
 	}
 
 	/**
-	 * �ͻ����ʱ�����������ͬ��Ĺ����ͻ������action
+	 * 锟酵伙拷锟斤拷锟绞憋拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷同锟斤拷墓锟斤拷锟斤拷突锟斤拷锟斤拷锟斤拷action
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -449,9 +449,9 @@ public class CustomerstableAction extends DispatchAction {
 
 			List list = ics.getAllCustomer(0, 0, companyname, -1, null, null);
 			request.setAttribute("elist", list);
-			log.info("CustomerstableAction��list����Ϊ��" + list.size());
+			log.info("CustomerstableAction锟斤拷list锟斤拷锟斤拷为锟斤拷" + list.size());
 		} catch (Exception e) {
-			log.error("CustomerstableAction��getAll���������쳣��", e);
+			log.error("CustomerstableAction锟斤拷getAll锟斤拷锟斤拷锟斤拷锟斤拷锟届常锟斤拷", e);
 		}
 		return mapping.findForward("customerList");
 	}

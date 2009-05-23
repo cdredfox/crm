@@ -1,4 +1,4 @@
-package com.netsoft.util.tag;
+ï»¿package com.netsoft.util.tag;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import com.netsoft.dao.pojos.Menus;
 public class MenuTag extends BodyTagSupport {
     private String listName;
     private String scope;
-    private String role;//ÒªÈ¡ÄÄÒ»´óÀàµÄÈ¨ÏŞ 0ÎªÈ«²¿ -1 ÎªÏµÍ³×ÊÔ´Î¬»¤ -2 ¿Í»§×ÊÔ´¹ÜÀí -3 Îª×ÛºÏ²éÑ¯¹ÜÀí
+    private String role;//è¦å–å“ªä¸€å¤§ç±»çš„æƒé™ 0ä¸ºå…¨éƒ¨ -1 ä¸ºç³»ç»Ÿèµ„æºç»´æŠ¤ -2 å®¢æˆ·èµ„æºç®¡ç† -3 ä¸ºç»¼åˆæŸ¥è¯¢ç®¡ç†
     Logger log=Logger.getLogger(this.getClass());
 	@Override
 	public int doStartTag() throws JspException { 
@@ -25,7 +25,7 @@ public class MenuTag extends BodyTagSupport {
 		try {
 		 StringBuffer sb=new StringBuffer();
 		 List<Menus> list=new ArrayList();
-		 //¼ì²é×÷ÓÃÓò¡£È¡µÃ·ÅÔÚ×÷ÓÃÓòÖĞµÄ¶ÔÏó
+		 //æ£€æŸ¥ä½œç”¨åŸŸã€‚å–å¾—æ”¾åœ¨ä½œç”¨åŸŸä¸­çš„å¯¹è±¡
 		  if(scope.equals("session"))
 		 {
 		 list=(List) pageContext.getSession().getAttribute(listName);
@@ -35,10 +35,10 @@ public class MenuTag extends BodyTagSupport {
 		 }
 
       sb.append("<table border='0' cellpadding='0' cellspacing='0' width='100%'>\n<div id='menu'>");
-		  //È¡µÚÒ»¼¶²Ëµ¥
-      log.info("È¡µÃµÄ²Ëµ¥³¤¶ÈÎª£º"+list.size());
+		  //å–ç¬¬ä¸€çº§èœå•
+      log.info("å–å¾—çš„èœå•é•¿åº¦ä¸ºï¼š"+list.size());
 		 for (Menus menus : list) {
-			log.info("µÚÒ»¸ö¼ÇÂ¼£º"+menus.getMtopId());
+			log.info("ç¬¬ä¸€ä¸ªè®°å½•ï¼š"+menus.getMtopId());
 			if(Integer.parseInt(role)==0)
 			{
 			if(menus.getMtopId()<0)
@@ -53,20 +53,20 @@ public class MenuTag extends BodyTagSupport {
 				}
 			}
 		} 
-	//È¡µÚ¶ş¼¶²Ëµ¥
+	//å–ç¬¬äºŒçº§èœå•
 		 int i=1;
 		 for (Menus menus : topMenus) {
 			 sb.append("	<TR onmousedown=\"this.children[0].style.background='url(/NetSoftCRM/images/menuimages/menubg_level1_now.gif)';\" id=BarNumber"+i+" onClick=\"this.flag='true';showHideSubMenu();\" flagHasUrl='false' level='"+i+"' name='"+i+"'><TD onmouseover=menuMouseOver(this) style='BACKGROUND-IMAGE: url(/NetSoftCRM/images/menuimages/menubg_level1.gif); CURSOR: hand; HEIGHT: 20px; TEXT-ALIGN: center' onmouseout=menuMouseOut(this)>"+menus.getMname()+"</TD></TR>");
 			 sb.append("\n");
-			 log.info("¸¸²Ëµ¥£º"+menus.getMname());
+			 log.info("çˆ¶èœå•ï¼š"+menus.getMname());
 			 for (Menus menus2 : list) {
-				 log.info("list³¤¶ÈÎª: "+list.size());
-				 log.info("×Ó²Ëµ¥±àºÅ:"+menus2.getMtopId()+" "+"¸¸²Ëµ¥±àºÅ:"+menus.getId());
+				 log.info("listé•¿åº¦ä¸º: "+list.size());
+				 log.info("å­èœå•ç¼–å·:"+menus2.getMtopId()+" "+"çˆ¶èœå•ç¼–å·:"+menus.getId());
 				 log.info(menus2.getMtopId()==menus.getId());
 				 if(menus2.getMtopId().equals(menus.getId()))
 				{
 					sb.append("		<TR style='DISPLAY: none' level='"+i+"'> <TD onmouseover=menuNextMouseOver(this) style='PADDING-LEFT: 28px; BACKGROUND-IMAGE: url(/NetSoftCRM/images/menuimages/menubg_level2.gif); CURSOR: hand; HEIGHT: 20px' onclick=\"doLink('/NetSoftCRM"+menus2.getMurl()+"','detail')\" onmouseout=menuNextMouseOut(this) flagNext='false'>"+menus2.getMname()+"</TD></TR>\n");
-					log.info("×Ó²Ëµ¥£º"+menus2.getMname());
+					log.info("å­èœå•ï¼š"+menus2.getMname());
 				}
 			}
 			 i=i+1;
