@@ -11,6 +11,55 @@
 		<script type='text/javascript' src='/NetSoftCRM/dwr/engine.js'></script>
 		<script type='text/javascript' src='/NetSoftCRM/dwr/util.js'></script>
 		<script type="text/javascript">
+
+			function onSubmit()
+			{
+				var obj=document.getElementsByName("custId");
+				var checkFlag=false;
+				for(var i=0;i<obj.length;i++)
+				{
+					if(obj[i].checked)
+					{
+						checkFlag=true;
+						break;
+						}
+					}
+				if(checkFlag)
+				{
+					var name=event.srcElement.name;
+					if(event.srcElement.value=="-1")
+					{
+						alert("请选择正确的选项，您选择的[请选择]无效!");
+						return ;
+						}
+					document.getElementsByName("control")[0].value=name;
+					document.forms[1].submit();
+					}
+				else
+				{
+					alert("您没有选中任保客户,请至少选择一个客户进行操作！");
+					}
+				}
+			function checkAll()
+			{
+				var obj=document.getElementsByName("custId");
+				if(event.srcElement.checked)
+				{
+					for(var i=0;i<obj.length;i++)
+					{
+						obj[i].checked=true;
+						}
+					document.getElementById("topAllCheck").checked=true;
+					document.getElementById("downAllCheck").checked=true;
+					}else{
+						for(var i=0;i<obj.length;i++)
+						{
+							obj[i].checked=false;
+							}
+						document.getElementById("topAllCheck").checked=false;
+						document.getElementById("downAllCheck").checked=false;
+						}
+				}
 			function GetDate (vid)
 			{
 			  reVal = window.showModalDialog("/NetSoftCRM/jsp/showDate.htm", '',
@@ -101,6 +150,7 @@
 						<td align="center">
 							<table>
 								<tr>
+									
 									<td>
 										&nbsp;公司名称:
 									</td>
@@ -126,7 +176,7 @@
 									<logic:notEqual value="Y" name="Employees" property="viewFlag">
 										<td>
 											<html:select property="eid">
-												<html:option value="${Employees.id}">${Employees.ename}</html:option>
+												<html:options collection="subordinate" labelProperty="ename" property="id"/>
 												<html:option value="open">公开客户</html:option>
 											</html:select>
 										</td>
@@ -305,6 +355,7 @@
 					</logic:equal>
 				</table>
 			</html:form>
+			<html:form action="/report?method=batchControl">
 			<table width="800" cellspacing="1" cellpadding="0" border="0" id="bgtable" onclick="sortColumn(event)">
 				<thead>
 				<tr>
@@ -334,6 +385,9 @@
 				</tr>
 				<tr>
 					<logic:equal value="inback" name="flag">
+						<td id=bgtitle>
+								&nbsp;<input type="checkbox" id="topAllCheck" onclick="checkAll();"/>
+									</td>
 						<td id=bgtitle>
 							公司名称
 						</td>
@@ -374,6 +428,9 @@
 						<tr>
 							<logic:equal value="1" property="iscolor" name="f">
 								<logic:equal value="inback" name="flag">
+									<td id=bgbody align="center">
+										&nbsp;<input type="checkbox" name="custId" value="${f.customerid}"/>
+									</td>
 									<td id=bgbody align="center">
 										<font color="red"><a
 											href="<%=request.getContextPath()%>/customer.crm?method=detailInfo&id=${f.customerid}">${f.ename}</a>
@@ -423,6 +480,9 @@
 							</logic:equal>
 							<logic:notEqual value="1" property="iscolor" name="f">
 								<logic:equal value="inback" name="flag">
+									<td id=bgbody align="center">
+										&nbsp;<input type="checkbox" name="custId" value="${f.customerid}"/>
+									</td>
 									<td id=bgbody align="center">
 										<a
 											href="<%=request.getContextPath()%>/customer.crm?method=detailInfo&id=${f.customerid}">${f.ename}</a>
@@ -479,6 +539,11 @@
 				<logic:present name="countfrb">
 					<logic:present name="countfrb" property="feedsubbean">
 						<tr>
+						<logic:equal value="inback" name="flag">
+							<td id=bgtitle>
+										&nbsp;<input type="checkbox" id="downAllCheck" onclick="checkAll();"/>
+									</td>
+							</logic:equal>		
 							<td id=bgtitle>
 								${countfrb.ename}
 							</td>
@@ -517,5 +582,42 @@
 					</td>
 				</table>
 			</DIV>
+	<logic:equal value="inback" name="flag">
+		<logic:equal value="Y" name="Employees" property="batchControlFlag">
+			<table width="600" cellspacing="1" cellpadding="0" border="0" id="bgtable">
+				<tr><td id=bgtitle colspan=4>批量操作栏</td></tr>
+				<tr>
+					<td id=bgtitle >
+						批量修改客户级别：</td><td id=bgbody><select onchange="onSubmit();" name="changeGrade">
+											<option value="-1">请选择</option>
+											<logic:iterate id="qry" name="qrylist">
+												<option value="${qry.configid}">${qry.confignote}</option>
+											</logic:iterate>
+										</select>
+											
+					</td>
+					<td id=bgtitle>
+						批量删除客户：</td><td id=bgbody><input type="button" value="确定批量删除" onclick="onSubmit();" name="batchDel"/>
+					</td>
+				</tr>
+				<tr>
+					<td id=bgtitle> 
+						批量更改客户所有人：</td><td id=bgbody><select onchange="onSubmit();" name="changeOwener">
+												<option value="-1">请选择</option>
+												<logic:iterate id="e" name="el">
+													<option value="${e.id}">${e.ename}</option>
+												</logic:iterate>
+												<option value="open">公开客户</option>
+											</select>
+					</td>
+					<td id=bgtitle>
+						批量公开客户：</td><td id=bgbody><input type="button" value="确定批量公开" onclick="onSubmit();" name="batchOpen"/>
+					</td>
+				</tr>
+			</table>
+			<input type="hidden" name="control" />
+			</logic:equal>
+			</logic:equal>
+			</html:form>
 	</BODY>
 </html>
