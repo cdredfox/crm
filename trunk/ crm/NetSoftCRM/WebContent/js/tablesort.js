@@ -51,13 +51,13 @@ if (ie5 || dom)
 
 function initSortTable() {
 	arrowUp = document.createElement("SPAN");
-	var tn = document.createTextNode("5");
-	arrowUp.appendChild(tn);
+	//var tn = document.createTextNode("5");
+	//arrowUp.appendChild(tn);
 	arrowUp.className = "arrow";
 
 	arrowDown = document.createElement("SPAN");
-	var tn = document.createTextNode("6");
-	arrowDown.appendChild(tn);
+	//var tn = document.createTextNode("6");
+	//arrowDown.appendChild(tn);
 	arrowDown.className = "arrow";
 }
 
