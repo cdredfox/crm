@@ -23,8 +23,17 @@ public class Employye implements java.io.Serializable {
 	private Set customerstables = new HashSet(0);
 	private Set feedbackstables=new HashSet(0);
 	private Set notebooks=new HashSet(0);
+	private Employye topId;
 
 	// Constructors
+
+	public Employye getTopId() {
+		return topId;
+	}
+
+	public void setTopId(Employye topId) {
+		this.topId = topId;
+	}
 
 	public Set getFeedbackstables() {
 		return feedbackstables;

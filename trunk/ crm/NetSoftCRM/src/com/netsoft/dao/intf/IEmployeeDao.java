@@ -89,4 +89,19 @@ public interface IEmployeeDao {
 	    * @return
 	    */
 	   public List findEmployyeByHashMap(HashMap hm);
+	   
+	   /**
+	    * 查询某个员工下面所有的人员
+	    * @param topId
+	    * @return
+	    */
+	   public List<Employye> getEmployeesByTopId(int topId);
+	   
+	   /**
+	    * 批量设置一批员工
+	    * @param eids
+	    * @param topId
+	    * @return
+	    */
+	   public boolean batchUpdateEmployye(Integer[] eids,int topId);
 }

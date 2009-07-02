@@ -97,5 +97,30 @@ public interface ICustomerstableServices {
 	 * @return
 	 */
 	public boolean delCustomer(int id);
-	
+	/**
+	 * 批量修改客户级别
+	 * @param ids
+	 * @param grade
+	 * @return
+	 */
+	public boolean batchChangGrade(String[] ids,int grade);
+	/**
+	 * 批量公开客户
+	 * @param ids
+	 * @return
+	 */
+	public boolean batchOpen(String[] ids);
+	/**
+	 * 批量更改客户所有人
+	 * @param ids
+	 * @param eid
+	 * @return
+	 */
+	public boolean changOwener(String[] ids,int eid);
+	/**
+	 * 批量删除
+	 * @param ids
+	 * @return
+	 */
+	public boolean batchDel(String[] ids);
 }

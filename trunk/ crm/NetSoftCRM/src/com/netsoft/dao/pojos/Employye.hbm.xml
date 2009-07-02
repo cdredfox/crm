@@ -53,5 +53,9 @@
             </key>
             <one-to-many class="com.netsoft.dao.pojos.Notebook" />
         </set>
+        
+         <many-to-one name="topId" class="com.netsoft.dao.pojos.Employye" lazy="false">
+            <column name="topId" />
+        </many-to-one>
     </class>
 </hibernate-mapping>

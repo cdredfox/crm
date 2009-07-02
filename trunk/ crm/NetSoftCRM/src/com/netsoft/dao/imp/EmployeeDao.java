@@ -231,4 +231,21 @@ public class EmployeeDao implements IEmployeeDao {
 			return null;
 		}
 	}
+	
+	public List<Employye> getEmployeesByTopId(int topId)
+	{
+		String hql="from Employye as e where e.topId=:topId";
+		HashMap hm=new HashMap();
+		hm.put("topId",topId);
+		return cd.getObjectByHql(hql, hm);
+	}
+	
+	public boolean batchUpdateEmployye(Integer[] eids,int topId)
+	{
+		String hql="update Employye  set topId=:topId where id in (:ids)";
+		HashMap hm=new HashMap();
+		hm.put("topId",topId);
+		hm.put("ids",eids);
+		return cd.updateObject(hql, hm);
+	}
 }

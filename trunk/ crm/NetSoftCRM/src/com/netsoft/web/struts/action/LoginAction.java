@@ -80,6 +80,10 @@ public class LoginAction extends DispatchAction {
 				{
 					eb.setDelFeedBackFlag("Y");
 				}
+				if(menus.getId()==CRM.BATCH_CONTROL_ID)
+				{
+					eb.setBatchControlFlag("Y");
+				}
 			}
 			request.getSession().setAttribute("menulist", menulist);// 取得所有菜单
 			request.getSession().setAttribute("list", list); // 菜单值取得

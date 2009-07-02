@@ -261,12 +261,18 @@ public class CommonDaoAdaper implements ICommonDao {
 							Query query = session.createQuery(hql);
 							Iterator item = hm.keySet().iterator();
 							while (item.hasNext()) {
+								
 								String key = item.next().toString();
+							
 								if (hm.get(key).getClass() == Integer.class) {
 									query
 											.setInteger(key, (Integer) hm
 													.get(key));
-								} else {
+								} else if(hm.get(key).getClass() == Integer[].class){
+									query.setParameterList(key, (Object[])hm
+											.get(key));
+								}
+								else{
 									query
 											.setString(key, hm.get(key)
 													.toString());
@@ -280,6 +286,7 @@ public class CommonDaoAdaper implements ICommonDao {
 			log.debug("公共方法执行成功");
 			return flag;
 		} catch (Exception e) {
+			e.printStackTrace();
 			log.debug("公共方法以执行失败", e);
 			return false;
 		}

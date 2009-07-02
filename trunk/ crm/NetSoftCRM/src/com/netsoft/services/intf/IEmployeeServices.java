@@ -65,4 +65,19 @@ public interface IEmployeeServices {
 	 * @return
 	 */
 	public int getCountByCurrentPage(HashMap hm);
+	
+	/**
+	 * 查询某个员工下所有的下属
+	 * @param topId
+	 * @return
+	 */
+	public List<EmployeeBean> getEmployeesByTopId(int topId);
+	
+	 /**
+	    * 批量设置一批员工
+	    * @param eids
+	    * @param topId
+	    * @return
+	    */
+	   public boolean batchUpdateEmployye(Integer[] eids,int topId);
 }
