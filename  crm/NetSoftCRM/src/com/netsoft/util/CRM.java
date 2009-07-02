@@ -35,6 +35,11 @@ public class CRM {
 	 * 是否有权限删除客户反馈信息
 	 */
 	public static final int DEL_FEEDBACK_ID=31;
+	
+	/**
+	 * 是否在内网客户报表有批处理操作的权限
+	 */
+	public static final int BATCH_CONTROL_ID=33;
 	/**
 	 * 每面记录数，用于分页
 	 */

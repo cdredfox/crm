@@ -12,9 +12,11 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 
 import com.netsoft.dao.beans.ConfiguretableBean;
+import com.netsoft.dao.beans.EmployeeBean;
 import com.netsoft.dao.beans.FeedbackReportBean;
 import com.netsoft.dao.beans.FeedbacksubBean;
 import com.netsoft.services.intf.IConfiguretableServices;
+import com.netsoft.services.intf.ICustomerstableServices;
 import com.netsoft.services.intf.IEmployeeServices;
 import com.netsoft.services.intf.IFeedbackTypeService;
 import com.netsoft.services.intf.IReportServices;
@@ -27,6 +29,15 @@ public class ReportAction extends DispatchAction {
 	public IFeedbackTypeService ifs;
 	public IReportServices irs;
 	public IEmployeeServices ies;
+	public ICustomerstableServices ics;
+
+	public ICustomerstableServices getIcs() {
+		return ics;
+	}
+
+	public void setIcs(ICustomerstableServices ics) {
+		this.ics = ics;
+	}
 
 	/**
 	 * 反馈报表
@@ -263,6 +274,11 @@ public class ReportAction extends DispatchAction {
 		List<ConfiguretableBean> customerdz = iconfigs.getAllByType("dz", 0);
 		request.setAttribute("customerdz", customerdz);
 		List el = ies.getAllEmployee();
+		EmployeeBean employee = (EmployeeBean) request.getSession()
+		.getAttribute("Employees");
+			int id = employee.getId();
+		List subordinate=ies.getEmployeesByTopId(id);
+		request.setAttribute("subordinate",subordinate);
 		request.setAttribute("flag", "inback");
 		request.setAttribute("qrylist", qrylist);
 		request.setAttribute("fklist", fklist);
@@ -309,5 +325,35 @@ public class ReportAction extends DispatchAction {
 		}
 		return city;
 	}
+	
+	public ActionForward batchControl(ActionMapping mapping,
+			ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		if (!CheckUser.checkSession(request, response)) {
+			return mapping.findForward(CheckUser.JUMP_URL);
+		}
+		ReportForm rf = (ReportForm) form;
+		String[] custId=request.getParameterValues("custId");
+		String control=request.getParameter("control");
+		if("changeGrade".equals(control))
+		{
+			int grade=Integer.parseInt(request.getParameter("changeGrade"));
+			ics.batchChangGrade(custId, grade);
+		}else if("batchDel".equals(control))
+		{
+			ics.batchDel(custId);
+		}else if("changeOwener".equals(control))
+		{
+			int eid=Integer.parseInt(request.getParameter("changeOwener"));
+			ics.changOwener(custId, eid);
+		}else if("batchOpen".equals(control))
+		{
+			ics.batchDel(custId);
+		}
+		String message="批量操作客户成功!";
+		request.setAttribute("message", message);
+		return mapping.findForward("result");
+	}
+	
 
 }

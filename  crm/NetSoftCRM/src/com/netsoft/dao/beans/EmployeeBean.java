@@ -39,6 +39,17 @@ public class EmployeeBean {
 	 * 是否有权限删除客户反馈信息
 	 */
 	private String delFeedBackFlag;
+	/**
+	 * 是否有权限批处理操作
+	 */
+	private String batchControlFlag;
+	public String getBatchControlFlag() {
+		return batchControlFlag;
+	}
+
+	public void setBatchControlFlag(String batchControlFlag) {
+		this.batchControlFlag = batchControlFlag;
+	}
 
 	public Integer getDepts() {
 		return depts;

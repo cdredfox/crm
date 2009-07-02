@@ -153,7 +153,6 @@ public class CustomerstableServices implements ICustomerstableServices {
 	public boolean delCustomerByFlag(int id, String flag) {
 		try {
 			log.info("Services锟斤拷delCustomer锟斤拷锟斤拷锟斤拷始执锟斤拷");
-
 			if ("y".equals(flag)) {
 				icd.delCustomerstable(id);
 				return true;
@@ -329,5 +328,52 @@ public class CustomerstableServices implements ICustomerstableServices {
 		}
 
 	}
+	
+	public boolean batchChangGrade(String[] ids,int grade)
+	{
+		for(int i=0;i<ids.length;i++)
+		{
+			int id=Integer.parseInt(ids[i]);
+			Customerstable customertalbe = icd.getCustomerById(id);
+			customertalbe.setCutomergrade(new Integer(grade));
+			icd.updateCustomerstable(customertalbe);
+		}
+		return true;
+	}
 
+   public boolean batchOpen(String[] ids)
+   {
+	   for(int i=0;i<ids.length;i++)
+		{
+		   int id=Integer.parseInt(ids[i]);
+			this.changeCustomerOpen(id);
+		}
+		return true;
+   }
+   
+   public boolean changOwener(String[] ids,int eid)
+   {
+	   Employye employee=ied.getEmployeeById(eid);
+	   for(int i=0;i<ids.length;i++)
+		{
+			int id=Integer.parseInt(ids[i]);
+			Customerstable customertalbe = icd.getCustomerById(id);
+			customertalbe.setEmployye(employee);
+			icd.updateCustomerstable(customertalbe);
+		}
+		return true;
+   }
+   
+   public boolean batchDel(String[] ids)
+   {
+	   for(int i=0;i<ids.length;i++)
+		{
+			int id=Integer.parseInt(ids[i]);
+			Customerstable customertalbe = icd.getCustomerById(id);
+			Integer grade=customertalbe.getCutomergrade();
+			String flag=grade.intValue()==this.INVALI_CUSTOMER_GRADE?"y":"n";
+			this.delCustomerByFlag(id, flag);
+		}
+		return true;
+   }
 }

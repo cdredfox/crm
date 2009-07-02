@@ -40,7 +40,16 @@ public class EmployeeForm extends ActionForm {
     private Integer toId;//失效用户信息转移时，转移给谁了
     private Integer emidrs[];
     private String open;//是否公开
+    private Integer topId[];//设置用户数据查看权限时
     
+	public Integer[] getTopId() {
+		return topId;
+	}
+
+	public void setTopId(Integer[] topId) {
+		this.topId = topId;
+	}
+
 	public Integer getDepts() {
 		return depts;
 	}

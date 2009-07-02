@@ -347,6 +347,64 @@ public class EmployeeAction extends DispatchAction {
 		}
 	}
 
+	
+	
+	public ActionForward userDataControl(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+		if(!CheckUser.checkSession(request, response))
+		{
+			return mapping.findForward(CheckUser.JUMP_URL);
+		}
+		try {
+			EmployeeForm ef = (EmployeeForm) form;
+			Integer id=ef.getId();
+			Integer[] ids=ef.getTopId();
+			boolean flag=ies.batchUpdateEmployye(ids, id);
+			if(flag)
+			{
+				request.setAttribute("message", "设置用户数据查看权限成功！");
+			}else
+			{
+				request.setAttribute("message",
+				"<font color='red'>设置用户数据查看权限失败了，请重新操作一次！</font>");
+			}
+			return mapping.findForward("result");
+		} catch (Exception e) {
+			log.error("EmployeeAction中userDataControl方法出现异常了", e);
+			return null;
+		}
+	}
+	
+	public ActionForward userDataControlView(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+		if(!CheckUser.checkSession(request, response))
+		{
+			return mapping.findForward(CheckUser.JUMP_URL);
+		}
+		try {
+			EmployeeForm ef = (EmployeeForm) form;
+			Integer id=ef.getId();
+			if(id!=null&&id>0)
+			{
+				List result=ies.getEmployeesByTopId(id);
+				Integer[] topId=new Integer[result.size()];
+				for(int i=0;i<result.size();i++)
+				{
+					EmployeeBean bean=(EmployeeBean) result.get(i);
+					topId[i]=bean.getId();
+				}
+				request.setAttribute("top", topId);
+			}
+			List list=ies.getAllEmployee();
+			request.setAttribute("employees", list);
+			return mapping.findForward("UserDataView");
+		} catch (Exception e) {
+			log.error("EmployeeAction中userDataControlView方法出现异常了", e);
+			return null;
+		}
+	}
+	
+	
 	public IEmployeeServices getIes() {
 		return ies;
 	}

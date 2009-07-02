@@ -419,4 +419,30 @@ public class EmployeeServices implements IEmployeeServices {
 		return currentlist.size();
 	}
 
+	
+	public List<EmployeeBean> getEmployeesByTopId(int topId)
+	{
+		List result=new ArrayList();
+		EmployeeBean ebs = null;
+		List<Employye> list=ed.getEmployeesByTopId(topId);
+		for(Employye e:list)
+		{
+			ebs=new EmployeeBean();
+			ebs.setId(e.getId());
+			ebs.setEname(e.getEname());
+			result.add(ebs);
+		}
+		return result;
+	}
+	
+	 /**
+	    * 批量设置一批员工
+	    * @param eids
+	    * @param topId
+	    * @return
+	    */
+	   public boolean batchUpdateEmployye(Integer[] eids,int topId)
+	   {
+		   return ed.batchUpdateEmployye(eids, topId);  
+	   }
 }
