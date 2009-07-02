@@ -89,6 +89,9 @@
 		<property name="ies">
 			<ref bean="IEmployeeServices" />
 		</property>
+		<property name="ics">
+			<ref bean="ICustomerstableServices" />
+		</property>
 	</bean>
 	<bean name="/feedback"
 		class="com.netsoft.web.struts.action.FeedBackTableAction">

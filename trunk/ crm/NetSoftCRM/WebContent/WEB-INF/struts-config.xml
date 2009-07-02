@@ -56,6 +56,8 @@
 			<forward name="modiUserQry" path="/jsp/modiUserQry.jsp" />
 			<forward name="operTransfer"
 				path="/jsp/operTransferEmployee.jsp" />
+			<forward name="UserDataView"
+				path="/jsp/UserDataControl.jsp" />
 		</action>
 		<action attribute="deptForm" input="/form/addDepts.jsp"
 			name="deptForm" parameter="method" path="/dept" scope="request"
