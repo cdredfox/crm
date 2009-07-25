@@ -13,9 +13,13 @@ public class TestEmployeeServices extends SuperTestCase {
 		IEmployeeServices qemployee=(IEmployeeServices) context.getBean("IEmployeeServices");
 		IEmployeeDao employee=(IEmployeeDao) context.getBean("IEmployeeDao");
 		List list=qemployee.getEmployeesByTopId(48);
-		Integer[] i={49,50};
-		//employee.batchUpdateEmployye(i, 48);
-		System.out.println(list.size());
+		assertEquals(4, list.size());
+		Integer topId=48;
+		Integer[] eids=new Integer[]{50,51,53};
+		boolean flag=qemployee.batchUpdateEmployye(eids, topId);
+		assertEquals(true, flag);
+		list=qemployee.getEmployeesByTopId(48);
+		assertEquals(3, list.size());
 	}
 
 }
