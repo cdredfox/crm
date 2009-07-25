@@ -9,6 +9,7 @@ import com.netsoft.dao.beans.EmployeeBean;
 import com.netsoft.dao.pojos.Employye;
 import com.netsoft.dao.pojos.Menus;
 import com.netsoft.dao.pojos.Roles;
+import com.netsoft.exception.BusinessException;
 
 public interface IEmployeeServices {
 
@@ -79,5 +80,5 @@ public interface IEmployeeServices {
 	    * @param topId
 	    * @return
 	    */
-	   public boolean batchUpdateEmployye(Integer[] eids,int topId);
+	   public boolean batchUpdateEmployye(Integer[] eids,int topId) throws BusinessException;
 }
