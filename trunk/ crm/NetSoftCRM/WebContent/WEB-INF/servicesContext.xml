@@ -15,6 +15,9 @@
 		<property name="cd">
 			<ref bean="ICustomerstableDao"/>
 		</property>
+		<property name="da">
+			<ref bean="IDataAuthorityDao"/>
+		</property>
 	</bean>
     <bean id="IDeptsServices" class="com.netsoft.services.imp.DeptsServices">
     	<property name="dd">

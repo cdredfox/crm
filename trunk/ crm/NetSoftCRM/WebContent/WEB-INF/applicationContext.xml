@@ -61,6 +61,7 @@
 				</value>
 				<value>com/netsoft/dao/pojos/Notebook.hbm.xml</value>
 				<value>com/netsoft/dao/pojos/Feedbackstyle.hbm.xml</value>
+				<value>com/netsoft/dao/pojos/DataAuthority.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -168,6 +169,14 @@
 		</property>
 	</bean>
 
+	<bean id="IDataAuthorityDao"
+		class="com.netsoft.dao.imp.DataAuthorityDao">
+
+		<property name="cd">
+			<ref bean="ICommonDao" />
+		</property>
+	</bean>
+	
 	<!-- 定时任务的配置 -->
 	<bean id="task" class="com.netsoft.util.job.JobTask">
 		<property name="ibd">
