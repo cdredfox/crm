@@ -232,8 +232,10 @@ public class EmployeeDao implements IEmployeeDao {
 		}
 	}
 	
+	
 	public List<Employye> getEmployeesByTopId(int topId)
 	{
+		//String hql="from DataAuthority as d where d.topid=:topid";
 		String hql="from Employye as e where e.topId=:topId";
 		HashMap hm=new HashMap();
 		hm.put("topId",topId);
