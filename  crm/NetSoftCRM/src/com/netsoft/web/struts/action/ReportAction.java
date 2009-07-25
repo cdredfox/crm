@@ -59,6 +59,10 @@ public class ReportAction extends DispatchAction {
 		List result = null;// 详细内容
 		FeedbackReportBean countfrb = null;// 统计行
 		List fklist = null;// 标题栏
+		EmployeeBean employee = (EmployeeBean) request.getSession()
+		.getAttribute("Employees");
+			int id = employee.getId();
+		
 		if ("".equals(request.getParameter("flag"))) {
 			// 反馈统计报表
 			result = ifs.getFeedbackTypeReportByDate(rf.getStartdate(), rf
@@ -105,6 +109,8 @@ public class ReportAction extends DispatchAction {
 			request.setAttribute("xzlist", xzlist);
 			request.setAttribute("customerdz", customerdz);
 			request.setAttribute("el", el);
+			List subordinate=ies.getEmployeesByTopId(id);
+			request.setAttribute("subordinate",subordinate);
 
 		} else if("busiowen".equals(request.getParameter("flag")))
 		{
