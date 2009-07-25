@@ -62,7 +62,7 @@ onload=init() scrolling="no">
   <TBODY>
   <TR>
     <TD height="100%"><IFRAME id=BarMenu border=0 name=BarMenu marginWidth=0 
-      frameSpacing=0 marginHeight=0 src="<%=request.getContextPath()%>/jsp/${menus==null?'ToolsDetail.jsp':'menu.jsp'}" 
+      frameSpacing=0 marginHeight=0 src="<%=request.getContextPath()%>/jsp/${menus==null?'menu.jsp':'menu.jsp'}" 
       frameBorder=0 noResize width="100%" scrolling=no height="100%" 
       vspale="0"></IFRAME></TD></TR>
   <TR>
