@@ -96,7 +96,7 @@ function menuOpen(url,id,type)
 		switch (url)
 		{
 		case "Menu":
-			top.dir.location.href="MenuMain.asp?filter=" + id;
+			top.dir.location.href="menutool.jsp";
 		//	top.detail.location.href="welcome.htm";
 			break;
 		case "left":
@@ -299,7 +299,7 @@ width="100%" border=0>
           <TD onmouseup='this.className="caidan6"' class=caidan5 
           onmousedown='this.className="caidan7"' id=qt 
           onmouseover='this.className="caidan6"' title=考勤签退 
-          onclick='menuOpen("kaoqin/OA_KaoQin_QianTui.asp","qt","icon")' 
+          onclick='javascript:alert("该功能暂时未开通");' 
           onmouseout='this.className="caidan5"' noWrap><IMG 
             src="<%=request.getContextPath()%>/images/top/IEQianTui.gif" border=0></TD>
           <TD onmouseup='this.className="caidan6"' class=caidan5 

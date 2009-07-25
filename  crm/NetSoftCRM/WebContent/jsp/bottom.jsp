@@ -53,13 +53,12 @@ function ShowHideTool()
         <TR>
           <TD vAlign=center noWrap align=left><FONT 
             color=#104a7b>&nbsp;当前用户：${Employees.ename}</FONT></TD>
-          <TD vAlign=center noWrap align=left height="100%">&nbsp;<FONT 
-            color=#104a7b>&nbsp;本次登录时间：12 时 27 分 </FONT></TD></TR></TBODY></TABLE></TD>
-    <TD vAlign=center noWrap align=right><FONT color=#104a7b>系统消息：</FONT></TD>
+         </TR></TBODY></TABLE></TD>
+    <TD vAlign=center noWrap align=right><FONT color=#104a7b>公司公告：</FONT></TD>
     <TD id="shortMsg" vAlign=center noWrap align=left width=160 ></TD>
-    <TD vAlign=center noWrap align=right><FONT color=#104a7b>邮件：</FONT></TD>
+    <TD vAlign=center noWrap align=right><FONT color=#104a7b>私人消息：</FONT></TD>
     <TD id=email vAlign=center noWrap align=left width=25 name="email"></TD>
-    <TD vAlign=center noWrap align=right><FONT color=#104a7b>系统信息：</FONT></TD>
+    <TD vAlign=center noWrap align=right><FONT color=#104a7b>系统消息：</FONT></TD>
     <TD vAlign=center noWrap align=left width=180>
       <MARQUEE id=information onmouseover=this.stop(); dataFormatAs=html 
       style="DISPLAY: none; WIDTH: 100%; COLOR: #ffffff" 
