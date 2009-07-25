@@ -13,14 +13,17 @@ import org.springframework.beans.BeanUtils;
 
 import com.netsoft.dao.beans.EmployeeBean;
 import com.netsoft.dao.intf.ICustomerstableDao;
+import com.netsoft.dao.intf.IDataAuthorityDao;
 import com.netsoft.dao.intf.IDeptsDao;
 import com.netsoft.dao.intf.IEmployeeDao;
 import com.netsoft.dao.intf.IRolesDao;
 import com.netsoft.dao.pojos.Customerstable;
+import com.netsoft.dao.pojos.DataAuthority;
 import com.netsoft.dao.pojos.Emidr;
 import com.netsoft.dao.pojos.Employye;
 import com.netsoft.dao.pojos.Menus;
 import com.netsoft.dao.pojos.Roles;
+import com.netsoft.exception.BusinessException;
 import com.netsoft.services.intf.IEmployeeServices;
 import com.netsoft.util.CRM;
 import com.netsoft.util.ConsoleDate;
@@ -30,6 +33,16 @@ public class EmployeeServices implements IEmployeeServices {
 	Logger log = Logger.getLogger(this.getClass());
 
 	public IEmployeeDao ed;
+	
+	public IDataAuthorityDao da;
+
+	public IDataAuthorityDao getDa() {
+		return da;
+	}
+
+	public void setDa(IDataAuthorityDao da) {
+		this.da = da;
+	}
 
 	public IRolesDao rd;
 
@@ -424,9 +437,13 @@ public class EmployeeServices implements IEmployeeServices {
 	{
 		List result=new ArrayList();
 		EmployeeBean ebs = null;
-		List<Employye> list=ed.getEmployeesByTopId(topId);
-		for(Employye e:list)
+		List<DataAuthority> dataAuthorityList=da.getDataAuthorityByTopId(topId);
+		if(dataAuthorityList==null)
 		{
+			return result;
+		}
+		for (DataAuthority dataAuthority : dataAuthorityList) {
+			Employye e=dataAuthority.getEid();
 			ebs=new EmployeeBean();
 			ebs.setId(e.getId());
 			ebs.setEname(e.getEname());
@@ -440,9 +457,27 @@ public class EmployeeServices implements IEmployeeServices {
 	    * @param eids
 	    * @param topId
 	    * @return
+	 * @throws BusinessException 
 	    */
-	   public boolean batchUpdateEmployye(Integer[] eids,int topId)
+	   public boolean batchUpdateEmployye(Integer[] eids,int topId) throws BusinessException
 	   {
-		   return ed.batchUpdateEmployye(eids, topId);  
+		   try {
+			   da.deleteDataAuthorityByTopId(topId);
+			   DataAuthority dataAuthority=null;
+			   Employye topEmployye=ed.getEmployeeById(topId);
+			   for (Integer integer : eids) {
+				dataAuthority=new DataAuthority();
+				Employye e=ed.getEmployeeById(integer);
+				dataAuthority.setEid(e);
+				dataAuthority.setTopid(topEmployye);
+				da.addDataAuthority(dataAuthority);
+				
+			}
+			   return true;
+		} catch (Exception e) {
+			log.error("批量员工授权时出错了",e);
+			throw new BusinessException("批量员工授权时出错了",e);
+		}
+		   
 	   }
 }
