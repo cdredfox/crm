@@ -315,6 +315,10 @@
 													</td>
 													<TD id=bgtitle width=100 align='left' noWrap>
 														<img src='images/up.gif'></img>
+														反馈类型
+													</td>
+													<TD id=bgtitle width=100 align='left' noWrap>
+														<img src='images/up.gif'></img>
 														录入信息
 													</td>
 													<TD id=bgtitle width=50 align='left' noWrap>
@@ -334,6 +338,10 @@
 																format="yyyy-MM-dd" />
 															&nbsp;
 														</TD>
+														<TD id=bgbodyzzy align='left'>
+															${re.feedbacktype.confignote}&nbsp;
+														</TD>
+														
 														<TD id=bgbodyzzy align='left'>
 															${re.ename}&nbsp;
 														</TD>
