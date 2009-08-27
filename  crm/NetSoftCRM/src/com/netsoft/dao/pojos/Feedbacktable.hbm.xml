@@ -13,7 +13,7 @@
         <many-to-one name="feedbackcustomer" class="com.netsoft.dao.pojos.Customerstable" lazy="false">
         	<column name="feedbackcustomer"/>
         </many-to-one>
-        <many-to-one name="feedbacktype" class="com.netsoft.dao.pojos.Configuretable">
+        <many-to-one name="feedbacktype" class="com.netsoft.dao.pojos.Configuretable" lazy="false">
         	<column name="feedbacktype"/>
         </many-to-one>
         <property name="feedbackdate" type="java.util.Date">
