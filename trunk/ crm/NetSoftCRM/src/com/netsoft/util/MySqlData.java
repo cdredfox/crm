@@ -49,9 +49,9 @@ public class MySqlData {
 	public String load(String path) {
 
 		// 新建数据库finacing
-		String stmt1 = "mysqladmin -u root -psnnuiabc create crm";
+		String stmt1 = "mysqladmin -u root -p snnuiabc create crm";
 		// -p后面加的是你的密码
-		String stmt2 = "mysql -u root -psnnuiabc crm < " + path;
+		String stmt2 = "mysql -u root -p snnuiabc crm < " + path;
 		String[] cmd = { "cmd", "/c", stmt2 };
 
 		try {
