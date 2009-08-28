@@ -43,5 +43,13 @@ public interface IReportServices {
 	 */
 	public List getBusiOwenCustomer();
 	
+	/**
+	 * 查询每天各时段的反馈报表数据
+	 * @param eid
+	 * @param date
+	 * @return
+	 */
+	public List<FeedbackReportBean> getFeedbackDaliyReportData(String eid,String date);
+	
 
 }

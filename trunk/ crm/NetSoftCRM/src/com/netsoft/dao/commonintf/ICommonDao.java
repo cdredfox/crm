@@ -3,6 +3,7 @@
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface ICommonDao {
 
@@ -114,6 +115,16 @@ public interface ICommonDao {
 	 */
 	public <cl> cl addreturn(Object obj);
 	
-	public List currenPage(final int page,final int size,final String hql,final HashMap hm);
+	public List currenPage(final int page,final int size,final String hql,final Map<String,Object> hm);
+	
+	/**
+	 * 直接执行SQL语句
+	 * @param sql
+	 * @param values
+	 * @param page
+	 * @param size
+	 * @return
+	 */
+	public List executeSQL(final String sql,final Object[] values,final int page, final int size);
 
 }

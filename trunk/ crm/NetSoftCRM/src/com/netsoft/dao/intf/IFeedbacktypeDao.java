@@ -2,11 +2,12 @@
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.netsoft.dao.pojos.Feedbacktable;
 
 public interface IFeedbacktypeDao {
-	public List getFeedbackByWhere(String hql,HashMap hm,int page,int size);
+	public List getFeedbackByWhere(String hql,Map<String,Object> hm,int page,int size);
 	/**
 	 * 根据ID查找一个反馈对象
 	 * @param id
@@ -26,5 +27,13 @@ public interface IFeedbacktypeDao {
 	 * @return
 	 */
 	public boolean delFeekback(int id);
+	
+	/**
+	 * 取得每日反馈报表的数据
+	 * @param sql
+	 * @param values
+	 * @return
+	 */
+	public List getFeedbackDaliyReportData(String sql,Object[] values);
 
 }

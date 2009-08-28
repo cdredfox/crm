@@ -2,7 +2,10 @@
 
 import java.io.Serializable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -16,6 +19,7 @@ import org.hibernate.FlushMode;
 import org.hibernate.HibernateException;
 import org.hibernate.Interceptor;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -23,6 +27,7 @@ import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.metadata.CollectionMetadata;
 import org.hibernate.stat.Statistics;
 
+import org.springframework.jdbc.object.SqlQuery;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -309,7 +314,7 @@ public class CommonDaoAdaper implements ICommonDao {
 	 * 通用的分页方法.spring解决方案
 	 */
 	public List currenPage(final int page, final int size, final String hql,
-			final HashMap hm) {
+			final Map<String,Object> hm) {
 		log.info("currenPage方法开始执行了");
 		try {
 			List li = hbtTemplate.executeFind(new HibernateCallback() {
@@ -353,6 +358,35 @@ public class CommonDaoAdaper implements ICommonDao {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	/**
+	 * 直接执行sql语句
+	 */
+	public List executeSQL(final String sql,final Object[] values,final int page, final int size){
+		return (List) this.hbtTemplate.execute(new HibernateCallback(){
+
+			public Object doInHibernate(Session session)
+					throws HibernateException, SQLException {
+				    Connection conn = session.connection();
+				    PreparedStatement statement = conn.prepareStatement(sql);
+				    int i=0;
+				    for (Object object : values) {
+						i++;
+				    	statement.setObject(i,object);
+					}
+				    ResultSet rs=statement.executeQuery();   
+				    List<Object[]> result=new ArrayList<Object[]>();
+				   while(rs.next()){
+					   Object[] object=new Object[3];
+					   object[0]=rs.getInt(1);
+					   object[1]=rs.getInt(2);
+					   object[2]=rs.getInt(3);
+					   result.add(object);
+				   }
+				return result;
+			}
+		});
 	}
 	
 	public void setHbtTemplate(SessionFactory sessionfactory) {

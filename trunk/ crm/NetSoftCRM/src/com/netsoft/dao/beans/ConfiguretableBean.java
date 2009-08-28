@@ -5,7 +5,6 @@ public class ConfiguretableBean {
 	private String configvalue;
 	private String configtype;
 	private String confignote;
-	private String configtypename;
 	private String configmessage;
 	private Integer configtopid;
 
@@ -67,7 +66,6 @@ public class ConfiguretableBean {
 	}
 
 	public void setConfigtypename(String configtypename) {
-		this.configtypename = configtypename;
 	}
 
 	public String getConfigmessage() {
