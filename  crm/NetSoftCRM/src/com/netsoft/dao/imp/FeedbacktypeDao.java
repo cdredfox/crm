@@ -2,6 +2,7 @@
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
@@ -13,7 +14,7 @@ public class FeedbacktypeDao implements IFeedbacktypeDao {
 	private static Logger log=Logger.getLogger(FeedbacktypeDao.class);
 	public ICommonDao icd;
 
-	public List<Feedbacktable> getFeedbackByWhere(String hql, HashMap hm,int page,int size) {
+	public List getFeedbackByWhere(String hql, Map<String,Object> hm,int page,int size) {
 		try {
 			return icd.currenPage(page, size, hql, hm);
 		} catch (Exception e) {
@@ -22,7 +23,13 @@ public class FeedbacktypeDao implements IFeedbacktypeDao {
 		}
 		
 	}
-
+	
+	/**
+	 * 取得每日反馈报表的数据
+	 */
+	public List getFeedbackDaliyReportData(String sql,Object[] values){
+		return icd.executeSQL(sql, values, 0, 0);
+	}
 	public ICommonDao getIcd() {
 		return icd;
 	}

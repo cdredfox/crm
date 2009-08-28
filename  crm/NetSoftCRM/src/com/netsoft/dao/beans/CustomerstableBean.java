@@ -4,7 +4,6 @@ import java.util.Date;
 
 import com.netsoft.dao.pojos.Configuretable;
 import com.netsoft.dao.pojos.Employye;
-import com.netsoft.util.ConsoleDate;
 
 public class CustomerstableBean {
 	private Integer customerid;

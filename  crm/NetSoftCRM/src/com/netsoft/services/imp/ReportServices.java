@@ -3,11 +3,15 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
 
 import com.netsoft.dao.beans.FeedbackReportBean;
 import com.netsoft.dao.beans.FeedbacksubBean;
 import com.netsoft.dao.intf.IConfiguretableDao;
 import com.netsoft.dao.intf.ICustomerstableDao;
+import com.netsoft.dao.intf.IFeedbacktypeDao;
 import com.netsoft.dao.pojos.Configuretable;
 import com.netsoft.dao.pojos.Customerstable;
 import com.netsoft.dao.pojos.Feedbacktable;
@@ -17,6 +21,16 @@ public class ReportServices implements IReportServices {
 
 	public ICustomerstableDao icd;
 	public IConfiguretableDao iconfigd;
+	public IFeedbacktypeDao ifd;
+	
+	public IFeedbacktypeDao getIfd() {
+		return ifd;
+	}
+
+	public void setIfd(IFeedbacktypeDao ifd) {
+		this.ifd = ifd;
+	}
+
 	/**
 	 * 综合统计
 	 */
@@ -430,4 +444,83 @@ public class ReportServices implements IReportServices {
 		return frb;
 	}
 	
+	
+	
+	/**
+	 * 查询每天各时段的反馈报表数据
+	 */
+	public List<FeedbackReportBean> getFeedbackDaliyReportData(String eid,String date){
+		StringBuffer hql=new StringBuffer();
+		List<Object> values=new ArrayList<Object>();
+		hql.append(" SELECT count(*) as num,f.feedbacktype,CASE");
+		hql.append(" WHEN feedbackdate>'").append(date+" 00:00:00").append("' AND feedbackdate<='").append(date+" 09:00:00").append("' THEN 1");
+		hql.append(" WHEN feedbackdate>'").append(date+" 09:00:00").append("' AND feedbackdate<='").append(date+" 10:00:00").append("' THEN 2");
+		hql.append(" WHEN feedbackdate>'").append(date+" 10:00:00").append("' AND feedbackdate<='").append(date+" 11:00:00").append("' THEN 3");
+		hql.append(" WHEN feedbackdate>'").append(date+" 11:00:00").append("' AND feedbackdate<='").append(date+" 12:00:00").append("' THEN 4");
+		hql.append(" WHEN feedbackdate>'").append(date+" 12:00:00").append("' AND feedbackdate<='").append(date+" 13:00:00").append("' THEN 5");
+		hql.append(" WHEN feedbackdate>'").append(date+" 13:00:00").append("' AND feedbackdate<='").append(date+" 14:00:00").append("' THEN 6");
+		hql.append(" WHEN feedbackdate>'").append(date+" 14:00:00").append("' AND feedbackdate<='").append(date+" 15:00:00").append("' THEN 7");
+		hql.append(" WHEN feedbackdate>'").append(date+" 15:00:00").append("' AND feedbackdate<='").append(date+" 16:00:00").append("' THEN 8");
+		hql.append(" WHEN feedbackdate>'").append(date+" 16:00:00").append("' AND feedbackdate<='").append(date+" 17:00:00").append("' THEN 9");
+		hql.append(" WHEN feedbackdate>'").append(date+" 17:00:00").append("' AND feedbackdate<='").append(date+" 18:00:00").append("' THEN 10");
+		hql.append(" WHEN feedbackdate>'").append(date+" 18:00:00").append("' AND feedbackdate<='").append(date+" 24:00:00").append("' THEN 11");
+		hql.append(" END as timeType");
+		hql.append(" from feedbacktable f");
+		hql.append(" where 1=1");
+		if(StringUtils.isNotEmpty(eid)){
+			hql.append(" and f.feedbackeid=?");
+			values.add(eid);
+		}
+		hql.append(" group by timeType,feedbacktype");
+		hql.append(" order by timeType");
+		List<Object[]> reportData=ifd.getFeedbackDaliyReportData(hql.toString(), values.toArray());
+		List<FeedbackReportBean> result=this.genDaliyReport(reportData);
+		return result;
+	}
+	
+	/**
+	 * 转换每天各时段的报表数据为通用报表数据格式
+	 * @param data
+	 * @return
+	 */
+	private List<FeedbackReportBean> genDaliyReport(List<Object[]> data){
+		List<FeedbackReportBean> result=new ArrayList<FeedbackReportBean>();
+		List<FeedbacksubBean> fsbList=new ArrayList<FeedbacksubBean>();
+		FeedbackReportBean frb=null;
+		FeedbacksubBean fsb=null;
+		int size=0;
+		Integer oldRow=0;
+		for (Object[] obj : data) {
+			Integer newRow=Integer.parseInt((String.valueOf(obj[2])));//是哪个时间段
+			if(size==0){//第一次
+				oldRow=Integer.parseInt(String.valueOf(obj[2]));//是哪个时间段
+				frb=new FeedbackReportBean();
+				frb.setEname(String.valueOf(obj[2]));
+				fsb=new FeedbacksubBean();
+				fsb.setType(Integer.parseInt(String.valueOf(obj[1])));
+				fsb.setNum(Integer.parseInt(String.valueOf(obj[0])));
+				fsbList=new ArrayList<FeedbacksubBean>();
+				fsbList.add(fsb);
+				size++;
+			}else{
+				fsb=new FeedbacksubBean();
+				fsb.setType(Integer.parseInt(String.valueOf(obj[1])));
+				fsb.setNum(Integer.parseInt(String.valueOf(obj[0])));
+				if(!newRow.equals(oldRow)){//不在同一个时间段
+					result.add(frb);
+					fsbList=new ArrayList<FeedbacksubBean>();
+					fsbList.add(fsb);
+					frb=new FeedbackReportBean();
+					frb.setEname(String.valueOf(obj[2]));
+				}else{
+					//在同一个时间段
+					fsbList.add(fsb);
+				}
+			}
+			oldRow=newRow;
+	}
+		frb.setFeedsubbean(fsbList);
+		result.add(frb);
+		return result;
+	}
 }
