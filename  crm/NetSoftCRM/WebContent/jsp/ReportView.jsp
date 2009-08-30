@@ -76,12 +76,13 @@
 			
 			function check()
 			{
-				if(document.forms[0].startdate.value=="")
+				
+				if(document.forms[0].startdate!=null && document.forms[0].startdate.value=="")
 				{
 					alert("开始日期不能为空！请选择");
 					return false;
 				}
-				if(document.forms[0].enddate.value=="")
+				if(document.forms[0].enddate!=null&&document.forms[0].enddate.value=="")
 				{
 					alert("结束日期不能为空！请选择");
 					return false;
@@ -132,6 +133,9 @@
 						<logic:equal value="busiowen" name="flag">
 						[ 各业务人员当前客户统计数据报表 ]
 					</logic:equal>
+					<logic:equal value="busiowen" name="flag">
+						[ 反馈统计明细表 ]
+					</logic:equal>
 					</logic:present>
 				</td>
 			</tr>
@@ -143,6 +147,41 @@
 				onsubmit="return check();">
 				<input type="hidden" name="flag" value="${flag}" />
 				<table width=800>
+				
+					<!-- 以下是反馈统计明细表的选项 -->
+					<logic:equal value="feedbackDaily" name="flag">
+						<td align="center">
+							<table>
+								
+								<tr>
+									<td>
+										&nbsp;业务员名称:
+									</td>
+										<td>
+											<html:select property="eid">
+												<logic:iterate id="e" name="el">
+													<html:option value="${e.id}">${e.ename}</html:option>
+												</logic:iterate><!--  
+												<html:option value="open">公开客户</html:option>-->
+											</html:select>
+										</td>
+									<td>
+										查询日期:
+									</td>
+									<td>
+										<html:text property="startdate" size="10" maxlength="10"
+											styleClass="myinput" readonly="true" />
+										<img src='/NetSoftCRM/images/calendar.jpg' border=0
+											onclick='GetDate(1);' style='cursor: hand' align='absmiddle'>
+									</td>
+									<td>
+										<html:submit styleClass="mybutton" value="查询"></html:submit>
+									<td>
+								</tr>
+							</table>
+						</td>
+					</logic:equal>
+					
 					<!--
 				    以下是内网客户反馈统计报表的选项 
 				 -->
@@ -380,6 +419,10 @@
 							<logic:equal value="busiowen" name="flag">
 						各业务人员当前客户统计数据报表
 					</logic:equal>
+					<!-- 以下是反馈统计明细表的选项 -->
+					<logic:equal value="feedbackDaily" name="flag">
+						反馈统计明细表
+					</logic:equal>
 						</logic:present>
 					</td>
 				</tr>
@@ -392,10 +435,20 @@
 							公司名称
 						</td>
 					</logic:equal>
+				
 					<logic:notEqual value="inback" name="flag">
-						<td id=bgtitle>
-							业务员名称
-						</td>
+							<!-- 以下是反馈统计明细表 -->
+						<logic:equal value="feedbackDaily" name="flag">
+							<td id=bgtitle>
+								时间段
+							</td>
+						</logic:equal>
+					<!-- 反馈统计明细表结束 -->
+						<logic:notEqual value="feedbackDaily" name="flag">
+							<td id=bgtitle>
+								业务员名称
+							</td>
+						</logic:notEqual>
 					</logic:notEqual>
 					<logic:present name="fklist">
 						<logic:iterate id="fl" name="fklist">
@@ -490,7 +543,7 @@
 								</logic:equal>
 								<logic:notEqual value="inback" name="flag">
 									<td id="bgbody" align="center">
-										${f.ename}
+										<b>${f.ename}</b>
 									</td>
 								</logic:notEqual>
 								<logic:present name="fklist">

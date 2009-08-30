@@ -1,6 +1,8 @@
 ﻿package com.netsoft.services.imp;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +18,7 @@ import com.netsoft.dao.pojos.Configuretable;
 import com.netsoft.dao.pojos.Customerstable;
 import com.netsoft.dao.pojos.Feedbacktable;
 import com.netsoft.services.intf.IReportServices;
+import com.netsoft.util.CRM;
 
 public class ReportServices implements IReportServices {
 
@@ -449,6 +452,7 @@ public class ReportServices implements IReportServices {
 	/**
 	 * 查询每天各时段的反馈报表数据
 	 */
+	@SuppressWarnings("unchecked")
 	public List<FeedbackReportBean> getFeedbackDaliyReportData(String eid,String date){
 		StringBuffer hql=new StringBuffer();
 		List<Object> values=new ArrayList<Object>();
@@ -471,10 +475,12 @@ public class ReportServices implements IReportServices {
 			hql.append(" and f.feedbackeid=?");
 			values.add(eid);
 		}
+		hql.append(" and feedbackdate>='").append(date+" 00:00:00").append("' and feedbackdate<='").append(date+" 23:59:59'");
 		hql.append(" group by timeType,feedbacktype");
 		hql.append(" order by timeType");
 		List<Object[]> reportData=ifd.getFeedbackDaliyReportData(hql.toString(), values.toArray());
 		List<FeedbackReportBean> result=this.genDaliyReport(reportData);
+		Collections.sort(result);
 		return result;
 	}
 	
@@ -483,6 +489,7 @@ public class ReportServices implements IReportServices {
 	 * @param data
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	private List<FeedbackReportBean> genDaliyReport(List<Object[]> data){
 		List<FeedbackReportBean> result=new ArrayList<FeedbackReportBean>();
 		List<FeedbacksubBean> fsbList=new ArrayList<FeedbacksubBean>();
@@ -490,16 +497,18 @@ public class ReportServices implements IReportServices {
 		FeedbacksubBean fsb=null;
 		int size=0;
 		Integer oldRow=0;
+		int total=0;
 		for (Object[] obj : data) {
 			Integer newRow=Integer.parseInt((String.valueOf(obj[2])));//是哪个时间段
 			if(size==0){//第一次
 				oldRow=Integer.parseInt(String.valueOf(obj[2]));//是哪个时间段
 				frb=new FeedbackReportBean();
-				frb.setEname(String.valueOf(obj[2]));
+				frb.setId((Integer)obj[2]);
 				fsb=new FeedbacksubBean();
 				fsb.setType(Integer.parseInt(String.valueOf(obj[1])));
 				fsb.setNum(Integer.parseInt(String.valueOf(obj[0])));
 				fsbList=new ArrayList<FeedbacksubBean>();
+				total+=fsb.getNum();
 				fsbList.add(fsb);
 				size++;
 			}else{
@@ -507,20 +516,86 @@ public class ReportServices implements IReportServices {
 				fsb.setType(Integer.parseInt(String.valueOf(obj[1])));
 				fsb.setNum(Integer.parseInt(String.valueOf(obj[0])));
 				if(!newRow.equals(oldRow)){//不在同一个时间段
+					frb.setCount(total);
+					frb.setFeedsubbean(fsbList);
 					result.add(frb);
+					total=0;
 					fsbList=new ArrayList<FeedbacksubBean>();
 					fsbList.add(fsb);
+					total+=fsb.getNum();
 					frb=new FeedbackReportBean();
-					frb.setEname(String.valueOf(obj[2]));
+					frb.setId((Integer)obj[2]);
 				}else{
 					//在同一个时间段
+					total+=fsb.getNum();
 					fsbList.add(fsb);
 				}
 			}
 			oldRow=newRow;
 	}
-		frb.setFeedsubbean(fsbList);
-		result.add(frb);
+		if(frb!=null){
+			frb.setCount(total);
+			frb.setFeedsubbean(fsbList);
+		}
+		if(frb!=null)
+			result.add(frb);
+		this.fromatReportData(result);
 		return result;
 	}
+	
+	/**
+	 * 格式化返回的报表格式。填充没有数据的反馈类型
+	 * @param data
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public void fromatReportData(List<FeedbackReportBean> list)
+	{
+		List result =new ArrayList();
+		FeedbackReportBean frb;
+		Map<Integer,Object> map=new HashMap<Integer,Object>();
+			for (FeedbackReportBean data : list) {
+				map.put(data.getId(),null);
+				data.setEname((String)CRM.TIME_SCOPE.get(data.getId()));
+				this.formatFeedbackReportBean(data);
+			}
+		for(int i=1;i<12;i++){
+			if(!map.containsKey(i)){
+				frb=new FeedbackReportBean();
+				frb.setId(i);
+				frb.setEname((String)CRM.TIME_SCOPE.get(i));
+				frb.setFeedsubbean(new ArrayList<Configuretable>());
+				this.formatFeedbackReportBean(frb);
+				list.add(frb);
+		}
+		}
+   }
+    /**
+     * 格式化	FeedbackReportBean 填充没有数据的反馈类型
+     * @param data
+     */
+   private void formatFeedbackReportBean(FeedbackReportBean data){
+	   List<FeedbacksubBean> fsblist=data.getFeedsubbean();
+		FeedbacksubBean fsb;
+		List<Configuretable> fklist=iconfigd.getAllByType("fk",0);
+		for (Configuretable configuretable : fklist) {
+			boolean flag=false;
+			int type=configuretable.getConfigid();
+			for (FeedbacksubBean feedbacksubbean : fsblist) {
+				if(type==feedbacksubbean.getType())
+				{
+					flag=true;
+					break;
+				}
+			}
+		 if(!flag)
+		 {
+			 fsb=new FeedbacksubBean();
+			 fsb.setType(configuretable.getConfigid());
+			 fsb.setNum(0);
+			 fsblist.add(fsb);
+		 }
+		}
+		data.setFeedsubbean(fsblist);
+   }
 }

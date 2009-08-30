@@ -56,7 +56,7 @@ public class ReportAction extends DispatchAction {
 			return mapping.findForward(CheckUser.JUMP_URL);
 		}
 		ReportForm rf = (ReportForm) form;
-		List result = null;// 详细内容
+		List<FeedbackReportBean> result = null;// 详细内容
 		FeedbackReportBean countfrb = null;// 统计行
 		List fklist = null;// 标题栏
 		EmployeeBean employee = (EmployeeBean) request.getSession()
@@ -121,8 +121,17 @@ public class ReportAction extends DispatchAction {
 			request.setAttribute("flag", "busiowen");
 			countfrb.setEname("合 计");
 			
-		}
-		else {
+		}else if("feedbackDaily".equals(request.getParameter("flag"))){
+			//每日客户反馈报表数据
+			result=irs.getFeedbackDaliyReportData(rf.getEid(), rf.getStartdate());
+			List el = ies.getAllEmployee();
+			countfrb = ifs.getFeedbackTypeReportCountDataByList(irs.getFeedbackDaliyReportData(rf.getEid(), rf.getStartdate()));
+			countfrb.setEname("合  计");
+			countfrb.setOpenDate("无  效");
+			fklist = iconfigs.getAllByType("fk", 0);
+			request.setAttribute("el", el);
+			request.setAttribute("flag", "feedbackDaily");
+		}else {
 			// 新增业务统计报表
 			fklist = iconfigs.getAllByType("dj", 0);
 			result = irs.getBusiCountReportData(rf.getStartdate(), rf
@@ -231,6 +240,7 @@ public class ReportAction extends DispatchAction {
 		return mapping.findForward("feedbackView");
 	}
 
+	
 	public IConfiguretableServices getIconfigs() {
 		return iconfigs;
 	}
@@ -289,6 +299,34 @@ public class ReportAction extends DispatchAction {
 		request.setAttribute("qrylist", qrylist);
 		request.setAttribute("fklist", fklist);
 		request.setAttribute("xzlist", xzlist);
+		request.setAttribute("el", el);
+		return mapping.findForward("feedbackView");
+	}
+	
+	
+	
+	
+	/**
+	 * 每日客户反馈报表初始化
+	 * 
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ActionForward initFeedbackDailyReport(ActionMapping mapping,
+			ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		if (!CheckUser.checkSession(request, response)) {
+			return mapping.findForward(CheckUser.JUMP_URL);
+		}
+		ReportForm rf = (ReportForm) form;
+		List el = ies.getAllEmployee();
+		List fklist = iconfigs.getAllByType("fk", 0);
+		request.setAttribute("fklist", fklist);
+		request.setAttribute("flag", "feedbackDaily");
 		request.setAttribute("el", el);
 		return mapping.findForward("feedbackView");
 	}
