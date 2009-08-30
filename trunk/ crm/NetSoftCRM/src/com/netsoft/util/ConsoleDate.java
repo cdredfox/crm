@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 
 /**
@@ -93,4 +94,15 @@ public class ConsoleDate {
     	int day=(int) ((end-cur)/(1000*60*60*24));
     	return day;
     }
+    /**
+     * 得到中国时区的系统时间 XP补丁后会有一个BUG,会默认得到的是GMT+0的时间，所以要这
+     * 这样取，才对。因为要修改注册表，不可能让每个用户修改，所以在这里强制使用GMT+8
+     * @return
+     */
+    public static Date getChineseCurrentDate(){
+    	TimeZone tz = TimeZone.getTimeZone("ETC/GMT-8");
+		TimeZone.setDefault(tz);
+		return new Date();
+    }
+    
 }

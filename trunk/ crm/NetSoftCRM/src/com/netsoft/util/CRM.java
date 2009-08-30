@@ -1,6 +1,8 @@
 ﻿package com.netsoft.util;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 /**
  * 
@@ -59,5 +61,24 @@ public class CRM {
 	{
 		
 		return 0;
+	}
+	
+	/**
+	 * 反馈明细报表中要显示的时间段
+	 */
+	public static Map TIME_SCOPE=new HashMap();
+	
+	static{
+		TIME_SCOPE.put(1, "00:00:01-09:00:00");
+		TIME_SCOPE.put(2, "09:00:01-10:00:00");
+		TIME_SCOPE.put(3, "10:00:01-11:00:00");
+		TIME_SCOPE.put(4, "11:00:01-12:00:00");
+		TIME_SCOPE.put(5, "12:00:01-13:00:00");
+		TIME_SCOPE.put(6, "13:00:01-14:00:00");
+		TIME_SCOPE.put(7, "14:00:01-15:00:00");
+		TIME_SCOPE.put(8, "15:00:01-16:00:00");
+		TIME_SCOPE.put(9, "16:00:01-17:00:00");
+		TIME_SCOPE.put(10,"17:00:01-18:00:00");
+		TIME_SCOPE.put(11,"18:00:01-00:00:00");
 	}
 }

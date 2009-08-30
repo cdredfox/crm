@@ -42,7 +42,7 @@ public class FeedBackTableAction extends DispatchAction {
 			return mapping.findForward(CheckUser.JUMP_URL);
 		}
 		FeedBackTableForm ftf=(FeedBackTableForm) form;
-		Date currenDate=new Date();
+		Date currenDate=ConsoleDate.getChineseCurrentDate();
 		FeedbacktableBean ftb=new FeedbacktableBean();
 		int customerid=ftf.getFeedbackcustomer();
 		//1,填反馈表与更新客户表

@@ -2,8 +2,9 @@
 
 import java.util.List;
 
-public class FeedbackReportBean {
+public class FeedbackReportBean implements Comparable{
 	
+	public Integer id;
 	public String ename;
 	public String feedbacktype;
 	public String feedbacknum;
@@ -11,6 +12,16 @@ public class FeedbackReportBean {
 	public int count;
 	public Integer lastfeedbacktype;
 	public Integer customerid;
+	
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	/**
 	 * 是否深色显示
 	 */
@@ -90,6 +101,11 @@ public class FeedbackReportBean {
 
 	public void setIscolor(int iscolor) {
 		this.iscolor = iscolor;
+	}
+
+	public int compareTo(Object o) {
+		FeedbackReportBean frb=(FeedbackReportBean) o;
+		return this.getId()-frb.getId();
 	}
 
 }
