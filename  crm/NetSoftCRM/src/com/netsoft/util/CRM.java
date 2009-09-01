@@ -73,12 +73,11 @@ public class CRM {
 		TIME_SCOPE.put(2, "09:00:01-10:00:00");
 		TIME_SCOPE.put(3, "10:00:01-11:00:00");
 		TIME_SCOPE.put(4, "11:00:01-12:00:00");
-		TIME_SCOPE.put(5, "12:00:01-13:00:00");
-		TIME_SCOPE.put(6, "13:00:01-14:00:00");
-		TIME_SCOPE.put(7, "14:00:01-15:00:00");
-		TIME_SCOPE.put(8, "15:00:01-16:00:00");
-		TIME_SCOPE.put(9, "16:00:01-17:00:00");
-		TIME_SCOPE.put(10,"17:00:01-18:00:00");
-		TIME_SCOPE.put(11,"18:00:01-00:00:00");
+		TIME_SCOPE.put(5, "12:00:01-13:30:00");
+		TIME_SCOPE.put(6, "13:30:01-14:30:00");
+		TIME_SCOPE.put(7, "14:30:01-15:30:00");
+		TIME_SCOPE.put(8, "15:30:01-16:30:00");
+		TIME_SCOPE.put(9, "16:30:01-17:30:00");
+		TIME_SCOPE.put(10,"17:30:01-24:00:00");
 	}
 }
