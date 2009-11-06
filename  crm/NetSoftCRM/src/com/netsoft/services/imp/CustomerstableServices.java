@@ -45,10 +45,11 @@ public class CustomerstableServices implements ICustomerstableServices {
 				"from Customerstable where customercompany like :name");
 		HashMap hm = new HashMap();
 		if ("".equals(name.trim())) {
-			hm.put("name", "");
+			//hm.put("name", "");
 		} else {
 			hm.put("name", "%" + name.trim() + "%");
 		}
+		if(!"".equals(number.trim())){
 		if ("1".equals(type)) {
 			// 1锟斤拷锟斤拷只锟?
 			hql.append(" or customerhandset = :handset");
@@ -57,6 +58,7 @@ public class CustomerstableServices implements ICustomerstableServices {
 			// 2锟斤拷锟界话
 			hql.append(" or customerphone like :phone");
 			hm.put("phone", "%-" + number.trim());
+		}
 		}
 		List<Customerstable> list = icd.getCustomersByAny(hm, hql.toString());
 		boolean flag = false;

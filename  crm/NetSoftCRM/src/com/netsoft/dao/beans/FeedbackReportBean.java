@@ -8,7 +8,7 @@ public class FeedbackReportBean implements Comparable{
 	public String ename;
 	public String feedbacktype;
 	public String feedbacknum;
-	public List feedsubbean;
+	public List<FeedbacksubBean> feedsubbean;
 	public int count;
 	public Integer lastfeedbacktype;
 	public Integer customerid;
@@ -55,11 +55,11 @@ public class FeedbackReportBean implements Comparable{
 		this.feedbacknum = feedbacknum;
 	}
 
-	public List getFeedsubbean() {
+	public List<FeedbacksubBean> getFeedsubbean() {
 		return feedsubbean;
 	}
 
-	public void setFeedsubbean(List feedsubbean) {
+	public void setFeedsubbean(List<FeedbacksubBean> feedsubbean) {
 		this.feedsubbean = feedsubbean;
 	}
 

@@ -40,7 +40,7 @@ public class MD5 {
     }
     public static void main(String[] args){
         String result = "";
-        result = MD5.getPassword("00-0F-FE-9D-AD-AA");
+        result = MD5.getPassword("00-1D-7D-71-05-76");
         System.out.println(result);
         String str1="2008-01-01";
         

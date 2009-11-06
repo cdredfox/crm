@@ -1,10 +1,9 @@
 ﻿package com.netsoft.dao.beans;
 
-import java.util.Date;
+
 import java.util.HashSet;
 import java.util.Set;
 
-import com.netsoft.dao.pojos.Depts;
 
 public class EmployeeBean {
 	private Integer id;
