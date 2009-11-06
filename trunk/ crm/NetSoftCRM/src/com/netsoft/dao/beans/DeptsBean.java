@@ -1,7 +1,5 @@
 ﻿package com.netsoft.dao.beans;
 
-import com.netsoft.dao.pojos.Employye;
-
 public class DeptsBean {
 	 private Integer id;
      private Integer employye;

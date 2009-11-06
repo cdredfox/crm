@@ -558,12 +558,12 @@ public class ReportServices implements IReportServices {
 				data.setEname((String)CRM.TIME_SCOPE.get(data.getId()));
 				this.formatFeedbackReportBean(data);
 			}
-		for(int i=1;i<12;i++){
+		for(int i=1;i<11;i++){
 			if(!map.containsKey(i)){
 				frb=new FeedbackReportBean();
 				frb.setId(i);
 				frb.setEname((String)CRM.TIME_SCOPE.get(i));
-				frb.setFeedsubbean(new ArrayList<Configuretable>());
+				frb.setFeedsubbean(new ArrayList<FeedbacksubBean>());
 				this.formatFeedbackReportBean(frb);
 				list.add(frb);
 		}
