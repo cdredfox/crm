@@ -50,7 +50,7 @@ A:hover {
 <table width="100%" align="center" >
 <tr>
 	<td align="center">
-<h2><b><font color='red'>民安泰客户关系管理系统，携手创造美好明天</font><b></h2>
+<h2><b><font color='red'>客户关系管理系统，携手创造美好明天</font><b></h2>
 	<TD>
 </tr>
 </table>
