@@ -1,0 +1,421 @@
+.inputTurnpage {
+	height:15px;
+	border:1px #a8a8a8 solid;
+	font-family:Verdana;
+	font-size:11px;
+}
+a.pageNum:link,a.pageNum:visited {
+	font-family:Verdana;
+	font-size:11px;
+	border:1px #c7c7c7 solid;
+	padding:0.02em 0.35em;
+	text-decoration: none;
+	color:#0044dd;
+}
+
+a.pageNum:active {
+	font-family:Verdana;
+	font-size:11px;
+	padding:0.02em 0.35em;
+	background: #d7d7d7;
+	text-decoration: underline;
+}
+.pageCurrent {
+	border:1px #a8a8a8 solid;
+	font-family:Verdana;
+	font-weight:bold;
+	padding:0.02em 0.35em;
+	background:#efefef;
+	font-size:11px;
+
+}
+a.pageNum:hover {
+	font-family:Verdana;
+	font-size:11px;
+	padding:0.02em 0.35em;
+	background:#d7d7d7;
+	color:#0044dd;
+}
+.bgdiv {
+	POSITION: absolute;
+	visibility: hidden;
+}
+INPUT
+{
+    COLOR: #000000;
+    FONT-FAMILY: "宋体";
+    FONT-SIZE: 9pt
+}
+TD
+{
+    COLOR: #000000;
+    FONT-FAMILY: "宋体";
+    FONT-SIZE: 9pt
+}
+TR
+{
+    COLOR: #000000;
+    FONT-FAMILY: "宋体";
+    FONT-SIZE: 9pt
+}
+BODY
+{
+ 	background: #DDEAF3;     
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    FONT-FAMILY: "宋体";
+    FONT-SIZE: 9pt;
+}
+P
+{
+    FONT-FAMILY: "宋体";
+    FONT-SIZE: 9pt
+}
+DIV
+{
+    FONT-FAMILY: "宋体";
+    FONT-SIZE: 9pt
+}
+A
+{
+    COLOR: #000066;
+    TEXT-DECORATION: underline;
+    TEXT-TRANSFORM: none
+}
+A:hover
+{
+    COLOR: #ff9933;
+    text-decoration: underline overline
+}
+.myinput
+{
+	border-width: 1; border-color: #000000; font-family: 宋体; font-size: 9pt; font-style: bold;
+}   
+.myinput1
+{
+    FONT-FAMILY: "宋体";
+    FONT-SIZE: 9pt;
+    BACKGROUND: #f7f5f0;
+   }
+.mytextarea
+{
+	border:1 solid #000000; 
+	font-size:9pt; 
+	overflow:auto
+	FONT-FAMILY: "宋体";
+    BACKGROUND: #f7f5f0;
+   
+}
+.mybutton
+{  
+font-size: 12px; 
+color: #003B60; 
+background: #f7f5f0 ;
+border-color: #0B3462 #0B3462 #0B3462 #0B3462; 
+height: 18px; 
+border-style: solid; 
+border-width: 1px; 
+padding-top: 1px
+
+}
+
+.printer
+{
+    BORDER-BOTTOM: #888888 1px solid;
+    BORDER-LEFT: #888888 0px solid;
+    BORDER-RIGHT: #888888 0px solid;
+    BORDER-TOP: #888888 0px solid;
+    COLOR: #008800;
+    FONT-FAMILY: "宋体";
+    FONT-SIZE: 9pt
+}
+.fix_printer
+{
+    BORDER-BOTTOM: #888888 1px solid;
+    BORDER-LEFT: #888888 0px solid;
+    BORDER-RIGHT: #888888 0px solid;
+    BORDER-TOP: #888888 0px solid;
+    COLOR: #335577;
+    FONT-FAMILY: "宋体";
+    FONT-SIZE: 9pt;
+    width: 110px
+}
+
+.mybuttom
+{
+    FONT-FAMILY: "宋体";
+    FONT-SIZE: 9pt
+}
+.myfile
+{
+	border:1 solid #000000; 
+	font-size:9pt; 
+	width:220
+}
+.fmbutton
+{
+    BACKGROUND: #77a2d9;
+    BORDER-BOTTOM: #888888 0px solid;
+    BORDER-LEFT: #eeeeee 0px solid;
+    BORDER-RIGHT: #888888 0px solid;
+    BORDER-TOP: #eeeeee 0px solid;
+    COLOR: #ffffff;
+    FONT-FAMILY: '宋体';
+    FONT-SIZE: 9pt;
+    HEIGHT: 18px;
+    WIDTH: 80px
+}
+.fminput
+{
+    FONT-FAMILY: '宋体';
+    FONT-SIZE: 9pt
+}
+.fmselect
+{
+    FONT-FAMILY: '宋体';
+    FONT-SIZE: 9pt;    
+    line-height:16px;
+    COLOR: #666666;
+	border-width: 1; border-color: #000000;
+}
+.fmlist
+{
+    FONT-FAMILY: '宋体';
+    FONT-SIZE: 9pt
+}
+.fmbox
+{
+	border-width: 1; border-color: #000000;
+	
+    FONT-FAMILY: '宋体';
+    FONT-SIZE: 9pt
+}
+.myradio
+{
+	
+    FONT-FAMILY: '宋体';
+    FONT-SIZE: 9pt
+}
+
+.mainmenu
+{
+    COLOR: #ffffff;
+    FILTER: DropShadow(OffX=1, OffY=1, color:#111111);
+    FONT-SIZE: 9pt;
+    LINE-HEIGHT: 15pt
+}
+.on
+{
+}
+.off
+{
+    DISPLAY: none
+}
+#tab-1
+{
+    TEXT-DECORATION: none
+}
+#tab-2
+{
+    TEXT-DECORATION: none
+}
+#clock
+{
+    FONT-SIZE: 20pt;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: left
+}
+#txttitle
+{
+    FONT-SIZE: 20pt;
+    FONT-WEIGHT: bold
+}
+#mainftitle
+{
+    FONT-SIZE: 9pt;
+    COLOR:#000066
+}
+HTML
+{
+    表框样式定义: 
+}
+#bktable
+{
+    BACKGROUND: #ffffff;
+    BORDER-BOTTOM: #888888 1px solid;
+    BORDER-LEFT: #888888 1px solid;
+    BORDER-RIGHT: #888888 1px solid;
+    BORDER-TOP: #888888 1px solid
+}
+#bktitle
+{
+    BACKGROUND: #77a2d9;
+    BORDER-BOTTOM: #888888 0px solid;
+    BORDER-LEFT: #000000 0px solid;
+    BORDER-RIGHT: #888888 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    COLOR: #111111;
+    PADDING-BOTTOM: 3px;
+    PADDING-LEFT: 3px;
+    PADDING-RIGHT: 3px;
+    PADDING-TOP: 3px
+}
+#bkbody
+{
+    BACKGROUND: #f7f5f0;
+    BORDER-BOTTOM: #888888 0px solid;
+    BORDER-LEFT: #000000 0px solid;
+    BORDER-RIGHT: #888888 0px solid;
+    BORDER-TOP: #000000 0px solid;
+    PADDING-BOTTOM: 3px;
+    PADDING-LEFT: 3px;
+    PADDING-RIGHT: 3px;
+    PADDING-TOP: 3px;
+    VERTICAL-ALIGN: middle;
+    HORIZONTAL-ALIGN: center
+}
+HTML
+{
+    表格样式定义: 
+}
+#bgstitle
+{
+    BACKGROUND: #d3dde7;
+    BORDER-BOTTOM: #ffffff 0px solid;
+    BORDER-LEFT: #ffffff 0px solid;
+    BORDER-RIGHT: #ffffff 0px solid;
+    BORDER-TOP: #ffffff 0px solid;
+    COLOR: #111111;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+#bgtable
+{
+    BACKGROUND: #5D669D;
+
+}
+.bgtable
+{
+    BACKGROUND: #7D7D7D;
+}
+#bgtitle
+{
+    BACKGROUND: #A0C1E6;
+    BORDER-BOTTOM: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    text-align:center;
+    COLOR:#000000;
+    PADDING-BOTTOM: 3px;
+    PADDING-LEFT: 3px;
+    PADDING-RIGHT: 3px;
+    PADDING-TOP: 3px
+}
+#bgred
+{
+    BACKGROUND: #A0C1E6;
+    BORDER-BOTTOM: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    text-align:center;
+    COLOR:#000000;
+    PADDING-BOTTOM: 3px;
+    PADDING-LEFT: 3px;
+    PADDING-RIGHT: 3px;
+    PADDING-TOP: 3px
+}
+#bgtitle1
+{
+    BACKGROUND: #e0e0db;
+    BORDER-BOTTOM: #ffffff 0px solid;
+    BORDER-LEFT: #ffffff 0px solid;
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    COLOR: #000000;
+    PADDING-BOTTOM: 3px;
+    PADDING-LEFT: 3px;
+    PADDING-RIGHT: 3px;
+    PADDING-TOP: 3px
+}
+#bgtitle2
+{
+    BACKGROUND: #e0e0db;
+    BORDER-BOTTOM: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #ffffff 1px solid;    
+    COLOR:#000000;
+    PADDING-BOTTOM: 3px;
+    PADDING-LEFT: 3px;
+    PADDING-RIGHT: 3px;
+    PADDING-TOP: 3px
+}
+
+#bgbody
+{
+    BACKGROUND: #f7f5f0;
+    BORDER-BOTTOM: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    PADDING-BOTTOM: 3px;
+    PADDING-LEFT: 3px;
+    PADDING-RIGHT: 3px;
+    PADDING-TOP: 3px;
+    VERTICAL-ALIGN: center
+}
+#bgbodyzzy
+{
+    BORDER-BOTTOM: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    PADDING-BOTTOM: 3px;
+    PADDING-LEFT: 3px;
+    PADDING-RIGHT: 3px;
+    PADDING-TOP: 3px;
+    VERTICAL-ALIGN: center
+}
+HTML
+{
+    FORM: 
+}
+#submenu
+{
+    BACKGROUND: #aaddff;
+    BORDER-BOTTOM: #888888 1px solid;
+    BORDER-LEFT: #888888 1px solid;
+    BORDER-RIGHT: #888888 1px solid;
+    BORDER-TOP: #888888 1px solid;
+    PADDING-BOTTOM: 3px;
+    PADDING-LEFT: 3px;
+    PADDING-RIGHT: 3px;
+    PADDING-TOP: 3px;
+    VERTICAL-ALIGN: top
+}
+#menuks
+{
+    BORDER-BOTTOM: #ff0000 0px solid;
+    BORDER-LEFT: #ff0000 0px solid;
+    BORDER-RIGHT: #ff0000 0px solid;
+    BORDER-TOP: #ff0000 0px solid;
+    VERTICAL-ALIGN: top
+}
+#menuts
+{
+    BORDER-BOTTOM: #888888 0px solid;
+    BORDER-LEFT: #888888 0px solid;
+    BORDER-RIGHT: #888888 0px solid;
+    BORDER-TOP: #888888 0px solid;
+    VERTICAL-ALIGN: top
+}
+
+	a.saixuan:link {color:#000000;text-decoration: none };
+	a.saixuan:visited {color:#000000;text-decoration: none };
+	a.saixuan:hover {color:#000000;text-decoration: none };
+	a.saixuan:active {color:#000000;text-decoration: none };
+

@@ -1,0 +1,138 @@
+TD.Msg {
+	FONT-SIZE: 14px; COLOR: #ff6000
+}
+BODY {
+	FONT-SIZE: 12px
+}
+TD {
+	FONT-SIZE: 12px
+}
+TH {
+	FONT-SIZE: 12px
+}
+INPUT {
+	FONT-SIZE: 12px
+}
+.p1 {
+	FONT-SIZE: 12px
+}
+.p2 {
+	FONT-SIZE: 12px; LINE-HEIGHT: 150%
+}
+.p3 {
+	FONT-SIZE: 14px
+}
+.p4 {
+	FONT-SIZE: 14px; LINE-HEIGHT: 130%
+}
+.p5 {
+	FONT-SIZE: 12px; LINE-HEIGHT: 180%
+}
+.pt01 {
+	COLOR: #ababab
+}
+.pt02 {
+	COLOR: #669900
+}
+.pt03 {
+	COLOR: #ff6666
+}
+.efont {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: arial
+}
+.st {
+	FONT-SIZE: 14px; FONT-FAMILY: webdings
+}
+.img {
+	BORDER-LEFT-COLOR: #df6e63; BORDER-BOTTOM-COLOR: #df6e63; BORDER-TOP-COLOR: #df6e63; BORDER-RIGHT-COLOR: #df6e63
+}
+.line {
+	COLOR: #f5c9ca
+}
+.dbg2 {
+	BACKGROUND-IMAGE: url(image/menu.gif); WIDTH: 167px; HEIGHT: 20px
+}
+.dbg3 {
+	BACKGROUND-IMAGE: url(image/menu.gif); WIDTH: 167px; HEIGHT: 20px
+}
+.dbg4 {
+	BACKGROUND-IMAGE: url(image/menu.gif); WIDTH: 167px; HEIGHT: 20px
+}
+.dtop1 {
+	COLOR: #ffffff; BACKGROUND-COLOR: #ce4636
+}
+.dtop2 {
+	COLOR: #ffffff; BACKGROUND-COLOR: #fcf0ef
+}
+.dw {
+	BACKGROUND-COLOR: #ffffff
+}
+.dbt1 {
+	COLOR: #ffffff; BACKGROUND-COLOR: #b4362a
+}
+.dbt2 {
+	BACKGROUND-COLOR: #97b0d0
+}
+.dbt3 {
+	BACKGROUND-COLOR: #f2f8ff
+}
+.dbt4 {
+	BACKGROUND-COLOR: #fdf7f7
+}
+.dl01 {
+	BACKGROUND-COLOR: #df6e63
+}
+.dl02 {
+	BACKGROUND-COLOR: #efebef
+}
+.dl03 {
+	BACKGROUND-COLOR: #fffbff
+}
+.shortSel {
+	BORDER-RIGHT: #c0c0c0 1px solid; BORDER-TOP: #c0c0c0 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #c0c0c0 1px solid; WIDTH: 60px; BORDER-BOTTOM: #c0c0c0 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+SELECT {
+	BORDER-RIGHT: #99ccff 1px solid; BORDER-TOP: #99ccff 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #99ccff 1px solid; BORDER-BOTTOM: #99ccff 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.longSel {
+	FONT-SIZE: 12px; WIDTH: 160px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.MultiSel {
+	FONT-SIZE: 12px; WIDTH: 300px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.urs {
+	BORDER-RIGHT: #f5c9ca 1px solid; BORDER-TOP: #cf0f16 1px solid; BACKGROUND: #ffffff; BORDER-LEFT: #cf0f16 1px solid; BORDER-BOTTOM: #f5c9ca 1px solid; FONT-FAMILY: verdana
+}
+.nobd {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+.topbtn {
+	BORDER-RIGHT: #4867ae 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #4867ae 1px solid; PADDING-LEFT: 0px; BACKGROUND: #4867ae; BORDER-LEFT: #4867ae 1px solid; WIDTH: 125px; CURSOR: hand; COLOR: #f4f7c9; PADDING-TOP: 1px; BORDER-BOTTOM: #4867ae 1px solid; LETTER-SPACING: 0px; HEIGHT: 18px
+}
+.btn {
+	BORDER-RIGHT: #054b92 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #f2f8ff 1px solid; PADDING-LEFT: 0px; BACKGROUND: #b8c9df; BORDER-LEFT: #f2f8ff 1px solid; CURSOR: hand; COLOR: #063f7a; PADDING-TOP: 1px; BORDER-BOTTOM: #054b92 1px solid; LETTER-SPACING: 0px; HEIGHT: 18px
+}
+.send {
+	BORDER-RIGHT: #fcf0ef 1px solid; BORDER-TOP: #fcf0ef 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #fcf0ef 1px solid; COLOR: #000000; BORDER-BOTTOM: #fcf0ef 1px solid; BACKGROUND-COLOR: #fcf0ef
+}
+TD {
+	FONT-SIZE: 12px
+}
+HR {
+	COLOR: #ffffff
+}
+.hl150 {
+	COLOR: #ffffff; LINE-HEIGHT: 130%
+}
+TD.wh {
+	FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: "Arial"
+}
+TD.wh A {
+	COLOR: #c5e9fe; TEXT-DECORATION: underline
+}
+TD.wh A:visited {
+	COLOR: #56befc; TEXT-DECORATION: underline
+}
+TD.wh A:hover {
+	COLOR: #d8f0e2; TEXT-DECORATION: none
+}

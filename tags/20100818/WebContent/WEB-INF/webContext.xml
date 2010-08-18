@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean name="/login"
+		class="com.netsoft.web.struts.action.LoginAction">
+		<property name="es">
+			<ref bean="IEmployeeServices" />
+		</property>
+		<property name="ms">
+			<ref bean="IMenusServices" />
+		</property>
+	</bean>
+	<bean name="/employee"
+		class="com.netsoft.web.struts.action.EmployeeAction">
+		<property name="ies">
+			<ref bean="IEmployeeServices" />
+		</property>
+		<property name="ids">
+			<ref bean="IDeptsServices" />
+		</property>
+		<property name="irs">
+			<ref bean="IRoleServices" />
+		</property>
+	</bean>
+	<bean name="/dept"
+		class="com.netsoft.web.struts.action.DeptAction">
+		<property name="ids">
+			<ref bean="IDeptsServices" />
+		</property>
+	</bean>
+	<bean name="/role"
+		class="com.netsoft.web.struts.action.RoleAction">
+		<property name="irs">
+			<ref bean="IRoleServices" />
+		</property>
+		<property name="ies">
+			<ref bean="IEmployeeServices" />
+		</property>
+		<property name="imd">
+			<ref bean="IMenusDao" />
+		</property>
+	</bean>
+	<bean name="/menus"
+		class="com.netsoft.web.struts.action.MenusAction">
+		<property name="ims">
+			<ref bean="IMenusServices" />
+		</property>
+	</bean>
+	<bean name="/rule"
+		class="com.netsoft.web.struts.action.BusinessruletableAction">
+		<property name="ibs">
+			<ref bean="IBusinessruletableServices" />
+		</property>
+	</bean>
+	<bean name="/config"
+		class="com.netsoft.web.struts.action.ConfiguretableAction">
+		<property name="ics">
+			<ref bean="IConfiguretableServices" />
+		</property>
+	</bean>
+
+	<bean name="/customer"
+		class="com.netsoft.web.struts.action.CustomerstableAction">
+		<property name="ics">
+			<ref bean="ICustomerstableServices" />
+		</property>
+		<property name="iconfig">
+			<ref bean="IConfiguretableServices" />
+		</property>
+		<property name="ifs">
+			<ref bean="IFeedbackTypeService" />
+		</property>
+		<property name="ies">
+			<ref bean="IEmployeeServices" />
+		</property>
+	</bean>
+	<bean name="/report"
+		class="com.netsoft.web.struts.action.ReportAction">
+		<property name="iconfigs">
+			<ref bean="IConfiguretableServices" />
+		</property>
+		<property name="ifs">
+			<ref bean="IFeedbackTypeService" />
+		</property>
+		<property name="irs">
+			<ref bean="IReportServices" />
+		</property>
+		<property name="ies">
+			<ref bean="IEmployeeServices" />
+		</property>
+		<property name="ics">
+			<ref bean="ICustomerstableServices" />
+		</property>
+	</bean>
+	<bean name="/feedback"
+		class="com.netsoft.web.struts.action.FeedBackTableAction">
+		<property name="ics">
+			<ref bean="ICustomerstableServices" />
+		</property>
+		<property name="ifts">
+			<ref bean="IFeedbackTypeService" />
+		</property>
+	</bean>
+	<bean name="/notebook"
+		class="com.netsoft.web.struts.action.NoteBookAction">
+		<property name="inbs">
+			<ref bean="INoteBookServices" />
+		</property>
+	</bean>
+	<bean name="/feedbackstyle"
+		class="com.netsoft.web.struts.action.FeedbackStyleAction">
+		<property name="ics">
+			<ref bean="IConfiguretableServices" />
+		</property>
+		<property name="ifs">
+			<ref bean="IFeedbackStyleServices" />
+		</property>
+	</bean>
+</beans>

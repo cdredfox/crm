@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<data-sources />
+	<form-beans>
+		<form-bean name="loginForm"
+			type="com.netsoft.web.struts.form.LoginForm" />
+		<form-bean name="employeeForm"
+			type="com.netsoft.web.struts.form.EmployeeForm" />
+		<form-bean name="deptForm"
+			type="com.netsoft.web.struts.form.DeptForm" />
+		<form-bean name="roleForm"
+			type="com.netsoft.web.struts.form.RoleForm" />
+		<form-bean name="menusForm"
+			type="com.netsoft.web.struts.form.MenusForm" />
+		<form-bean name="ruleForm"
+			type="com.netsoft.web.struts.form.BusinessruletableForm" />
+		<form-bean name="configForm"
+			type="com.netsoft.web.struts.form.ConfiguretableForm" />
+		<form-bean name="customerForm"
+			type="com.netsoft.web.struts.form.CustomerstableForm" />
+		<form-bean name="reportForm"
+			type="com.netsoft.web.struts.form.ReportForm" />
+		<form-bean name="FeedBackForm"
+			type="com.netsoft.web.struts.form.FeedBackTableForm" />
+		<form-bean name="NoteBookForm"
+			type="com.netsoft.web.struts.form.NoteBookForm" />
+		<form-bean name="feedbackstyleForm"
+			type="com.netsoft.web.struts.form.feedbackstyleForm" />
+	</form-beans>
+
+	<global-exceptions />
+	<global-forwards>
+		<forward name="result" path="/jsp/resultOk.jsp"></forward>
+		<forward name="logout" path="/jsp/url_mid_jump.jsp"></forward>
+	</global-forwards>
+	<action-mappings>
+		<action attribute="loginForm" input="/login.jsp"
+			name="loginForm" path="/login" scope="request" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="main" path="/index.jsp" />
+			<forward name="login" path="/login.jsp" redirect="true"></forward>
+		</action>
+		<action attribute="employeeForm" name="employeeForm"
+			parameter="method" path="/employee" scope="request"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="addNext" path="/jsp/addUser.jsp" />
+			<forward name="addSucceed"
+				path="/employee.crm?method=findAll" />
+			<forward name="roleView" path="/jsp/roleView.jsp" />
+			<forward name="modiView" path="/jsp/modiUser.jsp" />
+			<forward name="succeed" path="/jsp/EmployeeList.jsp" />
+			<forward name="transferSucceed"
+				path="/jsp/transferEmployeeList.jsp" />
+			<forward name="modiUserQry" path="/jsp/modiUserQry.jsp" />
+			<forward name="operTransfer"
+				path="/jsp/operTransferEmployee.jsp" />
+			<forward name="UserDataView"
+				path="/jsp/UserDataControl.jsp" />
+		</action>
+		<action attribute="deptForm" input="/form/addDepts.jsp"
+			name="deptForm" parameter="method" path="/dept" scope="request"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="addDeptsView" path="/jsp/addDepts.jsp"></forward>
+			<forward name="deptsView"
+				path="/dept.crm?method=deptsView">
+			</forward>
+			<forward name="deptsViewPage" path="/jsp/deptsView.jsp"></forward>
+		</action>
+		<action attribute="roleForm" name="roleForm" parameter="method"
+			path="/role" scope="request"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="givePower" path="/jsp/giveRolePower.jsp" />
+			<forward name="roleView" path="/jsp/roleList.jsp" />
+			<forward name="addRoleView" path="/jsp/resultOk.jsp" />
+			<forward name="managerRoleView" path="/jsp/roleManager.jsp" />
+			<forward name="roleModiView" path="/jsp/roleModiView.jsp" />
+		</action>
+		<action attribute="menusForm" name="menusForm"
+			parameter="method" path="/menus" scope="request"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="sucess" path="/jsp/Close.jsp" />
+		</action>
+		<action attribute="ruleForm" name="ruleForm" path="/rule"
+			scope="request" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="ruleView" path="/jsp/ruleView.jsp" />
+			<forward name="updateRuleView"
+				path="/jsp/updateRuleView.jsp" />
+			<forward name="updateRuleResult"
+				path="/rule.crm?method=ruleView" />
+		</action>
+		<action path="/config" attribute="configForm" name="configForm"
+			scope="request" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="configView" path="/jsp/configView.jsp"></forward>
+			<forward name="configViewMessage"
+				path="/jsp/configViewMessage.jsp">
+			</forward>
+			<forward name="modiconfigview"
+				path="/jsp/moidconfigview.jsp">
+			</forward>
+		</action>
+		<action path="/customer" attribute="customerForm"
+			name="customerForm" scope="request" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="addCustomerView"
+				path="/jsp/addCustomerView.jsp">
+			</forward>
+			<forward name="resultView" path="/jsp/resultOk.jsp"></forward>
+			<forward name="customerManager"
+				path="/jsp/customerManager.jsp">
+			</forward>
+			<forward name="customerModiView"
+				path="/jsp/customerModiView.jsp">
+			</forward>
+			<forward name="customerAll" path="/jsp/customerAll.jsp"></forward>
+			<forward name="detailInfoView"
+				path="/jsp/detailInfoView.jsp">
+			</forward>
+			<forward name="feedbackView" path="/jsp/feedbackView.jsp"></forward>
+			<forward name="customerList" path="/jsp/customerList.jsp"></forward>
+		</action>
+		<action path="/report" attribute="reportForm" name="reportForm"
+			scope="request" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="feedbackView" path="/jsp/ReportView.jsp"></forward>
+		</action>
+		<action path="/feedback" attribute="FeedBackForm"
+			name="FeedBackForm" scope="request" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+		</action>
+		<action path="/notebook" attribute="NoteBookForm"
+			name="NoteBookForm" scope="request" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="note_list" path="/jsp/NoteBook.jsp"></forward>
+			<forward name="showView" path="/jsp/showview.jsp"></forward>
+			<forward name="showNoteBook" path="/jsp/showNoteBook.jsp"></forward>
+		</action>
+
+		<action path="/feedbackstyle" attribute="feedbackstyleForm"
+			name="feedbackstyleForm" scope="request" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="feedbackstyleconfig"
+				path="/jsp/FeedbackStyleConfig.jsp">
+			</forward>
+		</action>
+
+	</action-mappings>
+	<message-resources
+		parameter="com.netsoft.web.struts.ApplicationResources" />
+	<plug-in
+		className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation"
+			value="/WEB-INF/applicationContext.xml,/WEB-INF/servicesContext.xml,/WEB-INF/webContext.xml" />
+	</plug-in>
+</struts-config>
+

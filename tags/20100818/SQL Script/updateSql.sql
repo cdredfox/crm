@@ -1,0 +1,2 @@
+alter table `crm`.`feedbacktable` change `feedbackdate` `feedbackdate` datetime NULL , Engine=InnoDB checksum=1 auto_increment=10481 comment='' delay_key_write=1 row_format=dynamic charset=utf8 collate=utf8_general_ci ;
+INSERT INTO `menus` VALUES ('34', '反馈统计明细表', '/report.crm?method=initFeedbackDailyReport', '17', null);

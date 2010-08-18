@@ -1,0 +1,216 @@
+.font {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"
+}
+.button2 {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #9090d8; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #9090d8; WIDTH: 19px; CURSOR: hand; BORDER-TOP-COLOR: #9090d8; PADDING-TOP: 2px; FONT-FAMILY: "宋体"; HEIGHT: 19px; BACKGROUND-COLOR: #efeefc; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #9090d8
+}
+.button-modifysave {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/modifysave.gif); BORDER-LEFT: #3d3d3d 1px solid; WIDTH: 75px; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.shuoming_table {
+	BORDER-RIGHT: #507b9c 1px solid; BORDER-TOP: #507b9c 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #507b9c 1px solid; COLOR: #000000; BORDER-BOTTOM: #507b9c 1px solid; FONT-FAMILY: "宋体"
+}
+.style1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #000000
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; SCROLLBAR-FACE-COLOR: #b1bbc5; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; SCROLLBAR-HIGHLIGHT-COLOR: #e4ebf2; SCROLLBAR-SHADOW-COLOR: #303030; SCROLLBAR-3DLIGHT-COLOR: #000000; SCROLLBAR-ARROW-COLOR: #000000; PADDING-TOP: 0px; SCROLLBAR-TRACK-COLOR: #989ea6
+}
+TD {
+	FONT: 9pt 宋体
+}
+.solidTable {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BORDER-COLLAPSE: collapse
+}
+.button {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/anniu_di.jpg); BEHAVIOR: url(../StyleSheet/Button.htc); BORDER-LEFT: 0px; WIDTH: 22px; CURSOR: hand; LINE-HEIGHT: 14px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px; HEIGHT: 20px; TEXT-DECORATION: none
+}
+.button-free {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/anniu_di.jpg); BEHAVIOR: url(../StyleSheet/ButtonFree.htc); BORDER-LEFT: 0px; LINE-HEIGHT: 14px; PADDING-TOP: 3px; BORDER-BOTTOM: 0px; HEIGHT: 20px; TEXT-DECORATION: none
+}
+.button-free-over {
+	BORDER-RIGHT: #496176 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/anniu_di.jpg); BORDER-LEFT: #cccccc 1px solid; LINE-HEIGHT: 14px; PADDING-TOP: 2px; BORDER-BOTTOM: #496176 1px solid; HEIGHT: 20px; TEXT-DECORATION: none
+}
+.button-free-down {
+	BORDER-RIGHT: #496176 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/anniu_di.jpg); BORDER-LEFT: #000000 1px solid; LINE-HEIGHT: 14px; PADDING-TOP: 3px; BORDER-BOTTOM: #496176 1px solid; HEIGHT: 20px; TEXT-DECORATION: none
+}
+.button-over {
+	BORDER-RIGHT: #496176 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/anniu_di.jpg); BORDER-LEFT: #cccccc 1px solid; WIDTH: 22px; CURSOR: hand; LINE-HEIGHT: 14px; PADDING-TOP: 2px; BORDER-BOTTOM: #496176 1px solid; HEIGHT: 20px; TEXT-DECORATION: none
+}
+.button-down {
+	BORDER-RIGHT: #496176 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/anniu_di.jpg); BORDER-LEFT: #000000 1px solid; WIDTH: 22px; LINE-HEIGHT: 14px; PADDING-TOP: 3px; BORDER-BOTTOM: #496176 1px solid; HEIGHT: 20px; TEXT-DECORATION: none
+}
+.button-check {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/check.gif); BORDER-LEFT: #3d3d3d 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.button-select {
+	BORDER-RIGHT: #999999 0px dotted; BORDER-TOP: #999999 0px dotted; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/anniu_di.jpg); BORDER-LEFT: #999999 0px dotted; LINE-HEIGHT: 14px; PADDING-TOP: 4px; BORDER-BOTTOM: #999999 0px dotted; TEXT-DECORATION: none
+}
+.button-add {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/add.gif); BORDER-LEFT: #3d3d3d 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.button-save {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/submission.gif); BORDER-LEFT: #3d3d3d 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.button-draft {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/submission.gif); BORDER-LEFT: #3d3d3d 1px solid; WIDTH: 75px; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.button-delete {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/del.gif); BORDER-LEFT: #3d3d3d 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.button-submission {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/submission.gif); BORDER-LEFT: #3d3d3d 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.button-help {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/help.gif); BORDER-LEFT: #3d3d3d 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.button-auditing {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/shenhe.gif); BORDER-LEFT: #3d3d3d 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.button-exit {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/exit.gif); BORDER-LEFT: #3d3d3d 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.button-printer {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/print.gif); BORDER-LEFT: #3d3d3d 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.button-return {
+	BORDER-RIGHT: #3d3d3d 1px solid; BORDER-TOP: #3d3d3d 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/return.gif); BORDER-LEFT: #3d3d3d 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #3d3d3d 1px solid; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #ebeef1
+}
+.textborder {
+	BORDER-RIGHT: #507b9c 1px solid; BORDER-TOP: #507b9c 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #507b9c 1px solid; WIDTH: 150px; COLOR: #000000; LINE-HEIGHT: 17px; BORDER-BOTTOM: #507b9c 1px solid; FONT-FAMILY: "宋体"; HEIGHT: 20px; TEXT-DECORATION: none
+}
+.textborderbak {
+	BORDER-RIGHT: #507b9c 1px solid; BORDER-TOP: #507b9c 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #507b9c 1px solid; WIDTH: 73%; COLOR: #000000; LINE-HEIGHT: 17px; BORDER-BOTTOM: #507b9c 1px solid; FONT-FAMILY: "宋体"; HEIGHT: 20px; TEXT-DECORATION: none
+}
+.textborderenter {
+	WIDTH: 130px; HEIGHT: 18px; BACKGROUND-COLOR: #fbfaf2
+}
+.borderBottomRight {
+	BORDER-RIGHT: #999999 1px solid; BACKGROUND: #ffffff; BORDER-BOTTOM: #999999 1px solid
+}
+.borderWhite {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-BOTTOM: #999999 1px solid
+}
+.borderBottom {
+	BORDER-BOTTOM: #999999 1px solid
+}
+.font10 {
+	FONT-SIZE: 10pt
+}
+.textbg {
+	HEIGHT: 18px; BACKGROUND-COLOR: #ecebeb
+}
+.buttonHelp {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #9090d8; BACKGROUND-IMAGE: url(../images/ArgisHelp.gif); BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #9090d8; BORDER-TOP-COLOR: #9090d8; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 19px; BACKGROUND-COLOR: #efeefc; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #9090d8
+}
+.buttonAuditing {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #9090d8; BACKGROUND-IMAGE: url(../images/ArgisAuditing.gif); BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #9090d8; BORDER-TOP-COLOR: #9090d8; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 19px; BACKGROUND-COLOR: #efeefc; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #9090d8
+}
+.buttonSubmission {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #9090d8; BACKGROUND-IMAGE: url(../images/submission.gif); BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #9090d8; BORDER-TOP-COLOR: #9090d8; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 19px; BACKGROUND-COLOR: #efeefc; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #9090d8
+}
+.buttonExit {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #9090d8; BACKGROUND-IMAGE: url(../images/exit.gif); BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #9090d8; BORDER-TOP-COLOR: #9090d8; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 19px; BACKGROUND-COLOR: #efeefc; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #9090d8
+}
+.buttonEnsure {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #9090d8; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #9090d8; BORDER-TOP-COLOR: #9090d8; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 19px; BACKGROUND-COLOR: #efeefc; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #9090d8
+}
+.buttonCancel {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #9090d8; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #9090d8; BORDER-TOP-COLOR: #9090d8; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "宋体"; HEIGHT: 19px; BACKGROUND-COLOR: #efeefc; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #9090d8
+}
+.button1 {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #9090d8; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #9090d8; WIDTH: 57px; CURSOR: hand; BORDER-TOP-COLOR: #9090d8; PADDING-TOP: 2px; FONT-FAMILY: "宋体"; HEIGHT: 19px; BACKGROUND-COLOR: #efeefc; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #9090d8
+}
+.button3 {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 12px; BORDER-LEFT-COLOR: #9090d8; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #9090d8; CURSOR: hand; BORDER-TOP-COLOR: #9090d8; PADDING-TOP: 2px; FONT-FAMILY: "宋体"; HEIGHT: 19px; BACKGROUND-COLOR: #efeefc; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #9090d8
+}
+.MyTxtBox1 {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 12px; BACKGROUND: none transparent scroll repeat 0% 0%; BEHAVIOR: url(..\\TextBoxBehavior.htc); BORDER-LEFT: 0px; WIDTH: 100%; CURSOR: hand; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: "宋体"
+}
+.MyTxtBox2 {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 12px; BACKGROUND: none transparent scroll repeat 0% 0%; BEHAVIOR: url(..\\TextBoxBehavior.htc); BORDER-LEFT: 0px; WIDTH: 73px; CURSOR: hand; COLOR: #000000; BORDER-BOTTOM: 0px; FONT-FAMILY: "宋体"
+}
+.MyTxtBox {
+	BORDER-RIGHT: black 0px solid; BORDER-TOP: black 0px solid; FONT-SIZE: 12px; BACKGROUND: none transparent scroll repeat 0% 0%; BEHAVIOR: url(..\\TextBoxBehavior.htc); BORDER-LEFT: black 0px solid; WIDTH: 100%; COLOR: #000000; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: "宋体"
+}
+.BlackDiv {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid
+}
+.DataGrid_Head {
+	COLOR: #ffffff; HEIGHT: 20px; BACKGROUND-COLOR: #6a8db1
+}
+.DataGrid_AlterBody {
+	BACKGROUND-COLOR: #ebeef1
+}
+.buttonCalendar {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #c00000; BORDER-BOTTOM-WIDTH: 2px; BORDER-BOTTOM-COLOR: #c00000; CURSOR: hand; COLOR: lemonchiffon; BORDER-TOP-COLOR: #c00000; PADDING-TOP: 2px; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: tomato; BORDER-RIGHT-WIDTH: 2px; BORDER-RIGHT-COLOR: #c00000
+}
+.fuxuankuang {
+	BORDER-RIGHT: #f0f0f0 3px solid; PADDING-RIGHT: 1px; BORDER-TOP: #f0f0f0 2px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: #f0f0f0 2px solid; PADDING-TOP: 1px; BORDER-BOTTOM: #f0f0f0 3px solid; BACKGROUND-COLOR: #5c7ebf
+}
+.TitleLayer {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 12px; BEHAVIOR: url(../StyleSheet/TitleLayer.htc); BORDER-LEFT: #cccccc 1px solid; WIDTH: 100%; BORDER-BOTTOM: #cccccc 1px solid; BORDER-COLLAPSE: collapse
+}
+.TitleLayerSecond {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 12px; BEHAVIOR: url(../../StyleSheet/TitleLayerSecond.htc); BORDER-LEFT: #cccccc 1px solid; WIDTH: 100%; BORDER-BOTTOM: #cccccc 1px solid; BORDER-COLLAPSE: collapse
+}
+.coolMenu {
+	BORDER-RIGHT: buttonshadow 1px solid; BORDER-TOP: buttonhighlight 2px outset; VISIBILITY: hidden; BEHAVIOR: url(../StyleSheet/UltraGridMenu.htc); FONT: menu; BORDER-LEFT: buttonhighlight 2px outset; WIDTH: 1px; BORDER-BOTTOM: buttonshadow 1px solid; POSITION: absolute; HEIGHT: 1px; BACKGROUND-COLOR: menu
+}
+.coolMenu .coolMenuItem {
+	PADDING-RIGHT: 25px; MARGIN: 1px; BEHAVIOR: url(../StyleSheet/UltraGridMenuItem.htc); OVERFLOW: hidden; CURSOR: hand; HEIGHT: 20px
+}
+.coolMenu .coolMenuItem IMG {
+	MARGIN-LEFT: 1px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 6px
+}
+.coolMenu .coolMenuItem .coolMenuMore {
+	FONT-FAMILY: webdings
+}
+.coolMenu .coolMenuDivider {
+	BORDER-RIGHT: 1px inset; BORDER-TOP: buttonshadow 1px inset; MARGIN-TOP: 2px; MARGIN-BOTTOM: 2px; MARGIN-LEFT: 2px; OVERFLOW: hidden; BORDER-LEFT: 1px inset; BORDER-BOTTOM: buttonhighlight 1px inset; HEIGHT: 2px
+}
+.coolWindowEx {
+	BORDER-RIGHT: window 2px outset; BORDER-TOP: window 2px outset; BEHAVIOR: url(../StyleSheet/UltraGridWindowEx.htc); OVERFLOW: hidden; BORDER-LEFT: window 2px outset; CURSOR: default; BORDER-BOTTOM: window 2px outset; POSITION: absolute; BACKGROUND-COLOR: buttonface; transparentImageUrl: ../images/transparent.gif; restoreImageUrl: ../images/restore.gif; minimizeImageUrl: ../images/minimize.gif; maximizeImageUrl: ../images/maximize.gif; closeImageUrl: ../images/close.gif
+}
+.coolWindowEx .windowCaption {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 4px; PADDING-BOTTOM: 3px; MARGIN: 2px; FONT: caption; OVERFLOW: hidden; WIDTH: 100%; CURSOR: default; COLOR: captiontext; PADDING-TOP: 2px; BACKGROUND-COLOR: activecaption
+}
+.coolWindowEx .captionButton {
+	BORDER-RIGHT: threeddarkshadow 1px solid; BORDER-TOP: buttonhighlight 1px solid; BORDER-LEFT: buttonhighlight 1px solid; CURSOR: default; BORDER-BOTTOM: threeddarkshadow 1px solid; POSITION: absolute; TOP: 4px; BACKGROUND-COLOR: buttonface
+}
+.coolWindowEx .captionImage {
+	LEFT: 3px; CURSOR: default; POSITION: absolute; TOP: 3px
+}
+.coolWindowEx .captionButton IMG {
+	BORDER-RIGHT: buttonshadow 1px solid; CURSOR: default; BORDER-BOTTOM: buttonshadow 1px solid
+}
+.coolWindowEx .windowContent {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 3px 3px 2px; WIDTH: 0px; COLOR: windowtext; PADDING-TOP: 0px; HEIGHT: 0px; BACKGROUND-COLOR: window
+}
+.file-field {
+	BORDER-RIGHT: #507b9c 1px solid; BORDER-TOP: #507b9c 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #507b9c 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #507b9c 1px solid; FONT-FAMILY: "宋体"; HEIGHT: 20px; TEXT-DECORATION: none
+}
+.MyTxtBox-right {
+	BORDER-RIGHT: black 0px solid; BORDER-TOP: black 0px solid; FONT-SIZE: 12px; BACKGROUND: none transparent scroll repeat 0% 0%; BEHAVIOR: url(..\\TextBoxBehavior.htc); BORDER-LEFT: black 0px solid; WIDTH: 100%; COLOR: #000000; BORDER-BOTTOM: #000000 1px solid; FONT-FAMILY: "宋体"; TEXT-ALIGN: right
+}
+.textborder-right {
+	BORDER-RIGHT: #507b9c 1px solid; BORDER-TOP: #507b9c 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #507b9c 1px solid; WIDTH: 150px; COLOR: #000000; LINE-HEIGHT: 17px; BORDER-BOTTOM: #507b9c 1px solid; FONT-FAMILY: "宋体"; HEIGHT: 20px; TEXT-ALIGN: right; TEXT-DECORATION: none
+}
+.textlink {
+	FONT-SIZE: 12px; COLOR: #45648d; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+A.textlink:link {
+	FONT-SIZE: 12px; COLOR: #45648d; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+A.textlink:hover {
+	FONT-SIZE: 12px; COLOR: #839ec2; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.button-edit {
+	BORDER-RIGHT: #666666 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; BORDER-LEFT: #666666 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #666666 1px solid; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #f2f2f2; TEXT-DECORATION: none
+}
+.button-edit-over {
+	BORDER-RIGHT: #333333 2px solid; PADDING-RIGHT: 2px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #333333 2px solid; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #f2f2f2; TEXT-DECORATION: none
+}
+.button-edit-down {
+	BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #333333 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; BORDER-LEFT: #333333 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #cccccc 1px solid; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #f2f2f2; TEXT-DECORATION: none
+}

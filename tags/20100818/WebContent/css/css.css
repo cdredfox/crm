@@ -1,0 +1,63 @@
+TD {
+	FONT-SIZE: 9pt; FONT-FAMILY: "宋体"
+}
+A {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-WEIGHT: normal; COLOR: #990000; TEXT-DECORATION: underline
+}
+A.bottom {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.bottom:hover {
+	FONT-WEIGHT: normal; COLOR: #666666; TEXT-DECORATION: none
+}
+.txt1 {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 18pt; FONT-FAMILY: "宋体"; LETTER-SPACING: 1pt
+}
+A.b:hover {
+	FONT-WEIGHT: bold; COLOR: #df0029; TEXT-DECORATION: underline
+}
+A.b {
+	FONT-WEIGHT: bold; COLOR: #29166f; TEXT-DECORATION: none
+}
+A.c {
+	FONT-WEIGHT: normal; COLOR: #000000; TEXT-DECORATION: none
+}
+A.c:hover {
+	FONT-WEIGHT: normal; COLOR: #990000; TEXT-DECORATION: underline
+}
+.index {
+	LINE-HEIGHT: 18pt
+}
+A.i {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: "宋体"; LETTER-SPACING: 2pt; TEXT-DECORATION: none
+}
+A.i:hover {
+	FONT-WEIGHT: normal; COLOR: #ffff00; TEXT-DECORATION: underline
+}
+.txt2 {
+	LINE-HEIGHT: 15pt
+}
+A.d {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.d:hover {
+	FONT-WEIGHT: bold; COLOR: #990000; TEXT-DECORATION: none
+}
+.txt3 {
+	LINE-HEIGHT: 14pt
+}
+.bodycolor {
+	BACKGROUND: #264989
+}
+.input01 {
+	WIDTH: 60px; TOP: 0px; HEIGHT: 20px
+}
+.input02 {
+	WIDTH: 100px; TOP: 0px; HEIGHT: 20px
+}
+.input03 {
+	WIDTH: 40px; TOP: 0px; HEIGHT: 20px
+}
