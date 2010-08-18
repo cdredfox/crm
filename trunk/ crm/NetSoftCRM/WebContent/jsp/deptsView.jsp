@@ -41,7 +41,7 @@
 			align=center>
 			<tr>
 			<td id=bgtitle colspan=6>
-				所有民安泰上海分公司部门列表
+				所有部门列表
 			</td>
 			</tr>
 			<tr>

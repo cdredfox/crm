@@ -10,7 +10,7 @@
 </style>
 		<link rel="stylesheet" type="text/css"
 			href="<%=request.getContextPath()%>/css/eall2002.css">
-		<title>民安泰上海分公司 迷你论坛</title>
+		<title>迷你论坛</title>
 		<script type="text/javascript">
 		function onPage(page)
 	{
