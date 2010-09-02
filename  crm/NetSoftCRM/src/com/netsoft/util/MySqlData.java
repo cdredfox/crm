@@ -1,13 +1,6 @@
 ﻿package com.netsoft.util;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.util.Date;
 
 public class MySqlData {
@@ -18,13 +11,14 @@ public class MySqlData {
 	 */
 	public String backup(String path) {
 
+		String mysqlPath="D:\\CRM\\MySql\\bin\\";
 		String user = "root"; // 数据库帐号
 		String password = "snnuiabc"; // 登陆密码
 		String database = "crm"; // 需要备份的数据库名
 		String filepath = path + "crm" + ConsoleDate.Date2String(new Date())
 				+ ".sql"; // 备份的路径地址
 
-		String stmt1 = "mysqldump " + database + " -u " + user + " -p"
+		String stmt1 = mysqlPath+"mysqldump " + database + " -u " + user + " -p"
 				+ password + " --default-character-set=UTF8 --result-file="
 				+ filepath;
 		// --default-character-set这儿设为你安装数据库时所选择的语言，比如说你安装MySQL里用的默认的UTF-8，这儿
